@@ -18,9 +18,9 @@ soup = bs4.BeautifulSoup(res.text, "lxml")
 
 sames = soup.select('#pagelet_people_same_name a')
 
-a=0
 if len(sames)>0:
 	print('PERSONNES MEME PRENOMS/NOMS:')
+	a=0
 	for elem in sames:
 		if "/public/" in elem.get('href'):
 			break
