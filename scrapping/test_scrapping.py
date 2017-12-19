@@ -14,13 +14,13 @@ if res.status_code == 200:
 else:
 	print("CONNECTION FAIL")
 
-soup = bs4.BeautifulSoup(res.text, "lxml")
+soup = bs4.BeautifulSoup(res.text)
 
 sames = soup.select('#pagelet_people_same_name a')
 
+a=0
 if len(sames)>0:
 	print('PERSONNES MEME PRENOMS/NOMS:')
-	a=0
 	for elem in sames:
 		if "/public/" in elem.get('href'):
 			break
