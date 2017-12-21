@@ -70,7 +70,7 @@ if __name__ == "__main__":
     search_keys = parse_command_line_args()
 
     # initialize selenium webdriver - pass latest chromedriver path to webdriver.Chrome()
-    driver = webdriver.Firefox(executable_path=os.getcwd()+"/geckodriver_sylvain.exe")
+    driver = webdriver.Firefox(executable_path=os.getcwd()+"/geckodriver_windows64.exe")
     driver.get("https://www.linkedin.com/uas/login")
 
     # initialize LinkedIn web client
