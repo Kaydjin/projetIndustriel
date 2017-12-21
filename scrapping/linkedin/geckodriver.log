@@ -1060,3 +1060,53 @@ IPDL protocol error: Handler returned error code!
 [GFX1-]: Receive IPC close with reason=AbnormalShutdown
 [Child 5507, Chrome_ChildThread] WARNING: pipe error: Relais brisé (pipe): file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
 [Child 5507, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1513845184749	geckodriver	INFO	geckodriver 0.18.0
+1513845184751	geckodriver	INFO	Listening on 127.0.0.1:59999
+1513845185853	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1513845186686	Marionette	INFO	Enabled via --marionette
+1513845190576	Marionette	INFO	Listening on port 32891
+1513845190800	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513845190849	Marionette	DEBUG	Register listener.js for window 2147483649
+1513845190864	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513845191229	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513845191229	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513845191554	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513845191800	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7fae8bf8f000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fae8c01b000] overread, skip -7 enddists: -2 -2
+1513845198443	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513845198673	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513845198704	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513845199405	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1513845199405	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1513845199410	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+[mp3 @ 0x7fae98252800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fae98255000] overread, skip -7 enddists: -2 -2
+1513845203421	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+[Child 5029, Chrome_ChildThread] WARNING: pipe error (19): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 5029, Chrome_ChildThread] WARNING: pipe error (35): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 5029, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1513846580046	geckodriver	INFO	geckodriver 0.18.0
+1513846580048	geckodriver	INFO	Listening on 127.0.0.1:52925
+1513846581129	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1513846581701	Marionette	INFO	Enabled via --marionette
+1513846584548	Marionette	INFO	Listening on port 33801
+1513846584649	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513846584711	Marionette	DEBUG	Register listener.js for window 2147483649
+1513846584737	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513846585222	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513846585222	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513846585776	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513846585924	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513846592650	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513846592939	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513846592940	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513846597577	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+[mp3 @ 0x7f66db6b6800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f66dd728800] overread, skip -7 enddists: -2 -2
+1513846605497	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+[Child 5630, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 5630, Chrome_ChildThread] WARNING: pipe error (35): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 5630, Chrome_ChildThread] WARNING: pipe error (20): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 5630, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353

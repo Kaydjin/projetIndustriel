@@ -2,17 +2,18 @@ import csv
  
 #CSV ouvrir les 500 pertinents rajouter les elements manquants
 
-fname = "100_premiers_tweets.csv"
+fname = "Iteration_3_tri_500.csv"
 file = open(fname, "rb")
- 
-fname2 = "out.csv"
+
+fname2 = "iteration_500.csv"
 file2 = open(fname2, "wb")
 try:
     reader = csv.DictReader(file)
     writer = csv.writer(file2)
     print "Titres ", reader.fieldnames 
     boolean = True
-    writer.writerow((reader.fieldnames[0], reader.fieldnames[1]))
+    #tweet_id	TweetB	Pertinent	proba_pertinence
+    writer.writerow((reader.fieldnames[0], reader.fieldnames[1], reader.fieldnames[2], reader.fieldnames[3))
     while boolean:
     	row = reader.next()
     	if row is None:

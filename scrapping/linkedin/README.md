@@ -1,5 +1,8 @@
 # LinkedIn Jobs Scaper
 
+Jimmy: Lancement avec compte fait exprès pour.
+python main.py --username testgeodatas@laposte.net --password testgeodatas --keyword tours --location "san francisco bay area" --sort_by date
+
 First, I do not condone scraping LinkedIn data in any way. Anyone who wishes to do so should first read LinkedIn's statement on their <a href="https://www.linkedin.com/help/linkedin/answer/56347/prohibition-of-scraping-software?lang=en" target="_blank">prohibition of scraping software</a>.
 
 
