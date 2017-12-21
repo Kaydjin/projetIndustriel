@@ -1110,3 +1110,681 @@ IPDL protocol error: Handler returned error code!
 [Child 5630, Chrome_ChildThread] WARNING: pipe error (35): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 [Child 5630, Chrome_ChildThread] WARNING: pipe error (20): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 [Child 5630, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-bfYN6l/firefox-57.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1513851127858	geckodriver	INFO	geckodriver 0.19.1
+1513851127866	geckodriver	INFO	Listening on 127.0.0.1:64473
+1513851129978	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.t6g4j8xkx7VE"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851131151	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 20468, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 18944, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 18944, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851135127	Marionette	INFO	Listening on port 64480
+1513851135227	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513851135287	Marionette	DEBUG	Register listener.js for window 4294967297
+1513851135453	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513851135898	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513851135898	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513851136351	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513851136702	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851143543	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513851143786	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513851143809	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513851144612	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513851144612	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513851144615	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513851148176	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://static-exp2.licdn.com/sc/h/br/68giv8yondx7cv4g8lh719jp0, line 5842: TypeError: this._config is undefined
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+[Parent 20468, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 6028, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 19316, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1513851461489	geckodriver	INFO	geckodriver 0.19.1
+1513851461500	geckodriver	INFO	Listening on 127.0.0.1:64703
+1513851463620	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.v7PrkKG46uPj"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851464680	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 21280, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 11268, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11268, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851467781	Marionette	INFO	Listening on port 64709
+1513851468864	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513851468943	Marionette	DEBUG	Register listener.js for window 4294967297
+1513851468958	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513851469326	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513851469327	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513851469670	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513851469835	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513851476599	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513851476866	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513851476890	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513851477676	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513851477676	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513851477679	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513851481143	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+[Parent 21280, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 21280, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 21772, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 6552, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1513851547525	geckodriver	INFO	geckodriver 0.19.1
+1513851547537	geckodriver	INFO	Listening on 127.0.0.1:64794
+1513851549650	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.V5mmTyOLVWRc"
+1513851550442	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 8992, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 19260, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 19260, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851553498	Marionette	INFO	Listening on port 64800
+1513851553809	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513851591897	geckodriver	INFO	geckodriver 0.19.1
+1513851591907	geckodriver	INFO	Listening on 127.0.0.1:64821
+1513851594019	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.KFWY1SnUw85v"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851595021	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7800, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7800, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513851597896	Marionette	INFO	Listening on port 64827
+1513851598175	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513851598229	Marionette	DEBUG	Register listener.js for window 4294967297
+1513851598254	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513851598603	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513851598604	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513851598992	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513851599107	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513851605931	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513851606194	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513851606229	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513851606521	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513851606521	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513851607013	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513851610518	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+IPDL protocol error: Handler returned error code!
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 4548, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+1513852140274	geckodriver	INFO	geckodriver 0.19.1
+1513852140287	geckodriver	INFO	Listening on 127.0.0.1:64968
+1513852142409	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.bmPHSbYZX4VB"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852143369	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7584, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7584, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852146245	Marionette	INFO	Listening on port 64974
+1513852146575	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513852146633	Marionette	DEBUG	Register listener.js for window 4294967297
+1513852146649	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513852146983	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513852146983	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513852147249	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513852147443	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513852154137	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513852154383	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513852154404	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513852154592	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513852154593	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513852155217	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513852158646	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 9416, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 1084, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+1513852423132	geckodriver	INFO	geckodriver 0.19.1
+1513852423139	geckodriver	INFO	Listening on 127.0.0.1:65183
+1513852425250	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.B2ZD7uU5hSwA"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852426219	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 20048, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 20048, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852428904	Marionette	INFO	Listening on port 65189
+1513852429404	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513852429468	Marionette	DEBUG	Register listener.js for window 4294967297
+1513852429489	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513852429764	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513852429765	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513852430112	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513852430288	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513852437333	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513852437561	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513852437585	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513852438406	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513852438406	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513852438411	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513852442112	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 21624, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 11368, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513852533967	geckodriver	INFO	geckodriver 0.19.1
+1513852533974	geckodriver	INFO	Listening on 127.0.0.1:65282
+1513852536081	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.W6ugxKpihiMe"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852537151	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 9948, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9948, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852540135	Marionette	INFO	Listening on port 65288
+1513852540453	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513852540508	Marionette	DEBUG	Register listener.js for window 4294967297
+1513852540527	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513852540951	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513852540951	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513852541229	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513852541500	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513852548218	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513852548459	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513852548489	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513852549272	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513852549273	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513852549923	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+1513852552648	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 20008, Chrome_ChildThread] WARNING: pipe error: 232: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 513
+1513852651713	geckodriver	INFO	geckodriver 0.19.1
+1513852651725	geckodriver	INFO	Listening on 127.0.0.1:65367
+1513852653888	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.D7JRFZqCblCE"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852654982	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 22116, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 22116, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852657812	Marionette	INFO	Listening on port 65373
+1513852658056	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513852658113	Marionette	DEBUG	Register listener.js for window 4294967297
+1513852658150	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513852658460	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513852658460	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513852658859	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513852658877	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513852665879	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513852666118	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513852666140	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513852666916	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513852666917	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513852666924	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513852670327	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 15180, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852816523	geckodriver	INFO	geckodriver 0.19.1
+1513852816536	geckodriver	INFO	Listening on 127.0.0.1:65443
+1513852818646	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.H3ZDSf5upXAO"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852819572	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 4816, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4816, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513852822443	Marionette	INFO	Listening on port 65449
+1513852822790	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513852822842	Marionette	DEBUG	Register listener.js for window 4294967297
+1513852822863	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513852823149	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513852823150	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513852823515	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513852823530	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513852830340	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513852830596	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513852830616	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513852831399	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513852831399	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513852831406	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513852834491	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 14748, Chrome_ChildThread] WARNING: pipe error: 232: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 513
+1513853093957	geckodriver	INFO	geckodriver 0.19.1
+1513853093970	geckodriver	INFO	Listening on 127.0.0.1:49262
+1513853096164	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.Qfx62waH8HcN"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513853097226	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 15272, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 18852, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 18852, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513853100107	Marionette	INFO	Listening on port 49268
+1513853100334	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513853100394	Marionette	DEBUG	Register listener.js for window 4294967297
+1513853100413	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513853100717	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513853100718	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513853101018	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513853101171	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513853107793	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513853108030	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513853108053	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513853108848	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513853108849	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513853108852	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513853112137	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1513853160852	geckodriver	INFO	geckodriver 0.19.1
+1513853160872	geckodriver	INFO	Listening on 127.0.0.1:49340
+1513853162971	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.5xvwpwAyXVY7"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513853163930	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 22520, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 22520, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513853166778	Marionette	INFO	Listening on port 49346
+1513853167108	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513853167167	Marionette	DEBUG	Register listener.js for window 4294967297
+1513853167183	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513853167478	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513853167478	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513853167760	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513853167922	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513853174703	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513853174924	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513853174951	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513853175749	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513853175749	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513853175753	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513853179054	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 19056, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 21512, Chrome_ChildThread] WARNING: pipe error: 232: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 513
+1513853394342	geckodriver	INFO	geckodriver 0.19.1
+1513853394350	geckodriver	INFO	Listening on 127.0.0.1:49437
+1513853396463	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.ypijNXDZH0QC"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513853397489	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 3868, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3868, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1513853400264	Marionette	INFO	Listening on port 49443
+1513853400603	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513853400655	Marionette	DEBUG	Register listener.js for window 4294967297
+1513853400672	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513853401071	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513853401072	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513853401394	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1513853401606	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1513853408353	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1513853408609	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1513853408634	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1513853409417	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1513853409418	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1513853409423	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
+1513853412501	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
