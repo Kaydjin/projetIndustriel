@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
 from selenium import webdriver
 from client import LIClient
 from settings import search_keys
@@ -68,7 +70,7 @@ if __name__ == "__main__":
     search_keys = parse_command_line_args()
 
     # initialize selenium webdriver - pass latest chromedriver path to webdriver.Chrome()
-    driver = webdriver.Firefox(executable_path=os.getcwd()+"/geckodriver")
+    driver = webdriver.Firefox(executable_path=os.getcwd()+"/geckodriver_windows64.exe")
     driver.get("https://www.linkedin.com/uas/login")
 
     # initialize LinkedIn web client
@@ -87,7 +89,9 @@ if __name__ == "__main__":
 
     html=driver.page_source
 
-    soup=bs4.BeautifulSoup(html) #specify parser or it will auto-select for you
+    file=open('scrapping.log', 'w')
+
+    soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
     """valeurs = soup.select('.background-details .pv-profile-section__card-item .pv-entity__summary-info')
     if len(valeurs)>0:
         print('Valeurs:')
@@ -99,40 +103,48 @@ if __name__ == "__main__":
     a=0
     valeurs = soup.select('.background-details .pv-profile-section .experience-section .pv-profile-section__card-item .pv-entity__summary-info span')
     if len(valeurs)>0:
-        print('Valeurs:')
+        file.write('Valeurs:\n')
         for elem in valeurs:
             a=a+1
             if a%2==0:
-                print(elem.getText())
+                file.write(elem.getText())
+                file.write('\n')
     else:
-        print('- no data -')
+        file.write('- no data -\n')
+    file.write('--------------------------------------------------\n')
 
     valeurs = soup.select('.background-details .pv-profile-section .experience-section .pv-profile-section__card-item .pv-entity__summary-info h3')
     if len(valeurs)>0:
-        print('Valeurs:')
+        file.write('Valeurs:\n')
         for elem in valeurs:
-            print(elem.getText())
+            file.write(elem.getText())
+            file.write('\n')
     else:
-        print('- no data -')
+        file.write('- no data -\n')
+    file.write('--------------------------------------------------\n')
 
     a=0
     valeurs = soup.select('.background-details .pv-profile-section .education-section .pv-profile-section__card-item .pv-entity__summary-info span')
     if len(valeurs)>0:
-        print('Valeurs:')
+        file.write('Valeurs:\n')
         for elem in valeurs:
             a=a+1
             if a%2==0:
-                print(elem.getText())
+                file.write(elem.getText())
+                file.write('\n')
     else:
-        print('- no data -')
+        file.write('- no data -')
+    file.write('--------------------------------------------------\n')
 
     valeurs = soup.select('.background-details .pv-profile-section .education-section .pv-profile-section__card-item .pv-entity__summary-info h3')
     if len(valeurs)>0:
-        print('Valeurs:')
+        file.write('Valeurs:\n')
         for elem in valeurs:
-            print(elem.getText())
+            file.write(elem.getText())
+            file.write('\n')
     else:
-        print('- no data -')
+        file.write('- no data -\n')
+    file.write('--------------------------------------------------\n')
 
     """profile_link="https://www.linkedin.com/search/results/people/?company=abc&firstName=jimmy&lastName=vogelschool=orleans"
     driver.get(profile_link)
@@ -155,5 +167,6 @@ if __name__ == "__main__":
             liclient.enter_search_keys()
             liclient.customize_search_results()
             liclient.navigate_search_results()"""
-
+    file.write('--------------------------------------------------')
+    file.close()
     liclient.driver_quit()
