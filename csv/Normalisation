@@ -1,0 +1,66 @@
+    
+	NORMALISATION de la liste des tweets et ses arguments.
+
+    #tweet_id	TweetB	Pertinent	proba_pertinence
+    #200000_tweets:
+    #tweet_id    tweet_created_at    user_id user_screenname tweet_text  
+    #tweet_coordinates   tweet_coordinates_latitude  tweet_coordinates_longitude tweet_source    tweet_lang  
+    #country_code    country place_name  place_fullname  place_bbox  
+    #hashtags    place_bbox_polygon  place_bbox_geom place_bbox_geojson  tweet_coordinates_geom  
+    #tweet_coordinates_geojson   tweet_favorite_count    tweet_quoted_status_id  tweet_retweet_count 
+    #tweet_current_user_retweet  user_created_at user_description    user_followers_count    user_friends_count  
+    #user_lang   user_location   user_name   user_statuses_count 
+    #user_time_zone  user_favorites_count    user_geo_enabled    user_listed_counted 
+    #user_utc_offset place_type  tweet_mtion id_filtre
+
+(Visualisation sur 100 tweets pour analyse).
+Les arguments supprimés par manque de données:
+
+#tweet_coordinates	
+#tweet_coordinates_latitude	
+#tweet_coordinates_longitude			
+#country_code	
+#country	
+#place_name	
+#place_fullname	
+#place_bbox		
+#place_bbox_polygon	
+#place_bbox_geom	
+#place_bbox_geojson	
+#tweet_coordinates_geom	#tweet_coordinates_geojson																		#place_type		
+#id_filtre
+
+nouveau fichier analyse 100_tweets2.csv
+
+Ensuite on va récupérer seulement les arguments intéressants pour notre recherche.
+
+    #tweet_id    tweet_created_at    user_id user_screenname tweet_text  (4)
+    #tweet_coordinates   tweet_coordinates_latitude  tweet_coordinates_longitude tweet_source    tweet_lang (9) 
+    #country_code    country place_name  place_fullname  place_bbox  (13)
+    #hashtags    place_bbox_polygon  place_bbox_geom place_bbox_geojson  tweet_coordinates_geom  (18)
+    #tweet_coordinates_geojson   tweet_favorite_count    tweet_quoted_status_id  tweet_retweet_count (22)
+    #tweet_current_user_retweet  user_created_at user_description    user_followers_count    user_friends_count  (27)
+    #user_lang   user_location   user_name   user_statuses_count (31)
+    #user_time_zone  user_favorites_count    user_geo_enabled    user_listed_counted (35)
+    #user_utc_offset place_type  tweet_mtion id_filtre (39)
+
+				Position dans le fichier initial:
+#tweet_id				-> 0
+#tweet_created_at			-> 1
+#tweet_text				-> 4
+#hashtags				-> 14
+#tweet_quoted_status_id			-> 21
+#tweet_mtion				-> 38
+#user_id				-> 2
+#user_screenname			-> 3
+#user_name				-> 30
+#user_location				-> 29
+#user_description			-> 25
+
+
+
+
+
+
+
+
