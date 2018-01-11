@@ -1,6 +1,6 @@
 import requests, bs4
 
-res = requests.get('https://fr-fr.facebook.com/sylvain.courtin.750')
+res = requests.get('https://www.facebook.com/frank.candido.5')
 #
 #try:
 #    res.raise_for_status()

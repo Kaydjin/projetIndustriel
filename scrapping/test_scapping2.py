@@ -1,5 +1,5 @@
 import requests
-res = requests.get('https://www.facebook.com/public/Mike-Lecourt')
+res = requests.get('https://www.facebook.com/frank.candido.5')
 res.raise_for_status()
 playFile = open('test.txt', 'wb')
 
