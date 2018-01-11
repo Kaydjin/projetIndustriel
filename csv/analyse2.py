@@ -9,14 +9,9 @@ file = open(fname, "rt")
 fname3 = "prenoms.csv"
 file3 = open(fname3, "rt")
 
-fname2 = "analyse.csv"
-file2 = open(fname2, "wb")
-
 try:
     reader = csv.DictReader(file, delimiter=',')
     reader3 = csv.DictReader(file3, delimiter=',')
-    writer = csv.writer(file2)
-    print "Titres ", reader.fieldnames 
 
     #200000_tweets_simplifier:
     #tweet_id                   -> 0
@@ -41,23 +36,27 @@ try:
 
     corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications']
     nbr_vrai = 0
-    nbrs_noms = 0
+    nbrs_entreprises = 0
+    entreprises = []
     for row in reader:
         if 'VRAI' in row.get('Pertinent'):
             nbr_vrai = nbr_vrai + 1
-            continu = True
-            for stopword in corpus_compagnie:
-                if stopword in row.get('user_name').lower():
-                    continu = False
-            if continu:
-                for val in row.get('user_name').split(' '):
-                    if val.lower() in liste:
-                        nbrs_noms = nbrs_noms + 1
-                        print row.get('user_name')
+            compagnie = True
+            for val in row.get('user_name').split(' '):
+                if val.lower() in liste:
+                    compagnie = False
+            for val in corpus_compagnie:
+                if val in row.get('user_name').lower():
+                    compagnie = True
+            if compagnie:
+                entreprises.append(row.get('user_name'))
+                nbrs_entreprises = nbrs_entreprises + 1
+
+    for val in entreprises:
+        print val
 
     print nbr_vrai
-    print nbrs_noms
+    print nbrs_entreprises
 finally:
     file.close()
-    file2.close()
     file3.close()
