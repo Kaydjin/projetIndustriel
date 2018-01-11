@@ -6,8 +6,8 @@ except ImportError:
     print("No module named 'google' found")
  
 # to search
-prenom = "sylvain"
-nom = "courtin"
+prenom = "Frank"
+nom = "Candido"
 #prenom = sys.argv[0]
 #nom = sys.argv[1]
 queryFacebook = prenom + nom + " facebook"
