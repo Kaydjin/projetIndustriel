@@ -1788,3 +1788,107 @@ LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/e
 1513853409423	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/fr/"
 1513853412501	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
 LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1514037108461	geckodriver	INFO	geckodriver 0.19.1
+1514037108507	geckodriver	INFO	Listening on 127.0.0.1:61996
+1514037110509	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.OuYSpsNFeGvZ"
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1514037114598	Marionette	INFO	Enabled via --marionette
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7936, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2400FA,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: jar:file:///C:/Program%20Files/Mozilla%20Firefox/omni.ja!/components/extension-process-script.js, line 356: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+[Child 7936, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: resource:///modules/BrowserUsageTelemetry.jsm, line 341: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIObserverService.removeObserver]
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+[Parent 18740, Gecko_IOThread] WARNING: pipe error: 232: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 513
+[Parent 18740, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 18632, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x640002,name=PRenderFrame::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x150001,name=PBrowser::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: resource://gre/modules/ExtensionChild.jsm, line 921: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2400FA,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 71: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2400FA,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 71: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[GPU 5600, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+LdrLoadDll: Blocking load of 'nahimicmsiosd.dll' -- see http://www.mozilla.com/en-US/blocklist/
+1514038052789	geckodriver	INFO	geckodriver 0.19.1
+1514038052804	geckodriver	INFO	Listening on 127.0.0.1:49728
+1514038054680	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\natur\\AppData\\Local\\Temp\\rust_mozprofile.FoLloiAEu2N7"
+1514038062236	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 11632, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 12012, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12012, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1514038068835	Marionette	INFO	Listening on port 49737
+1514038069712	Marionette	WARN	TLS certificate errors will be ignored for this session
+1514038069778	Marionette	DEBUG	Register listener.js for window 4294967297
+1514038070022	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1514038070629	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1514038070629	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1514038071628	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1514038074124	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1514038081286	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1514038081720	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1514038081737	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1514038082183	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967307"
+1514038082184	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967309"
+1514038083244	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+1514038089411	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/marcbenioff/?locale=fr_FR"
+Unable to read VR Path Registry from C:\Users\natur\AppData\Local\openvr\openvrpaths.vrpath
+[Child 11288, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346

@@ -1,0 +1,106 @@
+//FB
+	I] FACEBOOK
+
+		1) Wikipédia //copier-coller venant de wikipédia
+
+			a) Description
+
+ Facebook est un réseau social en ligne qui permet à ses utilisateurs de publier des images, des photos, des vidéos, des fichiers et documents, d'échanger des messages, joindre et créer des groupes et d'utiliser une variété d'applications.
+Comme application de réseau social, Facebook permet à ses utilisateurs d'entrer des informations personnelles et d'interagir avec d'autres utilisateurs. Les informations susceptibles d'être mises à la disposition du réseau concernent l'état civil, les études et les centres d'intérêt. Ces informations permettent de retrouver des utilisateurs partageant les mêmes intérêts. Ces derniers peuvent former des groupes et y inviter d'autres personnes. Les interactions entre membres incluent le partage de correspondance et de documents multimédias.
+
+			
+ 			b) Fil d'actualité/ Mur
+
+Sur le mur Facebook sont affichés les notifications et événements publiés par le titulaire du compte ou profil Facebook, ainsi que les commentaires et messages des fans et amis.
+C’est normalement la page qui apparait par défaut quand on consulte le compte d’un individu ou entreprise.
+
+
+			c) Profil
+
+Le profil Facebook est le lieu où chacun peut renseigner les informations qui le concernent (photo de profil, intérêts, écoles fréquentées, profession…). La Timeline permet de consulter les publications, contenus et évènements marquants publiés par vos amis ou par vous-même ou l’un de vos amis
+
+L’interface de publication : L’interface de publication du profil Facebook permet de publier :
+1. Du texte seul (un “statut”)
+2. Un lien (vers une page Internet ou un vidéo)
+3. Une vidéo (téléchargée depuis votre disque dur ou publiée en live depuis votre mobile)
+4. Une photo seule
+5. Plusieurs photos réunies dans un même post
+
+
+			d) Pages Facebook
+
+Les pages Facebook (anciennement “Pages fan” ou “Fanpages”) sont des pages conçues pour permettre aux marques, aux entreprises, aux associations et aux artistes de créer une communauté et de communiquer auprès de leurs fans. Les pages sont dotées d’outils de publication pour engager la conversation avec vos abonnés, de rapports statistiques pour piloter vos actions et permet d’accéder à la plateforme de publicité Facebook pour amplifier vos messages.
+
+Les pages Facebook permettent de publier en plus des posts classiques :
+1. Des offres
+2. Des évènements
+3. Des moments-clé
+4. Des articles
+5. Des carrousels photo
+6. Des diaporamas
+7. Des canevas
+
+
+
+			e) Groupes Facebook
+
+Les groupes Facebook sont des pages dédiées à la création de communautés plus restreintes et privées (famille, groupes de travail, de passionnés) et dotés d’outils facilitant l’échange et la collaboration.
+
+Les groupes Facebook permettent de publier en plus des posts classiques :
+1. Des sondages
+2. Des petites annonces
+3. Des fichiers Word, Excel…
+4. Des documents en ligne
+5. Évènements
+
+
+			f) Evenement
+
+Les utilisateurs de Facebook mais aussi les pages et les groupes ont la possibilité de créer des évènements au sein desquels ils peuvent inviter leurs amis, communiquer avec eux, organiser les préparatifs puis poster des photos, vidéos ou commentaires après qu’il ait eu lieu.
+
+
+ 			c) bouton "j'aime"
+
+Apparait en 2009, il permet d'exprimer son apréciation vis à vis d'un contenu. En 2016 un bouton "Reaction" vient enrichir les options, permettant d'exprimer 5 émotions prédéfinis : "Love" , "Haha", "Wow", "Sad", "Angry".
+
+
+			h) Autres fonctionnalitées
+
+Facebook propose aussi tout un ensemble de fonctionnalitées, dont certainte pour mobile, comme Nearby Friends permettant de savoir si un amis est proche ou Facebook Hello permettant d'obtenir plus d'informations sur les personnes qui vous appellent en utilisant les données de Facebook.
+
+
+ 	II] API
+
+ 		1) Les bases
+
+Le nom de l’API Graph s’inspire de l’idée d’un « graphe social » : une représentation des informations sur Facebook composée des éléments suivants :
+
+    nœuds : représentent essentiellement des « éléments », comme un utilisateur, une photo, une Page ou un commentaire ;
+    arêtes : représentent les liens entre ces « éléments », comme les photos d’une Page ou les commentaires d’une photo ;
+    champs : informations relatives à ces « éléments », comme la date de naissance d’une personne ou le nom d’une Page. 
+
+Puisque l’API Graph est basée sur le protocole HTTP, elle est compatible avec tous les langages qui ont une bibliothèque HTTP, comme cURL ou urllib.
+
+La plupart des requêtes de l’API Graph requièrent des tokens d’accès, que votre app peut générer en implémentant Facebook Login.
+
+		2) Structure
+
+Presque toutes les requêtes sont transmises à l’API sur graph.facebook.com. La seule exception concerne les téléchargements de vidéos qui utilisent graph-video.facebook.com.
+
+			a)ID d’objet
+
+Chaque nœud possède un ID unique qui vous permet d’y accéder par le biais de l’API Graph. En particulier, nous ne documentons pas la structure ou le format d’un ID de nœud/d’objet, car il est fort probable qu’ils changent au fil du temps et les apps ne doivent pas formuler d’hypothèses à partir de la structure actuelle.
+
+
+
+ 	III] Etudes
+
+
+
+//GOOGLE
+
+	I] Fonctionnement du scirpt python
+
+Pour l'instant le script prend le nom et prénom en du dans le code mais il seront mis en parametre par la suite
+Avec le nom et le prénom, le script créer une requete, par réseau sociale, pour le moteur de recherche google.
+les 10 premières liens sont filtré en fonction de leur adresse pour correspondre à une page du réseaux sociale d'un homonyme de la personne recherché.
