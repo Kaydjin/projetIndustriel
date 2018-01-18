@@ -7,16 +7,17 @@ except ImportError:
  
 # to search
 #def search_google(nom,complementaire):
-#if len(sys.argv) > 2:
- #   complementaire = sys.argv[2]
-#else:
-complementaire = ""
-#if len(sys.argv) > 1:
-prenom = sys.argv[1]
-nom = sys.argv[2]
+#print(sys.argv[1]," - ",sys.argv[2]," - ",sys.argv[3])
+#print(len(sys.argv))
+if len(sys.argv) > 3:
+    complementaire = sys.argv[3]
+else:
+    complementaire = ""
+if len(sys.argv) > 2:
+    prenom = sys.argv[1]
+    nom = sys.argv[2]
  
-
-query = prenom +" "+ nom + complementaire
+query = prenom + " " + nom + " " + complementaire
 queryFacebook = query + " facebook"
 queryLinkedIn = query + " linkedin"
 
