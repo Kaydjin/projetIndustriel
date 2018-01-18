@@ -93,16 +93,18 @@ if __name__ == "__main__":
     html=driver.page_source
     soup=bs4.BeautifulSoup(html, "html.parser")
 
-    same = soup.select(".results-list .ember-view")
+    #same = soup.select(".results-list .ember-view")
+    #same = soup.find_all('a')
+    same=soup.find_all('a', class_='search-result__result-link')
     try:
-        print(len(same))
+        # le nbr de résultat est doublé car, pour une personne nous avons deux lien pour rejoindre son profil (click sur son image de profil + nom)
         a=0
-        if len(same)>0:
-            for elem in same:
-                a=a+1
-                if a%2==0:
-                    file.write(elem.getText())
-                    file.write('\n')
+        for elem in same:
+            a=a+1
+            if a%2==0:
+                file.write('https://www.linkedin.com')
+                file.write(elem.get('href'))
+                file.write('\n')
     except Exception as e:
         print(e)
     file.close()
