@@ -32,3 +32,8 @@ Etude sur 100 cas ou plus de personnes ayant un compte facebook:
 
 Etude de corrélation entre followees et les favoris de facebook.
 +pdf explicatif (--to_do--)
+
+
+Bryce:
+-Pour chaque nom/prénom regarder si ils ont un Facebook et/ou un LinkedIn associé.
+Puis faire des stats.
