@@ -1,0 +1,39 @@
+
+I°) Description
+	LinkedIn est un réseau social professionnel en ligne,
+	LinkedIn fonctionne sur le principe de la connexion (pour entrer en contact avec un professionnel, il faut le connaître auparavant ou qu'une de nos connexions intervienne) et du réseautage (mise en relation professionnelle). Ainsi, il existe 3 degrés de connexions35 :
+le premier degré, ou nos contacts directs
+le deuxième degré, ou les contacts de nos contacts
+le troisième degré, ou les contacts de nos contacts de deuxième degré.
+LinkedIn peut être utilisé pour tout ce qui concerne la vie professionnelle : trouver du travail, des employeurs, des prestataires, développer les affaires, etc.
+L'utilisation du réseau LinkedIn d'un grand nombre de membres est assez réduite. Pourtant, les données de LinkedIn montrent que le temps d'utilisation augmente avec le temps de souscription. En d'autres termes, plus on utilise LinkedIn et plus on va l'utiliser.
+LinkedIn constitue aujourd'hui un moyen efficace pour construire, développer et enrichir son capital social. Il vise à créer une relation de confiance entre des professionnels, des étudiants et des entreprises afin que chacun puisse mobiliser ces ressources en ligne pour acquérir ou développer de nouvelles idées, obtenir des opportunités d'emploi, bénéficier des communautés d'experts qui existent sur le réseau, faire du crowdsourcing (pour les entreprises principalement), etc.
+Cependant, il appartient à chacun de construire son identité virtuelle en ligne et de gérer à sa guise son e-réputation (réputation en ligne).
+Le renouvellement de l'abonnement peut s'annuler à tout moment tout comme la suppression ou la désactivation d'un compte.
+Particulièrement usité par les cabinets RH et les employeurs en recherche de profils d'exception, Linkedin permet aux chercheurs d'emploi une visibilité auprès des "chasseurs de tête".
+
+
+II°) L'API 
+
+L'api de LinkedIn sert à la gestion de son propre profil professionnel ou profil de page d'entreprise.
+
+III°) Etude
+
+
+a°) Analyse
+Dans le cas de notre étude, il n'était pas possible d'utiliser l'api fourni par LinkedIn. Nous cherchons à scrapper des informations sur des personnes, alors que l'api elle nous propose que la gestion de notre propre profil,
+il a fallu se tourner sur une autre approche.
+
+Pendant notre étude, nous avons pu remarquer que la recherche d'un utilisateur sur linkedin est assez limité en tant qu'anonyme.
+Dans la suite nous avons créer un compte LinkedIn pour nous aider dans notre développement.
+
+b°) L'application recherche sur LinkedIn
+
+Actuellment le script prend le nom et prénom en dur dans le code via un lien d'une page html, exemple : "https://www.linkedin.com/search/results/people/?firstName=prenom&lastName=nom", on pourra imaginer affiner la recherche.
+L'application utilise selenium de Python pour fonctionner, un driver permettant d'avoir un boot qui controle notre navigateur internet, ici Firefox.
+Ce boot se connectera avec un compte, effectuera la recherche et récupera en scrappant la page de résultat les liens des différents profils trouvés.
+
+c°) L'application lecture d'un profil LinkedIn
+
+Après l'utilisation de l'application précédente, la seconde application sera appeler sur la liste de tout les liens de profils trouver.
+Ce lien sera de nouveau utilisé par le boot, qui scrappera les informations utiles sur le profil.
