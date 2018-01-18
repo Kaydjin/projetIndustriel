@@ -35,10 +35,11 @@ try:
         liste.append(row.get('prenom').lower())
 
     corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications']
+    corpus_news = ['news', 'report', 'talk', 'media']
     nbr_vrai = 0
     nbrs_entreprises = 0
     entreprises = []
-
+    boolea = True
     for row in reader:
         if 'VRAI' in row.get('Pertinent'):
             nbr_vrai = nbr_vrai + 1
@@ -50,9 +51,18 @@ try:
                 if val in row.get('user_name').lower():
                     compagnie = True
             if compagnie:
-                print row.get('user_name') row.get('user_location')
-                entreprises.append(row.get('user_name'))
-                nbrs_entreprises = nbrs_entreprises + 1
+                boolea = True
+                for val in corpus_news :
+                    if val in row.get('user_location').lower():
+                        boolea = False
+                    if val in row.get('user_description').lower():
+                        boolea = False
+                    if val in row.get('user_name').lower():
+                        boolea = False
+                if boolea:
+                    entreprises.append(row.get('user_name'))
+                    nbrs_entreprises = nbrs_entreprises + 1
+                    print row.get('user_name'), row.get('user_description')
 
     print nbr_vrai
     print nbrs_entreprises

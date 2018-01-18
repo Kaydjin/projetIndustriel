@@ -55,7 +55,7 @@ try:
                 for val in row.get('user_name').split(' '):
                     if val.lower() in liste:
                         nbrs_noms = nbrs_noms + 1
-                        print row.get('user_name')
+                        print row.get('user_name'), row.get('user_location')
                         writer.writerow(row.get('user_name'))
 
     print nbr_vrai
