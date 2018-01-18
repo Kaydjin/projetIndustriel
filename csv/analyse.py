@@ -42,6 +42,8 @@ try:
     corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications']
     nbr_vrai = 0
     nbrs_noms = 0
+
+    writer.writerow(reader.fieldnames[10])
     for row in reader:
         if 'VRAI' in row.get('Pertinent'):
             nbr_vrai = nbr_vrai + 1
@@ -53,7 +55,8 @@ try:
                 for val in row.get('user_name').split(' '):
                     if val.lower() in liste:
                         nbrs_noms = nbrs_noms + 1
-                        print row.get('user_name')
+                        print row.get('user_name'), row.get('user_location')
+                        writer.writerow(row.get('user_name'))
 
     print nbr_vrai
     print nbrs_noms
