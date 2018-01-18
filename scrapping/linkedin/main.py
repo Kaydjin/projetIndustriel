@@ -169,4 +169,4 @@ if __name__ == "__main__":
             liclient.navigate_search_results()"""
     file.write('--------------------------------------------------')
     file.close()
-    #liclient.driver_quit()
+    liclient.driver_quit()
