@@ -92,6 +92,18 @@ if __name__ == "__main__":
     file=open('scrapping.log', 'w')
 
     soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
+
+
+    valeurs = soup.find_all('section', class_='experience-section')
+    if len(valeurs)>0:
+        file.write('Données:\n')
+        for elem in valeurs:
+            if(elem.get_text() != ''):
+                file.write(elem.get_text())
+                file.write('\n')
+    else:
+        file.write('- no data -\n')
+    
     """valeurs = soup.select('.background-details .pv-profile-section__card-item .pv-entity__summary-info')
     if len(valeurs)>0:
         print('Valeurs:')
@@ -100,10 +112,10 @@ if __name__ == "__main__":
     else:
         print('- no data -')"""
 
-    a=0
+    """a=0
     valeurs = soup.select('.background-details .pv-profile-section .experience-section .pv-profile-section__card-item .pv-entity__summary-info span')
     if len(valeurs)>0:
-        file.write('Valeurs:\n')
+        file.write('Experience:\n')
         for elem in valeurs:
             a=a+1
             if a%2==0:
@@ -115,7 +127,7 @@ if __name__ == "__main__":
 
     valeurs = soup.select('.background-details .pv-profile-section .experience-section .pv-profile-section__card-item .pv-entity__summary-info h3')
     if len(valeurs)>0:
-        file.write('Valeurs:\n')
+        file.write('Experience:\n')
         for elem in valeurs:
             file.write(elem.getText())
             file.write('\n')
@@ -126,47 +138,24 @@ if __name__ == "__main__":
     a=0
     valeurs = soup.select('.background-details .pv-profile-section .education-section .pv-profile-section__card-item .pv-entity__summary-info span')
     if len(valeurs)>0:
-        file.write('Valeurs:\n')
+        file.write('Formation:\n')
         for elem in valeurs:
             a=a+1
             if a%2==0:
                 file.write(elem.getText())
                 file.write('\n')
     else:
-        file.write('- no data -')
+        file.write('- no data -\n')
     file.write('--------------------------------------------------\n')
 
     valeurs = soup.select('.background-details .pv-profile-section .education-section .pv-profile-section__card-item .pv-entity__summary-info h3')
     if len(valeurs)>0:
-        file.write('Valeurs:\n')
+        file.write('Formation:\n')
         for elem in valeurs:
             file.write(elem.getText())
             file.write('\n')
     else:
-        file.write('- no data -\n')
+        file.write('- no data -\n')"""
     file.write('--------------------------------------------------\n')
-
-    """profile_link="https://www.linkedin.com/search/results/people/?company=abc&firstName=jimmy&lastName=vogelschool=orleans"
-    driver.get(profile_link)
-
-    # wait for page load
-    time.sleep(3)
-
-    html=driver.page_source
-
-    soup=bs4.BeautifulSoup(html)
-    print(soup)"""
-    """assert isinstance(search_keys["keyword"], list)
-    assert isinstance(search_keys["location"], list)
-
-    for keyword in search_keys["keyword"]:
-        for location in search_keys["location"]:
-            liclient.keyword  = keyword
-            liclient.location = location
-            liclient.navigate_to_jobs_page()
-            liclient.enter_search_keys()
-            liclient.customize_search_results()
-            liclient.navigate_search_results()"""
-    file.write('--------------------------------------------------')
     file.close()
-    #liclient.driver_quit()
+    liclient.driver_quit()
