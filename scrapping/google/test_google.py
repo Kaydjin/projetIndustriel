@@ -4,22 +4,11 @@ try:
     from google import search
 except ImportError: 
     print("No module named 'google' found")
- 
-# to search
-#def search_google(nom,complementaire):
-#print(sys.argv[1]," - ",sys.argv[2]," - ",sys.argv[3])
-#print(len(sys.argv))
-if len(sys.argv) > 3:
-    complementaire = sys.argv[3]
-else:
-    complementaire = ""
-if len(sys.argv) > 2:
-    prenom = sys.argv[1]
-    nom = sys.argv[2]
- 
-query = prenom + " " + nom + " " + complementaire
-queryFacebook = query + " facebook"
-queryLinkedIn = query + " linkedin"
+
+def search_google(prenom, nom, complementaire): 
+    query = prenom + " " + nom + " " + complementaire
+    queryFacebook = query + " facebook"
+    queryLinkedIn = query + " linkedin"
 
 #query : query string that we want to search for.
 #tld : tld stands for top level domain which means we want to search our result on google.com or google.in or some other domain.
@@ -31,29 +20,41 @@ queryLinkedIn = query + " linkedin"
 #Return : Generator (iterator) that yields found URLs. If the stop parameter is None the iterator will loop forever.
 
 #facebook
-print("lien Facebook")
-result = []
-for i in search(queryFacebook, tld="com", num=10, stop=1, pause=2):
-    if re.match(".*facebook\.com/" + re.escape(prenom)+ ".*" + re.escape(nom) + ".*", i):
-        print(i)
-        result.append(i)
-    else:
-        if re.match(".*facebook\.com/" + prenom.lower() + ".*" + nom.lower() + ".*", i):
+    print("lien Facebook")
+    result = []
+    prenom = supprime_accent(prenom)
+    nom = supprime_accent(nom)
+    for i in search(queryFacebook, tld="com", num=10, stop=1, pause=2):
+        i_sans_accent = supprime_accent(i)
+        if re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()):
             print(i)
             result.append(i)
+        
 #re.escape marche pas ils ne prends que la syntaxe exacte du string
         
-print("\n")
+    print("\n")
 
 #linkedin
-print("lien LinkedIn")
-for j in search(queryLinkedIn, tld="com", num=10, stop=1, pause=2):
-    if re.match(".*linkedin.*"+ re.escape(prenom) + ".*" + re.escape(nom) + ".*", j):
-        print(j)
-        result.append(j)
-    else:
-        if re.match(".*linkedin.*"+ prenom.lower() + ".*" + nom.lower() + ".*", j):
+    print("lien LinkedIn")
+    for j in search(queryLinkedIn, tld="com", num=10, stop=1, pause=2):
+        j_sans_accent = supprime_accent(j)
+        if re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", j_sans_accent.upper()):
             print(j)
             result.append(j)
            		
-#return result
+    return result
+
+def supprime_accent(ligne):
+        """ supprime les accents du texte source """
+        accents = { 'a': ['à', 'ã', 'á', 'â'],
+                    'e': ['é', 'è', 'ê', 'ë'],
+                    'i': ['î', 'ï'],
+                    'u': ['ù', 'ü', 'û'],
+                    'o': ['ô', 'ö'] }
+        for (char, accented_chars) in accents.items():
+            for accented_char in accented_chars:
+                ligne = ligne.replace(accented_char, char)
+        return ligne
+
+liste_sites = search_google("sylvain", "courtin", "")
+print(liste_sites)
