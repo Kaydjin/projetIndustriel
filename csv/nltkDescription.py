@@ -7,6 +7,8 @@ nltk.download('maxent_ne_chunker')
 
 nltk.download('averaged_perceptron_tagger')
 
+nltk.download('punkt')
+
 nltk.download('words')
 def get_human_names(text):
     tokens = nltk.tokenize.word_tokenize(text)
@@ -45,7 +47,7 @@ def normalisation(text):
     s = s.replace("#"," ")
     s = s.replace("|"," ")
     s = s.replace("@"," ")
-    s = s.translate(None, string.punctuation)
+    #s = s.translate(None, string.punctuation)
     return s
 
 
@@ -59,7 +61,7 @@ file3 = open(fname3, "rt")
 try:
     reader = csv.DictReader(file, delimiter=',')
     reader3 = csv.DictReader(file3, delimiter=',')
-    print "Titres ", reader.fieldnames 
+    print ("Titres ", reader.fieldnames) 
 
     #200000_tweets_simplifier:
     #tweet_id                   -> 0
@@ -105,15 +107,15 @@ try:
                             tagged = nltk.pos_tag(tokens)
                             print(tokens)
                             print(tagged)
-                            tagdict = findtags('NNP', tagged)
+                            tagdict = findtags('NN', tagged)
                             for tag in sorted(tagdict):
                                 print(tag, tagdict[tag])
                             for name in get_human_names(sentence):
                                 print(name)
                             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
-    print nbr_vrai
-    print nbrs_noms
+    print (nbr_vrai)
+    print (nbrs_noms)
     
 finally:
     file.close()
