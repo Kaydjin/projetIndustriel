@@ -1,7 +1,54 @@
 import csv
 import nltk
+import string
 
-#CSV ouvrir les 500 pertinents pour analyser les champs de noms
+#from nameparser.parser import HumanName
+nltk.download('maxent_ne_chunker')
+
+nltk.download('averaged_perceptron_tagger')
+
+nltk.download('words')
+def get_human_names(text):
+    tokens = nltk.tokenize.word_tokenize(text)
+    pos = nltk.pos_tag(tokens)
+    sentt = nltk.ne_chunk(pos, binary = False)
+    person_list = []
+    person = []
+    name = ""
+    for subtree in sentt.subtrees(filter=lambda t: t.label == 'PERSON'):
+        for leaf in subtree.leaves():
+            person.append(leaf[0])
+        if len(person) > 1: #avoid grabbing lone surnames
+            for part in person:
+                name += part + ' '
+            if name[:-1] not in person_list:
+                person_list.append(name[:-1])
+            name = ''
+        person = []
+
+    return (person_list)
+
+def findtags(tag_prefix, tagged_text):
+    cfd = nltk.ConditionalFreqDist((tag, word) for (word, tag) in tagged_text
+                                  if tag.startswith(tag_prefix))
+    return dict((tag, cfd[tag].most_common(20)) for tag in cfd.conditions())
+
+def normalisation(text):
+    s = text.replace(",","")
+    s = s.replace("&"," ")
+    s = s.replace("."," ")
+    s = s.replace("-"," ")
+    s = s.replace("//"," ")
+    s = s.replace("/"," ")
+    s = s.replace("!"," ")
+    s = s.replace("?"," ")
+    s = s.replace("#"," ")
+    s = s.replace("|"," ")
+    s = s.replace("@"," ")
+    s = s.translate(None, string.punctuation)
+    return s
+
+
 
 fname = "iteration_500.csv"
 file = open(fname, "rt")
@@ -9,13 +56,9 @@ file = open(fname, "rt")
 fname3 = "prenoms.csv"
 file3 = open(fname3, "rt")
 
-fname2 = "analyse.csv"
-file2 = open(fname2, "wb")
-
 try:
     reader = csv.DictReader(file, delimiter=',')
     reader3 = csv.DictReader(file3, delimiter=',')
-    writer = csv.writer(file2)
     print "Titres ", reader.fieldnames 
 
     #200000_tweets_simplifier:
@@ -43,7 +86,6 @@ try:
     nbr_vrai = 0
     nbrs_noms = 0
 
-    writer.writerow(reader.fieldnames[10])
     for row in reader:
         if 'VRAI' in row.get('Pertinent'):
             nbr_vrai = nbr_vrai + 1
@@ -55,13 +97,24 @@ try:
                 for val in row.get('user_name').split(' '):
                     if val.lower() in liste:
                         nbrs_noms = nbrs_noms + 1
-                        print row.get('user_name'), row.get('user_description')
-                        writer.writerow(row.get('user_name'))
+                        #print row.get('user_name'), row.get('user_description')
+
+                        if not "null" == row.get('user_description'):
+                            sentence = row.get('user_description')
+                            tokens = nltk.word_tokenize(normalisation(sentence))
+                            tagged = nltk.pos_tag(tokens)
+                            print(tokens)
+                            print(tagged)
+                            tagdict = findtags('NNP', tagged)
+                            for tag in sorted(tagdict):
+                                print(tag, tagdict[tag])
+                            for name in get_human_names(sentence):
+                                print(name)
+                            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
     print nbr_vrai
     print nbrs_noms
     
 finally:
     file.close()
-    file2.close()
     file3.close()
