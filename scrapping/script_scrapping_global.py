@@ -2,7 +2,6 @@ import csv
 import os
 import re
 import sys
-from google.test_google import *
 
 
 fname = "../csv/iteration_500.csv"

@@ -27,7 +27,7 @@ def search_google(prenom, nom, complementaire):
     for i in search(queryFacebook, tld="com", num=10, stop=1, pause=2):
         i_sans_accent = supprime_accent(i)
         if re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()):
-            print(i)
+            #print(i)
             result.append(i)
         
 #re.escape marche pas ils ne prends que la syntaxe exacte du string
@@ -39,7 +39,7 @@ def search_google(prenom, nom, complementaire):
     for j in search(queryLinkedIn, tld="com", num=10, stop=1, pause=2):
         j_sans_accent = supprime_accent(j)
         if re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", j_sans_accent.upper()):
-            print(j)
+            #print(j)
             result.append(j)
            		
     return result
@@ -56,5 +56,5 @@ def supprime_accent(ligne):
                 ligne = ligne.replace(accented_char, char)
         return ligne
 
-liste_sites = search_google("sylvain", "courtin", "")
-print(liste_sites)
+#liste_sites = search_google("sylvain", "courtin", "")
+#print(liste_sites)
