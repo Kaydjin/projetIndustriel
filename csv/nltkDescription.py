@@ -1,57 +1,111 @@
 import csv
 import nltk
 import string
+import re
+from nltk.corpus import stopwords
 
-#from nameparser.parser import HumanName
 nltk.download('maxent_ne_chunker')
-
 nltk.download('averaged_perceptron_tagger')
-
 nltk.download('punkt')
-
+nltk.download('stopwords')
 nltk.download('words')
-def get_human_names(text):
-    tokens = nltk.tokenize.word_tokenize(text)
-    pos = nltk.pos_tag(tokens)
-    sentt = nltk.ne_chunk(pos, binary = False)
-    person_list = []
-    person = []
-    name = ""
-    for subtree in sentt.subtrees(filter=lambda t: t.label == 'PERSON'):
-        for leaf in subtree.leaves():
-            person.append(leaf[0])
-        if len(person) > 1: #avoid grabbing lone surnames
-            for part in person:
-                name += part + ' '
-            if name[:-1] not in person_list:
-                person_list.append(name[:-1])
-            name = ''
-        person = []
 
-    return (person_list)
+class TextAnalyser:
 
-def findtags(tag_prefix, tagged_text):
-    cfd = nltk.ConditionalFreqDist((tag, word) for (word, tag) in tagged_text
-                                  if tag.startswith(tag_prefix))
-    return dict((tag, cfd[tag].most_common(20)) for tag in cfd.conditions())
+    def __init__(self):
+        self.listeStopwords = self.madeStopwords()
 
-def normalisation(text):
-    s = text.replace(",","")
-    s = s.replace("&"," ")
-    s = s.replace("."," ")
-    s = s.replace("-"," ")
-    s = s.replace("//"," ")
-    s = s.replace("/"," ")
-    s = s.replace("!"," ")
-    s = s.replace("?"," ")
-    s = s.replace("#"," ")
-    s = s.replace("|"," ")
-    s = s.replace("@"," ")
-    #s = s.translate(None, string.punctuation)
-    return s
+    """ Retourne les noms communs d'un texte """
+    def findtags(self, tag_prefix, tagged_text):
+        cfd = []
+        for (word, tag) in tagged_text:
+            if tag.startswith(tag_prefix):
+                cfd.append(word)
+
+        return cfd
+
+    """ A partir d'une base de stopwords en anglais, cree une base avec capitalisation en plus """
+    def madeStopwords(self):
+        stop = stopwords.words('english')
+
+        #rajout des stopwords avec la premiere lettre capitalize
+        liste = []
+        for w in stop:
+            liste.append(w)
+            liste.append(w.capitalize())
+
+        return liste
 
 
+    """ Separe les mots composes d'elements speciaux d'un texte et supprime la ponctuaction """
+    def separeMotCompose(self, text):
+        s = text.replace(",","")
+        s = s.replace("&"," ")
+        s = s.replace("."," ")
+        s = s.replace("-"," ")
+        s = s.replace("//"," ")
+        s = s.replace("/"," ")
+        s = s.replace("!"," ")
+        s = s.replace("?"," ")
+        s = s.replace("#"," ")
+        s = s.replace("|"," ")
+        s = s.replace("@"," ")
+        s = s.translate(None, string.punctuation)
+        return s
 
+
+    """ Retourne une liste contenant les elements initiaux donne en arguments, plus chaque
+        mot se trouvant dans les mots-composes separe par des lettres en capital """
+    def decomposeMotCompose(self, liste):
+        res = []
+        for word in liste:
+            res.append(word)
+
+            #rajout des sous mots contenu dans un mot et separe par une capitalisation
+            sublist = re.findall('[A-Z][a-z]*', word)
+            if len(sublist)>1:
+                for val in sublist:
+                    if len(val)>2:
+                        res.append(val)
+
+            #rajout des sous mots(+3 lettres) represente par des capitals (on ne prend pas en compte la derniere capital)
+            sublist = re.findall('[A-Z]{4,}', word)
+            for val in sublist:
+                res.append(val[:-1])
+
+        return res
+
+
+    """ Retourne une liste de mots de 'liste' n'appartenant pas a la liste 'stop' """
+    def filtrer(self, liste, stop):
+        res = []
+
+        for w in liste:
+            if w not in stop:
+                res.append(w)
+
+        return res
+
+    """ Retourne une liste contenant les sets de noms communs pour chaque texte donne en parametre """
+    def getNomsCommuns(self, liste_texte):
+        res = []
+        for texte in liste_texte:
+            tokens = nltk.word_tokenize(self.separeMotCompose(texte))
+
+            #on cree une sous liste contenant que les noms communs
+            tagged = nltk.pos_tag(tokens)
+            tagdict = self.findtags('NN', tagged)
+
+            #on filtre les stopwords passe au travers des filtres precedents
+            textNoms = self.filtrer(tagdict, self.listeStopwords)
+
+            #on ajoute a notre liste les sous mots compris dans les mots composes
+            textNoms = self.decomposeMotCompose(textNoms)
+            res.append(textNoms)
+        return res           
+
+
+#instanciation de fichier csv
 fname = "iteration_500.csv"
 file = open(fname, "rt")
 
@@ -59,63 +113,54 @@ fname3 = "prenoms.csv"
 file3 = open(fname3, "rt")
 
 try:
+    #connection aux fichiers csv.
     reader = csv.DictReader(file, delimiter=',')
     reader3 = csv.DictReader(file3, delimiter=',')
-    print ("Titres ", reader.fieldnames) 
 
-    #200000_tweets_simplifier:
-    #tweet_id                   -> 0
-    #tweet_created_at           -> 1
-    #tweet_text                 -> 2
-    #hashtags                   -> 3
-    #tweet_quoted_status_id     -> 4
-    #tweet_mtion                -> 5
-    #pertinents                 -> 6
-    #proba_pertinence           -> 7
-
-    #user_id                    -> 8
-    #user_screenname            -> 9
-
-    #user_name                  -> 10
-    #user_location              -> 11
-    #user_description           -> 12
-    
+    #on transforme les prenoms en une liste sans capital
     liste = []
     for row in reader3:
         liste.append(row.get('prenom').lower())
 
+    #on cree une liste de mots souvent present dans une compagnie
     corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications']
-    nbr_vrai = 0
-    nbrs_noms = 0
 
+    #instanciation de la liste des descriptions a analyser
+    descriptions = []
+
+    #pour tous les elements trouves dans le csv
     for row in reader:
+
+        #si l'element est pertinent
         if 'VRAI' in row.get('Pertinent'):
-            nbr_vrai = nbr_vrai + 1
+
+            #on ne continue pas si l'element est une compagnie ou une organisation
             continu = True
-            for stopword in corpus_compagnie:
-                if stopword in row.get('user_name').lower():
+            for companyWord in corpus_compagnie:
+                if companyWord in row.get('user_name').lower():
                     continu = False
+
+            #on continue sinon
             if continu:
+
+                # on separe tous les elements composant le champ nom
                 for val in row.get('user_name').split(' '):
+
+                    # si l'element est un prenom et donc une personne on continu
                     if val.lower() in liste:
-                        nbrs_noms = nbrs_noms + 1
-                        #print row.get('user_name'), row.get('user_description')
 
+                        # si la description est nulle, on ne peut pas continuer
                         if not "null" == row.get('user_description'):
-                            sentence = row.get('user_description')
-                            tokens = nltk.word_tokenize(normalisation(sentence))
-                            tagged = nltk.pos_tag(tokens)
-                            print(tokens)
-                            print(tagged)
-                            tagdict = findtags('NN', tagged)
-                            for tag in sorted(tagdict):
-                                print(tag, tagdict[tag])
-                            for name in get_human_names(sentence):
-                                print(name)
-                            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                            descriptions.append(row.get('user_description'))
 
-    print (nbr_vrai)
-    print (nbrs_noms)
+    #analyse des descriptions
+    analyser = TextAnalyser()
+    resultat = analyser.getNomsCommuns(descriptions)
+
+    for res in resultat:
+        for val in res:
+            print(val)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     
 finally:
     file.close()
