@@ -9,7 +9,7 @@ import os
 import bs4
 import platform
 
-if __name__ == "__main__":
+def inforPersonne():
 
     # initialize selenium webdriver - pass latest chromedriver path to webdriver.Chrome()
     #On gere ici si l'os qui lance l'appli est windows ou Linux
@@ -113,5 +113,5 @@ if __name__ == "__main__":
         file.write('--------------------------------------------------\n')
         file.close()
         liclient.driver_quit()
-    
-    
+        
+inforPersonne()  
