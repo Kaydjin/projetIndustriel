@@ -1,5 +1,5 @@
 search_keys = { 
-    "username"         :  "testgeodatas.laposte.net",
+    "username"         :  "testgeodatas@laposte.net",
     "password"         :  "testgeodatas",
     "keywords"         :  ["Data Scientist", "Data Analyst"],
     "locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
