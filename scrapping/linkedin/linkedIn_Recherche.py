@@ -87,5 +87,3 @@ def recherche():
             print(e)
         file.close()
         liclient.driver_quit()
-
-recherche()
