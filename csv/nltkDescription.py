@@ -105,8 +105,6 @@ try:
                             tagged = nltk.pos_tag(tokens)
                             print(tokens)
                             print(tagged)
-                            (tag, word) for (word, tag) in tagged_text
-                                  if tag.startswith(tag_prefix)
                             tagdict = findtags('NNP', tagged)
                             for tag in sorted(tagdict):
                                 print(tag, tagdict[tag])
