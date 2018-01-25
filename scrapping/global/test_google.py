@@ -36,10 +36,11 @@ def search_google(nom_complet, complementaire):
     prenom = supprime_accent(prenom)
     nom = supprime_accent(nom)
     for i in search(queryFacebook, tld="com", num=10, stop=1, pause=2):
-        i_sans_accent = supprime_accent(i)
-        if re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()):
-            #print(i)
-            result.append(i)
+        if (len(result) < 1):
+            i_sans_accent = supprime_accent(i)
+            if re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()):
+                #print(i)
+                result.append(i)
         
 #re.escape marche pas ils ne prends que la syntaxe exacte du string
         
@@ -48,10 +49,11 @@ def search_google(nom_complet, complementaire):
 #linkedin
     #print("lien LinkedIn")
     for j in search(queryLinkedIn, tld="com", num=10, stop=1, pause=2):
-        j_sans_accent = supprime_accent(j)
-        if re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", j_sans_accent.upper()):
-            #print(j)
-            result.append(j)
+        if (len(result) < 2):
+            j_sans_accent = supprime_accent(j)
+            if re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", j_sans_accent.upper()):
+                #print(j)
+                result.append(j)
                 
     return result
 
