@@ -60,6 +60,7 @@ try:
 
     print nbr_vrai
     print nbrs_noms
+    
 finally:
     file.close()
     file2.close()
