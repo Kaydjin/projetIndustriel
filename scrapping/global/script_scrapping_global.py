@@ -2,10 +2,10 @@ import csv
 import os
 import re
 import sys
+from test_google import *
 
-
-fname = "../csv/iteration_500.csv"
-file = open(fname, "rt")
+fname = "../../csv/iteration_500.csv"
+file = open(fname, "rt", encoding="utf-8")
 
 try:
     reader = csv.DictReader(file, delimiter=',')
@@ -27,18 +27,20 @@ try:
     #user_name                  -> 10
     #user_location              -> 11
     #user_description           -> 12
-
-    #for row in reader:
-     #   row.get('user_name')
-      #  if re.match(row.get('user_name'), "Frank Candido"):
+    
+    for row in reader:
+        row.get('user_name')
+        if re.match(row.get('user_name'), "Frank Candido"):
             #if not(re.match(row.get('user_location'), "null")):
-                #sys.argv=["test_google.py",row.get('user_name'),row.get('user_location')]
-             #   os.system("./google/test_google.py "+ row.get('user_name') + " " + row.get('user_location'))
+             #   result = search_google(row.get('user_name'), row.get('user_location'))
             #else:
-            #os.system("./google/test_google.py "+ row.get('user_name'))
-            #    sys.argv=["test_google.py",row.get('user_name')]
-            #execfile("test_google.py")
-    print(search_google("Frank Candido",""))
+            result = search_google(row.get('user_name'), "")
+            
+            for lien in result:
+                print(" ", lien, " ")
+
+    #result = search_google("Frank Candido", "")
+    
 
 finally:
     file.close()

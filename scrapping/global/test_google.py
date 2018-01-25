@@ -5,7 +5,18 @@ try:
 except ImportError: 
     print("No module named 'google' found")
 
-def search_google(prenom, nom, complementaire): 
+def search_google(nom_complet, complementaire):
+    prenom = ""
+    nom = ""
+    fin_prenom = False
+    for c in nom_complet:
+        if(not fin_prenom):
+            if(c == " "):
+                fin_prenom = True
+            else:
+                prenom += c
+        else:
+            nom += c
     query = prenom + " " + nom + " " + complementaire
     queryFacebook = query + " facebook"
     queryLinkedIn = query + " linkedin"
@@ -20,7 +31,7 @@ def search_google(prenom, nom, complementaire):
 #Return : Generator (iterator) that yields found URLs. If the stop parameter is None the iterator will loop forever.
 
 #facebook
-    print("lien Facebook")
+    #print("lien Facebook")
     result = []
     prenom = supprime_accent(prenom)
     nom = supprime_accent(nom)
@@ -32,16 +43,16 @@ def search_google(prenom, nom, complementaire):
         
 #re.escape marche pas ils ne prends que la syntaxe exacte du string
         
-    print("\n")
+    #print("\n")
 
 #linkedin
-    print("lien LinkedIn")
+    #print("lien LinkedIn")
     for j in search(queryLinkedIn, tld="com", num=10, stop=1, pause=2):
         j_sans_accent = supprime_accent(j)
         if re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", j_sans_accent.upper()):
             #print(j)
             result.append(j)
-           		
+                
     return result
 
 def supprime_accent(ligne):
