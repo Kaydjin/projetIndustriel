@@ -44,7 +44,10 @@ Display a parse tree:
 >>> t = treebank.parsed_sents('wsj_0001.mrg')[0]
 >>> t.draw()
 
-
+-------------
+référence trouver un nom via nltk
+https://stackoverflow.com/questions/20290870/improving-the-extraction-of-human-names-with-nltk
+-------------
 
 
 --------------------------------------------------------------------------------------------
