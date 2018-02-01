@@ -33,16 +33,16 @@ def recherche():
     #On gere ici si l'os qui lance l'appli est windows ou Linux
     #TODO Mac si besoin, il faudra par contre telecharger le driver de mac
     os_driver = "error"
-    if platform.system().find("Windows") != -1 :
+    if platform.system() == "Windows":
         os_driver = "/geckodriver_windows64.exe"
-    elif platform.system().find("Linux") != -1 :
+    elif platform.system() == "Linux":
         os_driver = "/geckodriver_linux"
     else :
         print("OS non supporté")
         os_driver = "error"
 
     if os_driver != "error" :
-        driver = webdriver.Firefox(executable_path=os.getcwd()+"/geckodriver_windows64.exe")
+        driver = webdriver.Firefox(executable_path=os.getcwd()+os_driver)
         driver.get("https://www.linkedin.com/uas/login")
 
         # initialize LinkedIn web client
@@ -87,3 +87,6 @@ def recherche():
             print(e)
         file.close()
         liclient.driver_quit()
+
+if __name__ == '__main__':
+    recherche()

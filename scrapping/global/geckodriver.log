@@ -1,0 +1,59 @@
+1517325843309	geckodriver	INFO	geckodriver 0.18.0
+1517325843311	geckodriver	INFO	Listening on 127.0.0.1:37999
+1517325844453	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1517325845176	Marionette	INFO	Enabled via --marionette
+1517325849467	Marionette	INFO	Listening on port 46269
+1517325849474	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517325849518	Marionette	DEBUG	Register listener.js for window 2147483649
+1517325849550	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517325849870	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517325849871	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517325850148	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1517325850228	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7fd6e7b89800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fd6e763f800] overread, skip -7 enddists: -2 -2
+1517325856869	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1517325857144	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1517325857167	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1517325857904	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1517325857904	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1517325857915	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7fd6f1247800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fd6dcc18800] overread, skip -7 enddists: -2 -2
+1517325860814	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[Child 20962, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 20962, Chrome_ChildThread] WARNING: pipe error (18): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 20962, Chrome_ChildThread] WARNING: pipe error (35): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 20962, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1517325937493	geckodriver	INFO	geckodriver 0.18.0
+1517325937495	geckodriver	INFO	Listening on 127.0.0.1:34677
+1517325938612	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1517325939199	Marionette	INFO	Enabled via --marionette
+1517325941797	Marionette	INFO	Listening on port 35085
+1517325941943	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517325941992	Marionette	DEBUG	Register listener.js for window 2147483649
+1517325942017	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517325942312	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517325942312	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517325942557	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1517325942650	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f3f1fe20800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f3f1fe23800] overread, skip -7 enddists: -2 -2
+1517325949281	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1517325949325	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483674"
+1517325949546	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1517325949568	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1517325949723	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1517325949723	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483670"
+1517325949724	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483672"
+1517325949724	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483667"
+1517325949724	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483665"
+1517325949724	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1517325949725	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1517325950258	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f3f20e99000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f3f1e865000] overread, skip -7 enddists: -2 -2
+1517325953118	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x470002,name=PLayerTransaction::Msg_Update) Channel error: cannot send/recv
+
