@@ -25,7 +25,7 @@ def recherche():
         os_driver = "error"
 
     if os_driver != "error" :
-        driver = webdriver.Firefox(executable_path=os.getcwd()+"/geckodriver_windows64.exe")
+        driver = webdriver.Firefox(executable_path=os.getcwd()+os_driver)
         driver.get("https://www.linkedin.com/uas/login")
 
         # initialize LinkedIn web client
@@ -71,4 +71,5 @@ def recherche():
         file.close()
         liclient.driver_quit()
 
-recherche()
+if __name__ == '__main__':
+    recherche()
