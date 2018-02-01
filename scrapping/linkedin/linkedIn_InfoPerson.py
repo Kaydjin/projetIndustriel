@@ -9,6 +9,17 @@ import os
 import bs4
 import platform
 
+def decoupage(str_text):
+    str_text = str_text.replace('\n', ' ').strip()
+    return str_text.split("  ")
+
+def ecriture_tab(str_tab, file):
+    for s in str_tab:
+        s = s.strip()
+        if(s != ''):
+            file.write(s)
+            file.write("\n")
+
 def inforPersonne():
 
     # initialize selenium webdriver - pass latest chromedriver path to webdriver.Chrome()
@@ -38,6 +49,9 @@ def inforPersonne():
         profile_link="https://www.linkedin.com/in/marcbenioff/fr"
         driver.get(profile_link)
 
+        #on scrolle vers le bas pour faire un chargement des centres d'interet
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
         # wait for page load
         time.sleep(3)
 
@@ -47,16 +61,14 @@ def inforPersonne():
 
         soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 
-
         valeurs = soup.find_all('li', class_='pv-position-entity')
         file.write('--------------------------------------------------------\nExperience :\n')
         if(len(valeurs)==0):
             file.write('Empty\n')
         else:
             for elem in valeurs:
-                if(elem.get_text() != ''):
-                    file.write(elem.get_text().replace('\n', ' ').strip())
-                    file.write('\n\n')
+                ecriture_tab(decoupage(elem.get_text()), file)
+                file.write('\n\n')
 
         valeurs = soup.find_all('li', class_='pv-education-entity')
         file.write('--------------------------------------------------------\nEducation :\n')
@@ -65,16 +77,16 @@ def inforPersonne():
         else:
             for elem in valeurs:
                 if(elem.get_text()!= ''):
-                    file.write(elem.get_text().replace('\n', ' ').strip())
+                    ecriture_tab(decoupage(elem.get_text()), file)
                     file.write('\n\n')
 
-        #ne fonctionne pas
+        
         valeurs = soup.find_all('li', class_='pv-interest-entity')
         if(len(valeurs)!=0):
             file.write('--------------------------------------------------------\nInterest :\n')
             for elem in valeurs:
                 if(elem.get_text()!= ''):
-                    file.write(elem.get_text().replace('\n', ' ').strip())
+                    ecriture_tab(decoupage(elem.get_text()), file)
                     file.write('\n\n')
         
         """valeurs = soup.select('.background-details .pv-profile-section__card-item .pv-entity__summary-info')
