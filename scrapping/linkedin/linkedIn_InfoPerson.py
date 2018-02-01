@@ -48,15 +48,34 @@ def inforPersonne():
         soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 
 
-        valeurs = soup.find_all('section', class_='experience-section')
-        if len(valeurs)>0:
-            file.write('Données:\n')
+        valeurs = soup.find_all('li', class_='pv-position-entity')
+        file.write('--------------------------------------------------------\nExperience :\n')
+        if(len(valeurs)==0):
+            file.write('Empty\n')
+        else:
             for elem in valeurs:
                 if(elem.get_text() != ''):
-                    file.write(elem.get_text())
-                    file.write('\n')
+                    file.write(elem.get_text().replace('\n', ' ').strip())
+                    file.write('\n\n')
+
+        valeurs = soup.find_all('li', class_='pv-education-entity')
+        file.write('--------------------------------------------------------\nEducation :\n')
+        if(len(valeurs)==0):
+            file.write('Empty\n')
         else:
-            file.write('- no data -\n')
+            for elem in valeurs:
+                if(elem.get_text()!= ''):
+                    file.write(elem.get_text().replace('\n', ' ').strip())
+                    file.write('\n\n')
+
+        #ne fonctionne pas
+        valeurs = soup.find_all('li', class_='pv-interest-entity')
+        if(len(valeurs)!=0):
+            file.write('--------------------------------------------------------\nInterest :\n')
+            for elem in valeurs:
+                if(elem.get_text()!= ''):
+                    file.write(elem.get_text().replace('\n', ' ').strip())
+                    file.write('\n\n')
         
         """valeurs = soup.select('.background-details .pv-profile-section__card-item .pv-entity__summary-info')
         if len(valeurs)>0:
@@ -110,8 +129,9 @@ def inforPersonne():
                 file.write('\n')
         else:
             file.write('- no data -\n')"""
-        file.write('--------------------------------------------------\n')
+        file.write('--------------------------------------------------------\n')
         file.close()
         liclient.driver_quit()
         
-inforPersonne()  
+if __name__ == '__main__':
+    inforPersonne() 
