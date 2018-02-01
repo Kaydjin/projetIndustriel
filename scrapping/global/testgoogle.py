@@ -72,11 +72,16 @@ def search_google_linkedin(nom, prenom, queryLinkedIn):
 
 def supprime_accent(ligne):
         """ supprime les accents du texte source """
-        accents = { 'a': ['à', 'ã', 'á', 'â'],
+        accents = { 'a': ['à', 'ã', 'á', 'â', 'ä', 'å'],
+                    'ae': ['æ'],
+                    'c': ['ç'],
                     'e': ['é', 'è', 'ê', 'ë'],
-                    'i': ['î', 'ï'],
-                    'u': ['ù', 'ü', 'û'],
-                    'o': ['ô', 'ö'] }
+                    'i': ['î', 'ï', 'í', 'ì'],
+                    'u': ['ù', 'ù', 'ü', 'û'],
+                    'o': ['ô', 'ö', 'ó', 'ò', 'õ'],
+                    'oe': ['œ'],
+                    'n': ['ñ'],
+                    'y': ['ý', 'ÿ'] }
         for (char, accented_chars) in accents.items():
             for accented_char in accented_chars:
                 ligne = ligne.replace(accented_char, char)

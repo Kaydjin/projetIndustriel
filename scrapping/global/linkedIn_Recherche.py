@@ -9,6 +9,40 @@ import os
 import bs4
 import platform
 
+class CompteLinkedin:
+
+    def __init__(self, nom, prenom, url):
+        self.homonymes = []
+        self.url = url
+        self.favoris = []
+        self.etudes = []
+        self.experiences = []
+        self.complementaire = ""
+
+    def addFavori(self, x):
+        self.favoris.append(x)
+
+    def addEtude(self, x):
+        self.etudes.append(x)
+
+    def addExperience(self, x):
+        self.experiences.append(x)
+
+    def addHomonyme(self, x):
+        self.homonymes.append(x)
+
+    def synthese(self):
+        strFavoris = ""
+        for s in self.favoris:
+            strFavoris = strFavoris + s+" "
+        strEtudes = ""
+        for s in self.etudes:
+            strEtudes = strEtudes + s+" "
+        strExperiences = ""
+        for s in self.experiences:
+            strExperiences = strExperiences + s+" "
+
+        return strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
 
 def recherche():
 
