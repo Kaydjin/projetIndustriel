@@ -9,16 +9,85 @@ import os
 import bs4
 import platform
 
+class Experience:
+
+    def __init__(self, url, nom, date, geolocalisation, description, descriptionE, domaineE):
+        self.url = url
+        self.nom = nom
+        self.date = date
+        self.geolocalisation = geolocalisation
+        self.description = description
+        self.descriptionEntreprise = descriptionE
+        self.domaineEntreprise = domaineE   
+
+        def toString(self):
+            return nom + " " + geolocalisation + " " + description
+
+        def toStringE(self):
+            return nom + " " + geolocalisation + " " + descriptionEntreprise + " " + domaineE
+
+class CompteLinkedin:
+
+    def __init__(self, nom, prenom, url):
+        self.homonymes = []
+        self.url = url
+        self.favoris = []
+        self.etudes = []
+        self.experiences = []
+        self.entreprise = ""
+        self.complementaire = ""
+
+    def addFavori(self, x):
+        self.favoris.append(x)
+
+    def addEtude(self, x):
+        self.etudes.append(x)
+
+    def addExperience(self, url, nom, date, geolocalisation, description, descriptionE, domaineE):
+        self.experiences.append(Experience(url, nom, date, geolocalisation, description, descriptionE, domaineE))
+
+    def addHomonyme(self, x):
+        self.homonymes.append(x)
+
+    def synthese(self):
+        strFavoris = ""
+        for s in self.favoris:
+            strFavoris = strFavoris + s+" "
+        strEtudes = ""
+        for s in self.etudes:
+            strEtudes = strEtudes + s+" "
+        strExperiences = ""
+        for s in self.experiences:
+            strExperiences = strExperiences + s+" "
+
+        return strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
+
 def recherche():
+
+
+    search_keys = { 
+        "username"         :  "testgeodatas@laposte.net",
+        "password"         :  "testgeodatas",
+        "keywords"         :  ["Data Scientist", "Data Analyst"],
+        "locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
+
+        "search_radius"    :  "50",
+        "page_number"      :  1,
+        "date_range"       :  "All",
+        "sort_by"          :  "Date Posted",
+        "salary_range"     :  "All",
+        "filename"         :  "output.txt",
+        "results_page"     :  ""
+    }
 
     # initialize selenium webdriver - pass latest chromedriver path to webdriver.Chrome()
 
     #On gere ici si l'os qui lance l'appli est windows ou Linux
     #TODO Mac si besoin, il faudra par contre telecharger le driver de mac
     os_driver = "error"
-    if platform.system().find("Windows") != -1 :
+    if platform.system() == "Windows":
         os_driver = "/geckodriver_windows64.exe"
-    elif platform.system().find("Linux") != -1 :
+    elif platform.system() == "Linux":
         os_driver = "/geckodriver_linux"
     else :
         print("OS non supporté")

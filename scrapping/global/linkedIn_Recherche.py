@@ -9,6 +9,20 @@ import os
 import bs4
 import platform
 
+class Experience:
+
+    def __init__(self, url, nom, date, geolocalisation, description, descriptionEntreprise):
+        self.url = url
+        self.nom = nom
+        self.date = date
+        self.geolocalisation = geolocalisation
+        self.description = description
+        self.descriptionEntreprise = descriptionEntreprise
+        self.domaine = ""   
+
+        def toString(self):
+            return nom + " " + geolocalisation + " " + description
+
 class CompteLinkedin:
 
     def __init__(self, nom, prenom, url):
@@ -17,6 +31,7 @@ class CompteLinkedin:
         self.favoris = []
         self.etudes = []
         self.experiences = []
+        self.entreprise = ""
         self.complementaire = ""
 
     def addFavori(self, x):
@@ -25,8 +40,8 @@ class CompteLinkedin:
     def addEtude(self, x):
         self.etudes.append(x)
 
-    def addExperience(self, x):
-        self.experiences.append(x)
+    def addExperience(self, url, nom, date, geolocalisation, description, descriptionEntreprise):
+        self.experiences.append(Experience(url, nom, date, geolocalisation, description, descriptionEntreprise))
 
     def addHomonyme(self, x):
         self.homonymes.append(x)
