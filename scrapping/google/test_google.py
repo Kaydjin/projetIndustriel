@@ -12,33 +12,37 @@ except ImportError:
 from google import google
 
 
-def search_google(nom_complet, complementaire, reseausocial):
-
-    # séparation du nom_complet en nom et prénom, utile pour les regex
-    prenom = ""
-    nom = ""
-    fin_prenom = False
-    for c in nom_complet:
-        if(not fin_prenom):
-            if(c == " "):
-                fin_prenom = True
+def search_google(nom_complet, complementaire, reseausocial, entreprise):
+    if not entreprise:
+        # séparation du nom_complet en nom et prénom, utile pour les regex
+        prenom = ""
+        nom = ""
+        fin_prenom = False
+        for c in nom_complet:
+            if(not fin_prenom):
+                if(c == " "):
+                    fin_prenom = True
+                else:
+                    prenom += c
             else:
-                prenom += c
-        else:
-            nom += c
+                nom += c
 
-    #construction des strings servant aux requetes sur le moteur de recherche google
-    query = prenom + " " + nom + " " + complementaire + " " + reseausocial
+        #construction des strings servant aux requetes sur le moteur de recherche google
+        query = prenom + " " + nom + " " + complementaire + " " + reseausocial
 
-    prenom = supprime_accent(prenom)
-    nom = supprime_accent(nom)
+        prenom = supprime_accent(prenom)
+        nom = supprime_accent(nom)
 
-    if reseausocial == "linkedin":
-        return search_google_linkedin(nom, prenom, query)
-    if reseausocial == "facebook":
-        return search_google_facebook(nom, prenom, query)
-
-    return []
+        if reseausocial == "linkedin":
+            return search_google_linkedin(nom, prenom, query)
+        if reseausocial == "facebook":
+            return search_google_facebook(nom, prenom, query)
+        return []
+    else:
+        nom = supprime_accent(nom_complet)
+        query = nom + " " + complementaire# + " " + reseausocial
+        return search_google_entreprise(nom, query)
+    
 
         # ARGUMENTS METHODE search of GOOGLE
     #execution d'une requete, le resultat est recupere dans "i"
@@ -77,17 +81,18 @@ def search_google_linkedin(nom, prenom, queryLinkedIn):
                 result.append(j.link)
                 
     return result
-"""
-def search_google_entreprise(nom, query):
+
+def search_google_entreprise(nom, queryEntreprise):
     result = []
-    listurls = search(query, tld="com", num=10, stop=1, pause=2)
+    listurls = google.search(queryEntreprise, num_page)
+    #listurls = search(query, tld="com", num=10, stop=1, pause=2)
     for i in listurls:
         #supprimer les accents sert a généraliser la recherche
         i_sans_accent = supprime_accent(i)
-        if re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()):
+        if re.match(".*" + nom.upper() + ".*", i_sans_accent.upper()):
             result.append(i)
     return result
-"""
+
 def supprime_accent(ligne):
         """ supprime les accents du texte source """
         accents = { 'a': ['à', 'ã', 'á', 'â', 'ä', 'å'],
@@ -107,5 +112,5 @@ def supprime_accent(ligne):
 
 
 if __name__ == '__main__':
-    liste_sites = search_google("Frank Candido", "", "linkedin")
+    liste_sites = search_google("Frank Candido", "", "linkedin", False)
     print(liste_sites)
