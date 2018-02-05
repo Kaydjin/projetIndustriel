@@ -17,7 +17,7 @@ def ecriture_tab(str_tab, file):
     for s in str_tab:
         s = s.strip()
         if(s != ''):
-            file.write(s.encode('utf-8'))
+            file.write(s)
             file.write("\n")
 
 def inforPersonne():
