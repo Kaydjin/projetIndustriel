@@ -20,6 +20,15 @@ def ecriture_tab(str_tab, file):
             file.write(s)
             file.write("\n")
 
+def recherche_scrapping_li(valeurs, file):
+    for elem in valeurs:
+        elem_valeurs = elem.find_all('li')
+        for e in elem_valeurs:
+            if(e.get_text() != '') :
+                ecriture_tab(decoupage(e.get_text()), file)
+                file.write('\n\n')
+    
+
 def inforPersonne():
 
     # initialize selenium webdriver - pass latest chromedriver path to webdriver.Chrome()
@@ -46,7 +55,9 @@ def inforPersonne():
         # wait for page load
         time.sleep(3)
 
-        profile_link="https://www.linkedin.com/in/marcbenioff/fr"
+        #profile_link="https://www.linkedin.com/in/marcbenioff/fr"
+        #profile_link="https://www.linkedin.com/in/sylvain-courtin-172288154/"
+        profile_link="https://www.linkedin.com/in/frank-candido-5b6873/"
         driver.get(profile_link)
 
         #on scrolle vers le bas pour faire un chargement des centres d'interet
@@ -57,29 +68,24 @@ def inforPersonne():
 
         html=driver.page_source
 
-        file=open('scrapping_InfoPerson.log', 'w+')
+        file=open('scrapping_InfoPerson.log', 'w+', encoding="utf8")
 
         soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 
-        valeurs = soup.find_all('li', class_='pv-position-entity')
-        file.write('--------------------------------------------------------\nExperience :\n')
+
+        valeurs = soup.find_all('section', class_='education-section')
+        file.write('--------------------------------------------------------\nEducation:\n')
         if(len(valeurs)==0):
             file.write('Empty\n')
         else:
-            for elem in valeurs:
-                ecriture_tab(decoupage(elem.get_text()), file)
-                file.write('\n\n')
+            recherche_scrapping_li(valeurs, file) 
 
-        valeurs = soup.find_all('li', class_='pv-education-entity')
-        file.write('--------------------------------------------------------\nEducation :\n')
+        valeurs = soup.find_all('section', class_='experience-section')
+        file.write('--------------------------------------------------------\nExperience:\n')
         if(len(valeurs)==0):
             file.write('Empty\n')
         else:
-            for elem in valeurs:
-                if(elem.get_text()!= ''):
-                    ecriture_tab(decoupage(elem.get_text()), file)
-                    file.write('\n\n')
-
+            recherche_scrapping_li(valeurs, file)  
         
         valeurs = soup.find_all('li', class_='pv-interest-entity')
         if(len(valeurs)!=0):

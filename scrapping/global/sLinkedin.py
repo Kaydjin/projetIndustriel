@@ -100,16 +100,28 @@ class SeleniumManager:
 
 
 def formater(str_text):
-    strt = str_text.replace('\n', ' ').strip()
+    str_text = str_text.replace('\n', ' ').strip()
     str_tab = str_text.split("  ")
-
     res = ""
     for s in str_tab:
         s = s.strip()
         if(s != ''):
-            res = res + s
+            res = res +"\n"+ s
+    #tmp = res.encode("utf8")
+    return res
 
-    return res.encode('utf-8')
+"""depuis un tableau de type soup
+    On récupère la liste de tag li qu'on formatte pour l'affichage
+    Cette fonction est utilisé pour la partie education et expérience
+"""
+def recherche_scrapping_li(valeurs):
+    res=""
+    for elem in valeurs:
+        elem_valeurs = elem.find_all('li')
+        for e in elem_valeurs:
+            if(e.get_text() != '') :
+                res = res + formater(e.get_text())
+    return res
 
 class SearcherLinkedin:
 
@@ -154,39 +166,54 @@ class SearcherLinkedin:
 
         """ pause 0 car on doit defiler vers le bas avant de faire la pause"""
         manager.get(url, 3)
-        print("ici")
+        
+        #on charge le haut de la page
+        time.sleep(3)
         #on scrolle vers le bas pour faire un chargement des centres d'interet
         manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        # wait for page load
-        time.sleep(6)
+        # on charge le bas de la page
+        time.sleep(3)
 
         html=manager.driver.page_source
+
+        file_tmp=open('scrapping_InfoPerson.log', 'w+', encoding="utf8")
 
         soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 
         #Education
-        valeurs = soup.find_all('li', class_='pv-education-entity')
-        for elem in valeurs:
-            if(elem.get_text()!= ''):
-                compte.addEtude(elem.get_text().strip("\n \r"))
-                print(formater(elem.get_text()))
+        valeurs = soup.find_all('section', class_='education-section')
+        file_tmp.write("-------------------------Education/Etude-------------------------\n")
+        if(len(valeurs)==0):
+            file.write('Empty\n')
+        else:
+            tmp = recherche_scrapping_li(valeurs)
+            compte.addEtude(tmp)
+            file_tmp.write(tmp)
+            file_tmp.write('\n\n')
+    
+        # Experiences
+        date = []
+        description = []
+        valeurs = soup.find_all('section', class_='experience-section')
+        file_tmp.write("\n-------------------------Experiences-------------------------\n")
+        if(len(valeurs)==0):
+            file.write('Empty\n')
+        else:
+            tmp = recherche_scrapping_li(valeurs)
+            date.append(tmp)
+            description.append(tmp)
+            file_tmp.write(tmp)
+            file_tmp.write('\n\n')
 
         #Favoris
+        file_tmp.write("\n-------------------------Favoris-------------------------\n")
         valeurs = soup.find_all('li', class_='pv-interest-entity')
         for elem in valeurs:
             if(elem.get_text()!= ''):
-                compte.addFavori(elem.get_text().strip("\n \r"))
-                print(formater(elem.get_text()))
-
-        # Experiences
-        soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
-        valeurs = soup.find_all('li', class_='pv-position-entity')
-        date = []
-        description = []
-        for elem in valeurs:
-            date.append(elem.get_text().strip("\n \r"))
-            description.append(elem.get_text().strip("\n \r"))
-            print(formater(elem.get_text()))
+                tmp = formater(elem.get_text())
+                compte.addFavori(tmp)
+                file_tmp.write(tmp)
+                file_tmp.write('\n\n')
 
         experience = soup.select('.pv-profile-section.experience-section.ember-view a')
         urlsExperiences = []
