@@ -72,11 +72,11 @@ def inforPersonne():
             divlocation = soup.select('.org-top-card-module__location')
             divdescription = soup.select('.org-about-us-organization-description p')
             for elem in divnom:
-                print(elem.get_text())
+                print(elem.get_text().strip("\n \r"))
             for elem in divdomaine:
-                print(elem.get_text())
+                print(elem.get_text().strip("\n \r"))
             for elem in divlocation:
-                print(elem.get_text())
+                print(elem.get_text().strip("\n \r"))
             for elem in divdescription:
                 print(elem.get_text())
 
