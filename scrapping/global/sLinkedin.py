@@ -107,21 +107,8 @@ def formater(str_text):
         s = s.strip()
         if(s != ''):
             res = res +"\n"+ s
-    #tmp = res.encode("utf8")
     return res
 
-"""depuis un tableau de type soup
-    On récupère la liste de tag li qu'on formatte pour l'affichage
-    Cette fonction est utilisé pour la partie education et expérience
-"""
-def recherche_scrapping_li(valeurs):
-    res=""
-    for elem in valeurs:
-        elem_valeurs = elem.find_all('li')
-        for e in elem_valeurs:
-            if(e.get_text() != '') :
-                res = res + formater(e.get_text())
-    return res
 
 class SearcherLinkedin:
 
@@ -136,17 +123,14 @@ class SearcherLinkedin:
         liclient.login()
         time.sleep(3)
 
-    def findLinkedins(self, nom, prenom):
-        recherche_nom= "lastName="
-        recherche_prenom = "firstName="
-        profile_link="https://www.linkedin.com/search/results/people/?"+recherche_nom+nom+"&"+recherche_prenom+prenom
-
-        manager.get(profile_link, 3)
-
+    def findLinkedinsScrapping(self):
         html=manager.driver.page_source
         soup=bs4.BeautifulSoup(html, "html.parser")
 
         same=soup.find_all('a', class_='search-result__result-link')
+
+        manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)
 
         liste = []
         a=0
@@ -158,7 +142,23 @@ class SearcherLinkedin:
             if a%2==0:
                 liste.append('https://www.linkedin.com'+elem.get('href'))
 
+        next_page = soup.find_all('ol', class_='results-paginator')
+        for elem in next_page:
+            suivant=elem.find_all('button', class_='next')
+            if (len(suivant)==1):
+                manager.driver.find_element_by_css_selector('button.next').click()
+                liste = liste + self.findLinkedinsScrapping()
+
         return liste
+
+    def findLinkedins(self, nom, prenom):
+        recherche_nom= "lastName="
+        recherche_prenom = "firstName="
+        profile_link="https://www.linkedin.com/search/results/people/?"+recherche_nom+nom+"&"+recherche_prenom+prenom
+
+        manager.get(profile_link, 3)
+
+        return self.findLinkedinsScrapping()
 
     def findLinkedin(self, nom, prenom, url):
 
@@ -186,22 +186,33 @@ class SearcherLinkedin:
         if(len(valeurs)==0):
             file.write('Empty\n')
         else:
-            tmp = recherche_scrapping_li(valeurs)
-            compte.addEtude(tmp)
-            file_tmp.write(tmp)
+            res=""
+            for elem in valeurs:
+                elem_valeurs = elem.find_all('li')
+                for e in elem_valeurs:
+                    if(e.get_text() != '') :
+                        tmp = formater(e.get_text())
+                        compte.addEtude(tmp)
+                        res = res + '\n\n' + tmp
+            file_tmp.write(res)
             file_tmp.write('\n\n')
     
         # Experiences
-        date = []
         description = []
         valeurs = soup.find_all('section', class_='experience-section')
         file_tmp.write("\n-------------------------Experiences-------------------------\n")
         if(len(valeurs)==0):
             file.write('Empty\n')
         else:
-            tmp = recherche_scrapping_li(valeurs)
-            date.append(tmp)
-            description.append(tmp)
+            """depuis un tableau de type soup, On récupère la liste de tag li qu'on formatte pour l'affichage Cette fonction est utilisé pour la partie education et expérience"""
+            res=""
+            for elem in valeurs:
+                elem_valeurs = elem.find_all('li')
+                for e in elem_valeurs:
+                    if(e.get_text() != '') :
+                        tmp = formater(e.get_text())
+                        description.append(tmp)
+                        res = res + '\n\n' + tmp
             file_tmp.write(tmp)
             file_tmp.write('\n\n')
 
@@ -256,7 +267,7 @@ class SearcherLinkedin:
 
         print(len(urlsExperiences))
         print(len(nomsE))
-        print(len(date))
+        
         print(len(locationE))
         print(len(description))
         print(len(descriptionE))
@@ -268,15 +279,20 @@ class SearcherLinkedin:
 if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
-    liste = search.findLinkedins("candido", "frank")
+    #liste = search.findLinkedins("candido", "frank")
+    liste = search.findLinkedins("Legros", "camille")
+    file_tmp=open('scrapping_Recherche.log', 'w+', encoding="utf8")
     for val in liste:
         print(val)
+        file_tmp.write(val)
+        file_tmp.write('\n')
+    file_tmp.close()
 
-    compte = search.findLinkedin("candido", "frank", liste[0])
+    '''compte = search.findLinkedin("candido", "frank", liste[0])
     for experience in compte.experiences:
         #print(experience.url)
         print(experience.nom)
         #print(experience.geolocalisation)
         #print(experience.descriptionEntreprise)
-
+    '''
     manager.driver_quit()
