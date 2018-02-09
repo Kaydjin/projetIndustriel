@@ -124,13 +124,18 @@ class SearcherLinkedin:
         time.sleep(3)
 
     def findLinkedinsScrapping(self):
+
+        #Chargement de la page /!\ 
+        time.sleep(2)
+        
+        #On scroll histoire que la page soit charger pour le scrapping (sinon rique de manquer des éléments)
+        manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)
+
         html=manager.driver.page_source
         soup=bs4.BeautifulSoup(html, "html.parser")
 
         same=soup.find_all('a', class_='search-result__result-link')
-
-        manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(1)
 
         liste = []
         a=0
@@ -146,9 +151,12 @@ class SearcherLinkedin:
         for elem in next_page:
             suivant=elem.find_all('button', class_='next')
             if (len(suivant)==1):
-                manager.driver.find_element_by_css_selector('button.next').click()
-                liste = liste + self.findLinkedinsScrapping()
-
+                #dans le cas ou il croit avoir trouvé un button ... ouais ça arrive si la connexion est trop lente
+                try:
+                    manager.driver.find_element_by_css_selector('button.next').click()
+                    liste = liste + self.findLinkedinsScrapping()
+                except:
+                    break
         return liste
 
     def findLinkedins(self, nom, prenom):
@@ -279,8 +287,9 @@ class SearcherLinkedin:
 if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
-    #liste = search.findLinkedins("candido", "frank")
-    liste = search.findLinkedins("Legros", "camille")
+    liste = search.findLinkedins("candido", "frank")
+    #test pour cas plusieurs page = nbr résultat = 13
+    #liste = search.findLinkedins("Legros", "camille")
     file_tmp=open('scrapping_Recherche.log', 'w+', encoding="utf8")
     for val in liste:
         print(val)
@@ -288,11 +297,10 @@ if __name__ == '__main__':
         file_tmp.write('\n')
     file_tmp.close()
 
-    '''compte = search.findLinkedin("candido", "frank", liste[0])
+    compte = search.findLinkedin("candido", "frank", liste[0])
     for experience in compte.experiences:
         #print(experience.url)
         print(experience.nom)
         #print(experience.geolocalisation)
         #print(experience.descriptionEntreprise)
-    '''
     manager.driver_quit()
