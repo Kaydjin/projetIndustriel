@@ -207,6 +207,7 @@ class SearcherLinkedin:
     
         # Experiences
         description = []
+        date=[]
         valeurs = soup.find_all('section', class_='experience-section')
         file_tmp.write("\n-------------------------Experiences-------------------------\n")
         if(len(valeurs)==0):
@@ -219,9 +220,14 @@ class SearcherLinkedin:
                 for e in elem_valeurs:
                     if(e.get_text() != '') :
                         tmp = formater(e.get_text())
+                        #On cherche le mot date
+                        str_tab=tmp.split("\n")
+                        for myStr in str_tab :
+                            if("date" in tmp.upper()):
+                                date.append(myStr)
                         description.append(tmp)
                         res = res + '\n\n' + tmp
-            file_tmp.write(tmp)
+            file_tmp.write(res)
             file_tmp.write('\n\n')
 
         #Favoris
@@ -275,7 +281,7 @@ class SearcherLinkedin:
 
         print(len(urlsExperiences))
         print(len(nomsE))
-        
+        print(len(date))
         print(len(locationE))
         print(len(description))
         print(len(descriptionE))
