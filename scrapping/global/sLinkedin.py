@@ -3,11 +3,14 @@
 from selenium import webdriver
 from client import LIClient
 from settings import search_keys
+from datetime import datetime
+import sys
 import argparse
 import time
 import os
 import bs4
 import platform
+
 
 class Experience:
 
@@ -130,6 +133,12 @@ def formater(str_text):
             res = res +"\n"+ s
     return res
 
+def ecriturePython2_Python3(file, myStr):
+    if sys.version_info >= (3,0):
+        file.write(myStr)
+    else:
+        file.write(myStr.encode('utf8'))
+
 
 class SearcherLinkedin:
 
@@ -150,8 +159,10 @@ class SearcherLinkedin:
         time.sleep(2)
         
         #On scroll histoire que la page soit charger pour le scrapping (sinon rique de manquer des éléments)
+        manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight/2);")
+        time.sleep(1)
         manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)
+        time.sleep(1)
 
         html=manager.driver.page_source
         soup=bs4.BeautifulSoup(html, "html.parser")
@@ -189,7 +200,7 @@ class SearcherLinkedin:
 
         return self.findLinkedinsScrapping()
 
-    def findLinkedin(self, nom, prenom, url):
+    def findLinkedin(self, nom, prenom, url, file_tmp):
 
         compte = CompteLinkedin(nom, prenom, url)
 
@@ -204,12 +215,6 @@ class SearcherLinkedin:
         time.sleep(3)
 
         html=manager.driver.page_source
-
-        file_tmp = ""
-        if platform.system() == "Windows":
-            file_tmp=open('scrapping_InfoPerson.log', 'w+', encoding="utf8")
-        else:
-            file_tmp=open('scrapping_InfoPerson.log', 'w+')
 
         soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 
@@ -227,7 +232,7 @@ class SearcherLinkedin:
                         tmp = formater(e.get_text())
                         compte.addEtude(tmp)
                         res = res + '\n\n' + tmp
-            file_tmp.write(res.encode('utf-8'))
+            ecriturePython2_Python3(file_tmp, res)
             file_tmp.write('\n\n')
 
         #Favoris
@@ -237,7 +242,7 @@ class SearcherLinkedin:
             if(elem.get_text()!= ''):
                 tmp = formater(elem.get_text())
                 compte.addFavori(tmp)
-                file_tmp.write(tmp.encode('utf-8'))
+                ecriturePython2_Python3(file_tmp, tmp)
                 file_tmp.write('\n\n')
 
         # Recuperation en dur des experiences
@@ -258,7 +263,7 @@ class SearcherLinkedin:
                         tmp = formater(e.get_text())
                         experiences.append(tmp)
                         res = res + '\n\n' + tmp
-            file_tmp.write(res.encode('utf-8'))
+            ecriturePython2_Python3(file_tmp, res)
             file_tmp.write('\n\n')
 
         #Recuperation des logos d'entreprises et des urls d'entreprises correspondantes
@@ -292,7 +297,10 @@ class SearcherLinkedin:
             for strExp in str_tab :
 
                 #lower all
-                strExpEncode = strExp.encode('utf-8')
+                if sys.version_info >= (3, 0):
+                    strExpEncode = strExp
+                else:
+                    strExpEncode = strExp.encode('utf8')
                 strExpLow = strExpEncode.lower()
                 strExpLow_tab=strExpLow.split(" ")
 
@@ -358,26 +366,48 @@ if __name__ == '__main__':
     #liste = search.findLinkedins("Legros", "camille")
 
     file_tmp = ""
-    if platform.system() == "Windows":
-        file_tmp=open('scrapping_Recherche.log', 'w+', encoding="utf8")
+    name_date_file = datetime.now().strftime('%H%M%d%m%Y')
+    if sys.version_info >= (3, 0):
+        file_tmp=open('log/sLinkedin_py_recherche'+name_date_file+'.log', 'w+', encoding="utf8")
     else:
-        file_tmp=open('scrapping_Recherche.log', 'w+')
+        file_tmp=open('log/sLinkedin_py_recherche'+name_date_file+'.log', 'w+')
     for val in liste:
         print(val)
-        file_tmp.write(val.encode('utf-8'))
+        ecriturePython2_Python3(file_tmp, val)
         file_tmp.write('\n')
     file_tmp.close()
 
-    compte = search.findLinkedin("candido", "frank", liste[0])
+    file_tmp = ""
+    if sys.version_info >= (3, 0):
+        file_tmp=open('log/sLinkedin_py_info'+name_date_file+'.log', 'w+', encoding="utf8")
+    else:
+        #cas ou c'est en python2, il faudra dire que l'encodage sera fait en utf8 lors de l'écriture dans le fichier via str.encode(utf8) (qui fonctionne pas en python3 sinon c'est pas drole)
+        file_tmp=open('log/sLinkedin_py_info'+name_date_file+'.log', 'w+')
+
+    compte = search.findLinkedin("candido", "frank", liste[0], file_tmp)
     compte.homonymes = liste[1:]
     for experience in compte.experiences:
-        print("date:",experience.date)
-        print("description", experience.description)
-        print("urlEntreprise", experience.urlEntreprise)
-        print("nomExperience", experience.nomExperience)
-        print("nomEntreprise", experience.nomEntreprise)
-        print("geolocalisation", experience.geolocalisation)
-        print("descriptionE", experience.descriptionEntreprise)
-        print("domaine", experience.domaineEntreprise)
-        print("expActif?", experience.actif)
+        if platform.system() == "Windows":
+            file_tmp.write('\n\n')
+            ecriturePython2_Python3(file_tmp,"date:"+experience.date+'\n')
+            ecriturePython2_Python3(file_tmp,"description:"+experience.description+'\n')
+            ecriturePython2_Python3(file_tmp,"urlEntreprise:"+experience.urlEntreprise+'\n')
+            ecriturePython2_Python3(file_tmp,"nomExperience:"+experience.nomExperience+'\n')
+            ecriturePython2_Python3(file_tmp,"nomEntreprise:"+experience.nomEntreprise+'\n')
+            ecriturePython2_Python3(file_tmp,"geolocalisation:"+experience.geolocalisation+'\n')
+            ecriturePython2_Python3(file_tmp,"descriptionE:"+experience.descriptionEntreprise+'\n')
+            ecriturePython2_Python3(file_tmp,"domaine:"+experience.domaineEntreprise+'\n')
+            ecriturePython2_Python3(file_tmp,"expActif? %s \n" % experience.actif)
+
+        else:
+            print("date:",experience.date)
+            print("description", experience.description)
+            print("urlEntreprise", experience.urlEntreprise)
+            print("nomExperience", experience.nomExperience)
+            print("nomEntreprise", experience.nomEntreprise)
+            print("geolocalisation", experience.geolocalisation)
+            print("descriptionE", experience.descriptionEntreprise)
+            print("domaine", experience.domaineEntreprise)
+            print("expActif?", experience.actif)
+    file_tmp.close()
     manager.driver_quit()
