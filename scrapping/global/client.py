@@ -32,3 +32,30 @@ class LIClient(object):
         elem.send_keys(Keys.RETURN)
         # Wait a few seconds for the page to load
         time.sleep(3)
+
+
+class LIClientFacebook(object):
+    def __init__(self, driver, **kwargs):
+        self.driver         =  driver
+        self.username       =  kwargs["username"]
+        self.password       =  kwargs["password"]
+
+    def driver_quit(self):
+        self.driver.quit()
+
+    def login(self):
+        """login to linkedin then wait 3 seconds for page to load"""
+        # Enter login credentials
+        WebDriverWait(self.driver, 120).until(
+            EC.element_to_be_clickable(
+                (By.ID, "u_0_2")
+            )
+        )
+        elem = self.driver.find_element_by_id("email")
+        elem.send_keys(self.username)
+        elem = self.driver.find_element_by_id("pass")
+        elem.send_keys(self.password)
+        # Enter credentials with Keys.RETURN
+        elem.send_keys(Keys.RETURN)
+        # Wait a few seconds for the page to load
+        time.sleep(3)

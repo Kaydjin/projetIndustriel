@@ -171,6 +171,9 @@ if __name__ == '__main__':
     fname = "iteration_500.csv"
     reader = Reader(fname)
     reader.read()
-    tweets = reader.getIndeterminatedTweets(True)
+    #tweets = reader.getIndeterminatedTweets(True)
+    tweets = reader.getCompagnieTweets(True)
+    tweets.extend(reader.getCompagnieTweets(False))
+    tweets = list(set(tweets))
     for t in tweets:
         print(t.userName)

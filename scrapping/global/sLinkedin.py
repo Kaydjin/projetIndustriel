@@ -191,10 +191,23 @@ class SearcherLinkedin:
                     break
         return liste
 
-    def findLinkedins(self, nom, prenom):
+
+    def findLinkedins(self, nom, prenom, ecole=None, entreprise=None):
+        """
+            Usage :
+            ecole="str", entreprise="str" qui sont des paramètres optionnel
+        """
         recherche_nom= "lastName="
         recherche_prenom = "firstName="
         profile_link="https://www.linkedin.com/search/results/people/?"+recherche_nom+nom+"&"+recherche_prenom+prenom
+
+        if ecole is not None:
+            recherche_ecole="school=%s" % ecole
+            profile_link+= "&"+recherche_ecole
+        if entreprise is not None:
+            recherche_entreprise="company=%s" % entreprise
+            profile_link+= "&"+recherche_entreprise
+
 
         manager.get(profile_link, 3)
 
@@ -222,7 +235,7 @@ class SearcherLinkedin:
         valeurs = soup.find_all('section', class_='education-section')
         file_tmp.write("-------------------------Education/Etude-------------------------\n")
         if(len(valeurs)==0):
-            file.write('Empty\n')
+            file_tmp.write('Empty\n')
         else:
             res=""
             for elem in valeurs:
@@ -361,7 +374,7 @@ class SearcherLinkedin:
 if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
-    liste = search.findLinkedins("candido", "frank")
+    liste = search.findLinkedins("candido", "frank", entreprise="nuran")
     #test pour cas plusieurs page = nbr résultat = 13
     #liste = search.findLinkedins("Legros", "camille")
 
@@ -384,30 +397,31 @@ if __name__ == '__main__':
         #cas ou c'est en python2, il faudra dire que l'encodage sera fait en utf8 lors de l'écriture dans le fichier via str.encode(utf8) (qui fonctionne pas en python3 sinon c'est pas drole)
         file_tmp=open('log/sLinkedin_py_info'+name_date_file+'.log', 'w+')
 
-    compte = search.findLinkedin("candido", "frank", liste[0], file_tmp)
-    compte.homonymes = liste[1:]
-    for experience in compte.experiences:
-        if platform.system() == "Windows":
-            file_tmp.write('\n\n')
-            ecriturePython2_Python3(file_tmp,"date:"+experience.date+'\n')
-            ecriturePython2_Python3(file_tmp,"description:"+experience.description+'\n')
-            ecriturePython2_Python3(file_tmp,"urlEntreprise:"+experience.urlEntreprise+'\n')
-            ecriturePython2_Python3(file_tmp,"nomExperience:"+experience.nomExperience+'\n')
-            ecriturePython2_Python3(file_tmp,"nomEntreprise:"+experience.nomEntreprise+'\n')
-            ecriturePython2_Python3(file_tmp,"geolocalisation:"+experience.geolocalisation+'\n')
-            ecriturePython2_Python3(file_tmp,"descriptionE:"+experience.descriptionEntreprise+'\n')
-            ecriturePython2_Python3(file_tmp,"domaine:"+experience.domaineEntreprise+'\n')
-            ecriturePython2_Python3(file_tmp,"expActif? %s \n" % experience.actif)
+    if len(liste) > 0 :
+        compte = search.findLinkedin("candido", "frank", liste[0], file_tmp)
+        compte.homonymes = liste[1:]
+        for experience in compte.experiences:
+            if platform.system() == "Windows":
+                file_tmp.write('\n\n')
+                ecriturePython2_Python3(file_tmp,"date:"+experience.date+'\n')
+                ecriturePython2_Python3(file_tmp,"description:"+experience.description+'\n')
+                ecriturePython2_Python3(file_tmp,"urlEntreprise:"+experience.urlEntreprise+'\n')
+                ecriturePython2_Python3(file_tmp,"nomExperience:"+experience.nomExperience+'\n')
+                ecriturePython2_Python3(file_tmp,"nomEntreprise:"+experience.nomEntreprise+'\n')
+                ecriturePython2_Python3(file_tmp,"geolocalisation:"+experience.geolocalisation+'\n')
+                ecriturePython2_Python3(file_tmp,"descriptionE:"+experience.descriptionEntreprise+'\n')
+                ecriturePython2_Python3(file_tmp,"domaine:"+experience.domaineEntreprise+'\n')
+                ecriturePython2_Python3(file_tmp,"expActif? %s \n" % experience.actif)
 
-        else:
-            print("date:",experience.date)
-            print("description", experience.description)
-            print("urlEntreprise", experience.urlEntreprise)
-            print("nomExperience", experience.nomExperience)
-            print("nomEntreprise", experience.nomEntreprise)
-            print("geolocalisation", experience.geolocalisation)
-            print("descriptionE", experience.descriptionEntreprise)
-            print("domaine", experience.domaineEntreprise)
-            print("expActif?", experience.actif)
+            else:
+                print("date:",experience.date)
+                print("description", experience.description)
+                print("urlEntreprise", experience.urlEntreprise)
+                print("nomExperience", experience.nomExperience)
+                print("nomEntreprise", experience.nomEntreprise)
+                print("geolocalisation", experience.geolocalisation)
+                print("descriptionE", experience.descriptionEntreprise)
+                print("domaine", experience.domaineEntreprise)
+                print("expActif?", experience.actif)
     file_tmp.close()
     manager.driver_quit()
