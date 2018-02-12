@@ -3,12 +3,9 @@
 
 import re
 import sys
-"""
-try:
-    from google import search
-except ImportError: 
-    print("No module named 'google' found")
-"""
+import os
+#chemin vers le module
+os.chdir("D:\M2S1\Projet_Indu\projetIndustriel\scrapping\global\Google-Search-API-master")
 from google import google
 
 """

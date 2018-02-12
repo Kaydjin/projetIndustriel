@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
 import csv
 import nltk
 import string
@@ -53,8 +54,10 @@ class Reader:
     def read(self):
 
         #instanciation de fichier csv
-        file = open(self.fileNameCsv, "rt")
-
+        if(sys.version_info > (3,0)):
+            file = open(self.fileNameCsv, "rt",encoding = "utf8")
+        else:
+            file = open(self.fileNameCsv, "rt")
         fname = "prenoms.csv"
         file2 = open(fname, "rt")
 
