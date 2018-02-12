@@ -6,6 +6,7 @@ import nltk
 import string
 import re
 from nltk.corpus import stopwords        
+from nltk.tag import pos_tag
 
 nltk.download('maxent_ne_chunker')
 nltk.download('averaged_perceptron_tagger')
@@ -44,8 +45,9 @@ class TextAnalyser:
 
     """ Analyse et ne renvoit que les noms propres d'un texte ou enonce """
     def getPropersNouns(self, text):
-        liste = text.split(" ")
-        return [w for w in liste if w not in self.corpus]
+        tagged_sent = pos_tag(text.split())
+        propernouns = [word for word,pos in tagged_sent if pos == 'NNP']
+        return propernouns
 
 
     """ Separe les mots composes d'elements speciaux d'un texte et supprime la ponctuaction """
