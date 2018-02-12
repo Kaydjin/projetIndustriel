@@ -69,7 +69,12 @@ class Reader:
                 liste.append(row.get('prenom').lower())
 
             #on cree une liste de mots souvent present dans une compagnie
-            corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications']
+            corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk','stocks','stock', 'resources',
+            'energy', 'communications','digital','news', 'report', 'talk', 'media','publishing',
+                                'mine','mining', 'live', 'investors', 'international', 'office', 'partners', 'environment','group',
+                                'radio', 'network','wire','wired','financial', 'economic', 'traders', 'trade', 'information',
+                                'networks','limited','electronics', 'corporation', 'company', 'entertainment', 'productions', 'tech','sciences',
+                                'research','production', 'solutions', 'sports', 'systems', 'records', 'journal', 'exploration','exploror']
 
             #instanciation de la liste des descriptions a analyser
             descriptions = []
