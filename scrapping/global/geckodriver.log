@@ -4436,7 +4436,6 @@ IPDL protocol error: Handler returned error code!
 
 ###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
 
-<<<<<<< HEAD
 Handler function NetworkEventActorProxy.addSecurityInfo threw an exception: [Exception... "Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIMessageSender.sendAsyncMessage]"  nsresult: "0xc1f30001 (NS_ERROR_NOT_INITIALIZED)"  location: "JS frame :: resource://devtools/shared/base-loader.js -> resource://devtools/shared/webconsole/network-monitor.js :: NetworkEventActorProxy.methodFactory/< :: line 1690"  data: no]
 Stack: NetworkEventActorProxy.methodFactory/<@resource://devtools/shared/base-loader.js -> resource://devtools/shared/webconsole/network-monitor.js:1690:5
 exports.makeInfallible/<@resource://devtools/shared/base-loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:109:14
@@ -4482,8 +4481,6 @@ _onComplete@resource://devtools/shared/base-loader.js -> resource://devtools/sha
 onStreamClose@resource://devtools/shared/base-loader.js -> resource://devtools/shared/webconsole/network-monitor.js:577:7
 onInputStreamReady@resource://devtools/shared/base-loader.js -> resource://devtools/shared/webconsole/network-monitor.js:668:7
 Line: 1690, column: 0
-=======
->>>>>>> 3b87aa4bef72c26c48019c7da6fdc788fd99b850
 IPDL protocol error: Handler returned error code!
 
 ###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
@@ -7808,7 +7805,7 @@ JavaScript warning: https://s0.2mdn.net/ads/richmedia/studio/pv2/60493356/201801
 1518421318506	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
 1518421319120	Marionette	INFO	Enabled via --marionette
 1518421322351	Marionette	INFO	Listening on port 43563
-1518421322425	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518421322425	Marionette	WARN	TLS certificate errors will be ignored for this session>>>
 1518421322483	Marionette	DEBUG	Register listener.js for window 2147483649
 1518421325501	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
 1518421325798	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
@@ -9439,3 +9436,7 @@ JavaScript error: resource://shield-recipe-client/lib/NormandyApi.jsm, line 60: 
 1518438838165	Marionette	DEBUG	Register listener.js for window 6442450948
 1518439060982	Marionette	DEBUG	Register listener.js for window 2147483666
 1518439061171	Marionette	DEBUG	Register listener.js for window 4294967297
+1518442687461	Marionette	DEBUG	Register listener.js for window 2147483669
+1518442692625	Marionette	DEBUG	Register listener.js for window 2147483706
+1518442695367	Marionette	DEBUG	Register listener.js for window 10737418241
+1518442702805	Marionette	DEBUG	Register listener.js for window 4294967301
