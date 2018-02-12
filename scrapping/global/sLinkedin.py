@@ -11,17 +11,21 @@ import platform
 
 class Experience:
 
-    def __init__(self, url, nom, date, geolocalisation, description, descriptionEntreprise):
+    def __init__(self, url, nom, date, geolocalisation, description, actif, urlEntreprise, nomEntreprise, descriptionEntreprise, domaineE):
         self.url = url
-        self.nom = nom
+        self.nomExperience = nom
         self.date = date
         self.geolocalisation = geolocalisation
         self.description = description
+        self.actif = actif
+
+        self.urlEntreprise = urlEntreprise
         self.descriptionEntreprise = descriptionEntreprise
-        self.domaine = ""   
+        self.domaineEntreprise = domaineE
+        self.nomEntreprise = nomEntreprise
 
         def toString(self):
-            return nom + " " + geolocalisation + " " + description
+            return nomExperience + " " + geolocalisation + " " + description
 
 class CompteLinkedin:
 
@@ -40,8 +44,8 @@ class CompteLinkedin:
     def addEtude(self, x):
         self.etudes.append(x)
 
-    def addExperience(self, url, nom, date, geolocalisation, description, descriptionEntreprise):
-        self.experiences.append(Experience(url, nom, date, geolocalisation, description, descriptionEntreprise))
+    def addExperience(self, url, nom, date, geolocalisation, description, actif, urlEntreprise, descriptionEntreprise, domaineE):
+        self.experiences.append(Experience(url, nom, date, geolocalisation, description, actif, urlEntreprise, descriptionEntreprise, domaineE))
 
     def addHomonyme(self, x):
         self.homonymes.append(x)
@@ -184,7 +188,11 @@ class SearcherLinkedin:
 
         html=manager.driver.page_source
 
-        file_tmp=open('scrapping_InfoPerson.log', 'w+', encoding="utf8")
+        file_tmp = ""
+        if platform.system() == "Windows":
+            file_tmp=open('scrapping_InfoPerson.log', 'w+', encoding="utf8")
+        else:
+            file_tmp=open('scrapping_InfoPerson.log', 'w+')
 
         soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 
@@ -202,12 +210,11 @@ class SearcherLinkedin:
                         tmp = formater(e.get_text())
                         compte.addEtude(tmp)
                         res = res + '\n\n' + tmp
-            file_tmp.write(res)
+            file_tmp.write(res.encode('utf-8'))
             file_tmp.write('\n\n')
     
         # Experiences
-        description = []
-        date=[]
+        experiences = []
         valeurs = soup.find_all('section', class_='experience-section')
         file_tmp.write("\n-------------------------Experiences-------------------------\n")
         if(len(valeurs)==0):
@@ -220,14 +227,16 @@ class SearcherLinkedin:
                 for e in elem_valeurs:
                     if(e.get_text() != '') :
                         tmp = formater(e.get_text())
+                        experiences.append(tmp)
                         #On cherche le mot date
-                        str_tab=tmp.split("\n")
-                        for myStr in str_tab :
-                            if("date" in tmp.upper()):
+                        #str_tab=tmp.split("\n")
+                        """for myStr in str_tab :
+                            if("date" in myStr.lower()):
                                 date.append(myStr)
-                        description.append(tmp)
+                                print(myStr)
+                        description.append(tmp)"""
                         res = res + '\n\n' + tmp
-            file_tmp.write(res)
+            file_tmp.write(res.encode('utf-8'))
             file_tmp.write('\n\n')
 
         #Favoris
@@ -237,12 +246,12 @@ class SearcherLinkedin:
             if(elem.get_text()!= ''):
                 tmp = formater(elem.get_text())
                 compte.addFavori(tmp)
-                file_tmp.write(tmp)
+                file_tmp.write(tmp.encode('utf-8'))
                 file_tmp.write('\n\n')
 
+        #Recuperation des images et des urls entreprises correspondantes
         experience = soup.select('.pv-profile-section.experience-section.ember-view a')
         urlsExperiences = []
-
         pos = 0
         index = []
         for elem in experience:
@@ -257,10 +266,45 @@ class SearcherLinkedin:
 
             pos = pos + 1
 
+        description = []
+        date=[]
+        noms = []
         nomsE = []
         domaineE = []
         locationE = []
         descriptionE = []
+        actif = []
+
+        for experience in experiences:
+            str_tab=experience.split("\n")
+            ligne = 0
+
+            for myStr in str_tab :
+
+                #Instanciation of the experience job:
+                if ligne == 0:
+                    noms.append(myStr)
+
+                #Instanciation of the date
+                if "dates d'emploi" in myStr.lower():
+                    date.append(myStr.replace("dates d'emploi", ""))
+                    if "aujourd'hui" in myStr.lower():
+                        actif.append(True)
+                    else:
+                        actif.append(False)
+                else:
+                    date.append("")
+                    #By default if no date, we put the experience as active.
+                    actif.append(True)
+    
+                #Instanciation of the name of the entreprise
+                Nom de l’entreprise
+                #Instanciation of the geolocalisation
+
+                #++
+                ligne = ligne + 1
+
+                    print(myStr)
         for url in urlsExperiences:
             # wait for page load=3
             manager.get(url, 3)
@@ -286,7 +330,7 @@ class SearcherLinkedin:
         print(len(description))
         print(len(descriptionE))
         for k in range(0,len(urlsExperiences)):
-            compte.addExperience(urlsExperiences[k], nomsE[k], "", locationE[k], "", descriptionE[k])
+            compte.addExperience(urlsExperiences[k], nomsE[k], "", locationE[k], "", descriptionE[k], "", actif)
 
         return compte
 
@@ -296,15 +340,22 @@ if __name__ == '__main__':
     liste = search.findLinkedins("candido", "frank")
     #test pour cas plusieurs page = nbr résultat = 13
     #liste = search.findLinkedins("Legros", "camille")
-    file_tmp=open('scrapping_Recherche.log', 'w+', encoding="utf8")
+
+    file_tmp = ""
+    if platform.system() == "Windows":
+        file_tmp=open('scrapping_Recherche.log', 'w+', encoding="utf8")
+    else:
+        file_tmp=open('scrapping_Recherche.log', 'w+')
     for val in liste:
         print(val)
-        file_tmp.write(val)
+        file_tmp.write(val.encode('utf-8'))
         file_tmp.write('\n')
     file_tmp.close()
 
     compte = search.findLinkedin("candido", "frank", liste[0])
     for experience in compte.experiences:
+        print(experience.date)
+        print(experience.description)
         #print(experience.url)
         print(experience.nom)
         #print(experience.geolocalisation)
