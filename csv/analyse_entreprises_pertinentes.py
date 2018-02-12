@@ -34,8 +34,8 @@ try:
     for row in reader3:
         liste.append(row.get('prenom').lower())
 
-    corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications']
-    corpus_news = ['news', 'report', 'talk', 'media']
+    corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications','digital','news', 'report', 'talk', 'media','publishing']
+    corpus_news = []
     nbr_vrai = 0
     nbrs_entreprises = 0
     entreprises = []
@@ -63,7 +63,6 @@ try:
                     if not "company" in row.get('user_description').lower():
                         entreprises.append(row.get('user_name'))
                         nbrs_entreprises = nbrs_entreprises + 1
-                        print row.get('user_name'), row.get('user_description')
 
     print nbr_vrai
     print nbrs_entreprises

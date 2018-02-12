@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
 				#Tant que la liste urls n'est pas vide et que la limite temporel n'est pas atteinte,
 				#on continue a recuperer les homonymes
-				while (len(urls) > 0) & (time.time()-start_time<time_limit):
+				while (len(urls) > 0) & ( ):
 					#on parcourt les homonymes dans la liste urls
 					for url in urls:
 						print(url)
