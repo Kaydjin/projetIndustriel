@@ -23,8 +23,11 @@ class Experience:
         self.domaineEntreprise = domaineE
         self.nomEntreprise = nomEntreprise
 
-        def toString(self):
-            return nomExperience + " " + geolocalisation + " " + description
+        def synthesePersonne(self):
+            return self.nomExperience + self.date + self.geolocalisation + self.description + self.nomEntreprise + self.domaineEntreprise
+
+        def syntheseEntreprise(self):
+            return self.nomEntreprise + self.geolocalisation + self.domaineEntreprise + self.descriptionEntreprise
 
 class CompteLinkedin:
 
@@ -34,7 +37,6 @@ class CompteLinkedin:
         self.favoris = []
         self.etudes = []
         self.experiences = []
-        self.entreprise = ""
         self.complementaire = ""
 
     def addFavori(self, x):
@@ -49,7 +51,23 @@ class CompteLinkedin:
     def addHomonyme(self, x):
         self.homonymes.append(x)
 
-    def synthese(self):
+    def allActiveEntreprise(self):
+        liste = []
+        for s in self.experiences:
+            if s.actif == True:
+                liste.append(s)
+
+        return liste
+
+    def syntheseEntreprise(self, active):
+        strRes = ""
+        for s in self.experiences:
+            if s.actif==active:
+                strRes = strRes + s.syntheseEntreprise() + " "
+
+        return strRes
+
+    def synthesePersonne(self):
         strFavoris = ""
         for s in self.favoris:
             strFavoris = strFavoris + s+" "
@@ -58,7 +76,7 @@ class CompteLinkedin:
             strEtudes = strEtudes + s+" "
         strExperiences = ""
         for s in self.experiences:
-            strExperiences = strExperiences + s+" "
+            strExperiences = strExperiences + s.synthesePersonne() +" "
 
         return strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
 
@@ -228,7 +246,7 @@ class SearcherLinkedin:
 
         file_tmp.write("\n-------------------------Experiences-------------------------\n")
         if(len(valeurs)==0):
-            file.write('Empty\n')
+            file_tmp.write('Empty\n')
         else:
             """depuis un tableau de type soup, On récupère la liste de tag li qu'on formatte pour l'affichage 
             Cette fonction est utilisé pour la partie education et expérience"""
@@ -335,7 +353,7 @@ class SearcherLinkedin:
 if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
-    liste = search.findLinkedins("candido", "frank")
+    liste = search.findLinkedins("vogel", "jimmy")
     #test pour cas plusieurs page = nbr résultat = 13
     #liste = search.findLinkedins("Legros", "camille")
 
@@ -350,7 +368,8 @@ if __name__ == '__main__':
         file_tmp.write('\n')
     file_tmp.close()
 
-    compte = search.findLinkedin("candido", "frank", liste[0])
+    compte = search.findLinkedin("vogel", "jimmy", liste[0])
+    compte.homonymes = liste[1:]
     for experience in compte.experiences:
         print("date:",experience.date)
         print("description", experience.description)

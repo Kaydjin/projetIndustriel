@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import requests, bs4
+import argparse
+import time
+import os
+import bs4
+import platform
 
 class CompteFacebook:
 
@@ -11,6 +16,7 @@ class CompteFacebook:
 		self.url = url
 		self.favoris = []
 		self.experiences = []
+		self.etudes = []
 		self.complementaire = ""
 
 	def addFavori(self, x):
@@ -18,6 +24,9 @@ class CompteFacebook:
 
 	def addExperience(self, x):
 		self.experiences.append(x)
+
+	def addEtude(self, x):
+		self.etudes.append(x)
 
 	def addHomonyme(self, x):
 		self.homonymes.append(x)
@@ -29,8 +38,11 @@ class CompteFacebook:
 		strExperiences = ""
 		for s in self.experiences:
 			strExperiences = strExperiences + s+" "
+		strEtudes = ""
+		for s in self.etudes:
+			strEtudes = strEtudes+ s +" "
 
-		return self.description + " " + strExperiences + " " + self.complementaire + " " + strFavoris
+		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
 
 """ Retourne l'objet facebook correspondant a la recherche depuis une url donne """
 def findFacebook(nom, prenom, url):
@@ -66,10 +78,22 @@ def findFacebook(nom, prenom, url):
 	else:
 		compte.description = "null"
 	#'DONNEES METIERS ET ECOLES:')
-	metiersecoles = soup.select('#pagelet_timeline_medley_about .fbEditProfileViewExperience div ._6a a')
+
+	metiersecoles = soup.find_all('div', class_='_4qm1')
+
 	if len(metiersecoles)>0:
 		for elem in metiersecoles:
-			compte.addExperience(elem.getText())
+			if elem.get('data-pnref') == "work":
+				liste = elem.find_all('a')
+				print elem.getText()
+				for val in liste:
+					compte.addExperience(val.getText())
+			if elem.get('data-pnref') == "edu":
+				liste = elem.find_all('a')
+				print elem.getText()
+				for val in liste:
+					compte.addEtude(val.getText())
+
 	#'DONNEES GEOGRAPHIQUES:')
 	hometown = soup.select('#pagelet_timeline_medley_about #pagelet_hometown .fbProfileEditExperiences a')
 	if len(hometown)>0:
@@ -96,6 +120,10 @@ if __name__ == '__main__':
 
 	print('Experiences:')
 	for val in compte.experiences:
+		print(val)
+
+	print('Etudes:')
+	for val in compte.etudes:
 		print(val)
 
 	print('Favoris:')

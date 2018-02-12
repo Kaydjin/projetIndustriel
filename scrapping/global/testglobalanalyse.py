@@ -86,3 +86,9 @@ if __name__ == '__main__':
 					print("~~~~~~~~~~~~~~~~[" + strRes + "]")
 				print("-------------------------------------------------------------------------------------")
 
+				for c in comptes:
+					exp = ""
+					if c.experiences>0:
+						exp = c.experiences[0]
+					
+
