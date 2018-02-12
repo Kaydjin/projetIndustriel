@@ -235,7 +235,7 @@ class SearcherLinkedin:
         valeurs = soup.find_all('section', class_='education-section')
         file_tmp.write("-------------------------Education/Etude-------------------------\n")
         if(len(valeurs)==0):
-            file.write('Empty\n')
+            file_tmp.write('Empty\n')
         else:
             res=""
             for elem in valeurs:
