@@ -11,10 +11,18 @@ except ImportError:
 """
 from google import google
 
-
+"""
+-nom_complet correspond au nom de la personne ou entreprise que l'on recherche
+-complementaire contient une chaine de mots séparés par des espaces. Ceux-ci précise par exemple la localisation de l'entité recherchée.
+-reseausocial correspond au réseau social sur lequel l'on recherche la personne
+-entreprise est un boolean précisant si l'on recherche une entreprise (True) ou une personne (False)
+"""
 def search_google(nom_complet, complementaire, reseausocial, entreprise):
-    if not entreprise:
-        # séparation du nom_complet en nom et prénom, utile pour les regex
+    result = []
+    num_page = 1
+    #cas où nous recherchons une personne
+    if(not entreprise):
+        #nous séparons le nom_complet en prénom et nom
         prenom = ""
         nom = ""
         fin_prenom = False
@@ -26,35 +34,47 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise):
                     prenom += c
             else:
                 nom += c
-
-        #construction des strings servant aux requetes sur le moteur de recherche google
+        #formation de la chaine de caractère qui sera utilisée dans le moteur de recherche
         query = prenom + " " + nom + " " + complementaire + " " + reseausocial
-
-        prenom = supprime_accent(prenom)
+        #appel de la méthode de la libraire permettant d'obtenir les résultats de la recherche
+        listurls = google.search(query, num_page)
+        #la suppression des accents facilite la vérification de la pertinance des résultat
         nom = supprime_accent(nom)
-
-        if reseausocial == "linkedin":
-            return search_google_linkedin(nom, prenom, query)
-        if reseausocial == "facebook":
-            return search_google_facebook(nom, prenom, query)
-        return []
+        prenom = supprime_accent(prenom)
+        for i in listurls:
+            i_sans_accent = supprime_accent(i.link)
+            #comme nous recherchons une personne il nous suffit de trouver un lien correspondant puis de chercher dans les homonymes
+            if(reseausocial == "facebook" and len(result) < 1 and
+                re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
+                    result.append(i.link)
+            elif(reseausocial == "linkedin" and 
+                re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
+                    result.append(i.link)
+    #cas d'une recherche d'entreprise
     else:
+        query = nom_complet + " " + complementaire + " " + reseausocial
+        listurls = google.search(query, num_page)
         nom = supprime_accent(nom_complet)
-        query = nom + " " + complementaire# + " " + reseausocial
-        return search_google_entreprise(nom, query)
-    
+        nom_sans_espace = ""
+        for c in nom:
+            if c != " ":
+                nom_sans_espace += c
+            else:
+                nom_sans_espace += ".*"
+        for i in listurls:
+            i_sans_accent = supprime_accent(i.link)
+            if (reseausocial == "facebook" and 
+            re.match(".*FACEBOOK.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
+                    result.append((i.link,i.description))
+            elif (reseausocial == "linkedin" and 
+                re.match(".*LINKEDIN.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
+                    result.append((i.link,i.description))
+            else:
+                if re.match(".*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()):
+                    result.append((i.link,i.description))
+    return result
 
-        # ARGUMENTS METHODE search of GOOGLE
-    #execution d'une requete, le resultat est recupere dans "i"
-    #query : query string that we want to search for.
-    #tld : tld stands for top level domain which means we want to search our result on google.com or google.in or some other domain.
-    #lang : lang stands for language.
-    #num : Number of results we want.
-    #start : First result to retrieve.
-    #stop : Last result to retrieve. Use None to keep searching forever.
-    #pause : Lapse to wait between HTTP requests. Lapse too short may cause Google to block your IP. Keeping significant lapse will make your program slow but its safe and better option.
-    #Return : Generator (iterator) that yields found URLs. If the stop parameter is None the iterator will loop forever.
-
+"""
 def search_google_facebook(nom, prenom, queryFacebook):
     result = []
     num_page = 1
@@ -84,15 +104,36 @@ def search_google_linkedin(nom, prenom, queryLinkedIn):
 
 def search_google_entreprise(nom, queryEntreprise):
     result = []
+    num_page = 1
     listurls = google.search(queryEntreprise, num_page)
     #listurls = search(query, tld="com", num=10, stop=1, pause=2)
     for i in listurls:
         #supprimer les accents sert a généraliser la recherche
-        i_sans_accent = supprime_accent(i)
-        if re.match(".*" + nom.upper() + ".*", i_sans_accent.upper()):
-            result.append(i)
+        i_sans_accent = supprime_accent(i.link)
+        if re.match(".*" + nom.upper() + ".*", j_sans_accent.upper()):
+            result.append((i.link,i.description))
     return result
 
+def search_google_entreprise_linkedin(nom, queryEntrepriseLinkedin):
+    result = []
+    num_page = 1
+    listurls = google.search(queryEntrepriseLinkedin, num_page)
+    for i in listurls:
+        i_sans_accent = supprime_accent(i.link)
+        if re.match(".*LINKEDIN.*" + nom.upper() + ".*", i_sans_accent.upper()):
+            result.append((i.link,i.description))
+    return result
+
+def search_google_entreprise_facebook(nom, queryEntrepriseFacebook):
+    result = []
+    num_page = 1
+    listurls = google.search(queryEntrepriseFacebook, num_page)
+    for i in listurls:
+        i_sans_accent = supprime_accent(i.link)
+        if re.match(".*FACEBOOK.*" + nom.upper() + ".*", i_sans_accent.upper()):
+            result.append((i.link,i.description))
+    return result
+"""
 def supprime_accent(ligne):
         """ supprime les accents du texte source """
         accents = { 'a': ['à', 'ã', 'á', 'â', 'ä', 'å'],
@@ -112,5 +153,9 @@ def supprime_accent(ligne):
 
 
 if __name__ == '__main__':
-    liste_sites = search_google("Frank Candido", "", "linkedin", False)
-    print(liste_sites)
+    #liste_sites = search_google("Frank Candido", "", "linkedin", False)
+    #print(liste_sites)
+    liste_sites = search_google("BigMoneyTraders","","",True)
+    for i,j in liste_sites:
+        print(i," ==> ",j,"\n")
+    

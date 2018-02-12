@@ -100,16 +100,15 @@ class SeleniumManager:
 
 
 def formater(str_text):
-    strt = str_text.replace('\n', ' ').strip()
+    str_text = str_text.replace('\n', ' ').strip()
     str_tab = str_text.split("  ")
-
     res = ""
     for s in str_tab:
         s = s.strip()
         if(s != ''):
-            res = res + s
+            res = res +"\n"+ s
+    return res
 
-    return res.encode('utf-8')
 
 class SearcherLinkedin:
 
@@ -124,12 +123,14 @@ class SearcherLinkedin:
         liclient.login()
         time.sleep(3)
 
-    def findLinkedins(self, nom, prenom):
-        recherche_nom= "lastName="
-        recherche_prenom = "firstName="
-        profile_link="https://www.linkedin.com/search/results/people/?"+recherche_nom+nom+"&"+recherche_prenom+prenom
+    def findLinkedinsScrapping(self):
 
-        manager.get(profile_link, 3)
+        #Chargement de la page /!\ 
+        time.sleep(2)
+        
+        #On scroll histoire que la page soit charger pour le scrapping (sinon rique de manquer des éléments)
+        manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)
 
         html=manager.driver.page_source
         soup=bs4.BeautifulSoup(html, "html.parser")
@@ -146,7 +147,26 @@ class SearcherLinkedin:
             if a%2==0:
                 liste.append('https://www.linkedin.com'+elem.get('href'))
 
+        next_page = soup.find_all('ol', class_='results-paginator')
+        for elem in next_page:
+            suivant=elem.find_all('button', class_='next')
+            if (len(suivant)==1):
+                #dans le cas ou il croit avoir trouvé un button ... ouais ça arrive si la connexion est trop lente
+                try:
+                    manager.driver.find_element_by_css_selector('button.next').click()
+                    liste = liste + self.findLinkedinsScrapping()
+                except:
+                    break
         return liste
+
+    def findLinkedins(self, nom, prenom):
+        recherche_nom= "lastName="
+        recherche_prenom = "firstName="
+        profile_link="https://www.linkedin.com/search/results/people/?"+recherche_nom+nom+"&"+recherche_prenom+prenom
+
+        manager.get(profile_link, 3)
+
+        return self.findLinkedinsScrapping()
 
     def findLinkedin(self, nom, prenom, url):
 
@@ -154,39 +174,71 @@ class SearcherLinkedin:
 
         """ pause 0 car on doit defiler vers le bas avant de faire la pause"""
         manager.get(url, 3)
-        print("ici")
+        
+        #on charge le haut de la page
+        time.sleep(3)
         #on scrolle vers le bas pour faire un chargement des centres d'interet
         manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        # wait for page load
-        time.sleep(6)
+        # on charge le bas de la page
+        time.sleep(3)
 
         html=manager.driver.page_source
+
+        file_tmp=open('scrapping_InfoPerson.log', 'w+', encoding="utf8")
 
         soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 
         #Education
-        valeurs = soup.find_all('li', class_='pv-education-entity')
-        for elem in valeurs:
-            if(elem.get_text()!= ''):
-                compte.addEtude(elem.get_text().strip("\n \r"))
-                print(formater(elem.get_text()))
+        valeurs = soup.find_all('section', class_='education-section')
+        file_tmp.write("-------------------------Education/Etude-------------------------\n")
+        if(len(valeurs)==0):
+            file.write('Empty\n')
+        else:
+            res=""
+            for elem in valeurs:
+                elem_valeurs = elem.find_all('li')
+                for e in elem_valeurs:
+                    if(e.get_text() != '') :
+                        tmp = formater(e.get_text())
+                        compte.addEtude(tmp)
+                        res = res + '\n\n' + tmp
+            file_tmp.write(res)
+            file_tmp.write('\n\n')
+    
+        # Experiences
+        description = []
+        date=[]
+        valeurs = soup.find_all('section', class_='experience-section')
+        file_tmp.write("\n-------------------------Experiences-------------------------\n")
+        if(len(valeurs)==0):
+            file.write('Empty\n')
+        else:
+            """depuis un tableau de type soup, On récupère la liste de tag li qu'on formatte pour l'affichage Cette fonction est utilisé pour la partie education et expérience"""
+            res=""
+            for elem in valeurs:
+                elem_valeurs = elem.find_all('li')
+                for e in elem_valeurs:
+                    if(e.get_text() != '') :
+                        tmp = formater(e.get_text())
+                        #On cherche le mot date
+                        str_tab=tmp.split("\n")
+                        for myStr in str_tab :
+                            if("date" in tmp.upper()):
+                                date.append(myStr)
+                        description.append(tmp)
+                        res = res + '\n\n' + tmp
+            file_tmp.write(res)
+            file_tmp.write('\n\n')
 
         #Favoris
+        file_tmp.write("\n-------------------------Favoris-------------------------\n")
         valeurs = soup.find_all('li', class_='pv-interest-entity')
         for elem in valeurs:
             if(elem.get_text()!= ''):
-                compte.addFavori(elem.get_text().strip("\n \r"))
-                print(formater(elem.get_text()))
-
-        # Experiences
-        soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
-        valeurs = soup.find_all('li', class_='pv-position-entity')
-        date = []
-        description = []
-        for elem in valeurs:
-            date.append(elem.get_text().strip("\n \r"))
-            description.append(elem.get_text().strip("\n \r"))
-            print(formater(elem.get_text()))
+                tmp = formater(elem.get_text())
+                compte.addFavori(tmp)
+                file_tmp.write(tmp)
+                file_tmp.write('\n\n')
 
         experience = soup.select('.pv-profile-section.experience-section.ember-view a')
         urlsExperiences = []
@@ -242,8 +294,14 @@ if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
     liste = search.findLinkedins("candido", "frank")
+    #test pour cas plusieurs page = nbr résultat = 13
+    #liste = search.findLinkedins("Legros", "camille")
+    file_tmp=open('scrapping_Recherche.log', 'w+', encoding="utf8")
     for val in liste:
         print(val)
+        file_tmp.write(val)
+        file_tmp.write('\n')
+    file_tmp.close()
 
     compte = search.findLinkedin("candido", "frank", liste[0])
     for experience in compte.experiences:
@@ -251,5 +309,4 @@ if __name__ == '__main__':
         print(experience.nom)
         #print(experience.geolocalisation)
         #print(experience.descriptionEntreprise)
-
     manager.driver_quit()
