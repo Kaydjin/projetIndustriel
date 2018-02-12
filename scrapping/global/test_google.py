@@ -4,8 +4,6 @@
 import re
 import sys
 import os
-#chemin vers le module
-os.chdir("D:\M2S1\Projet_Indu\projetIndustriel\scrapping\global\Google-Search-API-master\google")
 from google import google
 
 """
