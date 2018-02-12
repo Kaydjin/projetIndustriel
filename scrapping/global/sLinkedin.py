@@ -11,8 +11,7 @@ import platform
 
 class Experience:
 
-    def __init__(self, url, nom, date, geolocalisation, description, actif, urlEntreprise, nomEntreprise, descriptionEntreprise, domaineE):
-        self.url = url
+    def __init__(self, nom, date, geolocalisation, description, actif, urlEntreprise, nomEntreprise, descriptionEntreprise, domaineE):
         self.nomExperience = nom
         self.date = date
         self.geolocalisation = geolocalisation
@@ -44,8 +43,8 @@ class CompteLinkedin:
     def addEtude(self, x):
         self.etudes.append(x)
 
-    def addExperience(self, url, nom, date, geolocalisation, description, actif, urlEntreprise, descriptionEntreprise, domaineE):
-        self.experiences.append(Experience(url, nom, date, geolocalisation, description, actif, urlEntreprise, descriptionEntreprise, domaineE))
+    def addExperience(self, nom, date, geolocalisation, description, actif, urlEntreprise, nomE, descriptionE, domaineE):
+        self.experiences.append(Experience(nom, date, geolocalisation, description, actif, urlEntreprise, nomE, descriptionE, domaineE))
 
     def addHomonyme(self, x):
         self.homonymes.append(x)
@@ -212,32 +211,6 @@ class SearcherLinkedin:
                         res = res + '\n\n' + tmp
             file_tmp.write(res.encode('utf-8'))
             file_tmp.write('\n\n')
-    
-        # Experiences
-        experiences = []
-        valeurs = soup.find_all('section', class_='experience-section')
-        file_tmp.write("\n-------------------------Experiences-------------------------\n")
-        if(len(valeurs)==0):
-            file.write('Empty\n')
-        else:
-            """depuis un tableau de type soup, On récupère la liste de tag li qu'on formatte pour l'affichage Cette fonction est utilisé pour la partie education et expérience"""
-            res=""
-            for elem in valeurs:
-                elem_valeurs = elem.find_all('li')
-                for e in elem_valeurs:
-                    if(e.get_text() != '') :
-                        tmp = formater(e.get_text())
-                        experiences.append(tmp)
-                        #On cherche le mot date
-                        #str_tab=tmp.split("\n")
-                        """for myStr in str_tab :
-                            if("date" in myStr.lower()):
-                                date.append(myStr)
-                                print(myStr)
-                        description.append(tmp)"""
-                        res = res + '\n\n' + tmp
-            file_tmp.write(res.encode('utf-8'))
-            file_tmp.write('\n\n')
 
         #Favoris
         file_tmp.write("\n-------------------------Favoris-------------------------\n")
@@ -249,88 +222,113 @@ class SearcherLinkedin:
                 file_tmp.write(tmp.encode('utf-8'))
                 file_tmp.write('\n\n')
 
-        #Recuperation des images et des urls entreprises correspondantes
-        experience = soup.select('.pv-profile-section.experience-section.ember-view a')
+        # Recuperation en dur des experiences
+        experiences = []
+        valeurs = soup.find_all('section', class_='experience-section')
+
+        file_tmp.write("\n-------------------------Experiences-------------------------\n")
+        if(len(valeurs)==0):
+            file.write('Empty\n')
+        else:
+            """depuis un tableau de type soup, On récupère la liste de tag li qu'on formatte pour l'affichage 
+            Cette fonction est utilisé pour la partie education et expérience"""
+            res=""
+            for elem in valeurs:
+                elem_valeurs = elem.find_all('li')
+                for e in elem_valeurs:
+                    if(e.get_text() != '') :
+                        tmp = formater(e.get_text())
+                        experiences.append(tmp)
+                        res = res + '\n\n' + tmp
+            file_tmp.write(res.encode('utf-8'))
+            file_tmp.write('\n\n')
+
+        #Recuperation des logos d'entreprises et des urls d'entreprises correspondantes
         urlsExperiences = []
-        pos = 0
-        index = []
-        for elem in experience:
-            if (elem.get_text() != '') & ("company" in elem.get('href')):
-                urlsExperiences.append("https://www.linkedin.com"+elem.get('href'))
-            if "company" in elem.get('href'):
-                index.append(pos)
-            else:
-                val = elem.get('href').replace("/search/results/index/?keywords=", "")
-                val = val.encode('utf-8')
-                print(val)
+        soupImageEntreprise = soup.select('.pv-profile-section.experience-section.ember-view a')
+        for elem in soupImageEntreprise:
+            if elem.get_text() != '':
 
-            pos = pos + 1
+                #By default address url empty
+                if "company" in elem.get('href'):
+                    urlsExperiences.append("https://www.linkedin.com"+elem.get('href'))
+                else:
+                    urlsExperiences.append("")
 
-        description = []
-        date=[]
-        noms = []
-        nomsE = []
-        domaineE = []
-        locationE = []
-        descriptionE = []
-        actif = []
-
+        #Parcourt des experiences en dur et des urls d'entreprises lier
+        numExp = 0
         for experience in experiences:
+
+            #Default variable
+            nom = ""
+            nomE = ""
+            date = ""
+            location = ""
+            description = ""
+            actif = True
+            domaine = ""
+            descriptionE = ""
+
             str_tab=experience.split("\n")
             ligne = 0
+            for strExp in str_tab :
 
-            for myStr in str_tab :
+                #lower all
+                strExpEncode = strExp.encode('utf-8')
+                strExpLow = strExpEncode.lower()
+                strExpLow_tab=strExpLow.split(" ")
 
-                #Instanciation of the experience job:
+                #Instanciation of the experience job: (first ligne not empty)
                 if ligne == 0:
-                    noms.append(myStr)
+                    nom = strExpEncode
 
                 #Instanciation of the date
-                if "dates d'emploi" in myStr.lower():
-                    date.append(myStr.replace("dates d'emploi", ""))
-                    if "aujourd'hui" in myStr.lower():
-                        actif.append(True)
-                    else:
-                        actif.append(False)
-                else:
-                    date.append("")
-                    #By default if no date, we put the experience as active.
-                    actif.append(True)
+                if "dates" == strExpLow_tab[0]:
+                    date = strExpEncode[16:]
+                    if not "aujourd" in strExpLow:
+                        actif = False
     
                 #Instanciation of the name of the entreprise
-                Nom de l’entreprise
+                if "nom" == strExpLow_tab[0]:
+                    nomE = strExpEncode[22:]
+
                 #Instanciation of the geolocalisation
+                if "lieu" == strExpLow_tab[0]:
+                    location = strExpEncode.replace("Lieu ", "")
 
-                #++
-                ligne = ligne + 1
+                #Instanciation of the description
+                if (ligne>0) & (not strExpLow_tab[0] in ['duree', 'dates', 'nom', 'lieu']):
+                    description = strExpEncode
+                
+                # ++ si la ligne n'est pas vide
+                if not strExp=="":
+                    ligne = ligne + 1
 
-                    print(myStr)
-        for url in urlsExperiences:
-            # wait for page load=3
-            manager.get(url, 3)
-            html=manager.driver.page_source
-            soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
-            divnom = soup.select('.org-top-card-module__name')
-            divdomaine = soup.select('.company-industries.org-top-card-module__dot-separated-list')
-            divlocation = soup.select('.org-top-card-module__location')
-            divdescription = soup.select('.org-about-us-organization-description p')
-            for elem in divnom:
-                nomsE.append(elem.get_text().strip("\n \r"))
-            for elem in divdomaine:
-                domaineE.append(elem.get_text().strip("\n \r"))
-            for elem in divlocation:
-                locationE.append(elem.get_text().strip("\n \r"))
-            for elem in divdescription:
-                descriptionE.append(elem.get_text().strip("\n \r"))
+            #Si un logo entreprise existe.
+            if not urlsExperiences[numExp] == "":
+                # wait for page load=3
+                manager.get(urlsExperiences[numExp], 3)
+                html=manager.driver.page_source
+                soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
+                divnom = soup.select('.org-top-card-module__name')
+                divdomaine = soup.select('.company-industries.org-top-card-module__dot-separated-list')
+                divlocation = soup.select('.org-top-card-module__location')
+                divdescription = soup.select('.org-about-us-organization-description p')
 
-        print(len(urlsExperiences))
-        print(len(nomsE))
-        print(len(date))
-        print(len(locationE))
-        print(len(description))
-        print(len(descriptionE))
-        for k in range(0,len(urlsExperiences)):
-            compte.addExperience(urlsExperiences[k], nomsE[k], "", locationE[k], "", descriptionE[k], "", actif)
+                #On preferera le nom et la localisation donner sur la page de l'entreprise si elle existe.
+                for elem in divnom:
+                    nomsE = elem.get_text().strip("\n \r")
+                for elem in divlocation:
+                    location = elem.get_text().strip("\n \r")
+                for elem in divdomaine:
+                    domaine = elem.get_text().strip("\n \r")
+                for elem in divdescription:
+                    descriptionE =elem.get_text().strip("\n \r")
+
+            compte.addExperience(nom, date, location, description, actif, urlsExperiences[numExp], nomE, descriptionE, domaine)
+
+            #++
+            numExp = numExp + 1
 
         return compte
 
@@ -354,10 +352,13 @@ if __name__ == '__main__':
 
     compte = search.findLinkedin("candido", "frank", liste[0])
     for experience in compte.experiences:
-        print(experience.date)
-        print(experience.description)
-        #print(experience.url)
-        print(experience.nom)
-        #print(experience.geolocalisation)
-        #print(experience.descriptionEntreprise)
+        print("date:",experience.date)
+        print("description", experience.description)
+        print("urlEntreprise", experience.urlEntreprise)
+        print("nomExperience", experience.nomExperience)
+        print("nomEntreprise", experience.nomEntreprise)
+        print("geolocalisation", experience.geolocalisation)
+        print("descriptionE", experience.descriptionEntreprise)
+        print("domaine", experience.domaineEntreprise)
+        print("expActif?", experience.actif)
     manager.driver_quit()

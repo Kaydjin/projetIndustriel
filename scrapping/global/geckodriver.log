@@ -8225,3 +8225,1070 @@ ATTENTION: default value of option force_s3tc_enable overridden by environment.
 [Child 9787, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 [Child 9787, Chrome_ChildThread] WARNING: pipe error (21): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 [Child 9787, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1518426729723	Marionette	DEBUG	Register listener.js for window 4294967374
+1518427516328	geckodriver	INFO	geckodriver 0.18.0
+1518427516330	geckodriver	INFO	Listening on 127.0.0.1:47793
+1518427517445	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518427518041	Marionette	INFO	Enabled via --marionette
+1518427520750	Marionette	INFO	Listening on port 46019
+1518427520767	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518427520809	Marionette	DEBUG	Register listener.js for window 2147483649
+1518427523969	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518427524249	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518427524250	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518427524613	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518427524683	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f4386598000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f4386a4a800] overread, skip -7 enddists: -2 -2
+1518427531393	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518427531591	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518427531613	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518427532380	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518427532381	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518427532387	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427532399	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f4376a59800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f4376a5d800] overread, skip -7 enddists: -2 -2
+1518427539594	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427539802	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427539832	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427540301	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518427540302	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518427540302	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518427540302	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518427540302	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518427540303	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518427540303	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518427540303	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518427540304	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518427540304	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483670"
+1518427540304	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518427540305	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518427540319	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f438523d000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f438523f000] overread, skip -7 enddists: -2 -2
+1518427610684	geckodriver	INFO	geckodriver 0.18.0
+1518427610686	geckodriver	INFO	Listening on 127.0.0.1:60561
+1518427611785	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518427612337	Marionette	INFO	Enabled via --marionette
+1518427615053	Marionette	INFO	Listening on port 40949
+1518427615096	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518427615144	Marionette	DEBUG	Register listener.js for window 2147483649
+1518427618170	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518427618428	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518427618429	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518427618817	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518427618905	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f517deb7800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f5180e26800] overread, skip -7 enddists: -2 -2
+1518427625556	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518427625749	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518427625759	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518427626515	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518427626516	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518427626521	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427626539	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f5169d90800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f5169d91800] overread, skip -7 enddists: -2 -2
+1518427633700	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427633900	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427633909	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427634389	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518427634390	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518427634390	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483676"
+1518427634390	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483678"
+1518427634390	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483680"
+1518427634391	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483682"
+1518427634391	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483684"
+1518427634391	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483674"
+1518427634391	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483672"
+1518427634392	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483670"
+1518427634392	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518427634397	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518427634404	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f5180f56800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f5180f59000] overread, skip -7 enddists: -2 -2
+1518427709640	geckodriver	INFO	geckodriver 0.18.0
+1518427709643	geckodriver	INFO	Listening on 127.0.0.1:52639
+1518427710786	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518427711467	Marionette	INFO	Enabled via --marionette
+1518427714412	Marionette	INFO	Listening on port 42803
+1518427714500	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518427714551	Marionette	DEBUG	Register listener.js for window 2147483649
+1518427717569	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518427717839	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518427717840	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518427718203	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518427718294	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7fd52233c800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fd522342800] overread, skip -7 enddists: -2 -2
+1518427724960	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518427725175	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518427725191	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518427725986	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518427725986	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518427725992	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427726007	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7fd52d6d9800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fd52d6d7800] overread, skip -7 enddists: -2 -2
+1518427733173	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427733355	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427733367	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427734213	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518427734214	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518427734214	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518427734221	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518427734242	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7fd5195c7000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fd5195c6800] overread, skip -7 enddists: -2 -2
+1518427770456	geckodriver	INFO	geckodriver 0.18.0
+1518427770460	geckodriver	INFO	Listening on 127.0.0.1:55685
+1518427771597	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518427772348	Marionette	INFO	Enabled via --marionette
+1518427775551	Marionette	INFO	Listening on port 41345
+1518427775612	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518427775676	Marionette	DEBUG	Register listener.js for window 2147483649
+1518427778697	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518427778958	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518427778991	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518427779445	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518427779537	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f947c413800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f947c40d000] overread, skip -7 enddists: -2 -2
+1518427786299	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518427786506	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518427786515	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518427787065	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518427787066	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483669"
+1518427787066	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518427787068	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518427787068	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518427787069	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518427787069	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483667"
+1518427787069	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483665"
+1518427787070	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1518427787070	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518427787075	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427787086	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f947c408800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f9489703000] overread, skip -7 enddists: -2 -2
+1518427794254	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427794433	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427794446	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427795358	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518427795359	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483687"
+1518427795359	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483689"
+1518427795365	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518427795393	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f9484c1e800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f9469fdf000] overread, skip -7 enddists: -2 -2
+1518427804668	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518427804849	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518427804863	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518427805460	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483692"
+1518427805460	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483694"
+1518427805461	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483696"
+1518427805926	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518427805966	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f9481c7d000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f9481214800] overread, skip -7 enddists: -2 -2
+1518427811980	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518427812320	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518427812400	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518427813457	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518427813458	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483700"
+1518427813459	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483702"
+1518427813459	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483704"
+1518427813489	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f948bd1e000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f948967d000] overread, skip -7 enddists: -2 -2
+1518427858956	geckodriver	INFO	geckodriver 0.18.0
+1518427858960	geckodriver	INFO	Listening on 127.0.0.1:41689
+1518427860069	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518427860720	Marionette	INFO	Enabled via --marionette
+1518427863619	Marionette	INFO	Listening on port 45939
+1518427863690	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518427863753	Marionette	DEBUG	Register listener.js for window 2147483649
+1518427866779	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518427867079	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518427867080	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518427867386	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518427867487	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f1400a54000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f14007e9800] overread, skip -7 enddists: -2 -2
+1518427874145	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518427874359	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518427874381	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518427875367	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518427875367	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518427875374	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427875390	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f13f2e4f000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f13f2e4b000] overread, skip -7 enddists: -2 -2
+1518427882625	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427882871	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427882888	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518427883975	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518427883975	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518427883976	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518427884033	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518427884066	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f13ff737000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f13ecd16800] overread, skip -7 enddists: -2 -2
+1518427893315	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518427893509	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518427893519	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518427894521	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518427894521	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518427894522	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518427894522	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518427894559	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f13e90c2800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f13ef9e8800] overread, skip -7 enddists: -2 -2
+1518427900583	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518427901001	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518427901013	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518427901835	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518427901835	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518427901836	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483691"
+1518427901836	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483693"
+1518427901837	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483695"
+1518427901837	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483697"
+1518427901837	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483699"
+1518427901837	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483689"
+1518427901838	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483687"
+1518427901838	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518427901838	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518427901839	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518427901854	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f13fae1a800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f13fae1f000] overread, skip -7 enddists: -2 -2
+[Child 11669, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 11669, Chrome_ChildThread] WARNING: pipe error (21): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 11669, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1518427994223	geckodriver	INFO	geckodriver 0.18.0
+1518427994228	geckodriver	INFO	Listening on 127.0.0.1:52153
+1518427995372	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518427996017	Marionette	INFO	Enabled via --marionette
+1518427998813	Marionette	INFO	Listening on port 45707
+1518427998982	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518427999040	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428002061	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428002394	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428002395	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428002881	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428002938	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7fc3af777000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fc3a6b5d000] overread, skip -7 enddists: -2 -2
+1518428009688	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428009904	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428009930	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518428010915	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428010915	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428010919	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428010950	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7fc39d562000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fc39d563000] overread, skip -7 enddists: -2 -2
+1518428018150	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428018354	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428018371	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428018682	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428018683	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428018683	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428019325	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428019349	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7fc397c04000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fc397c05000] overread, skip -7 enddists: -2 -2
+1518428028569	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428028773	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428028781	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428029535	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518428029536	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518428029536	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518428030118	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518428030154	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7fc397c04800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fc3983ef800] overread, skip -7 enddists: -2 -2
+1518428036215	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518428036584	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518428036593	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518428037863	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518428037864	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518428037865	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518428037865	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518428037895	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7fc397c09800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fc3b57b7000] overread, skip -7 enddists: -2 -2
+[Child 11842, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 11842, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1518428144348	geckodriver	INFO	geckodriver 0.18.0
+1518428144351	geckodriver	INFO	Listening on 127.0.0.1:43155
+1518428145452	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518428146113	Marionette	INFO	Enabled via --marionette
+1518428149220	Marionette	INFO	Listening on port 43263
+1518428149268	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518428149323	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428152357	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428152642	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428152642	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428152977	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428153092	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f2167c9a800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f2167c91000] overread, skip -7 enddists: -2 -2
+1518428159756	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428159979	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428159985	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518428161002	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428161002	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428161116	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428161121	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f214f4aa000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f2150247800] overread, skip -7 enddists: -2 -2
+1518428168294	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428168488	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428168502	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428169398	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428169399	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428169399	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428169410	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428169434	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f214f808800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f214f808000] overread, skip -7 enddists: -2 -2
+1518428178673	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428178870	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428178877	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428179948	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518428179949	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518428179950	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518428179950	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518428180032	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f214802c800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f2147583000] overread, skip -7 enddists: -2 -2
+1518428186045	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518428186406	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518428186414	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518428187111	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518428187160	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483692"
+1518428187161	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483694"
+1518428187161	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483696"
+1518428187161	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483698"
+1518428187162	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483700"
+1518428187162	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483690"
+1518428187162	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483688"
+1518428187163	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518428187163	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518428187163	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518428187167	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518428187186	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f216c718000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f216c719000] overread, skip -7 enddists: -2 -2
+[Child 12030, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 12030, Chrome_ChildThread] WARNING: pipe error (35): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 12030, Chrome_ChildThread] WARNING: pipe error (19): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 12030, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1518428302725	geckodriver	INFO	geckodriver 0.18.0
+1518428302728	geckodriver	INFO	Listening on 127.0.0.1:46341
+1518428303852	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518428304504	Marionette	INFO	Enabled via --marionette
+1518428307565	Marionette	INFO	Listening on port 42405
+1518428307666	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518428307722	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428310740	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428311050	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428311050	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428311398	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428311506	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f98b6161000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f98c33b2800] overread, skip -7 enddists: -2 -2
+1518428318146	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428318365	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428318372	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518428319408	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428319408	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428319416	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428319433	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f98b973b000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f98b973d000] overread, skip -7 enddists: -2 -2
+1518428326630	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428326843	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428326857	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428327746	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428327746	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428327747	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428327754	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428327780	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f98a7671000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f98a7674800] overread, skip -7 enddists: -2 -2
+1518428337002	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428337275	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428337283	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428338381	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518428338382	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518428338382	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518428338383	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518428338465	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f98c4b45800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f98a4a7b800] overread, skip -7 enddists: -2 -2
+1518428344499	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518428344890	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518428344901	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518428345214	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518428345214	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518428345215	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518428346073	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518428346114	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f98c32e0000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f98c32ed000] overread, skip -7 enddists: -2 -2
+[Child 12251, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x100027,name=PBackground::Msg_PHttpBackgroundChannelConstructor) Channel error: cannot send/recv
+
+[Child 12251, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+Sandbox: Unexpected EOF, op 0 flags 01101 path /tmp/GeckoChildCrash12251.extra
+1518428387134	geckodriver	INFO	geckodriver 0.18.0
+1518428387137	geckodriver	INFO	Listening on 127.0.0.1:50777
+1518428388238	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518428388929	Marionette	INFO	Enabled via --marionette
+1518428391760	Marionette	INFO	Listening on port 38853
+1518428391943	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518428392031	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428395060	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428395333	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428395335	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428395732	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428395830	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7fa84085c000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa8423d1800] overread, skip -7 enddists: -2 -2
+1518428402573	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428402770	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428402807	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518428403633	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428403633	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428403636	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428403656	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7fa833ecc000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa833ecd800] overread, skip -7 enddists: -2 -2
+1518428410859	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428411035	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428411057	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428412066	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428412066	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428412066	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428412087	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428412131	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7fa84a123800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa84cf0c000] overread, skip -7 enddists: -2 -2
+1518428478049	geckodriver	INFO	geckodriver 0.18.0
+1518428478052	geckodriver	INFO	Listening on 127.0.0.1:57753
+1518428479173	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518428479859	Marionette	INFO	Enabled via --marionette
+1518428482936	Marionette	INFO	Listening on port 34571
+1518428482990	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518428483056	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428486099	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428486390	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428486390	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428486831	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428486964	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f996c9a4000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f996c997800] overread, skip -7 enddists: -2 -2
+1518428493720	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428493894	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428493915	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518428494162	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428494163	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428494861	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428494879	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f996c446800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f996c448800] overread, skip -7 enddists: -2 -2
+1518428502117	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428502317	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428502336	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428503073	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428503074	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428503074	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428503075	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518428503075	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518428503076	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518428503076	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518428503077	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518428503077	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518428503077	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518428503078	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483670"
+1518428503078	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428503091	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f99574da800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f99574dc000] overread, skip -7 enddists: -2 -2
+1518428611427	geckodriver	INFO	geckodriver 0.18.0
+1518428611429	geckodriver	INFO	Listening on 127.0.0.1:47823
+1518428612572	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518428613475	Marionette	INFO	Enabled via --marionette
+1518428616666	Marionette	INFO	Listening on port 39857
+1518428616695	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518428616878	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428619931	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428620252	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428620258	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428620629	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428620818	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+[mp3 @ 0x7f5412de1800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f5412de1800] overread, skip -7 enddists: -2 -2
+1518428627575	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428627741	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428627749	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518428628966	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428628967	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428628976	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428628997	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f5412de4000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f542369b800] overread, skip -7 enddists: -2 -2
+1518428636221	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428636381	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428636397	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428637261	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428637263	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428637264	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428638288	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428638297	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f540c6a0000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f540cbca000] overread, skip -7 enddists: -2 -2
+1518428786195	geckodriver	INFO	geckodriver 0.18.0
+1518428786198	geckodriver	INFO	Listening on 127.0.0.1:53559
+1518428786391	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518428787336	Marionette	INFO	Enabled via --marionette
+1518428790481	Marionette	INFO	Listening on port 41861
+1518428790506	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518428790571	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428793613	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428793934	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428793934	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428794352	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428794478	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518428801772	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428802258	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428802267	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+[mp3 @ 0x7f7323cae000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f732d937800] overread, skip -7 enddists: -2 -2
+1518428803793	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428803794	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428803794	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428803942	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f731bbc2000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f731b22a800] overread, skip -7 enddists: -2 -2
+1518428811208	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428811522	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428811537	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428812341	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428812344	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428812346	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518428812353	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518428812358	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518428812360	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518428812364	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518428812365	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518428812366	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518428812366	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483670"
+1518428812368	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428812377	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428812393	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f73198df000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f73198df000] overread, skip -7 enddists: -2 -2
+1518428889265	geckodriver	INFO	geckodriver 0.18.0
+1518428889269	geckodriver	INFO	Listening on 127.0.0.1:46813
+1518428889428	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518428890807	Marionette	INFO	Enabled via --marionette
+1518428894471	Marionette	INFO	Listening on port 41275
+1518428894561	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518428894726	Marionette	DEBUG	Register listener.js for window 2147483649
+1518428897771	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518428900035	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518428900035	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518428900720	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518428901045	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518428909544	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518428909841	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518428909850	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518428911305	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518428911306	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518428911935	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428912271	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7fa03ef2f000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa037940800] overread, skip -7 enddists: -2 -2
+1518428919545	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428919823	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428919843	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518428922615	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518428922623	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518428922624	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518428922642	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518428922699	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7fa0378cc000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa03793c800] overread, skip -7 enddists: -2 -2
+1518428932810	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428932995	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428933016	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518428934277	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518428934279	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518428934281	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518428935477	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518428935515	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7fa03b2b0000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa03b2b0000] overread, skip -7 enddists: -2 -2
+1518428941541	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518428941706	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518428941727	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518428943197	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518428943198	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518428943200	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518428945870	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518428945931	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7fa044687000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa044684000] overread, skip -7 enddists: -2 -2
+[Child 13129, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 13129, Chrome_ChildThread] WARNING: pipe error (35): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 13129, Chrome_ChildThread] WARNING: pipe error (19): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 13129, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1518429112669	geckodriver	INFO	geckodriver 0.18.0
+1518429112673	geckodriver	INFO	Listening on 127.0.0.1:36305
+1518429112993	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518429115260	Marionette	INFO	Enabled via --marionette
+1518429119087	Marionette	INFO	Listening on port 36945
+1518429119114	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518429119231	Marionette	DEBUG	Register listener.js for window 2147483649
+1518429122268	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518429122580	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518429122581	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518429123185	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518429123258	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518429130998	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518429131904	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518429131912	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518429132637	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518429132640	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518429133833	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429133904	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f48bcebd000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f48aac1f800] overread, skip -7 enddists: -2 -2
+1518429141217	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429141569	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429141584	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429144551	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518429144560	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518429144561	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518429144575	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518429144667	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f48b87a9800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f48bf2c9000] overread, skip -7 enddists: -2 -2
+1518429154120	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429154376	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429154413	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429155658	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518429155694	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483684"
+1518429155695	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483686"
+1518429155695	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483688"
+1518429155696	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483690"
+1518429155696	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483692"
+1518429155697	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483682"
+1518429155698	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518429155698	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518429155698	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518429155698	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518429155708	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518429155751	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f489cd16800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f489cd16800] overread, skip -7 enddists: -2 -2
+1518429161801	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518429162233	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518429162252	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518429164296	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483700"
+1518429164296	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483702"
+1518429164300	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483704"
+1518429164334	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518429164404	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f48a748f000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f489a81f800] overread, skip -7 enddists: -2 -2
+1518429203637	geckodriver	INFO	geckodriver 0.18.0
+1518429203649	geckodriver	INFO	Listening on 127.0.0.1:49987
+1518429205045	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518429207227	Marionette	INFO	Enabled via --marionette
+1518429211077	Marionette	INFO	Listening on port 38235
+1518429211189	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518429211269	Marionette	DEBUG	Register listener.js for window 2147483649
+1518429214305	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518429214596	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518429214596	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518429215187	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518429215326	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518429223545	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518429224281	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518429224298	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518429226527	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518429226527	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518429226529	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429226593	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f65694b5800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f65694b3800] overread, skip -7 enddists: -2 -2
+1518429233905	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429234249	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429234267	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429236536	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518429236538	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518429236541	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518429236562	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518429236929	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f6575310800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f6575324000] overread, skip -7 enddists: -2 -2
+1518429246316	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429246617	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429246650	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429248104	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518429248106	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518429248106	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518429248107	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483687"
+1518429248108	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483689"
+1518429248111	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483691"
+1518429248112	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518429248112	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518429248115	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518429248116	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518429248116	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518429248133	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518429249423	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f6574122000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f657411f000] overread, skip -7 enddists: -2 -2
+1518429255696	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518429255913	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518429255923	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518429258292	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518429258293	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483700"
+1518429258293	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483702"
+1518429258294	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483704"
+1518429258352	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f6573a62800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f654aec3800] overread, skip -7 enddists: -2 -2
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x100027,name=PBackground::Msg_PHttpBackgroundChannelConstructor) Channel error: cannot send/recv
+
+[Child 13489, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+Sandbox: Unexpected EOF, op 0 flags 01101 path /tmp/GeckoChildCrash13489.extra
+1518429514284	geckodriver	INFO	geckodriver 0.18.0
+1518429514287	geckodriver	INFO	Listening on 127.0.0.1:60799
+1518429514513	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518429516015	Marionette	INFO	Enabled via --marionette
+1518429519413	Marionette	INFO	Listening on port 36641
+1518429519588	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518429519751	Marionette	DEBUG	Register listener.js for window 2147483649
+1518429522779	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518429523036	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518429523036	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518429523688	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518429523903	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518429532055	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518429532411	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518429532419	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518429533673	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518429533674	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518429534541	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429534620	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f87a7114000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f87a7113000] overread, skip -7 enddists: -2 -2
+1518429542313	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429542634	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429542651	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518429544539	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518429544540	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518429544542	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518429544567	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518429544929	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f87a7107000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f87aefe2800] overread, skip -7 enddists: -2 -2
+1518429554293	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429554645	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429554654	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518429557477	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518429557478	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518429557480	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518429559030	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518429559071	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f879c3ce800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f879c3ce800] overread, skip -7 enddists: -2 -2
+1518429565089	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518429565441	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518429565450	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518429571081	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518429571082	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483681"
+1518429571082	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518429571100	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518429571146	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f879c3da800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f879c3da800] overread, skip -7 enddists: -2 -2
+1518429726770	Marionette	DEBUG	Register listener.js for window 2147483716
+1518429727713	Marionette	DEBUG	Register listener.js for window 4294967297
+1518429992249	geckodriver	INFO	geckodriver 0.18.0
+1518429992253	geckodriver	INFO	Listening on 127.0.0.1:49191
+1518429992521	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518429993606	Marionette	INFO	Enabled via --marionette
+1518429998666	Marionette	INFO	Listening on port 38499
+1518429998772	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518429998926	Marionette	DEBUG	Register listener.js for window 2147483649
+1518430001981	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518430002274	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518430002280	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518430002840	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518430003042	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518430011171	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518430011915	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518430011921	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518430013961	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518430013970	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430014335	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7fa511f1a800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa511f1d000] overread, skip -7 enddists: -2 -2
+1518430021708	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430022057	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430022068	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430023554	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483662"
+1518430023555	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518430023574	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483674"
+1518430023576	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483676"
+1518430023576	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483678"
+1518430023578	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483680"
+1518430023584	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483682"
+1518430023585	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483672"
+1518430023587	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483670"
+1518430023592	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518430023592	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518430023598	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518430023655	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7fa4fdd37800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa4fdd3a000] overread, skip -7 enddists: -2 -2
+1518430033410	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430033740	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430033767	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430034857	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483690"
+1518430034875	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483704"
+1518430034878	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483706"
+1518430034881	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483708"
+1518430034881	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483710"
+1518430034882	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483712"
+1518430034882	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483702"
+1518430034882	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483699"
+1518430034883	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483696"
+1518430034883	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483692"
+1518430034884	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483694"
+1518430035487	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518430035502	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7fa51320e000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa4fdd37000] overread, skip -7 enddists: -2 -2
+1518430041519	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518430041805	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518430041823	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518430045521	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483720"
+1518430045547	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483722"
+1518430045547	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483724"
+1518430045550	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518430045624	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7fa4f8b6f000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fa4f8b73000] overread, skip -7 enddists: -2 -2
+[Child 14055, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 14055, Chrome_ChildThread] WARNING: pipe error (19): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 14055, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1518430129850	geckodriver	INFO	geckodriver 0.18.0
+1518430129855	geckodriver	INFO	Listening on 127.0.0.1:46077
+1518430131017	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518430132214	Marionette	INFO	Enabled via --marionette
+1518430135989	Marionette	INFO	Listening on port 33309
+1518430136055	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518430136197	Marionette	DEBUG	Register listener.js for window 2147483649
+1518430139283	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518430139555	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518430139555	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518430140110	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518430140399	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518430148551	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518430149277	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518430149305	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518430151532	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518430151535	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518430151543	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430151815	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7fdd5d275000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fdd58fcd000] overread, skip -7 enddists: -2 -2
+1518430159088	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430159372	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430159388	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430162091	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518430162093	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518430162094	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518430162099	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518430162156	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7fdd6cfbb000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7fdd6cfbb000] overread, skip -7 enddists: -2 -2
+1518430310796	geckodriver	INFO	geckodriver 0.18.0
+1518430310804	geckodriver	INFO	Listening on 127.0.0.1:33929
+1518430312183	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518430313760	Marionette	INFO	Enabled via --marionette
+1518430318974	Marionette	INFO	Listening on port 39613
+1518430319015	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://shield-recipe-client/lib/NormandyApi.jsm, line 60: TypeError:  is not a valid URL.
+1518430319278	Marionette	DEBUG	Register listener.js for window 2147483649
+1518430322342	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518430322669	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518430322669	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518430323553	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518430323975	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518430333770	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518430334710	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518430334724	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518430337181	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518430337181	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518430337189	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430337823	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f902ca0b800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f902ca08000] overread, skip -7 enddists: -2 -2
+1518430345791	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430345963	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430345987	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430349375	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518430349376	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518430349376	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518430349383	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518430349458	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f902ca03000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f903b7cd000] overread, skip -7 enddists: -2 -2
+1518430410882	Marionette	DEBUG	Register listener.js for window 2147483681
+1518430412418	Marionette	DEBUG	Register listener.js for window 4294967297
+1518430503040	geckodriver	INFO	geckodriver 0.18.0
+1518430503044	geckodriver	INFO	Listening on 127.0.0.1:47709
+1518430503395	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518430505821	Marionette	INFO	Enabled via --marionette
+1518430511715	Marionette	INFO	Listening on port 33273
+1518430511791	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518430511989	Marionette	DEBUG	Register listener.js for window 2147483649
+1518430515401	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518430515662	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518430515663	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518430516624	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518430517024	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518430525938	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518430527614	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518430527623	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518430529142	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518430530200	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430530433	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f2d377c9000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f2d32014800] overread, skip -7 enddists: -2 -2
+1518430539183	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430539518	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430539554	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430541393	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483662"
+1518430541400	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518430541401	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483670"
+1518430541401	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518430541401	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518430542942	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518430543016	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f2d1e9c1000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f2d1e9c1000] overread, skip -7 enddists: -2 -2
+1518430554487	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430554768	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430554787	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430555770	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483701"
+1518430556531	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518430556532	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483686"
+1518430556532	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483688"
+1518430556533	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483690"
+1518430556533	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483692"
+1518430556533	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483694"
+1518430556534	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483684"
+1518430556534	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483682"
+1518430556534	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483679"
+1518430556534	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518430556535	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518430558854	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518430559156	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f2d30305000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f2d30305000] overread, skip -7 enddists: -2 -2
+1518430565209	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518430565552	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518430565561	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518430570545	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483704"
+1518430570546	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483706"
+1518430570546	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483708"
+1518430570553	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518430570592	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f2d3b88e800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f2d3b88e800] overread, skip -7 enddists: -2 -2
+[Child 14656, Chrome_ChildThread] WARNING: pipe error (19): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 14656, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2400D7,name=PContent::Msg_ShutdownProfile) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2400D3,name=PContent::Msg_FinishShutdown) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2400C1,name=PContent::Msg_GraphicsError) Channel error: cannot send/recv
+
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1518430759014	geckodriver	INFO	geckodriver 0.18.0
+1518430759019	geckodriver	INFO	Listening on 127.0.0.1:34601
+1518430759421	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1518430765816	Marionette	INFO	Enabled via --marionette
+1518430772869	Marionette	INFO	Listening on port 46495
+1518430772974	Marionette	WARN	TLS certificate errors will be ignored for this session
+1518430773077	Marionette	DEBUG	Register listener.js for window 2147483649
+1518430776116	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1518430776361	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1518430776361	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1518430776936	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/uas/login"
+1518430777840	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/uas/login"
+1518430786464	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/feed/?trk="
+1518430787332	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/feed/?trk="
+1518430787339	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/feed/?trk="
+1518430789941	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483661"
+1518430789941	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1518430789959	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430790320	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+[mp3 @ 0x7f7f0f5b1000] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f7f0b176800] overread, skip -7 enddists: -2 -2
+1518430798536	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430798804	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430798827	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/search/results/people/?lastName=candido&firstName=frank"
+1518430801149	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1518430801151	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483666"
+1518430801157	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1518430801168	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+1518430801261	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/in/ACoAAAAgrpoBq_j1nfNRZw6sid-xdkhlm3v5fX0/"
+[mp3 @ 0x7f7efb316800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f7efb316800] overread, skip -7 enddists: -2 -2
+1518430811337	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430811573	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430811608	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/in/frank-candido-5b6873/"
+1518430813788	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483671"
+1518430813790	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483685"
+1518430813792	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483687"
+1518430813794	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483689"
+1518430813794	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483691"
+1518430813795	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483693"
+1518430813795	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483683"
+1518430813796	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483680"
+1518430813797	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483677"
+1518430813798	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483673"
+1518430813798	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483675"
+1518430813826	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/201491/"
+1518430813872	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/201491/"
+[mp3 @ 0x7f7ef6224800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f7ef6229000] overread, skip -7 enddists: -2 -2
+1518430820015	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.linkedin.com/company/201491/"
+1518430820305	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.linkedin.com/company/201491/"
+1518430820315	Marionette	DEBUG	Received DOM event "unload" for "https://www.linkedin.com/company/201491/"
+1518430820631	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483701"
+1518430820631	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483703"
+1518430820632	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483705"
+1518430822327	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.linkedin.com/company/128716/"
+1518430822419	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.linkedin.com/company/128716/"
+[mp3 @ 0x7f7f11b20800] overread, skip -7 enddists: -2 -2
+[mp3 @ 0x7f7f106c0800] overread, skip -7 enddists: -2 -2
+[Child 14876, Chrome_ChildThread] WARNING: pipe error (46): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 14876, Chrome_ChildThread] WARNING: pipe error (3): Connexion ré-initialisée par le correspondant: file /build/firefox-itlqqH/firefox-57.0.4+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
