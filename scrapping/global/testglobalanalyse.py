@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
 	for val in tweets:
 		if not val.userDescription=="":
-			result = search_google(val.userPrenom  + " " + val.userNom, "", "facebook")
+			result = search_google(val.userPrenom  + " " + val.userNom, "", "facebook", False)
 			
 			if len(result) > 0:
 				compte = findFacebook(val.userNom, val.userPrenom, result[0])
