@@ -12,8 +12,7 @@ file = open(fname, "rt", encoding="utf-8")
 try:
     reader = csv.DictReader(file, delimiter=',')
     print ("Titres ", reader.fieldnames)
-    prenom = []
-    prenom[["Frank Candido", "Montreal, Canada"],
+    prenom = [["Frank Candido", "Montreal, Canada"],
 ["James Dean" ,"World Wide"],
 ["Steve Thomas",] ,
 ["michael dehn" ,"United Kingdom"],
