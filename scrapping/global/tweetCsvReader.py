@@ -58,6 +58,7 @@ class Reader:
             file = open(self.fileNameCsv, "rt",encoding = "utf8")
         else:
             file = open(self.fileNameCsv, "rt")
+            
         fname = "prenoms.csv"
         file2 = open(fname, "rt")
 

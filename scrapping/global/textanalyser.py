@@ -11,12 +11,14 @@ nltk.download('maxent_ne_chunker')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('gutenberg')
 nltk.download('words')
 
 class TextAnalyser:
 
     def __init__(self):
         self.listeStopwords = self.madeStopwords()
+        self.corpus = nltk.corpus.gutenberg.words('carroll-alice.txt')
 
 
     """ Retourne les noms communs d'un texte """
@@ -39,6 +41,11 @@ class TextAnalyser:
             liste.append(w.capitalize())
 
         return liste
+
+    """ Analyse et ne renvoit que les noms propres d'un texte ou enonce """
+    def getPropersNouns(self, text):
+        liste = text.split(" ")
+        return [w for w in liste if w not in self.corpus]
 
 
     """ Separe les mots composes d'elements speciaux d'un texte et supprime la ponctuaction """

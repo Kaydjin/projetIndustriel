@@ -87,8 +87,13 @@ if __name__ == '__main__':
 				print("-------------------------------------------------------------------------------------")
 
 				for c in comptes:
-					exp = ""
-					if c.experiences>0:
-						exp = c.experiences[0]
+					nomExp = ""
+					nomEtud =""
+					if c.nomsExperiences>0:
+						nomExp = c.nomsExperiences[0]
+					if c.nomsEtudes>0:
+						nomEtud = c.nomsEtudes[0]
+
+					nomExp = 
 					
 

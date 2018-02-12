@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from textanalyser import *
 import requests, bs4
 import argparse
 import time
@@ -15,7 +16,7 @@ class CompteFacebook:
 		self.description = ""
 		self.url = url
 		self.favoris = []
-		self.nomExperiences = []
+		self.nomsExperiences = []
 		self.detailsExperiences = []
 		self.nomsEtudes = []
 		self.detailsEtudes = []
@@ -43,13 +44,13 @@ class CompteFacebook:
 		strExperiences = ""
 		num=0
 		for s in self.nomsExperiences:
-			strExperiences = strExperiences + s+ " " + detailsExperiences[num] + " "
+			strExperiences = strExperiences + s+ " " + self.detailsExperiences[num] + " "
 			num = num + 1
 
 		strEtudes = ""
 		num=0
-		for s in self.etudes:
-			strEtudes = strEtudes+ s + " " + detailsEtudes[num] + " "
+		for s in self.nomsEtudes:
+			strEtudes = strEtudes+ s + " " + self.detailsEtudes[num] + " "
 			num = num + 1
 
 		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
@@ -78,6 +79,7 @@ def findFacebook(nom, prenom, url):
 				if (nom.lower() in elem.getText().lower()) & (prenom.lower() in elem.getText().lower()):
 					compte.addHomonyme(elem.get('href'))
 			a=a+1
+
 	#'PROFIL TEXT:')
 	descriptioncitation = soup.select('#pagelet_timeline_medley_about ._c24')
 	if len(descriptioncitation)>0:
@@ -87,13 +89,12 @@ def findFacebook(nom, prenom, url):
 		compte.description = desc
 	else:
 		compte.description = "null"
+
 	#'DONNEES METIERS ET ECOLES:')
-
 	metiersecoles = soup.find_all('div', class_='_4qm1')
-
 	if len(metiersecoles)>0:
 		for elem in metiersecoles:
-			if elem.get('data-pnref') == "work":
+			if (elem.get('data-pnref') == "work") or (elem.get('data-pnref') == "edu"):
 				liste = elem.find_all('li')
 				for val in liste:
 					liste2 = val.find_all('a')
@@ -104,7 +105,7 @@ def findFacebook(nom, prenom, url):
 								compte.addExperience(val2.getText(), inter.replace(val2.getText(), ""))
 							if elem.get('data-pnref') == "edu":
 								compte.addEtude(val2.getText(), inter.replace(val2.getText(), ""))
-								
+
 	#'DONNEES GEOGRAPHIQUES:')
 	hometown = soup.select('#pagelet_timeline_medley_about #pagelet_hometown .fbProfileEditExperiences a')
 	if len(hometown)>0:
@@ -130,15 +131,17 @@ if __name__ == '__main__':
 		print(val)
 
 	print('Experiences:')
-	for val in compte.experiences:
+	for val in compte.nomsExperiences:
 		print(val)
-	print len(compte.experiences)
 	print('Etudes:')
-	for val in compte.etudes:
+	for val in compte.nomsEtudes:
 		print(val)
-	print len(compte.etudes)
 	print('Favoris:')
 	for val in compte.favoris:
 		print(val)
+	print compte.synthese()
 
-
+	analyser = TextAnalyser()
+	liste = analyser.getPropersNouns(compte.nomsExperiences[0])
+	for v in liste:
+		print(v)
