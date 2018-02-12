@@ -353,7 +353,7 @@ class SearcherLinkedin:
 if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
-    liste = search.findLinkedins("vogel", "jimmy")
+    liste = search.findLinkedins("candido", "frank")
     #test pour cas plusieurs page = nbr résultat = 13
     #liste = search.findLinkedins("Legros", "camille")
 
@@ -368,7 +368,7 @@ if __name__ == '__main__':
         file_tmp.write('\n')
     file_tmp.close()
 
-    compte = search.findLinkedin("vogel", "jimmy", liste[0])
+    compte = search.findLinkedin("candido", "frank", liste[0])
     compte.homonymes = liste[1:]
     for experience in compte.experiences:
         print("date:",experience.date)

@@ -15,18 +15,22 @@ class CompteFacebook:
 		self.description = ""
 		self.url = url
 		self.favoris = []
-		self.experiences = []
-		self.etudes = []
+		self.nomExperiences = []
+		self.detailsExperiences = []
+		self.nomsEtudes = []
+		self.detailsEtudes = []
 		self.complementaire = ""
 
 	def addFavori(self, x):
 		self.favoris.append(x)
 
-	def addExperience(self, x):
-		self.experiences.append(x)
+	def addExperience(self, exp, detail):
+		self.nomsExperiences.append(exp)
+		self.detailsExperiences.append(detail)
 
-	def addEtude(self, x):
-		self.etudes.append(x)
+	def addEtude(self, etud, detail):
+		self.nomsEtudes.append(etud)
+		self.detailsEtudes.append(detail)
 
 	def addHomonyme(self, x):
 		self.homonymes.append(x)
@@ -34,13 +38,19 @@ class CompteFacebook:
 	def synthese(self):
 		strFavoris = ""
 		for s in self.favoris:
-			strFavoris = strFavoris + s+" "
+			strFavoris = strFavoris + s+ " "
+
 		strExperiences = ""
-		for s in self.experiences:
-			strExperiences = strExperiences + s+" "
+		num=0
+		for s in self.nomsExperiences:
+			strExperiences = strExperiences + s+ " " + detailsExperiences[num] + " "
+			num = num + 1
+
 		strEtudes = ""
+		num=0
 		for s in self.etudes:
-			strEtudes = strEtudes+ s +" "
+			strEtudes = strEtudes+ s + " " + detailsEtudes[num] + " "
+			num = num + 1
 
 		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
 
@@ -84,16 +94,17 @@ def findFacebook(nom, prenom, url):
 	if len(metiersecoles)>0:
 		for elem in metiersecoles:
 			if elem.get('data-pnref') == "work":
-				liste = elem.find_all('a')
-				print elem.getText()
+				liste = elem.find_all('li')
 				for val in liste:
-					compte.addExperience(val.getText())
-			if elem.get('data-pnref') == "edu":
-				liste = elem.find_all('a')
-				print elem.getText()
-				for val in liste:
-					compte.addEtude(val.getText())
-
+					liste2 = val.find_all('a')
+					for val2 in liste2:
+						if val2.getText()!="":
+							inter = val.getText()
+							if elem.get('data-pnref') == "work":
+								compte.addExperience(val2.getText(), inter.replace(val2.getText(), ""))
+							if elem.get('data-pnref') == "edu":
+								compte.addEtude(val2.getText(), inter.replace(val2.getText(), ""))
+								
 	#'DONNEES GEOGRAPHIQUES:')
 	hometown = soup.select('#pagelet_timeline_medley_about #pagelet_hometown .fbProfileEditExperiences a')
 	if len(hometown)>0:
@@ -121,11 +132,11 @@ if __name__ == '__main__':
 	print('Experiences:')
 	for val in compte.experiences:
 		print(val)
-
+	print len(compte.experiences)
 	print('Etudes:')
 	for val in compte.etudes:
 		print(val)
-
+	print len(compte.etudes)
 	print('Favoris:')
 	for val in compte.favoris:
 		print(val)
