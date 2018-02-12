@@ -142,6 +142,10 @@ if __name__ == '__main__':
 	print compte.synthese()
 
 	analyser = TextAnalyser()
-	liste = analyser.getPropersNouns(compte.nomsExperiences[0])
+	liste = analyser.getPropersNounsFromList(compte.nomsExperiences)
 	for v in liste:
 		print(v)
+	liste = analyser.getPropersNounsFromList(compte.nomsEtudes)
+	for v in liste:
+		print(v)
+

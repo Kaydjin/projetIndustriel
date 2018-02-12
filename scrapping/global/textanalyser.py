@@ -19,8 +19,7 @@ class TextAnalyser:
 
     def __init__(self):
         self.listeStopwords = self.madeStopwords()
-        self.corpus = nltk.corpus.gutenberg.words('carroll-alice.txt')
-
+        self.corpus = self.madeCorpus()
 
     """ Retourne les noms communs d'un texte """
     def findtags(self, tag_prefix, tagged_text):
@@ -41,14 +40,47 @@ class TextAnalyser:
             liste.append(w)
             liste.append(w.capitalize())
 
+        stop = stopwords.words('french')
+        liste.extend(stop)
+
+        #rajout des stopwords avec la premiere lettre capitalize
+        liste = []
+        for w in stop:
+            liste.append(w)
+            liste.append(w.capitalize())
+
         return liste
+
+    """ Renvoi les mots les plus frequents d'une liste de texte """
+    def mostCommunsFromTextes(self, liste):
+        datas = ""
+        for data in liste:
+            datas = datas + data + " "
+
+        liste = [(word, datas.count(word)) for word in self.corpus]
+        content = [w for w in liste if w.lower() not in stopwords] : suppression des stopwords
+
+        return liste
+
+        """ Creer un corpus multi-linguale """
+    def madeCorpus(self):
+        return [w for w in nltk.corpus.words.words('en') if w.islower()]
 
     """ Analyse et ne renvoit que les noms propres d'un texte ou enonce """
     def getPropersNouns(self, text):
         tagged_sent = pos_tag(text.split())
-        propernouns = [word for word,pos in tagged_sent if pos == 'NNP']
-        return propernouns
+        print(tagged_sent)
+        propernouns = [word for word,pos in tagged_sent if pos == 'NN']
+        propernouns = self.filtrer(propernouns, self.listeStopwords)
+        return self.filtrer(propernouns, self.corpus)
 
+    """ Analyse et ne renvoit que les noms propres d'une liste de texte ou enonce"""
+    def getPropersNounsFromList(self, liste):
+        res = []
+        for texte in liste:
+            res.extend(self.getPropersNouns(texte.lower()))
+
+        return res
 
     """ Separe les mots composes d'elements speciaux d'un texte et supprime la ponctuaction """
     def separeMotCompose(self, text):
