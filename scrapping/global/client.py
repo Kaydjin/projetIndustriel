@@ -48,7 +48,7 @@ class LIClientFacebook(object):
         # Enter login credentials
         WebDriverWait(self.driver, 120).until(
             EC.element_to_be_clickable(
-                (By.ID, "u_0_2")
+                (By.ID, "email")
             )
         )
         elem = self.driver.find_element_by_id("email")
