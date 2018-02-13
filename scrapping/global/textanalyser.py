@@ -117,6 +117,9 @@ class TextAnalyser:
 		s = s.replace("|"," ")
 		s = s.replace("@"," ")
 		s = s.replace("+"," ")
+		s = s.replace("_"," ")
+		s = s.replace(":"," ")
+		s = s.replace(";"," ")
 
 		#Pour tout le reste on supprime simplement la ponctuaction
 		if sys.version_info >= (3,0):
