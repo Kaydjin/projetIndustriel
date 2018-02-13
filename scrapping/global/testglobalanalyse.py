@@ -94,6 +94,7 @@ if __name__ == '__main__':
 					if c.nomsEtudes>0:
 						nomEtud = c.nomsEtudes[0]
 
-					nomExp = 
+					print nomExp
+					print nomEtud
 					
 
