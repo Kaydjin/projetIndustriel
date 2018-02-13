@@ -172,12 +172,7 @@ class SearcherLinkedin:
         liste = []
         a=0
         for elem in same:
-            a=a+1
-
-            """ Le nombre de résultat est double car, pour une personne nous avons deux lien
-                pour rejoindre son profil (sur son image de profil + nom)"""
-            if a%2==0:
-                liste.append('https://www.linkedin.com'+elem.get('href'))
+            liste.append('https://www.linkedin.com'+elem.get('href'))
 
         next_page = soup.find_all('ol', class_='results-paginator')
         for elem in next_page:
@@ -189,7 +184,7 @@ class SearcherLinkedin:
                     liste = liste + self.findLinkedinsScrapping()
                 except:
                     break
-        return liste
+        return set(liste)
 
 
     def findLinkedins(self, nom, prenom, ecole=None, entreprise=None):
