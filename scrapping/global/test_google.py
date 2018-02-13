@@ -131,6 +131,8 @@ def search_google_entreprise_facebook(nom, queryEntrepriseFacebook):
 """
 def supprime_accent(ligne):
         """ supprime les accents du texte source """
+        if sys.version_info < (3, 0):
+            ligne = ligne.encode('utf8')
         accents = { 'a': ['à', 'ã', 'á', 'â', 'ä', 'å'],
                     'ae': ['æ'],
                     'c': ['ç'],
