@@ -76,7 +76,15 @@ class TextAnalyser:
 
 		""" Creer un corpus multi-linguale """
 	def madeCorpus(self):
-		return set([w for w in nltk.corpus.words.words('en') if w.islower()])
+		liste = []
+		with open("frenchwords.txt") as f:
+			for line in f:
+				if line.strip() != "":
+					liste.append(line.strip())
+
+		liste.extend([w for w in nltk.corpus.words.words('en') if w.islower()])
+		
+		return set(liste)
 
 	""" Analyse et ne renvoit que les noms propres d'un texte ou enonce """
 	def getPropersNouns(self, text, doublon=False):

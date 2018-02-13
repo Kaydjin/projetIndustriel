@@ -89,12 +89,12 @@ if __name__ == '__main__':
 				for c in comptes:
 					nomExp = ""
 					nomEtud =""
-					if c.nomsExperiences>0:
-						nomExp = c.nomsExperiences[0]
-					if c.nomsEtudes>0:
-						nomEtud = c.nomsEtudes[0]
-
-					print nomExp
-					print nomEtud
+					propernounsExp = analyser.getPropersNounsFromList(compte.nomsExperiences)
+					propernounsEtud = analyser.getPropersNounsFromList(compte.nomsEtudes)
+					if len(propernounsExp)>0:
+						print propernounsExp[0]
+					if len(propernounsEtud)>0:
+						print propernounsEtud[0]
+					
 					
 
