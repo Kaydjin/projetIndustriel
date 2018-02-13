@@ -7,7 +7,7 @@ import re
 import sys
 import time
 from tweetCsvReader import *
-from testgoogle import *
+from test_google import *
 from textanalyser import *
 from sfacebook import *
 
@@ -95,6 +95,6 @@ if __name__ == '__main__':
 						print propernounsExp[0]
 					if len(propernounsEtud)>0:
 						print propernounsEtud[0]
-					
+
 					
 
