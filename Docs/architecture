@@ -1,0 +1,35 @@
+/
+README.txt
+main.py
+install.py
+research.py
+crossing.py
+normalizes.py
+tweetCsvReader.py
+textAnalyse.py
+/res/
+	tweets.csv
+	corpus_company.txt
+	firstnames.txt
+/libraries/
+	/libraries/SNSCrapping/
+		/libraries/SNSCrapping/util/
+			sfacebook.py
+			sLinkedin.py
+			sTwitter.py
+			sGoogle.py
+		/libraries/SNSCrapping/models/
+			accountLinkedin.py
+			accountFacebook.py
+			accountTweeter.py
+		/libraries/SNSCrapping/utils/
+			mSelenium.py
+	/libraries/nltkInternationnal/
+		nltkInternationnal.py
+		/libraries/nltkInternationnal/res/
+			frenchwords.txt
+/modelProjet/
+	company.py
+	person.py
+	tweet.py
+	relation.py
