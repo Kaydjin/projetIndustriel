@@ -20,7 +20,7 @@ textAnalyse.py
 		/libraries/SNScrapping/models/
 			accountLinkedin.py
 			accountFacebook.py
-			accountTweeter.py
+			accountTwitter.py
 		/libraries/SNScrapping/utils/
 			mSelenium.py
 			utils.py
