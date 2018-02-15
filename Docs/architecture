@@ -33,7 +33,6 @@ textAnalyse.py
 		nltkInternationnal.py
 		/libraries/nltkInternationnal/res/
 			frenchwords.txt
-			stopwords-fr.txt
 /modelProjet/
 	company.py
 	person.py
