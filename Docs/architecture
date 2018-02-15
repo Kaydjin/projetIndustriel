@@ -12,18 +12,23 @@ textAnalyse.py
 	corpus_company.txt
 	firstnames.txt
 /libraries/
-	/libraries/SNSCrapping/
-		/libraries/SNSCrapping/util/
+	/libraries/SNScrapping/
+		/libraries/SNScrapping/
 			sfacebook.py
 			sLinkedin.py
 			sTwitter.py
 			sGoogle.py
-		/libraries/SNSCrapping/models/
-			accountLinkedin.py
-			accountFacebook.py
-			accountTweeter.py
-		/libraries/SNSCrapping/utils/
-			mSelenium.py
+			/libraries/SNScrapping/models/
+				accountLinkedin.py
+				accountFacebook.py
+				accountTweeter.py
+			/libraries/SNScrapping/utils/
+				mSelenium.py
+			/libraries/SNScrapping/drivers/
+				firefox_windows64.exe
+				firefox_linux
+				phantomjs_windows64.exe
+				phantomjs_linux
 	/libraries/nltkInternationnal/
 		nltkInternationnal.py
 		/libraries/nltkInternationnal/res/
