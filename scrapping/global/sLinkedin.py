@@ -187,6 +187,16 @@ class SearcherLinkedin:
         return set(liste)
 
 
+    def findLinkedinsKeyWord(self, keywords):
+        """ fait une recherche avec les mots clefs, replace les espaces par un %20 pour qu'ils fonctionnent dans l'url
+        """
+        key="keywords="
+        keywords=keywords.strip()
+        profile_link="https://www.linkedin.com/search/results/people/?%s%s" % (key, keywords.replace(' ','%20'))
+
+        manager.get(profile_link, 3)
+        return self.findLinkedinsScrapping()
+
     def findLinkedins(self, nom, prenom, ecole=None, entreprise=None):
         """
             Usage :
@@ -369,7 +379,8 @@ class SearcherLinkedin:
 if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
-    liste = search.findLinkedins("candido", "frank", entreprise="nuran")
+    liste = search.findLinkedinsKeyWord("frank candido president")
+    #liste = search.findLinkedins("candido", "frank", entreprise="nuran")
     #test pour cas plusieurs page = nbr résultat = 13
     #liste = search.findLinkedins("Legros", "camille")
 
