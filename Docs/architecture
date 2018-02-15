@@ -13,28 +13,30 @@ textAnalyse.py
 	firstnames.txt
 /libraries/
 	/libraries/SNScrapping/
-		/libraries/SNScrapping/
-			sfacebook.py
-			sLinkedin.py
-			sTwitter.py
-			sGoogle.py
-			/libraries/SNScrapping/models/
-				accountLinkedin.py
-				accountFacebook.py
-				accountTweeter.py
-			/libraries/SNScrapping/utils/
-				mSelenium.py
-			/libraries/SNScrapping/drivers/
-				firefox_windows64.exe
-				firefox_linux
-				phantomjs_windows64.exe
-				phantomjs_linux
+		sfacebook.py
+		sLinkedin.py
+		sTwitter.py
+		sGoogle.py
+		/libraries/SNScrapping/models/
+			accountLinkedin.py
+			accountFacebook.py
+			accountTweeter.py
+		/libraries/SNScrapping/utils/
+			mSelenium.py
+			utils.py
+		/libraries/SNScrapping/drivers/
+			firefox_windows64.exe
+			firefox_linux
+			phantomjs_windows64.exe
+			phantomjs_linux
 	/libraries/nltkInternationnal/
 		nltkInternationnal.py
 		/libraries/nltkInternationnal/res/
 			frenchwords.txt
-/modelProjet/
+/modelProject/
 	company.py
 	person.py
 	tweet.py
 	relation.py
+/utils/
+	utils.py
