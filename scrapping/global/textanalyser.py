@@ -89,7 +89,6 @@ class TextAnalyser:
 	""" Analyse et ne renvoit que les noms propres d'un texte ou enonce """
 	def getPropersNouns(self, text, doublon=False):
 		tagged_sent = pos_tag(text.split())
-		print(tagged_sent)
 		propernouns = [word for word,pos in tagged_sent if pos == 'NN']
 		propernouns = self.filtrer(propernouns, self.listeStopwords)
 		propernouns = self.filtrer(propernouns, self.corpus)
@@ -112,6 +111,9 @@ class TextAnalyser:
 
 	""" Separe les mots composes d'elements speciaux d'un texte et supprime la ponctuaction """
 	def separeMotCompose(self, text):
+
+		#TODO REMPLACER PAR STRIP
+		
 		#Remplacement par un espace
 		s = text.replace(","," ")
 		s = s.replace("&"," ")
@@ -134,7 +136,8 @@ class TextAnalyser:
 			translator = str.maketrans('', '', string.punctuation)
 			s = s.translate(translator)
 		else:
-			s = s.translate(None, string.punctuation)
+			for val in string.punctuation:
+				s = s.replace(val, " ")
 
 		return s
 

@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
 				#Tant que la liste urls n'est pas vide et que la limite temporel n'est pas atteinte,
 				#on continue a recuperer les homonymes
-				while (len(urls) > 0) & ( ):
+				while (len(urls) > 0) & (time.time()-start_time < time_limit):
 					#on parcourt les homonymes dans la liste urls
 					for url in urls:
 						print(url)
@@ -89,12 +89,14 @@ if __name__ == '__main__':
 				for c in comptes:
 					nomExp = ""
 					nomEtud =""
-					propernounsExp = analyser.getPropersNounsFromList(compte.nomsExperiences)
-					propernounsEtud = analyser.getPropersNounsFromList(compte.nomsEtudes)
+					propernounsExp = list(analyser.getPropersNounsFromList(c.nomsExperiences))
+					propernounsEtud = list(analyser.getPropersNounsFromList(c.nomsEtudes))
+					print("oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
 					if len(propernounsExp)>0:
 						print propernounsExp[0]
 					if len(propernounsEtud)>0:
 						print propernounsEtud[0]
+					print("oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
 
 					
 
