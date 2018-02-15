@@ -1,0 +1,42 @@
+/
+README.txt
+main.py
+install.py
+research.py
+crossing.py
+normalizes.py
+tweetCsvReader.py
+textAnalyse.py
+/res/
+	tweets.csv
+	corpus_company.txt
+	firstnames.txt
+/libraries/
+	/libraries/SNScrapping/
+		sfacebook.py
+		sLinkedin.py
+		sTwitter.py
+		sGoogle.py
+		/libraries/SNScrapping/models/
+			accountLinkedin.py
+			accountFacebook.py
+			accountTweeter.py
+		/libraries/SNScrapping/utils/
+			mSelenium.py
+			utils.py
+		/libraries/SNScrapping/drivers/
+			firefox_windows64.exe
+			firefox_linux
+			phantomjs_windows64.exe
+			phantomjs_linux
+	/libraries/nltkInternationnal/
+		nltkInternationnal.py
+		/libraries/nltkInternationnal/res/
+			frenchwords.txt
+/modelProject/
+	company.py
+	person.py
+	tweet.py
+	relation.py
+/utils/
+	utils.py
