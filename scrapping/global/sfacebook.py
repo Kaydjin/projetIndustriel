@@ -20,10 +20,14 @@ class CompteFacebook:
 		self.detailsExperiences = []
 		self.nomsEtudes = []
 		self.detailsEtudes = []
+		self.geodonnees = []
 		self.complementaire = ""
 
 	def addFavori(self, x):
 		self.favoris.append(x)
+
+	def addGeoDonnee(self, x):
+		self.geodonnees.append(x)
 
 	def addExperience(self, exp, detail):
 		self.nomsExperiences.append(exp)
@@ -53,7 +57,12 @@ class CompteFacebook:
 			strEtudes = strEtudes+ s + " " + self.detailsEtudes[num] + " "
 			num = num + 1
 
-		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
+
+		strGeoDonnee = ""
+		for s in self.geodonnees:
+			strGeoDonnee = strGeoDonnee + s+ " "
+
+		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strGeoDonnee + " " + strFavoris
 
 """ Retourne l'objet facebook correspondant a la recherche depuis une url donne """
 def findFacebook(nom, prenom, url):
@@ -109,12 +118,9 @@ def findFacebook(nom, prenom, url):
 	#'DONNEES GEOGRAPHIQUES:')
 	hometown = soup.select('#pagelet_timeline_medley_about #pagelet_hometown .fbProfileEditExperiences a')
 	if len(hometown)>0:
-		geodonnees = ""
 		for elem in hometown:
-			geodonnees = geodonnees + elem.getText()
-		compte.complementaire = geodonnees
-	else:
-		compte.complementaire = "null"
+			compte.addGeoDonnee((elem.getText()))
+
 	#'Favoris:')
 	favorites = soup.select('#favorites a')
 	if len(favorites)>0:

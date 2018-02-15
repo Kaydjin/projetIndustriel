@@ -16,6 +16,12 @@ nltk.download('stopwords')
 nltk.download('gutenberg')
 nltk.download('words')
 
+def e(myStr):
+    if sys.version_info >= (3,0):
+       return myStr
+    else:
+       return myStr.encode('utf8')
+
 class TextAnalyser:
 
 	def __init__(self):
@@ -115,21 +121,23 @@ class TextAnalyser:
 		#TODO REMPLACER PAR STRIP
 		
 		#Remplacement par un espace
-		s = text.replace(","," ")
-		s = s.replace("&"," ")
-		s = s.replace("."," ")
-		s = s.replace("-"," ")
-		s = s.replace("//"," ")
-		s = s.replace("/"," ")
-		s = s.replace("!"," ")
-		s = s.replace("?"," ")
-		s = s.replace("#"," ")
-		s = s.replace("|"," ")
-		s = s.replace("@"," ")
-		s = s.replace("+"," ")
-		s = s.replace("_"," ")
-		s = s.replace(":"," ")
-		s = s.replace(";"," ")
+
+		s = text.replace(e(",")," ")
+		s = s.replace(e("&")," ")
+		s = s.replace(e(".")," ")
+		s = s.replace(e("-")," ")
+		s = s.replace(e("//")," ")
+		s = s.replace(e("/")," ")
+		s = s.replace(e("/")," ")
+		s = s.replace(e("!")," ")
+		s = s.replace(e("?")," ")
+		s = s.replace(e("#")," ")
+		s = s.replace(e("|")," ")
+		s = s.replace(e("@")," ")
+		s = s.replace(e("+")," ")
+		s = s.replace(e("_")," ")
+		s = s.replace(e(":")," ")
+		s = s.replace(e(";")," ")
 
 		#Pour tout le reste on supprime simplement la ponctuaction
 		if sys.version_info >= (3,0):
@@ -137,7 +145,7 @@ class TextAnalyser:
 			s = s.translate(translator)
 		else:
 			for val in string.punctuation:
-				s = s.replace(val, " ")
+				s = s.replace(e(val), " ")
 
 		return s
 
@@ -190,10 +198,11 @@ class TextAnalyser:
 			#on ajoute a notre liste les sous mots compris dans les mots composes
 			textNoms = self.decomposeMotCompose(textNoms)
 
-			#on met tout en lower case
+			#on met tout en lower case et on vérifie la taille des mots
 			inter = []
 			for val in textNoms:
-				inter.append(val.lower())
+				if len(val)>2:
+					inter.append(val.lower())
 		
 			if doublon==True:
 				res.append(set(inter))
