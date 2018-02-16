@@ -7,7 +7,8 @@ import re
 import sys
 import time
 from tweetCsvReader import *
-from test_google import *
+#from test_google import *
+from libraries import sGoogle
 from textanalyser import *
 from sfacebook import *
 
@@ -118,9 +119,9 @@ if __name__ == '__main__':
 					  + str(len(propernounsExp)) + ",matchingexp)(" + str(len(propernounsEtud)) + ",machingetud)]")	
 
 				if len(propernounsExp)>0:
-					print propernounsExp[0]
+					print(propernounsExp[0])
 				if len(propernounsEtud)>0:
-					print propernounsEtud[0]
+					print(propernounsEtud[0])
 				print("-------------------------------------------------------------------------------------")
 
 			nbrResByTweetsExpEtud.append(expAndEtud)
