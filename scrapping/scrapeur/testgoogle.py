@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+from __future__ import absolute_import
 import re
 import sys
 import os
@@ -58,79 +58,25 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise):
                 nom_sans_espace += ".*"
         for i in listurls:
             i_sans_accent = supprime_accent(i.link)
-            if (reseausocial == "facebook" and 
-            re.match(".*FACEBOOK.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
-                    result.append((i.link,i.description))
-            elif (reseausocial == "linkedin" and 
-                re.match(".*LINKEDIN.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
+            if (reseausocial == "facebook"): 
+                if(re.match(".*\.FACEBOOK.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
+                    liste = i.description.split(".")
+                    if(not re.match(".*est sur.*",liste[0]) and not re.match(".*is on.*",liste[0])):
+                        result.append((i.link,i.description))
+
+            elif (reseausocial == "linkedin"): 
+                if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
                     result.append((i.link,i.description))
             else:
                 if re.match(".*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()):
                     result.append((i.link,i.description))
     return result
 
-"""
-def search_google_facebook(nom, prenom, queryFacebook):
-    result = []
-    num_page = 1
-    listurls = google.search(queryFacebook, num_page)
-    #listurls = search(queryFacebook, tld="com", num=10, stop=1, pause=2)
-    for i in listurls:
-        #ne recupere que le premier resultat
-        if (len(result) < 1):
-            #supprimer les accents sert a généraliser la recherche
-            i_sans_accent = supprime_accent(i.link)
-            if re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()):
-                result.append(i.link)
-    return result
 
-def search_google_linkedin(nom, prenom, queryLinkedIn):
-    result = []
-    num_page = 1
-    listurls = google.search(queryLinkedIn, num_page)
-    #listurls = search(queryLinkedIn, tld="com", num=10, stop=1, pause=2)
-    for j in listurls:
-        if (len(result) < 1):
-            j_sans_accent = supprime_accent(j.link)
-            if re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", j_sans_accent.upper()):
-                result.append(j.link)
-                
-    return result
-
-def search_google_entreprise(nom, queryEntreprise):
-    result = []
-    num_page = 1
-    listurls = google.search(queryEntreprise, num_page)
-    #listurls = search(query, tld="com", num=10, stop=1, pause=2)
-    for i in listurls:
-        #supprimer les accents sert a généraliser la recherche
-        i_sans_accent = supprime_accent(i.link)
-        if re.match(".*" + nom.upper() + ".*", j_sans_accent.upper()):
-            result.append((i.link,i.description))
-    return result
-
-def search_google_entreprise_linkedin(nom, queryEntrepriseLinkedin):
-    result = []
-    num_page = 1
-    listurls = google.search(queryEntrepriseLinkedin, num_page)
-    for i in listurls:
-        i_sans_accent = supprime_accent(i.link)
-        if re.match(".*LINKEDIN.*" + nom.upper() + ".*", i_sans_accent.upper()):
-            result.append((i.link,i.description))
-    return result
-
-def search_google_entreprise_facebook(nom, queryEntrepriseFacebook):
-    result = []
-    num_page = 1
-    listurls = google.search(queryEntrepriseFacebook, num_page)
-    for i in listurls:
-        i_sans_accent = supprime_accent(i.link)
-        if re.match(".*FACEBOOK.*" + nom.upper() + ".*", i_sans_accent.upper()):
-            result.append((i.link,i.description))
-    return result
-"""
 def supprime_accent(ligne):
         """ supprime les accents du texte source """
+        if sys.version_info < (3, 0):
+            ligne = ligne.encode('utf8')
         accents = { 'a': ['à', 'ã', 'á', 'â', 'ä', 'å'],
                     'ae': ['æ'],
                     'c': ['ç'],
@@ -150,7 +96,7 @@ def supprime_accent(ligne):
 if __name__ == '__main__':
     #liste_sites = search_google("Frank Candido", "", "linkedin", False)
     #print(liste_sites)
-    liste_sites = search_google("BigMoneyTraders","","",True)
+    liste_sites = search_google("carrefour","","facebook",True)
     for i,j in liste_sites:
         print(i," ==> ",j,"\n")
     
