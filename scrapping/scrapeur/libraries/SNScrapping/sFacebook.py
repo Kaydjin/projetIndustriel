@@ -91,5 +91,5 @@ if __name__ == '__main__':
 	for val in compte.favoris:
 		print(val)
 
-	print compte.synthese()
+	print(compte.synthese())
 
