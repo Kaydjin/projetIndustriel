@@ -139,9 +139,9 @@ if __name__ == '__main__':
 
 	for k in range(0, len(comptes)):
 		for v in range(1, len(nbrResNouns[k])):
-			print nbrResNouns[k][v]
-			print nbrResPropernounsLExp[k][v]
-			print nbrResPropernounsLEtud[k][v]
+			print( nbrResNouns[k][v])
+			print( nbrResPropernounsLExp[k][v])
+			print( nbrResPropernounsLEtud[k][v])
 
 
 					
