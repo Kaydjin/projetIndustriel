@@ -1,5 +1,5 @@
 @echo off 
 echo debut test fichier sfacebookSelenium.py
-py sfacebookSelenium.py
+py libraries/SNScrapping/sfacebookSelenium.py
 echo Fin
 pause
