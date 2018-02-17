@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-from textanalyser import *
+from __future__ import absolute_import
+from models import accountFacebook
 import requests, bs4
 import argparse
 import time
@@ -9,64 +9,9 @@ import os
 import bs4
 import platform
 
-class CompteFacebook:
-
-	def __init__(self, nom, prenom, url):
-		self.homonymes = []
-		self.description = ""
-		self.url = url
-		self.favoris = []
-		self.nomsExperiences = []
-		self.detailsExperiences = []
-		self.nomsEtudes = []
-		self.detailsEtudes = []
-		self.geodonnees = []
-		self.complementaire = ""
-
-	def addFavori(self, x):
-		self.favoris.append(x)
-
-	def addGeoDonnee(self, x):
-		self.geodonnees.append(x)
-
-	def addExperience(self, exp, detail):
-		self.nomsExperiences.append(exp)
-		self.detailsExperiences.append(detail)
-
-	def addEtude(self, etud, detail):
-		self.nomsEtudes.append(etud)
-		self.detailsEtudes.append(detail)
-
-	def addHomonyme(self, x):
-		self.homonymes.append(x)
-
-	def synthese(self):
-		strFavoris = ""
-		for s in self.favoris:
-			strFavoris = strFavoris + s+ " "
-
-		strExperiences = ""
-		num=0
-		for s in self.nomsExperiences:
-			strExperiences = strExperiences + s+ " " + self.detailsExperiences[num] + " "
-			num = num + 1
-
-		strEtudes = ""
-		num=0
-		for s in self.nomsEtudes:
-			strEtudes = strEtudes+ s + " " + self.detailsEtudes[num] + " "
-			num = num + 1
-
-
-		strGeoDonnee = ""
-		for s in self.geodonnees:
-			strGeoDonnee = strGeoDonnee + s+ " "
-
-		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strGeoDonnee + " " + strFavoris
-
 """ Retourne l'objet facebook correspondant a la recherche depuis une url donne """
 def findFacebook(nom, prenom, url):
-	compte = CompteFacebook(nom, prenom, url)
+	compte = accountFacebook.CompteFacebook(nom, prenom, url)
 
 	#request et verification
 	res = requests.get(url)
@@ -145,13 +90,6 @@ if __name__ == '__main__':
 	print('Favoris:')
 	for val in compte.favoris:
 		print(val)
-	print compte.synthese()
 
-	analyser = TextAnalyser()
-	liste = analyser.getPropersNounsFromList(compte.nomsExperiences)
-	for v in liste:
-		print(v)
-	liste = analyser.getPropersNounsFromList(compte.nomsEtudes)
-	for v in liste:
-		print(v)
+	print compte.synthese()
 

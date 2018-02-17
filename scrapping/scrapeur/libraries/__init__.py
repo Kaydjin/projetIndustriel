@@ -1,2 +1,2 @@
-from .SNScrapping import sGoogle
-from .SNScrapping import sfacebook
+from __future__ import absolute_import
+from .SNScrapping import sFacebook, sLinkedin, sGoogle

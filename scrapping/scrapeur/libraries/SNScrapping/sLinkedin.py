@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-from selenium import webdriver
-from client import LIClient
-from settings import search_keys
+from __future__ import absolute_import
+from models.accountLinkedin import *
+from utils.utils import *
+from seleniumClass.mSelenium import SeleniumManager
+from seleniumClass.seleniumClientLinkedin import ClientLinkedin
+from settings.settingsLinkedin import *
 from datetime import datetime
 import sys
 import argparse
@@ -10,135 +13,6 @@ import time
 import os
 import bs4
 import platform
-
-
-class Experience:
-
-    def __init__(self, nom, date, geolocalisation, description, actif, urlEntreprise, nomEntreprise, descriptionEntreprise, domaineE):
-        self.nomExperience = nom
-        self.date = date
-        self.geolocalisation = geolocalisation
-        self.description = description
-        self.actif = actif
-
-        self.urlEntreprise = urlEntreprise
-        self.descriptionEntreprise = descriptionEntreprise
-        self.domaineEntreprise = domaineE
-        self.nomEntreprise = nomEntreprise
-
-        def synthesePersonne(self):
-            return self.nomExperience + self.date + self.geolocalisation + self.description + self.nomEntreprise + self.domaineEntreprise
-
-        def syntheseEntreprise(self):
-            return self.nomEntreprise + self.geolocalisation + self.domaineEntreprise + self.descriptionEntreprise
-
-class CompteLinkedin:
-
-    def __init__(self, nom, prenom, url):
-        self.homonymes = []
-        self.url = url
-        self.favoris = []
-        self.etudes = []
-        self.experiences = []
-        self.complementaire = ""
-
-    def addFavori(self, x):
-        self.favoris.append(x)
-
-    def addEtude(self, x):
-        self.etudes.append(x)
-
-    def addExperience(self, nom, date, geolocalisation, description, actif, urlEntreprise, nomE, descriptionE, domaineE):
-        self.experiences.append(Experience(nom, date, geolocalisation, description, actif, urlEntreprise, nomE, descriptionE, domaineE))
-
-    def addHomonyme(self, x):
-        self.homonymes.append(x)
-
-    def allActiveEntreprise(self):
-        liste = []
-        for s in self.experiences:
-            if s.actif == True:
-                liste.append(s)
-
-        return liste
-
-    def syntheseEntreprise(self, active):
-        strRes = ""
-        for s in self.experiences:
-            if s.actif==active:
-                strRes = strRes + s.syntheseEntreprise() + " "
-
-        return strRes
-
-    def synthesePersonne(self):
-        strFavoris = ""
-        for s in self.favoris:
-            strFavoris = strFavoris + s+" "
-        strEtudes = ""
-        for s in self.etudes:
-            strEtudes = strEtudes + s+" "
-        strExperiences = ""
-        for s in self.experiences:
-            strExperiences = strExperiences + s.synthesePersonne() +" "
-
-        return strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
-
-class SeleniumManager:
-
-    def __init__(self, waiting_time):
-        os_driver = "error"
-
-        """ different drivers selon l'os"""
-        if platform.system() == "Windows":
-            os_driver = "/geckodriver_windows64.exe"
-        elif platform.system() == "Linux":
-            os_driver = "/geckodriver_linux"
-        else :
-            print("OS non supporté")
-            os_driver = "error"
-
-        if os_driver != "error" :
-            self.driver = webdriver.Firefox(executable_path=os.getcwd()+os_driver)
-        self.waiting_time = waiting_time
-        self.last_time = time.time()
-
-    """ Permet de gérer le temps entre les requêtes """
-    def get(self, url, pause_time):
-
-        """ Si le temps entre les deux dernieres requetes gérer par le manager 
-            est inferieur au paramètre d'initialisation, on attend le temps restant"""
-        if time.time()-self.last_time<self.waiting_time:
-            time.sleep(self.waiting_time-(time.time()-self.last_time))
-
-        """ on recupere l'url demande """
-        self.driver.get(url)
-
-        """ on attend le temps requisionne """
-        time.sleep(pause_time)
-
-        """ on garde en memoire le temps de la derniere utilisation """
-        self.last_time = time.time()
-
-    def driver_quit(self):
-        self.driver.quit()
-
-
-def formater(str_text):
-    str_text = str_text.replace('\n', ' ').strip()
-    str_tab = str_text.split("  ")
-    res = ""
-    for s in str_tab:
-        s = s.strip()
-        if(s != ''):
-            res = res +"\n"+ s
-    return res
-
-def ecriturePython2_Python3(file, myStr):
-    if sys.version_info >= (3,0):
-        file.write(myStr)
-    else:
-        file.write(myStr.encode('utf8'))
-
 
 class SearcherLinkedin:
 
@@ -149,7 +23,7 @@ class SearcherLinkedin:
         self.manager.get("https://www.linkedin.com/uas/login", 0)
 
         # initialize LinkedIn web client
-        liclient = LIClient(manager.driver, **search_keys)
+        liclient = ClientLinkedin(manager.driver, **search_keys)
         liclient.login()
         time.sleep(3)
 
@@ -329,8 +203,10 @@ class SearcherLinkedin:
                 #Instanciation of the date
                 if "dates" == strExpLow_tab[0]:
                     date = strExpEncode[16:]
-                    if not "aujourd" in strExpLow:
-                        actif = False
+                    actif = False
+                    for var in ["aujourd", "present", "now"]:
+                        if var in strExpLow:
+                            actif = True
     
                 #Instanciation of the name of the entreprise
                 if "nom" == strExpLow_tab[0]:
@@ -380,6 +256,7 @@ if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherLinkedin(manager)
     liste = search.findLinkedinsKeyWord("frank candido president")
+    liste = list(liste)
     #liste = search.findLinkedins("candido", "frank", entreprise="nuran")
     #test pour cas plusieurs page = nbr résultat = 13
     #liste = search.findLinkedins("Legros", "camille")

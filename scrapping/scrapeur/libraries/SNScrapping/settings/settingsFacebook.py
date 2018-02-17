@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import
 search_keys = { 
     "username"         :  "testgeodatas@laposte.net",
     "password"         :  "testgeodatas",

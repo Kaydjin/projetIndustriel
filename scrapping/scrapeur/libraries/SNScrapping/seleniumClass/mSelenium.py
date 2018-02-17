@@ -1,4 +1,12 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import os
 import platform
 import time
@@ -10,11 +18,11 @@ class SeleniumManager:
 
         """ different drivers selon l'os"""
         if platform.system() == "Windows":
-            os_driver = "/geckodriver_windows64.exe"
+            os_driver = "/seleniumClass/geckodriver_windows64.exe"
         elif platform.system() == "Linux":
-            os_driver = "/geckodriver_linux"
+            os_driver = "/seleniumClass/geckodriver_linux"
         else :
-            print("OS non supporté")
+            print("OS non supporte")
             os_driver = "error"
 
         if os_driver != "error" :
