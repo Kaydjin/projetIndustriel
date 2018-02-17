@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-from models import accountFacebook
+from .models import accountFacebook
 import requests, bs4
 import argparse
 import time

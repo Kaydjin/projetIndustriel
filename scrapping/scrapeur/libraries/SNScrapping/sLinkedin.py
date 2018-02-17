@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 from __future__ import absolute_import
-from models.accountLinkedin import *
-from utils.utils import *
-from seleniumClass.mSelenium import SeleniumManager
-from seleniumClass.seleniumClientLinkedin import ClientLinkedin
-from settings.settingsLinkedin import *
+from .models import accountLinkedin 
+from .utils.utils import *
+from .seleniumClass.mSelenium import SeleniumManager
+from .seleniumClass.seleniumClientLinkedin import ClientLinkedin
+from .settings.settingsLinkedin import *
 from datetime import datetime
 import sys
 import argparse
@@ -23,7 +23,7 @@ class SearcherLinkedin:
         self.manager.get("https://www.linkedin.com/uas/login", 0)
 
         # initialize LinkedIn web client
-        liclient = ClientLinkedin(manager.driver, **search_keys)
+        liclient = accountLinkedin.ClientLinkedin(manager.driver, **search_keys)
         liclient.login()
         time.sleep(3)
 

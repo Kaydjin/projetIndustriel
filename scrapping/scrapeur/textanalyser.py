@@ -83,7 +83,7 @@ class TextAnalyser:
 		""" Creer un corpus multi-linguale """
 	def madeCorpus(self):
 		liste = []
-		with open("frenchwords.txt") as f:
+		with open("res/frenchwords.txt") as f:
 			for line in f:
 				if line.strip() != "":
 					liste.append(line.strip())

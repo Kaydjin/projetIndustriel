@@ -59,7 +59,7 @@ class Reader:
         else:
             file = open(self.fileNameCsv, "rt")
             
-        fname = "prenoms.csv"
+        fname = "res/prenoms.csv"
         file2 = open(fname, "rt")
 
         try:

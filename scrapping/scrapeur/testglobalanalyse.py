@@ -10,31 +10,32 @@ from tweetCsvReader import *
 #from test_google import *
 from libraries import sGoogle
 from textanalyser import *
-from sfacebook import *
+from libraries import sFacebook
 
 #from linkedIn_Recherche import *
 
 if __name__ == '__main__':
 
 	#Recuperation des tweets lier a la personne choisit
-	fname = "iteration_500.csv"
+	fname = "res/iteration_500.csv"
 	reader = Reader(fname)
 	reader.read()
 	tweets = reader.getPeopleTweets(True)
 
+	nbrResByTweets = []
+	nbrResByTweetsExpEtud = []
+	nbrResByTweetsExp = []
+	nbrResByTweetsEtud = []
+	nbrResByTweetsGeo = []
+	nbrResNouns = []
+	nbrResPropernounsLExp = []
+	nbrResPropernounsLEtud = []
+
 	for val in tweets:
-		result = search_google(val.userPrenom  + " " + val.userNom, "", "facebook", False)
-		nbrResByTweets = []
-		nbrResByTweetsExpEtud = []
-		nbrResByTweetsExp = []
-		nbrResByTweetsEtud = []
-		nbrResByTweetsGeo = []
-		nbrResNouns = []
-		nbrResPropernounsLExp = []
-		nbrResPropernounsLEtud = []
+		result = sGoogle.search_google(val.userPrenom  + " " + val.userNom, "", "facebook", False)
 
 		if len(result) > 0:
-			compte = findFacebook(val.userNom, val.userPrenom, result[0])
+			compte = sFacebook.findFacebook(val.userNom, val.userPrenom, result[0])
 
 			#Initialisation de variables pour le parcours des homonymes
 			urls = compte.homonymes
@@ -56,7 +57,7 @@ if __name__ == '__main__':
 					time.sleep(2)
 
 					#on ajoute les comptes trouves
-					c = findFacebook(val.userNom , val.userPrenom , url)
+					c = sFacebook.findFacebook(val.userNom , val.userPrenom , url)
 					comptes.append(c)
 
 					#on met en memoire les adresse deja faite
@@ -100,7 +101,7 @@ if __name__ == '__main__':
 				if (len(c.nomsEtudes)) > 0:
 					etud = etud + 1
 
-				if (len(c.geoDonnees)) > 0:
+				if (len(c.geodonnees)) > 0:
 					geo = geo + 1
 
 				propernounsLExp.append(len(propernounsExp))
@@ -131,6 +132,16 @@ if __name__ == '__main__':
 			nbrResNouns.append(nounsL)
 			nbrResPropernounsLExp.append(propernounsLExp)
 			nbrResPropernounsLEtud.append(propernounsLEtud)
+
+	for k in range(0,len(comptes)):
+		print (str(nbrResByTweets[k]) + " "+str(nbrResByTweetsExpEtud[k]) + " "+str(nbrResByTweetsExp[k]) + " "+str(nbrResByTweetsEtud[k]) + " "+
+			str(nbrResByTweetsGeo[k]))
+
+	for k in range(0, len(comptes)):
+		for v in range(1, len(nbrResNouns[k])):
+			print nbrResNouns[k][v]
+			print nbrResPropernounsLExp[k][v]
+			print nbrResPropernounsLEtud[k][v]
 
 
 					
