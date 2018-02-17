@@ -30,7 +30,9 @@ if __name__ == '__main__':
 	nbrResNouns = []
 	nbrResPropernounsLExp = []
 	nbrResPropernounsLEtud = []
+	nbresultats = len(tweets)
 
+	print(nbresultats)
 	for val in tweets:
 		result = sGoogle.search_google(val.userPrenom  + " " + val.userNom, "", "facebook", False)
 
@@ -45,7 +47,7 @@ if __name__ == '__main__':
 
 			#Limite temporel
 			start_time = time.time()
-			time_limit = 20
+			time_limit = 30
 
 			#Tant que la liste urls n'est pas vide et que la limite temporel n'est pas atteinte,
 			#on continue a recuperer les homonymes
@@ -132,16 +134,23 @@ if __name__ == '__main__':
 			nbrResNouns.append(nounsL)
 			nbrResPropernounsLExp.append(propernounsLExp)
 			nbrResPropernounsLEtud.append(propernounsLEtud)
+		else:
+			print("no_result_google")
+			nbresultats = nbresultats - 1 
 
-	for k in range(0,len(comptes)):
-		print (str(nbrResByTweets[k]) + " "+str(nbrResByTweetsExpEtud[k]) + " "+str(nbrResByTweetsExp[k]) + " "+str(nbrResByTweetsEtud[k]) + " "+
-			str(nbrResByTweetsGeo[k]))
+	print nbresultats
 
-	for k in range(0, len(comptes)):
+	for k in range(0,nbresultats-1):
+		print (str(nbrResByTweets[k]) + ",nbPeople "+str(nbrResByTweetsExpEtud[k]) + ",Exp&Etud "
+			+str(nbrResByTweetsExp[k]) + ",Exp "+str(nbrResByTweetsEtud[k]) + " ,Etud "
+			+str(nbrResByTweetsGeo[k]) + ", geodatas")
+
+	for k in range(0, nbresultats-1):
 		for v in range(1, len(nbrResNouns[k])):
-			print( nbrResNouns[k][v])
-			print( nbrResPropernounsLExp[k][v])
-			print( nbrResPropernounsLEtud[k][v])
+			print(str(nbrResNouns[k][v])+ ",nouns " + str(nbrResPropernounsLExp[k][v]) 
+				+ ",ExpNouns " + str(nbrResPropernounsLEtud[k][v]) + ",EtudNouns")
+		print("- - - - -")
+	print("o o o o o")
 
 
 					

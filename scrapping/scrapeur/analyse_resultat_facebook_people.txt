@@ -1,0 +1,145 @@
+Sur 26 tweets, 17 tweets ont donné au moins un résultat facebook.
+
+Sur ces 17 tweets, 6 on un seul résultat.
+
+Sur ces 17 tweets, recupération pendant 30 secondes des personnes liés et analyse des champs non vides:
+Moins de la moitié on des résultats exp et etud.
+plus d'1 tier n'ont des résultat ni en exp, ni en etud.
+
+9,nbPeople 	6,Exp&Etud 7,Exp 8,Etud 	8, geodatas
+1,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	0, geodatas
+24,nbPeople    11,Exp&Etud 15,Exp 15,Etud      19, geodatas
+5,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	2, geodatas
+9,nbPeople 	2,Exp&Etud 3,Exp 5,Etud 	6, geodatas
+5,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	2, geodatas
+1,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	0, geodatas
+1,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	0, geodatas
+9,nbPeople 	5,Exp&Etud 5,Exp 5,Etud 	5, geodatas
+1,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	0, geodatas
+2,nbPeople 	1,Exp&Etud 1,Exp 1,Etud 	1, geodatas
+3,nbPeople 	1,Exp&Etud 2,Exp 1,Etud 	2, geodatas
+1,nbPeople 	0,Exp&Etud 0,Exp 1,Etud 	0, geodatas
+5,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	2, geodatas
+1,nbPeople 	0,Exp&Etud 0,Exp 0,Etud 	0, geodatas
+37,nbPeople 	12,Exp&Etud 18,Exp 18 	       23, geodatas
+
+La géodata est présente quand l'exp et l'etud est présente et est parfois présente sans l'exp et l'étud.
+La géodata est donc un bon critère de recherche ou matching.
+
+0,nouns 1,ExpNouns 1,EtudNouns
+0,nouns 2,ExpNouns 4,EtudNouns
+0,nouns 0,ExpNouns 1,EtudNouns
+0,nouns 0,ExpNouns 2,EtudNouns
+0,nouns 1,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 2,ExpNouns 5,EtudNouns
+- - - - -
+- - - - -
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 1,ExpNouns 0,EtudNouns
+0,nouns 2,ExpNouns 1,EtudNouns
+0,nouns 2,ExpNouns 0,EtudNouns
+0,nouns 4,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 2,ExpNouns 2,EtudNouns
+0,nouns 0,ExpNouns 2,EtudNouns
+0,nouns 0,ExpNouns 3,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 4,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 2,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 2,ExpNouns 2,EtudNouns
+0,nouns 2,ExpNouns 2,EtudNouns
+0,nouns 0,ExpNouns 1,EtudNouns
+0,nouns 2,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 3,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+- - - - -
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+2,nouns 0,ExpNouns 0,EtudNouns
+- - - - -
+0,nouns 1,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+2,nouns 0,ExpNouns 1,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 1,EtudNouns
+- - - - -
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+- - - - -
+- - - - -
+- - - - -
+2,nouns 2,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 1,ExpNouns 2,EtudNouns
+1,nouns 0,ExpNouns 1,EtudNouns
+2,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 2,ExpNouns 3,EtudNouns
+- - - - -
+- - - - -
+2,nouns 1,ExpNouns 0,EtudNouns
+- - - - -
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+- - - - -
+- - - - -
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+2,nouns 0,ExpNouns 0,EtudNouns
+- - - - -
+- - - - -
+0,nouns 0,ExpNouns 0,EtudNouns
+2,nouns 0,ExpNouns 8,EtudNouns
+0,nouns 0,ExpNouns 3,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+3,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 1,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 2,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 1,ExpNouns 0,EtudNouns
+1,nouns 2,ExpNouns 4,EtudNouns
+0,nouns 0,ExpNouns 2,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 2,ExpNouns 0,EtudNouns
+0,nouns 1,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 1,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+2,nouns 2,ExpNouns 3,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 4,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 2,ExpNouns 2,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 0,EtudNouns
+0,nouns 1,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 1,EtudNouns
+1,nouns 0,ExpNouns 1,EtudNouns
+1,nouns 0,ExpNouns 3,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+1,nouns 0,ExpNouns 2,EtudNouns
+0,nouns 0,ExpNouns 0,EtudNouns
+
+Le corpus espagnol n'est pas encore incorporé donc les résultats sur les expsnouns et les etudnouns sont faussés.
+Certains termes en anglais deviennent parfois autre chose que des noms et ne sont pas ajoutés.
+A prévoir un steeming avant un matching possiblement, pour les données en anglais.
