@@ -82,9 +82,9 @@ if __name__ == '__main__':
 	file = ""
 	name_date_file = datetime.now().strftime('%H%M%d%m%Y')
 	if sys.version_info >= (3, 0):
-		file=open('log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
+		file=open('libraries/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
 	else:
-		file=open('log/sfacebookRecherche'+name_date_file+'.log', 'w+')
+		file=open('libraries/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+')
 	for val in liste:
 		print(val)
 		ecriturePython2_Python3(file, val)
