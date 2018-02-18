@@ -12,6 +12,36 @@ import os
 import bs4
 import platform
 
+def standardUrl(url):
+	tab = url.split("facebook.com")
+	if not "www" in tab[0]:
+		return "https://www.facebook.com"+tab[1]
+	return url
+
+""" Verifiy if the url go to a facebook page and not a personnal profil """
+def certifiatePage(url):
+
+	#modify the url to go on a page available only in the case of a personnality or company page
+	tab = url.split("facebook.com")
+	url_modifier = tab[0]+"facebook.com/pg"+tab[1]
+
+	#limit access
+	time.sleep(1)
+
+	#request et verification
+	res = requests.get(url_modifier)
+	res.status_code == requests.codes.ok
+
+	""" Status code at 404 when the page is not available """
+	if res.status_code == 404:
+		return False
+	else:
+		#limit access
+		time.sleep(1)
+		return True
+
+
+
 """ Retourne l'objet facebook correspondant a la recherche depuis une url donne """
 def findFacebook(nom, prenom, url):
 	compte = accountFacebook.CompteFacebook(nom, prenom, url)

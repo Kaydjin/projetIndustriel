@@ -48,7 +48,8 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                  not re.match(".*/PUBLIC/.*",i_sans_accent.upper())):
                     result.append(i.link)
             elif(reseausocial == "linkedin"): 
-                if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
+                if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()) and
+                   not re.match(".*/PUB/DIR.*", i_sans_accent.upper())):
                     result.append(i.link)
     #cas d'une recherche d'entreprise
     else:
@@ -65,14 +66,19 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
             i_sans_accent = supprime_accent(i.link)
             if (reseausocial == "facebook"):
                 if(re.match(".*\.FACEBOOK\.COM/" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and 
-                    not re.match(".*/PUBLIC/.*", i_sans_accent.upper())):
-                    liste = i.description.split(".")
+                    not (re.match(".*/PUBLIC/.*", i_sans_accent.upper()) or 
+                        re.match(".*/ABOUT.*", i_sans_accent.upper()) or
+                        re.match(".*/POST.*", i_sans_accent.upper()))):
+                    ajout = True
                     for val in ["is on Facebook", "est sur Facebook"]:
-                        if(not val in liste):
-                            result.append((i.link,i.description))
+                        if(val in i.description):
+                            ajout = False
+                    if(ajout):    
+                        result.append((i.link,i.description))
 
             elif (reseausocial == "linkedin"): 
-                if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
+                if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and
+                   not re.match(".*/PUB/DIR.*", i_sans_accent.upper())):
                     result.append((i.link,i.description))
             else:
                 if re.match(".*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()):
@@ -81,7 +87,7 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
 
 
 def supprime_accent(ligne):
-        """ supprime les accents du texte source """
+        """ supprime les accents du texte source """,
         if sys.version_info < (3, 0):
             ligne = ligne.encode('utf8')
         accents = { 'a': ['à', 'ã', 'á', 'â', 'ä', 'å'],
