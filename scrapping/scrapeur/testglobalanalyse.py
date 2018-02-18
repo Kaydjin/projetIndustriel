@@ -6,7 +6,7 @@ import os
 import re
 import sys
 import time
-from tweetCsvReader import *
+from normalizeDatas import *
 #from test_google import *
 from libraries import sGoogle
 from textanalyser import *
@@ -18,8 +18,8 @@ if __name__ == '__main__':
 
 	#Recuperation des tweets lier a la personne choisit
 	fname = "res/iteration_500.csv"
-	reader = Reader(fname)
-	reader.read()
+	reader = Datas()
+	reader.readFromCsv(fname)
 	tweets = reader.getPeopleTweets(True)
 
 	nbrResByTweets = []
@@ -34,10 +34,10 @@ if __name__ == '__main__':
 
 	print(nbresultats)
 	for val in tweets:
-		result = sGoogle.search_google(val.userPrenom  + " " + val.userNom, "", "facebook", False)
+		result = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", False)
 
 		if len(result) > 0:
-			compte = sFacebook.findFacebook(val.userNom, val.userPrenom, result[0])
+			compte = sFacebook.findFacebook(val.userSurname, val.userFirstname, result[0])
 
 			#Initialisation de variables pour le parcours des homonymes
 			urls = compte.homonymes
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 					time.sleep(2)
 
 					#on ajoute les comptes trouves
-					c = sFacebook.findFacebook(val.userNom , val.userPrenom , url)
+					c = sFacebook.findFacebook(val.userSurname , val.userFirstname , url)
 					comptes.append(c)
 
 					#on met en memoire les adresse deja faite
@@ -109,15 +109,15 @@ if __name__ == '__main__':
 				propernounsLExp.append(len(propernounsExp))
 				propernounsLEtud.append(len(propernounsEtud))
 
-				if not val.userDescription=="":
-					r = analyser.getMatchingNouns(val.text + " " + val.tags +" " + val.userDescription + " " + val.userLocation, c.synthese())
+				if not val.user_description=="":
+					r = analyser.getMatchingNouns(val.tweet_text + " " + val.hashtags +" " + val.user_description + " " + val.user_location, c.synthese())
 					nounsL.append(len(r))
-					print("[" + val.userNom + " " + val.userPrenom + ": (" + str(len(r)) + ",matchingnouns) ("
+					print("[" + val.userSurname + " " + val.userFirstname + ": (" + str(len(r)) + ",matchingnouns) ("
 							  + str(len(c.nomsExperiences)) + ",exp) (" + str(len(c.nomsEtudes)) + ",etudes)("
 							  + str(len(propernounsExp)) + ",matchingexp)(" + str(len(propernounsEtud)) + ",machingetud)]")				
 				else:
 					nounsL.append(0)
-					print("[" + val.userNom + " " + val.userPrenom + "("
+					print("[" + val.userSurname + " " + val.userFirstname + "("
 					  + str(len(c.nomsExperiences)) + ",exp) (" + str(len(c.nomsEtudes)) + ",etudes)("
 					  + str(len(propernounsExp)) + ",matchingexp)(" + str(len(propernounsEtud)) + ",machingetud)]")	
 

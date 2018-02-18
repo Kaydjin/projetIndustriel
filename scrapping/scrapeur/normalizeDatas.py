@@ -109,28 +109,28 @@ class Datas:
 
 
 
-	def getSomeoneTweets(self, nom, prenom, pertinent):
+	def getSomeoneTweets(self, nom, prenom, pertinent=True):
 		someoneTweets = []
 		for tweet in self.tweets:
 			if (tweet.pertinent==pertinent) & (nom.lower() in tweet.user_name.lower())& (prenom.lower() in tweet.user_name.lower()):
 				someoneTweets.append(tweet)
 		return someoneTweets
 
-	def getIndeterminatedTweets(self, pertinent):
+	def getIndeterminatedTweets(self, pertinent=True):
 		indeterminer = []
 		for tweet in self.tweets:
 			if (tweet.pertinent==pertinent) & (tweet.typeAuthor == "INDETERMINED"):
 				indeterminer.append(tweet)
 		return indeterminer
 
-	def getPeopleTweets(self, pertinent):
+	def getPeopleTweets(self, pertinent=True):
 		people = []
 		for tweet in self.tweets:
 			if (tweet.pertinent==pertinent) & (tweet.typeAuthor == "PERSON"):
 				people.append(tweet)
 		return people
 
-	def getCompagnieTweets(self, pertinent):
+	def getCompagnieTweets(self, pertinent=True):
 		compagnie = []
 		for tweet in self.tweets:
 			if (tweet.pertinent==pertinent) & (tweet.typeAuthor == "COMPANY"):

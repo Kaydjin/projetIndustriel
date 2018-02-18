@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 from __future__ import absolute_import
-from models import accountLinkedin 
-from utils.utils import *
-from seleniumClass.mSelenium import SeleniumManager
-from seleniumClass.seleniumClientLinkedin import ClientLinkedin
-from settings.settingsLinkedin import *
+from .models import accountLinkedin 
+from .utils.utils import *
+from .seleniumClass.mSelenium import SeleniumManager
+from .seleniumClass.seleniumClientLinkedin import ClientLinkedin
+from .settings.settingsLinkedin import *
 from datetime import datetime
 import sys
 import argparse

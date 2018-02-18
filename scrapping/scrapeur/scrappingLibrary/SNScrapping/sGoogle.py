@@ -4,7 +4,11 @@ from __future__ import absolute_import
 import re
 import sys
 import os
-from google import google
+
+if __name__ == '__main__':
+    from google import google
+else:
+    from .google import google
 
 """
 -nom_complet correspond au nom de la personne ou entreprise que l'on recherche
@@ -12,7 +16,7 @@ from google import google
 -reseausocial correspond au réseau social sur lequel l'on recherche la personne
 -entreprise est un boolean précisant si l'on recherche une entreprise (True) ou une personne (False)
 """
-def search_google(nom_complet, complementaire, reseausocial, entreprise):
+def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
     result = []
     num_page = 1
     #cas où nous recherchons une personne
@@ -97,6 +101,7 @@ if __name__ == '__main__':
     #liste_sites = search_google("Frank Candido", "", "linkedin", False)
     #print(liste_sites)
     liste_sites = search_google("carrefour","","facebook",True)
+    resultFacebook = search_google("Frank" + " " + "Candido", "", "facebook", False)
     for i,j in liste_sites:
         print(i," ==> ",j,"\n")
     
