@@ -21,13 +21,12 @@ def certifiatePagePersonnality(url):
 	#modify the url to go on a page available only in the case of a personnality
 	tab = url.split("facebook.com")
 	url_modifier = tab[0]+"facebook.com/pg"+tab[1]
-	print(url_modifier)
 
 	#request et verification
 	res = requests.get(url_modifier)
 	res.status_code == requests.codes.ok
 
-	""" Status code at 404 when the page is """
+	""" Status code at 404 when the page is not available """
 	if res.status_code == 404:
 		return False
 	else:
