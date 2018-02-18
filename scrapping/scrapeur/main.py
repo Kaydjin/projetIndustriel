@@ -6,12 +6,42 @@ import os
 import re
 import sys
 import time
+from modelsProject.instance import *
 from normalizeDatas import *
 from scrappingLibrary import sGoogle
 from textanalyser import *
 from scrappingLibrary import sFacebook
 
 #from linkedIn_Recherche import *
+
+""" Step 2 for a tweet, return an instance for the result of the search for this tweet """
+def search(tweet):
+	instance = Instance(tweet)
+
+	""" The first search google is with location, we will add a value for the given url """
+	resultFacebook = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "facebook", False)
+	resultLinkedin = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "linkedin", False)
+	resultFacebookC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "facebook", True)
+	resultLinkedinC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "linkedin", True)
+
+	for d in resultFacebook:
+		new_url = sFacebook.standardUrl(d)
+		if not sFacebook.certifiatePage(new_url):
+			instance.addAccountFacebookPerson((x, 2))
+	for d in resultLinkedin:
+		instance.addAccountLinkedinPerson((x,2))
+	for d in resultFacebookC:
+		new_url = sFacebook.standardUrl(d)
+		if sFacebook.certifiatePage(new_url):
+			instance.addAccountFacebookCompany((x, 2))
+	for d in resultLinkedinC:
+		instance.addAccountLinkedinCompany((x,2))
+
+	""" The second search google is without location, no add value for the given url """
+	resultFacebook2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", False)
+	resultLinkedin2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "linkedin", False)
+	resultFacebookC2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", True)
+	resultLinkedinC2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "linkedin", True)
 
 if __name__ == '__main__':
 
@@ -22,7 +52,7 @@ if __name__ == '__main__':
 	""" Second step: Search : instanciate for Person or Indeterminate tweets, the result for search on linkedin and facebook"""
 	tweets = reader.getPeopleTweets(True)
 
-	for val in [tweets[7],tweets[8]]:
+	for val in tweets[:20]:
 
 		""" The first search is with location, the second without """
 		print(val.user_name)
@@ -31,16 +61,15 @@ if __name__ == '__main__':
 		resultFacebookC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "facebook", True)
 		resultLinkedinC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "linkedin", True)
 		for d in resultFacebook:
-			print(d)
 			new_url = sFacebook.standardUrl(d)
-			if sFacebook.certifiatePagePersonnality(new_url):
-				print("Page personnality, donc pas prise en compte")
+			if not sFacebook.certifiatePage(new_url):
+				print("person:"+d)
 		for d in resultLinkedin:
-			print(d)
-		for d in resultFacebookC:
-			print(d)
-		for d in resultLinkedinC:
-			print(d)
+			print("person:"+d)
+		for d,j in resultFacebookC:
+			print("company:"+d)
+		for d,j in resultLinkedinC:
+			print("company:"+d)
 """
 		resultFacebook2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", False)
 		resultLinkedin2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "linkedin", False)

@@ -15,12 +15,15 @@ def standardUrl(url):
 		return "https://www.facebook.com"+tab[1]
 	return url
 
-""" Verifiy if the page is a personnality page and not a personnal page """
-def certifiatePagePersonnality(url):
+""" Verifiy if the url go to a facebook page and not a personnal profil """
+def certifiatePage(url):
 
-	#modify the url to go on a page available only in the case of a personnality
+	#modify the url to go on a page available only in the case of a personnality or company page
 	tab = url.split("facebook.com")
 	url_modifier = tab[0]+"facebook.com/pg"+tab[1]
+
+	#limit access
+	time.sleep(1)
 
 	#request et verification
 	res = requests.get(url_modifier)
@@ -30,6 +33,8 @@ def certifiatePagePersonnality(url):
 	if res.status_code == 404:
 		return False
 	else:
+		#limit access
+		time.sleep(1)
 		return True
 
 
