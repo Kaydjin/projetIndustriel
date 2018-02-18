@@ -143,10 +143,8 @@ def findFacebookPageEntreprise(nom, url):
 		domaine = scrapping_domaine.getText()
 	else :
 		print("nothing scrapping_domaine")
-
 	compteEntrepriseFacebook.domaineEntreprise = domaine
 	compteEntrepriseFacebook.nomComplet = nomComplet
-
 	return compteEntrepriseFacebook
 
 
