@@ -57,3 +57,21 @@ class CompteFacebook:
 			strGeoDonnee = strGeoDonnee + s+ " "
 
 		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strGeoDonnee + " " + strFavoris
+
+class CompteEntrepriseFacebook:
+
+	def __init__(self,nom, url):
+		self.nom=nom
+		self.url=url
+		self.geolocalisation = ""
+		self.domaineEntreprise = ""
+		self.nomComplet= ""
+
+	def affiche(self):
+		print("nom:%s" % self.nom)
+		print("url:%s" % self.url)
+		print("geolocalisation:%s" % self.geolocalisation)
+		print("domaineEntreprise:%s" % self.domaineEntreprise)
+		print("nomComplet:%s" % self.nomComplet)
+
+

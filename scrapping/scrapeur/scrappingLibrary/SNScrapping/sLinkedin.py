@@ -1,11 +1,18 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 from __future__ import absolute_import
-from .models import accountLinkedin 
-from .utils.utils import *
-from .seleniumClass.mSelenium import SeleniumManager
-from .seleniumClass.seleniumClientLinkedin import ClientLinkedin
-from .settings.settingsLinkedin import *
+if __name__ == "__main__":
+    from models import accountLinkedin
+    from utils.utils import *
+    from seleniumClass.mSelenium import SeleniumManager
+    from seleniumClass.seleniumClientLinkedin import ClientLinkedin
+    from settings.settingsLinkedin import *
+else:
+    from .models import accountLinkedin 
+    from .utils.utils import *
+    from .seleniumClass.mSelenium import SeleniumManager
+    from .seleniumClass.seleniumClientLinkedin import ClientLinkedin
+    from .settings.settingsLinkedin import *
 from datetime import datetime
 import sys
 import argparse
@@ -264,9 +271,9 @@ if __name__ == '__main__':
     file_tmp = ""
     name_date_file = datetime.now().strftime('%H%M%d%m%Y')
     if sys.version_info >= (3, 0):
-        file_tmp=open('libraries/SNScrapping/log/sLinkedin_py_recherche'+name_date_file+'.log', 'w+', encoding="utf8")
+        file_tmp=open('scrappingLibrary/SNScrapping/log/sLinkedin_py_recherche'+name_date_file+'.log', 'w+', encoding="utf8")
     else:
-        file_tmp=open('libraries/SNScrapping/log/sLinkedin_py_recherche'+name_date_file+'.log', 'w+')
+        file_tmp=open('scrappingLibrary/SNScrapping/log/sLinkedin_py_recherche'+name_date_file+'.log', 'w+')
     for val in liste:
         print(val)
         ecriturePython2_Python3(file_tmp, val)
@@ -275,10 +282,10 @@ if __name__ == '__main__':
 
     file_tmp = ""
     if sys.version_info >= (3, 0):
-        file_tmp=open('libraries/SNScrapping/log/sLinkedin_py_info'+name_date_file+'.log', 'w+', encoding="utf8")
+        file_tmp=open('scrappingLibrary/SNScrapping/log/sLinkedin_py_info'+name_date_file+'.log', 'w+', encoding="utf8")
     else:
         #cas ou c'est en python2, il faudra dire que l'encodage sera fait en utf8 lors de l'écriture dans le fichier via str.encode(utf8) (qui fonctionne pas en python3 sinon c'est pas drole)
-        file_tmp=open('libraries/SNScrapping/log/sLinkedin_py_info'+name_date_file+'.log', 'w+')
+        file_tmp=open('scrappingLibrary/SNScrapping/log/sLinkedin_py_info'+name_date_file+'.log', 'w+')
 
     if len(liste) > 0 :
         compte = search.findLinkedin("candido", "frank", liste[0], file_tmp)

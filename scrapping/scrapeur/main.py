@@ -6,12 +6,49 @@ import os
 import re
 import sys
 import time
+from modelsProject.instance import *
 from normalizeDatas import *
 from scrappingLibrary import sGoogle
 from textanalyser import *
 from scrappingLibrary import sFacebook
 
-#from linkedIn_Recherche import *
+""" Step 2 for a tweet, return an instance for the result of the search for this tweet """
+def search(tweet):
+	inst = Instance(tweet)
+	""" The first search google is with location, we will add a value for the given url """
+	searchgoogle(tweet, tweet.user_location, inst, 2)
+	""" The second search google is without location, no add value for the given url """
+	searchgoogle(tweet, "", inst, 0)
+	inst.printLinks()
+
+""" method of step 2: insert the urls in instance """
+def searchgoogle(tweet, complementaire, inst, nbEtoiles):
+
+	""" The first search google is with location, we will add a value for the given url """
+	resultFacebook = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "facebook", False)
+	resultLinkedin = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "linkedin", False)
+	resultFacebookC = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "facebook", True)
+	resultLinkedinC = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "linkedin", True)
+
+	for link in resultFacebook:
+		new_url = sFacebook.standardUrl(link)
+		if not sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url, [0,nbEtoiles])):
+			inst.addFacebookPersonLink((new_url, nbEtoiles))
+
+	for link in resultLinkedin:
+		if not inst.existLinkedinPersonLink(link, [0,nbEtoiles]):
+			inst.addLinkedinPersonLink((link,nbEtoiles))
+
+	for link,desc in resultFacebookC:
+		new_url = sFacebook.standardUrl(link)
+		if sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url, [0,nbEtoiles])):
+			inst.addFacebookCompanyLink((new_url, nbEtoiles))
+
+	for link,desc in resultLinkedinC:
+		if not inst.existLinkedinCompanyLink(link, [0,nbEtoiles]):
+			inst.addLinkedinCompanyLink((link,nbEtoiles))
+
+
 
 if __name__ == '__main__':
 
@@ -24,33 +61,6 @@ if __name__ == '__main__':
 
 	for val in tweets[18:21]:
 
-		""" The first search is with location, the second without """
-		print(val.user_name)
-		resultFacebook = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "facebook", False)
-		resultLinkedin = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "linkedin", False)
-		resultFacebookC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "facebook", True)
-		resultLinkedinC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "linkedin", True)
-		for d in resultFacebook:
-			print(d)
-			new_url = sFacebook.standardUrl(d)
-			if sFacebook.certifiatePagePersonnality(new_url):
-				print("Page personnality, donc pas prise en compte")
-		for d in resultLinkedin:
-			print(d)
-		for d in resultFacebookC:
-			print(d)
-		for d in resultLinkedinC:
-			print(d)
-"""
-		resultFacebook2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", False)
-		resultLinkedin2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "linkedin", False)
-		resultFacebookC2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", True)
-		resultLinkedinC2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "linkedin", True)
-
-		print(len(resultFacebook) - len(resultFacebook2))
-		print(len(resultLinkedin) - len(resultLinkedin2))
-		print(len(resultFacebookC) - len(resultFacebookC2))
-		print(len(resultLinkedinC) - len(resultLinkedinC2))"""
-
+		search(val)
 
 

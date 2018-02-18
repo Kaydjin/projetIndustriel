@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-from .models import accountFacebook
+if __name__ == "__main__":
+	from models import accountFacebook
+else:
+	from .models import accountFacebook
 import requests, bs4
 import argparse
 import time
@@ -15,22 +18,26 @@ def standardUrl(url):
 		return "https://www.facebook.com"+tab[1]
 	return url
 
-""" Verifiy if the page is a personnality page and not a personnal page """
-def certifiatePagePersonnality(url):
+""" Verifiy if the url go to a facebook page and not a personnal profil """
+def certifiatePage(url):
 
-	#modify the url to go on a page available only in the case of a personnality
+	#modify the url to go on a page available only in the case of a personnality or company page
 	tab = url.split("facebook.com")
 	url_modifier = tab[0]+"facebook.com/pg"+tab[1]
-	print(url_modifier)
+
+	#limit access
+	time.sleep(1)
 
 	#request et verification
 	res = requests.get(url_modifier)
 	res.status_code == requests.codes.ok
 
-	""" Status code at 404 when the page is """
+	""" Status code at 404 when the page is not available """
 	if res.status_code == 404:
 		return False
 	else:
+		#limit access
+		time.sleep(1)
 		return True
 
 
@@ -100,8 +107,55 @@ def findFacebook(nom, prenom, url):
 
 	return compte
 
+""" Retourne l'objet pageEnetrepriseFB d'une page entreprise correspondant a la recherche depuis une url donne """
+def findFacebookPageEntreprise(nom, url):
+
+	compteEntrepriseFacebook = accountFacebook.CompteEntrepriseFacebook(nom,url)
+
+	lienPlusInfo = "/about/?ref=page_internal"
+	classDomaineScrapping = "_4-u8" #magnifique ?
+	domaine = "Empty"
+	nomComplet = nom
+	#pour la partie nom complet entreprise c'est sur votre gauche
+
+	#request et verification
+	res = requests.get(url)
+	res.status_code == requests.codes.ok
+	if not res.status_code == 200:
+		return None
+
+	soup = bs4.BeautifulSoup(res.text, "html.parser")
+	"""Partie ou on récupère le nom complet """
+	sidebar_left = soup.find("div", id="entity_sidebar")
+	if sidebar_left == None :
+		print("nothing sidebar_left")
+	scrapping_nomComplet = sidebar_left.find("div", id="u_0_0")
+	if scrapping_nomComplet != None :
+		nomComplet = scrapping_nomComplet.getText()
+	else :
+		print("nothing scrapping_nomComplet")
+	"""---------------------------------"""
+
+	"""Maintenant on passe sur la récupération à droite, du domaine d'activité de l'entreprise"""
+	scrapping_domaine=soup.find("div", class_=classDomaineScrapping)
+	if scrapping_domaine != None :
+		print(scrapping_domaine.getText())
+		domaine = scrapping_domaine.getText()
+	else :
+		print("nothing scrapping_domaine")
+
+	compteEntrepriseFacebook.domaineEntreprise = domaine
+	compteEntrepriseFacebook.nomComplet = nomComplet
+
+	return compteEntrepriseFacebook
+
+
+
+
+
 # test de la classe et des methodes
 if __name__ == '__main__':
+	"""
 	compte = findFacebook('frank','candido','https://www.facebook.com/frank.candido.5')
 	print('Homonymes:')
 	for val in compte.homonymes:
@@ -118,4 +172,8 @@ if __name__ == '__main__':
 		print(val)
 
 	print(compte.synthese())
+	"""
+
+	compte = findFacebookPageEntreprise('INRA', 'https://www.facebook.com/Inra.France/')
+	compte.affiche()
 
