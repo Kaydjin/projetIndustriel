@@ -43,11 +43,12 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
         for i in listurls:
             i_sans_accent = supprime_accent(i.link)
             #comme nous recherchons une personne il nous suffit de trouver un lien correspondant puis de chercher dans les homonymes
-            if(reseausocial == "facebook" and len(result) < 1 and
-                re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
+            if(reseausocial == "facebook" and len(result) < 1):
+                if(re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()) and
+                 not re.match(".*/PUBLIC/.*")):
                     result.append(i.link)
-            elif(reseausocial == "linkedin" and 
-                re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
+            elif(reseausocial == "linkedin" and len(result) < 1): 
+                if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
                     result.append(i.link)
     #cas d'une recherche d'entreprise
     else:
@@ -62,13 +63,14 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                 nom_sans_espace += ".*"
         for i in listurls:
             i_sans_accent = supprime_accent(i.link)
-            if (reseausocial == "facebook"): 
-                if(re.match(".*\.FACEBOOK.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
+            if (reseausocial == "facebook" and len(result) < 1): 
+                if(re.match(".*\.FACEBOOK.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and 
+                    not re.match(".*/PUBLIC/.*")):
                     liste = i.description.split(".")
                     if(not re.match(".*est sur.*",liste[0]) and not re.match(".*is on.*",liste[0])):
                         result.append((i.link,i.description))
 
-            elif (reseausocial == "linkedin"): 
+            elif (reseausocial == "linkedin" and len(result) < 1): 
                 if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
                     result.append((i.link,i.description))
             else:
