@@ -39,4 +39,4 @@ class Tweet:
         self.userFirstname = prenom
 
         """ Parametre supplementaire, trois types d'auteurs: PERSON, INDETERMINED, COMPANY. """
-        self.typeAuteur = typeAuteur
+        self.typeAuthor = typeAuteur
