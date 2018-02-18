@@ -2,11 +2,18 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 import models
-from models.accountFacebook import *
-from utils.utils import *
-from seleniumClass.mSelenium import SeleniumManager
-from seleniumClass.seleniumClientFacebook import ClientFacebook
-from settings.settingsFacebook import *
+if __name__ == "__main__":
+    from models.accountFacebook import *
+    from utils.utils import *
+    from seleniumClass.mSelenium import SeleniumManager
+    from seleniumClass.seleniumClientFacebook import ClientFacebook
+    from settings.settingsFacebook import *
+else:
+    from .models.accountFacebook import *
+    from .utils.utils import *
+    from .seleniumClass.mSelenium import SeleniumManager
+    from .seleniumClass.seleniumClientFacebook import ClientFacebook
+    from .settings.settingsFacebook import *
 from datetime import datetime
 import sys
 import argparse
@@ -82,9 +89,9 @@ if __name__ == '__main__':
 	file = ""
 	name_date_file = datetime.now().strftime('%H%M%d%m%Y')
 	if sys.version_info >= (3, 0):
-		file=open('libraries/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
+		file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
 	else:
-		file=open('libraries/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+')
+		file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+')
 	for val in liste:
 		print(val)
 		ecriturePython2_Python3(file, val)
