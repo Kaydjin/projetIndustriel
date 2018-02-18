@@ -25,7 +25,7 @@ if __name__ == '__main__':
 	for val in tweets[:5]:
 
 		""" The first search is with location, the second without """
-		print val.user_name
+		print(val.user_name)
 		resultFacebook = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "facebook", False)
 		resultLinkedin = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "linkedin", False)
 		resultFacebookC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "facebook", True)

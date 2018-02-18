@@ -45,7 +45,7 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
             #comme nous recherchons une personne il nous suffit de trouver un lien correspondant puis de chercher dans les homonymes
             if(reseausocial == "facebook" and len(result) < 1):
                 if(re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()) and
-                 not re.match(".*/PUBLIC/.*")):
+                 not re.match(".*/PUBLIC/.*",i_sans_accent.upper())):
                     result.append(i.link)
             elif(reseausocial == "linkedin" and len(result) < 1): 
                 if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
@@ -65,7 +65,7 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
             i_sans_accent = supprime_accent(i.link)
             if (reseausocial == "facebook" and len(result) < 1): 
                 if(re.match(".*\.FACEBOOK.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and 
-                    not re.match(".*/PUBLIC/.*")):
+                    not re.match(".*/PUBLIC/.*", i_sans_accent.upper())):
                     liste = i.description.split(".")
                     if(not re.match(".*est sur.*",liste[0]) and not re.match(".*is on.*",liste[0])):
                         result.append((i.link,i.description))
