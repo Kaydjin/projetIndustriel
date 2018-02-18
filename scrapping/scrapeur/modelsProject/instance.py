@@ -27,6 +27,34 @@ class Instance:
 	def addLinkedinCompanyLink(self, x):
 		self.linkLinkedinCompany.append(x)
 
+	def existLinkedinPersonLink(self, link, liste_etoiles):
+		return self.existLink(self.linkLinkedinPerson, link, liste_etoiles)
+
+	def existFacebookPersonLink(self, link, liste_etoiles):
+		return self.existLink(self.linkLinkedinPerson, link, liste_etoiles)
+
+	def existFacebookCompanyLink(self, link, liste_etoiles):
+		return self.existLink(self.linkFacebookCompany, link, liste_etoiles)
+
+	def existLinkedinCompanyLink(self, link, liste_etoiles):
+		return self.existLink(self.linkLinkedinCompany, link, liste_etoiles)
+
+	def existLink(self, list_link, link, liste_etoiles):
+		for val in liste_etoiles:
+			if (link, val) in self.linkLinkedinPerson:
+				return True
+		return False
+
+	def printLinks(self):
+		for link,nbEtoiles in self.linkFacebookPerson:
+			print("FPerson:"+link)
+		for link,nbEtoiles in self.linkFacebookCompany:
+			print("FCompany:"+link)
+		for link,nbEtoiles in self.linkLinkedinPerson:
+			print("LPerson:"+link)
+		for link,nbEtoiles in self.linkLinkedinCompany:
+			print("LCompany:"+link)
+
 	def addAccountLinkedinPerson(self, x):
 		self.accountLinkedinPerson.append(x)
 
