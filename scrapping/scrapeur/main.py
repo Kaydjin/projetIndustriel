@@ -32,6 +32,9 @@ if __name__ == '__main__':
 		resultLinkedinC = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, val.user_location, "linkedin", True)
 		for d in resultFacebook:
 			print(d)
+			new_url = sFacebook.standardUrl(d)
+			if sFacebook.certifiatePagePersonnality(new_url):
+				print("Page personnality, donc pas prise en compte")
 		for d in resultLinkedin:
 			print(d)
 		for d in resultFacebookC:
