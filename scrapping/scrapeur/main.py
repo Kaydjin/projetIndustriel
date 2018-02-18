@@ -22,7 +22,7 @@ if __name__ == '__main__':
 	""" Second step: Search : instanciate for Person or Indeterminate tweets, the result for search on linkedin and facebook"""
 	tweets = reader.getPeopleTweets(True)
 
-	for val in tweets[:5]:
+	for val in tweets[:8]:
 
 		""" The first search is with location, the second without """
 		print(val.user_name)
@@ -38,8 +38,7 @@ if __name__ == '__main__':
 			print(d)
 		for d in resultLinkedinC:
 			print(d)
-
-		""" The first search is with location, the second without """
+"""
 		resultFacebook2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", False)
 		resultLinkedin2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "linkedin", False)
 		resultFacebookC2 = sGoogle.search_google(val.userFirstname  + " " + val.userSurname, "", "facebook", True)
@@ -48,7 +47,7 @@ if __name__ == '__main__':
 		print(len(resultFacebook) - len(resultFacebook2))
 		print(len(resultLinkedin) - len(resultLinkedin2))
 		print(len(resultFacebookC) - len(resultFacebookC2))
-		print(len(resultLinkedinC) - len(resultLinkedinC2))
+		print(len(resultLinkedinC) - len(resultLinkedinC2))"""
 
 
 
