@@ -69,7 +69,6 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                     liste = i.description.split(".")
                     for val in ["is on Facebook", "est sur Facebook"]:
                         if(not val in liste):
-                            print("plop3",i.link)
                             result.append((i.link,i.description))
 
             elif (reseausocial == "linkedin"): 
