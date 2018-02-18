@@ -97,28 +97,28 @@ class Reader:
 	def getSomeoneTweets(self, nom, prenom, pertinent):
 		someoneTweets = []
 		for tweet in self.tweets:
-			if (tweet.pertinent==pertinent) & (nom.lower() in tweet.userName.lower())& (prenom.lower() in tweet.userName.lower()):
+			if (tweet.pertinent==pertinent) & (nom.lower() in tweet.user_name.lower())& (prenom.lower() in tweet.user_name.lower()):
 				someoneTweets.append(tweet)
 		return someoneTweets
 
 	def getIndeterminatedTweets(self, pertinent):
 		indeterminer = []
 		for tweet in self.tweets:
-			if (tweet.pertinent==pertinent) & (tweet.typeAuteur == "INDETERMINED"):
+			if (tweet.pertinent==pertinent) & (tweet.typeAuthor == "INDETERMINED"):
 				indeterminer.append(tweet)
 		return indeterminer
 
 	def getPeopleTweets(self, pertinent):
 		people = []
 		for tweet in self.tweets:
-			if (tweet.pertinent==pertinent) & (tweet.typeAuteur == "PERSON"):
+			if (tweet.pertinent==pertinent) & (tweet.typeAuthor == "PERSON"):
 				people.append(tweet)
 		return people
 
 	def getCompagnieTweets(self, pertinent):
 		compagnie = []
 		for tweet in self.tweets:
-			if (tweet.pertinent==pertinent) & (tweet.typeAuteur == "COMPANY"):
+			if (tweet.pertinent==pertinent) & (tweet.typeAuthor == "COMPANY"):
 				compagnie.append(tweet)
 		return compagnie
 
@@ -135,3 +135,4 @@ if __name__ == '__main__':
 	tweets = list(set(tweets))
 	for t in tweets:
 		print(t.user_name)
+	print(len(tweets))
