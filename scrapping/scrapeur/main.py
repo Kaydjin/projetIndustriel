@@ -22,7 +22,7 @@ if __name__ == '__main__':
 	""" Second step: Search : instanciate for Person or Indeterminate tweets, the result for search on linkedin and facebook"""
 	tweets = reader.getPeopleTweets(True)
 
-	for val in tweets[:5]:
+	for val in [tweets[7],tweets[8]]:
 
 		""" The first search is with location, the second without """
 		print(val.user_name)
