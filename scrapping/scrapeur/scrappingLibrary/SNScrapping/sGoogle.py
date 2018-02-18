@@ -48,7 +48,8 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                  not re.match(".*/PUBLIC/.*",i_sans_accent.upper())):
                     result.append(i.link)
             elif(reseausocial == "linkedin"): 
-                if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper())):
+                if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()) and
+                   not re.match(".*/PUB/DIR.*", i_sans_accent.upper())):
                     result.append(i.link)
     #cas d'une recherche d'entreprise
     else:
@@ -76,7 +77,8 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                         result.append((i.link,i.description))
 
             elif (reseausocial == "linkedin"): 
-                if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper())):
+                if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and
+                   not re.match(".*/PUB/DIR.*", i_sans_accent.upper())):
                     result.append((i.link,i.description))
             else:
                 if re.match(".*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()):
