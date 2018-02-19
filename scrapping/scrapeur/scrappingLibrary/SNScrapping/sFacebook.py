@@ -57,7 +57,11 @@ def findFacebook(nom, prenom, url):
 	if not res.status_code == 200:
 		return None
 
-	soup = bs4.BeautifulSoup(res.text)
+	if sys.version_info >= (3,0):
+		soup = bs4.BeautifulSoup(res.text,"html5lib")
+	else:
+		soup = bs4.BeautifulSoup(res.text)
+
 	sames = soup.select('#pagelet_people_same_name a')
 
 	#'PERSONNES MEME PRENOMS/NOMS:')
