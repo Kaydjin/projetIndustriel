@@ -52,7 +52,6 @@ def show_company(tweet, inst):
 			if result > 3:
 				if work.nomEntreprise=="":
 					print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomExperience +" star:"+str(result))
-
 				else:
 					print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomEntreprise +" star:"+str(result))
 

@@ -226,6 +226,7 @@ class SearcherLinkedin:
 				strExpLow = strDecode.lower()
 				strExpLow_tab=strExpLow.split(" ")
 
+				print(strDecode)
 				#Instanciation of the experience job: (first ligne not empty)
 				if ligne == 0:
 					nom = strDecode
@@ -234,16 +235,17 @@ class SearcherLinkedin:
 				if "dates" == strExpLow_tab[0]:
 					date = strDecode[16:]
 					actif = False
-					for var in ["aujourd", "present", "now"]:
+					for var in ["aujourd", "present", "now", "today"]:
 						if var in strExpLow:
 							actif = True
 	
 				#Instanciation of the name of the entreprise
-				if "nom" == strExpLow_tab[0]:
-					nomE = strDecode[22:]
+				if "company" == strExpLow_tab[0]:
+					print(strDecode[11:])
+					nomE = strDecode[11:]
 
 				#Instanciation of the geolocalisation
-				if "lieu" == strExpLow_tab[0]:
+				if "location" == strExpLow_tab[0]:
 					location = strDecode.replace("Lieu ", "")
 
 				#Instanciation of the description
