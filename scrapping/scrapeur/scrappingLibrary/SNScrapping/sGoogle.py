@@ -5,11 +5,13 @@ import re
 import sys
 import os
 
+
 if __name__ == '__main__':
     from google import google
+    from utils.utils import *
 else:
     from .google import google
-
+    from .utils.utils import *
 """
 -nom_complet correspond au nom de la personne ou entreprise que l'on recherche
 -complementaire contient une chaine de mots séparés par des espaces. Ceux-ci précise par exemple la localisation de l'entité recherchée.
@@ -72,7 +74,7 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                         re.match(".*/POST.*", i_sans_accent.upper()))):
                     ajout = True
                     for val in ["is on Facebook", "est sur Facebook", "esta en Facebook",
-                    "è su Facebook", "ist bei Facebook", "está no Facebook" ]:
+                    d("è su Facebook"), "ist bei Facebook", d("está no Facebook") ]:
                         if(val in i.description):
                             ajout = False
                     if(ajout):    

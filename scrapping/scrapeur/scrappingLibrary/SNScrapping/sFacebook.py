@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 if __name__ == "__main__":
-	from models import accountFacebook
+	from models.accountFacebook import *
 else:
-	from .models import accountFacebook
+	from .models.accountFacebook import *
 import requests, bs4
 import argparse
 import time
@@ -17,8 +17,8 @@ def standardUrl(url):
 
 	""" we ignore the string after the name except if it's a number starting with one"""
 	tab2 = tab[1].split("/")
-	if len(tab2)>1:
-		if tab2[2][0]=="1":
+	if len(tab2)>2:
+		if (tab2[2]!="") and (tab2[2][0]=="1"):
 			return "https://www.facebook.com/"+tab2[1]+"/"+tab[2]
 
 	return "https://www.facebook.com/"+tab2[1]
@@ -49,7 +49,7 @@ def certifiatePage(url):
 
 """ Retourne l'objet facebook correspondant a la recherche depuis une url donne """
 def findFacebook(nom, prenom, url):
-	compte = accountFacebook.CompteFacebook(nom, prenom, url)
+	compte = CompteFacebook(nom, prenom, url)
 
 	#request et verification
 	res = requests.get(url)

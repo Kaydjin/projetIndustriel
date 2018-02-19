@@ -67,6 +67,12 @@ class Instance:
 				return True
 		return False
 
+	def getElem(self, list_link, link, pos):
+		for val in list_link:
+			if val[pos]==link:
+				return val
+		return None
+
 	def printLinks(self):
 		for val in self.linkFacebookPerson:
 			print("FPerson:"+val[0])
@@ -80,6 +86,9 @@ class Instance:
 	def addAccountLinkedinPerson(self, x):
 		self.accountLinkedinPerson.append(x)
 
+	def getValueAccountFacebookPerson(self, linkF):
+		return self.getElem(self.accountFacebookPerson, linkF, 0)
+
 	def addAccountFacebookPerson(self, x):
 		self.accountFacebookPerson.append(x)
 
@@ -89,18 +98,22 @@ class Instance:
 	def addAccountLinkedinCompnay(self, x):
 		self.accountLinkedinCompany.append(x)
 
-	"""def printAccounts(self):
-		for link,compte in self.accountFacebookPerson:
-			print("FPerson:"+link+" " +compte.synthese())
+	def printAccounts(self):
+		"""(link, compte, value)"""
+		for link,compte, value in self.accountFacebookPerson:
+			print("FPerson:")
+			print("[link]"+link+" [star]"+str(value))
 		for link,compte in self.accountFacebookCompany:
 			print("FCompany:"+link+" " +compte.synthese())
-		for link,compte in self.accountLinkedinPerson:
-			print("LPerson:"+link+" " +compte.synthese())
+		"""(link, linkF, compte, valueF, valueT)"""
+		for link,linkF,compte,valueF,valueT in self.accountLinkedinPerson:
+			print("LPerson: ")
+			print("[link]"+link+" [linkF]"+linkF+" [starF]"+str(valueF)+" [starT]"+str(valueT))
 		for link,compte in self.accountLinkedinCompany:
-			print("LCompany:"+link+" " +compte.synthese())"""
+			print("LCompany:"+link+" " +compte.syntheseCompany())
 
 	def getFiveBestAccountsFacebook(self):
-		if len(self.addAccountFacebookPerson)<5:
+		if len(self.accountFacebookPerson)<5:
 			return self.accountFacebookPerson
 
 		liste = []

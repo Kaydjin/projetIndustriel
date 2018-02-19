@@ -8,13 +8,13 @@ import re
 import sys
 from nltk.corpus import stopwords        
 from nltk.tag import pos_tag
-
+"""
 nltk.download('maxent_ne_chunker')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('gutenberg')
-nltk.download('words')
+nltk.download('words')"""
 
 def e(myStr):
     if sys.version_info >= (3,0):
@@ -60,7 +60,7 @@ class TextAnalyser:
 
 	""" Renvoi les noms communs les plus frequents d'une liste de texte """
 	def mostCommunsNounsFromTextes(self, liste, nombres):
-		liste = self.getVerbes(liste)
+		liste = self.getNomsCommunsBySentence(liste)
 		bigliste = []
 		for data in liste:
 			bigliste.extend(data)
@@ -71,7 +71,7 @@ class TextAnalyser:
 
 	""" Renvoi les verbes les plus frequents d'une liste de texte """
 	def mostCommunsVerbsFromTextes(self, liste, nombres):
-		liste = self.getNomsCommuns(liste)
+		liste = self.getVerbes(liste)
 		bigliste = []
 		for data in liste:
 			bigliste.extend(data)
@@ -204,7 +204,7 @@ class TextAnalyser:
 				if len(val)>2:
 					inter.append(val.lower())
 		
-			if doublon==True:
+			if doublon==False:
 				res.append(set(inter))
 			else:
 				res.append(inter)
@@ -215,8 +215,8 @@ class TextAnalyser:
 	def getMatchingNouns(self, texte1, texte2):
 
 		#on ne prend que des listes contenant des noms communs
-		liste1 = self.getNomsCommuns([texte1])[0]
-		liste2 = self.getNomsCommuns([texte2])[0]
+		liste1 = self.getNomsCommunsBySentence([texte1])[0]
+		liste2 = self.getNomsCommunsBySentence([texte2])[0]
 		
 		return self.getMatchingWords(liste1, liste2)
 
@@ -230,11 +230,8 @@ class TextAnalyser:
 
 		return self.getByTag(liste_texte, "NN", doublon=doublon)
 
-	def getNomsCommunsBySentence(self, liste_texte):
-		return self.getByTag(liste_texte, "NN", doublon=doublon)
-
-	def getNomsCommuns(self, texte):
-		return self.getByTag([texte], "NN", doublon=doublon)[0]
+	def getNomsCommuns(self, texte, doublon=False):
+		return list(self.getByTag([texte], "NN", doublon=doublon)[0])
 
 	""" Retourne une liste contenant les sets de noms-communs pour chaque texte donne en parametre """
 	def getVerbes(self, liste_texte, doublon=False):

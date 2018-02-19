@@ -41,5 +41,5 @@ class Tweet:
 		""" Parametre supplementaire, trois types d'auteurs: PERSON, INDETERMINED, COMPANY. """
 		self.typeAuthor = typeAuteur
 
-	def synthese():
+	def synthese(self):
 		return self.tweet_text + " " + self.hashtags + " " + self.tweet_mention +" " + self.user_location + " " + self.user_description
