@@ -49,7 +49,8 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                     result.append(i.link)
             elif(reseausocial == "linkedin"): 
                 if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()) and
-                   not re.match(".*/PUB/DIR.*", i_sans_accent.upper())):
+                   not (re.match(".*/PUB/DIR.*", i_sans_accent.upper()) or
+                   re.match(".*/PULSE/.*", i_sans_accent.upper()))):
                     result.append(i.link)
     #cas d'une recherche d'entreprise
     else:
@@ -70,7 +71,8 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
                         re.match(".*/ABOUT.*", i_sans_accent.upper()) or
                         re.match(".*/POST.*", i_sans_accent.upper()))):
                     ajout = True
-                    for val in ["is on Facebook", "est sur Facebook"]:
+                    for val in ["is on Facebook", "est sur Facebook", "esta en Facebook",
+                    "è su Facebook", "ist bei Facebook", "está no Facebook" ]:
                         if(val in i.description):
                             ajout = False
                     if(ajout):    
@@ -78,7 +80,8 @@ def search_google(nom_complet, complementaire, reseausocial, entreprise=False):
 
             elif (reseausocial == "linkedin"): 
                 if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and
-                   not re.match(".*/PUB/DIR.*", i_sans_accent.upper())):
+                   not (re.match(".*/PUB/DIR.*", i_sans_accent.upper()) or
+                   re.match(".*/PULSE/.*", i_sans_accent.upper()))):
                     result.append((i.link,i.description))
             else:
                 if re.match(".*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()):

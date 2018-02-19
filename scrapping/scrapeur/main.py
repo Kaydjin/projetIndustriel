@@ -210,7 +210,7 @@ if __name__ == '__main__':
 	""" Second step: Search : instanciate for Person or Indeterminate tweets, the result for search on linkedin and facebook"""
 	tweets = reader.getPeopleTweets(True)
 
-	for val in tweets[18:20]:
+	for val in tweets[18:21]:
 
 		search(val)
 
