@@ -50,8 +50,11 @@ def show_company(tweet, inst):
 		for work in compte.experiences:
 			result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
 			if result > 3:
-				print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomEntreprise +" star:"+str(result))
+				if work.nomEntreprise=="":
+					print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomExperience +" star:"+str(result))
 
+				else:
+					print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomEntreprise +" star:"+str(result))
 
 """ method of step 5: show only pertinent datas """
 def show_result(inst):
