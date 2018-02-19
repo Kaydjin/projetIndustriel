@@ -226,7 +226,7 @@ class SearcherLinkedin:
 				strExpLow = strDecode.lower()
 				strExpLow_tab=strExpLow.split(" ")
 
-				print(strDecode)
+				#print(strDecode)
 				#Instanciation of the experience job: (first ligne not empty)
 				if ligne == 0:
 					nom = strDecode
@@ -241,8 +241,7 @@ class SearcherLinkedin:
 	
 				#Instanciation of the name of the entreprise
 				if "company" == strExpLow_tab[0]:
-					print(strDecode[11:])
-					nomE = strDecode[11:]
+					nomE = strDecode[13:]
 
 				#Instanciation of the geolocalisation
 				if "location" == strExpLow_tab[0]:
