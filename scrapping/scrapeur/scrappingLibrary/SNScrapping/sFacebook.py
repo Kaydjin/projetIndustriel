@@ -11,6 +11,7 @@ import time
 import os
 import bs4
 import platform
+import sys
 
 def standardUrl(url):
 	tab = url.split("facebook.com")
@@ -58,7 +59,7 @@ def findFacebook(nom, prenom, url):
 		return None
 
 	if sys.version_info >= (3,0):
-		soup = bs4.BeautifulSoup(res.text,"html5lib")
+		soup = bs4.BeautifulSoup(res.text,"html.parser")
 	else:
 		soup = bs4.BeautifulSoup(res.text)
 
