@@ -11,6 +11,7 @@ import time
 import os
 import bs4
 import platform
+import sys
 
 def standardUrl(url):
 	tab = url.split("facebook.com")
