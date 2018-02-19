@@ -39,7 +39,7 @@ class SearcherFacebook_Selenium:
     	#Chargement de la page /!\ 
         time.sleep(2)
 
-        html=manager.driver.page_source
+        html=self.manager.driver.page_source
         soup=bs4.BeautifulSoup(html, "html.parser")
 
         pattern = 'End of Results'
@@ -47,13 +47,13 @@ class SearcherFacebook_Selenium:
         end = soup.find('div', text=pattern)
 
         while end == None :
-        	manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        	self.manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         	time.sleep(1)
-        	html=manager.driver.page_source
+        	html=self.manager.driver.page_source
         	soup=bs4.BeautifulSoup(html, "html.parser")
         	end = soup.find('div', text=pattern)
 
-        html=manager.driver.page_source
+        html=self.manager.driver.page_source
         soup=bs4.BeautifulSoup(html, "html.parser")
         liste = []
         a=0
@@ -71,8 +71,27 @@ class SearcherFacebook_Selenium:
 
     def findFacebook(self,nom,prenom):
     	profile_link ="https://www.facebook.com/search/str/%s+%s/keywords_users" % (nom,prenom)
-    	manager.get(profile_link, 3)
+    	self.manager.get(profile_link, 3)
     	return self.findFacebookScrolling()
+
+    def scrappingProfil(self, nom, prenom, url):
+        compte = CompteFacebook(nom, prenom, url)
+        self.manager.get(url,3)
+        #on charge le haut de la page
+        time.sleep(2)
+        html=self.manager.driver.page_source
+        soup=bs4.BeautifulSoup(html, "html.parser")
+
+        nameClassFB_Info = "fbTimelineUnit"
+
+        infoGenral = soup.find('li', class_=nameClassFB_Info)
+
+        info = infoGenral.find_all('li')
+        for elem in info:
+            print(elem.getText())
+
+
+        return compte
 
 
 
@@ -82,21 +101,27 @@ def ecriturePython2_Python3(file, myStr):
     else:
         file.write(myStr.encode('utf8'))
 
+def testRecherche(search):
+
+    liste = search.findFacebook('candido','frank')
+    file = ""
+    name_date_file = datetime.now().strftime('%H%M%d%m%Y')
+    if sys.version_info >= (3, 0):
+        file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
+    else:
+        file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+')
+    for val in liste:
+        print(val)
+        ecriturePython2_Python3(file, val)
+        file.write('\n')
+    file.close()
+
+def testScrappingPage(search):
+    search.scrappingProfil('candido', 'frank', 'https://www.facebook.com/frank.candido.5')
+
+
 if __name__ == '__main__':
-	manager = SeleniumManager(3)
-	search = SearcherFacebook_Selenium(manager)
-	liste = search.findFacebook('candido','frank')
-	file = ""
-	name_date_file = datetime.now().strftime('%H%M%d%m%Y')
-	if sys.version_info >= (3, 0):
-		file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
-	else:
-		file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+')
-	for val in liste:
-		print(val)
-		ecriturePython2_Python3(file, val)
-		file.write('\n')
-	file.close()
-
-
-	manager.driver_quit()
+    manager = SeleniumManager(3)
+    search = SearcherFacebook_Selenium(manager)
+    testScrappingPage(search)
+    manager.driver_quit()
