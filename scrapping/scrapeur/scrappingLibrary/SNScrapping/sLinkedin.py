@@ -77,7 +77,7 @@ class SearcherLinkedin:
 			if (len(suivant)==1):
 				#dans le cas ou il croit avoir trouvé un button ... ouais ça arrive si la connexion est trop lente
 				try:
-					manager.driver.find_element_by_css_selector('button.next').click()
+					self.manager.driver.find_element_by_css_selector('button.next').click()
 					liste = liste + self.findLinkedinsScrapping()
 				except:
 					break

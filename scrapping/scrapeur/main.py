@@ -37,7 +37,7 @@ def search(tweet):
 
 	show_result(inst)
 	
-	show_company(inst)
+	show_company(tweet, inst)
 
 """ method of step 5 : find company """
 def show_company(tweet, inst):
@@ -46,39 +46,40 @@ def show_company(tweet, inst):
 	analyser = TextAnalyser()
 
 	print("[company]")
-	for link,linkF,compte,valueF,valueT in instance.self.accountLinkedinPerson:
+	for link,linkF,compte,valueF,valueT in inst.accountLinkedinPerson:
 		for work in compte.experiences:
 			result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
-			if result > 5:
-				print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomEntreprise +" star:"+result)
+			if result > 3:
+				print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomEntreprise +" star:"+str(result))
 
 
 """ method of step 5: show only pertinent datas """
 def show_result(inst):
 	print("["+inst.tweet.userFirstname +" "+inst.tweet.userSurname+"]")
 	print("\t[Facebook]{")
-	for link,compte,value in inst.self.accountFacebookPerson:
+	for link,compte,value in inst.accountFacebookPerson:
 		start_value = inst.getValueFacebookPersonLink(link)
 		if start_value + value > 3:
 			print("\t\t[link]"+link)
 			print("\t\t[star]"+str((start_value + value)))
 	print("\t}")
 	print("\t[Linkedin]{")
-	for link,linkF,compte,valueF,valueT in inst.self.accountLinkedinPerson:
+	for link,linkF,compte,valueF,valueT in inst.accountLinkedinPerson:
 		if (linkF=="") and (valueT > 2):
 			print("\t\t[link]"+link)
 			print("\t\t[star]"+str(valueT))
-		if link!="":
+		if linkF!="":
 			facebookAccount = inst.getValueAccountFacebookPerson(linkF)
-			value = inst.getValueFacebookPersonLink(facebookAccount[0])
-			value2 = facebookAccount[2]
-			if (value!=None) and (value2!=None) and (valueF>5) and (valueT + value +value2 > 4):
-				print("\t\t[links]"+link + " / " + linkF)
-				print("\t\t[star]"+ str((valueT + value +value2)))
-			else:
-				if valueT > 3:
+			if facebookAccount!=None:
+				value = inst.getValueFacebookPersonLink(facebookAccount[0])
+				value2 = facebookAccount[2]
+				if (value!=None) and (value2!=None) and (valueF>5) and (valueT + value +value2 > 4):
 					print("\t\t[links]"+link + " / " + linkF)
-					print("\t\t[star]"+ valueT)
+					print("\t\t[star]"+ str((valueT + value +value2)))
+				else:
+					if valueT > 3:
+						print("\t\t[links]"+link + " / " + linkF)
+						print("\t\t[star]"+ valueT)
 	print("\t}")
 
 """ method of step 2: insert the urls in instance """
@@ -263,7 +264,7 @@ if __name__ == '__main__':
 	""" Second step: Search : instanciate for Person or Indeterminate tweets, the result for search on linkedin and facebook"""
 	tweets = reader.getPeopleTweets(True)
 
-	for val in tweets[18:19]:
+	for val in tweets[3:4]:
 
 		search(val)
 
