@@ -224,11 +224,17 @@ class TextAnalyser:
 	def getMatchingWords(self, liste1, liste2):
 		return [w for w in liste1 if w in liste2]
 
-	def getNomsCommuns(self, liste_texte, doublon=False):
+	def getNomsCommunsBySentence(self, liste_texte, doublon=False):
 		if doublon==True:
 			return self.getByTag(liste_texte, "NN")
 
 		return self.getByTag(liste_texte, "NN", doublon=doublon)
+
+	def getNomsCommunsBySentence(self, liste_texte):
+		return self.getByTag(liste_texte, "NN", doublon=doublon)
+
+	def getNomsCommuns(self, texte):
+		return self.getByTag([texte], "NN", doublon=doublon)[0]
 
 	""" Retourne une liste contenant les sets de noms-communs pour chaque texte donne en parametre """
 	def getVerbes(self, liste_texte, doublon=False):
@@ -289,7 +295,7 @@ if __name__ == '__main__':
 
 		#Test des methodes de categorisation de mots
 		analyser = TextAnalyser()
-		resultat = analyser.getNomsCommuns(descriptions)
+		resultat = analyser.getNomsCommunsBySentence(descriptions)
 		resultat2 = analyser.mostCommunsNounsFromTextes(descriptions, 10)
 		resultat3 = analyser.mostCommunsVerbsFromTextes(descriptions, 10)
 		for res in resultat:

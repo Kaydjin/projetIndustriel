@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 from __future__ import absolute_import
+
 if __name__ == "__main__":
     from models import accountLinkedin
     from utils.utils import *
@@ -13,6 +14,7 @@ else:
     from .seleniumClass.mSelenium import SeleniumManager
     from .seleniumClass.seleniumClientLinkedin import ClientLinkedin
     from .settings.settingsLinkedin import *
+
 from datetime import datetime
 import sys
 import argparse
@@ -20,6 +22,18 @@ import time
 import os
 import bs4
 import platform
+
+def standardUrl(url):
+
+    if not "linkedin.com/in" in url:
+        return None
+
+    tab = url.split("linkedin.com/in")
+
+    """ we ignore the string after the /name/ """
+    tab2 = tab[1].split("/")
+
+    return "https://www.linkedin.com/in"+tab2[1]
 
 class SearcherLinkedin:
 
@@ -67,6 +81,11 @@ class SearcherLinkedin:
                     break
         return set(liste)
 
+    def findLinkedinsKeyWordByList(self, list_keywords):
+        str_keywords = ""
+        for val in list_keywords:
+            str_keywords = str_keywords + val + " "
+        return findLinkedinsKeyWord(str_keywords)
 
     def findLinkedinsKeyWord(self, keywords):
         """ fait une recherche avec les mots clefs, replace les espaces par un %20 pour qu'ils fonctionnent dans l'url
@@ -119,9 +138,11 @@ class SearcherLinkedin:
 
         #Education
         valeurs = soup.find_all('section', class_='education-section')
-        file_tmp.write("-------------------------Education/Etude-------------------------\n")
+        if file_tmp != "":
+            file_tmp.write("-------------------------Education/Etude-------------------------\n")
         if(len(valeurs)==0):
-            file_tmp.write('Empty\n')
+            if file_tmp != "":
+                file_tmp.write('Empty\n')
         else:
             res=""
             for elem in valeurs:
@@ -131,26 +152,31 @@ class SearcherLinkedin:
                         tmp = formater(e.get_text())
                         compte.addEtude(tmp)
                         res = res + '\n\n' + tmp
-            ecriturePython2_Python3(file_tmp, res)
-            file_tmp.write('\n\n')
+            if file_tmp != "":
+                ecriturePython2_Python3(file_tmp, res)
+                file_tmp.write('\n\n')
 
         #Favoris
-        file_tmp.write("\n-------------------------Favoris-------------------------\n")
+        if file_tmp != "":
+            file_tmp.write("\n-------------------------Favoris-------------------------\n")
         valeurs = soup.find_all('li', class_='pv-interest-entity')
         for elem in valeurs:
             if(elem.get_text()!= ''):
                 tmp = formater(elem.get_text())
                 compte.addFavori(tmp)
-                ecriturePython2_Python3(file_tmp, tmp)
-                file_tmp.write('\n\n')
+                if file_tmp != "":
+                    ecriturePython2_Python3(file_tmp, tmp)
+                    file_tmp.write('\n\n')
 
         # Recuperation en dur des experiences
         experiences = []
         valeurs = soup.find_all('section', class_='experience-section')
 
-        file_tmp.write("\n-------------------------Experiences-------------------------\n")
+        if file_tmp != "":
+            file_tmp.write("\n-------------------------Experiences-------------------------\n")
         if(len(valeurs)==0):
-            file_tmp.write('Empty\n')
+            if file_tmp != "":
+                file_tmp.write('Empty\n')
         else:
             """depuis un tableau de type soup, On récupère la liste de tag li qu'on formatte pour l'affichage 
             Cette fonction est utilisé pour la partie education et expérience"""
@@ -162,8 +188,9 @@ class SearcherLinkedin:
                         tmp = formater(e.get_text())
                         experiences.append(tmp)
                         res = res + '\n\n' + tmp
-            ecriturePython2_Python3(file_tmp, res)
-            file_tmp.write('\n\n')
+            if file_tmp != "":
+                ecriturePython2_Python3(file_tmp, res)
+                file_tmp.write('\n\n')
 
         #Recuperation des logos d'entreprises et des urls d'entreprises correspondantes
         urlsExperiences = []

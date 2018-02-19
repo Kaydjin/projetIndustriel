@@ -14,9 +14,14 @@ import platform
 
 def standardUrl(url):
 	tab = url.split("facebook.com")
-	if not "www" in tab[0]:
-		return "https://www.facebook.com"+tab[1]
-	return url
+
+	""" we ignore the string after the name except if it's a number starting with one"""
+	tab2 = tab[1].split("/")
+	if len(tab2)>1:
+		if tab2[2][0]=="1":
+			return "https://www.facebook.com/"+tab2[1]+"/"+tab[2]
+
+	return "https://www.facebook.com/"+tab2[1]
 
 """ Verifiy if the url go to a facebook page and not a personnal profil """
 def certifiatePage(url):

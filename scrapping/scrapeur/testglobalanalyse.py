@@ -8,9 +8,9 @@ import sys
 import time
 from normalizeDatas import *
 #from test_google import *
-from libraries import sGoogle
+from scrappingLibrary import sGoogle
 from textanalyser import *
-from libraries import sFacebook
+from scrappingLibrary import sFacebook
 
 #from linkedIn_Recherche import *
 

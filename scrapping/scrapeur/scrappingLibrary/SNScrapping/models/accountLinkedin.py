@@ -16,10 +16,10 @@ class Experience:
         self.domaineEntreprise = domaineE
         self.nomEntreprise = nomEntreprise
 
-        def synthesePersonne(self):
+        def synthesePerson(self):
             return self.nomExperience + self.date + self.geolocalisation + self.description + self.nomEntreprise + self.domaineEntreprise
 
-        def syntheseEntreprise(self):
+        def syntheseCompany(self):
             return self.nomEntreprise + self.geolocalisation + self.domaineEntreprise + self.descriptionEntreprise
             
 class CompteLinkedin:
@@ -52,15 +52,15 @@ class CompteLinkedin:
 
         return liste
 
-    def syntheseEntreprise(self, active):
+    def syntheseCompany(self, active):
         strRes = ""
         for s in self.experiences:
             if s.actif==active:
-                strRes = strRes + s.syntheseEntreprise() + " "
+                strRes = strRes + s.syntheseCompany() + " "
 
         return strRes
 
-    def synthesePersonne(self):
+    def synthesePerson(self):
         strFavoris = ""
         for s in self.favoris:
             strFavoris = strFavoris + s+" "
@@ -69,6 +69,6 @@ class CompteLinkedin:
             strEtudes = strEtudes + s+" "
         strExperiences = ""
         for s in self.experiences:
-            strExperiences = strExperiences + s.synthesePersonne() +" "
+            strExperiences = strExperiences + s.synthesePerson() +" "
 
         return strEtudes + " " + strExperiences + " " + self.complementaire + " " + strFavoris
