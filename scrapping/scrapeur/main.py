@@ -39,7 +39,25 @@ def search(tweet):
 	
 	show_company(tweet, inst)
 
-""" method of step 5 : find company """
+""" method of step 5: find more information on the found company """
+def findCompany(nomEntreprise):
+	resultFacebookC = sGoogle.search_google(nomEntreprise, "", "facebook", True)
+	resultLinkedinC = sGoogle.search_google(nomEntreprise, "", "linkedin", True)
+
+	for link,desc in resultFacebookC:
+		new_url = sFacebook.standardUrl(link)
+		if sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url)):
+			inst.addFacebookCompanyLink((new_url, nbEtoiles))
+
+	for link,desc in resultLinkedinC:
+		new_url = sLinkedin.standardUrl(link)
+		if (new_url != None) and not inst.existLinkedinCompanyLink(new_url):
+			inst.addLinkedinCompanyLink((new_url,nbEtoiles))
+
+
+
+
+""" method of step 5 : show company found"""
 def show_company(tweet, inst):
 
 	""" Initialize """
@@ -53,7 +71,8 @@ def show_company(tweet, inst):
 				if work.nomEntreprise=="":
 					print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomExperience +" star:"+str(result))
 				else:
-					print("\t Links:"+link+" / "+linkF+" entreprise:"+work.nomEntreprise +" star:"+str(result))
+					print("\t Links:"+link+" / "+linkF+ " / " + work.urlEntreprise)
+					print("\t Entreprise:"+work.nomEntreprise +" star:"+str(result))
 
 """ method of step 5: show only pertinent datas """
 def show_result(inst):
@@ -87,6 +106,9 @@ def show_result(inst):
 """ method of step 2: insert the urls in instance """
 def searchGoogle(tweet, complementaire, inst, nbEtoiles):
 
+	"""test"""
+	tweet.userFirstname ="jimmy"
+	tweet.userSurname = "vogel"
 	resultFacebook = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "facebook", False)
 	resultLinkedin = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "linkedin", False)
 	resultFacebookC = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "facebook", True)
@@ -122,49 +144,50 @@ def searchFacebook(tweet, inst):
 """ method of step 2: search all homonymes not already found, beginning on the first link"""
 def searchFacebookHomonymes(tweet, inst, time_limit=30):
 
-	""" we instanciate the first link """
-	link = inst.linkFacebookPerson[0][0]
+	""" we instanciate the first link if it exists """
+	if len(inst.linkFacebookPerson)>0:
+		link = inst.linkFacebookPerson[0][0]
 
-	compte = sFacebook.findFacebook(tweet.userSurname, tweet.userFirstname, link)
+		compte = sFacebook.findFacebook(tweet.userSurname, tweet.userFirstname, link)
 
-	#Initialize
-	urls = compte.homonymes
-	accounts = []
-	accounts.append(compte)
+		#Initialize
+		urls = compte.homonymes
+		accounts = []
+		accounts.append(compte)
 
-	"""Time limit"""
-	start_time = time.time()
+		"""Time limit"""
+		start_time = time.time()
 
-	""" while urls not empty and time limit not attain """
-	while (len(urls) > 0) & (time.time()-start_time < time_limit):
+		""" while urls not empty and time limit not attain """
+		while (len(urls) > 0) & (time.time()-start_time < time_limit):
 
-		for url in urls:
+			for url in urls:
 
-			if not inst.existFacebookPersonLink(url):
+				if not inst.existFacebookPersonLink(url):
 
-				""" Scrapping limit """
-				time.sleep(2)
-				c = sFacebook.findFacebook(val.userSurname , val.userFirstname , url)
+					""" Scrapping limit """
+					time.sleep(2)
+					c = sFacebook.findFacebook(val.userSurname , val.userFirstname , url)
 
-				""" we add 0 because we didn't get the link with geodatas """
-				inst.addFacebookPersonLink((url,0))
-				value = matchCompteFacebookPersonTweet(tweet, c)
-				inst.addAccountFacebookPerson((url, c, value))
+					""" we add 0 because we didn't get the link with geodatas """
+					inst.addFacebookPersonLink((url,0))
+					value = matchCompteFacebookPersonTweet(tweet, c)
+					inst.addAccountFacebookPerson((url, c, value))
 
-				accounts.append(c)
+					accounts.append(c)
 
-		urls = []
-				
-		""" we continue with the homonymes of the news accounts"""
-		for c in accounts:
+			urls = []
+					
+			""" we continue with the homonymes of the news accounts"""
+			for c in accounts:
 
-			""" we only add new urls """
-			for new_url in c.homonymes:
-				if (not inst.existFacebookPersonLink(new_url)) & (new_url not in urls):
-					print(new_url)
-					urls.append(new_url)
+				""" we only add new urls """
+				for new_url in c.homonymes:
+					if (not inst.existFacebookPersonLink(new_url)) & (new_url not in urls):
+						print(new_url)
+						urls.append(new_url)
 
-				analyser = TextAnalyser()
+					analyser = TextAnalyser()
 
 """ method of step 3+4 : search all corresponding linkedin """
 def searchLinkedin(tweet, inst):
@@ -266,8 +289,7 @@ if __name__ == '__main__':
 	""" Second step: Search : instanciate for Person or Indeterminate tweets, the result for search on linkedin and facebook"""
 	tweets = reader.getPeopleTweets(True)
 
-	for val in tweets[3:4]:
-
+	for val in tweets[7:8]:
 		search(val)
 
 
