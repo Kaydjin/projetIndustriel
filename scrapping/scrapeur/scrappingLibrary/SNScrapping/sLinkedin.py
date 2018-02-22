@@ -41,14 +41,8 @@ class SearcherLinkedin:
 
 	def __init__(self, manager):
 		self.manager = manager
-
-		""" pause time 0 car on doit initialiser liclient avant d'attendre """
-		self.manager.get("https://www.linkedin.com/uas/login", 0)
-
-		# initialize LinkedIn web client
-		liclient = ClientLinkedin(manager.driver, **search_keys)
-		liclient.login()
-		time.sleep(3)
+		liclient = ClientLinkedin(self.manager.driver, search_keys)
+		self.manager.connection(liclient)
 
 	def findLinkedinsScrapping(self):
 

@@ -11,13 +11,14 @@ import time
 
 
 class ClientFacebook(object):
-    def __init__(self, driver, **kwargs):
-        self.driver         =  driver
-        self.username       =  kwargs["username"]
-        self.password       =  kwargs["password"]
 
-    def driver_quit(self):
-        self.driver.quit()
+    def __init__(self, driver, *kwargs):
+        self.settings = kwargs
+
+        self.num_setting = 0
+        self.driver = driver
+        self.username = kwargs[num_setting]["username"]
+        self.password = kwargs[num_setting]["password"]
 
     def login(self):
         """login to linkedin then wait 3 seconds for page to load"""
@@ -35,3 +36,13 @@ class ClientFacebook(object):
         elem.send_keys(Keys.RETURN)
         # Wait a few seconds for the page to load
         time.sleep(3)
+
+    """ pass to another setting for the client """
+    def rebootSettings(self):
+
+        self.num_setting = self.num_setting + 1
+        if self.num_setting == len(kwargs):
+            self.num_setting = 0
+
+        self.username = kwargs[num_setting]["username"]
+        self.password = kwargs[num_setting]["password"]

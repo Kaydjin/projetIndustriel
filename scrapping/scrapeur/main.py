@@ -16,7 +16,7 @@ from scrappingLibrary.SNScrapping.seleniumClass.mSelenium import *
 from textanalyser import *
 
 """ Step 2 for a tweet, return an instance for the result of the search for this tweet """
-def search(tweet):
+def search(tweet, manager):
 	inst = Instance(tweet)
 
 	""" The first search google is with location, we will add a value for the given url """
@@ -29,11 +29,13 @@ def search(tweet):
 	searchFacebook(tweet, inst)
 	searchFacebookHomonymes(tweet, inst)
 
-	searchLinkedin(tweet, inst)
+	searcher = sLinkedin.SearcherLinkedin(manager)
+
+	searchLinkedin(tweet, inst, searcher)
 
 	fiveBestFacebook = inst.getFiveBestAccountsFacebook()
 	for link,compte,star in fiveBestFacebook:
-		searchLinkedinLinked(tweet, inst, compte)
+		searchLinkedinLinked(tweet, inst, compte, searcher)
 
 	show_result(inst)
 	
@@ -106,9 +108,6 @@ def show_result(inst):
 """ method of step 2: insert the urls in instance """
 def searchGoogle(tweet, complementaire, inst, nbEtoiles):
 
-	"""test"""
-	tweet.userFirstname ="jimmy"
-	tweet.userSurname = "vogel"
 	resultFacebook = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "facebook", False)
 	resultLinkedin = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "linkedin", False)
 	resultFacebookC = sGoogle.search_google(tweet.userFirstname  + " " + tweet.userSurname, complementaire, "facebook", True)
@@ -187,23 +186,17 @@ def searchFacebookHomonymes(tweet, inst, time_limit=30):
 						print(new_url)
 						urls.append(new_url)
 
-					analyser = TextAnalyser()
-
 """ method of step 3+4 : search all corresponding linkedin """
-def searchLinkedin(tweet, inst):
-	manager = SeleniumManager(3)
-	search = sLinkedin.SearcherLinkedin(manager)
+def searchLinkedin(tweet, inst, searcher):
 
 	for link,nbStars in inst.linkLinkedinPerson:
-		compte = search.findLinkedin(tweet.userSurname, tweet.userFirstname, link, "")
+		compte = searcher.findLinkedin(tweet.userSurname, tweet.userFirstname, link, "")
 
 		""" the first number of star in accountLinkedin is the relation facebook-linkedin, 
 			the second star is the conjonction with the tweet"""
 
 		value = matchCompteLinkedinPersonTweet(tweet, compte)
 		inst.addAccountLinkedinPerson((link, "", compte, 0, value))
-
-	manager.driver_quit()
 	
 
 """ method of step 3+4 : matching compte/facebook and return a value with the degree of matching"""
@@ -225,33 +218,31 @@ def matchCompteLinkedinCompteFacebook(tweet, compteLinkedin, compteFacebook):
 	return len(analyser.getMatchingNouns(compteFacebook.synthese(), compteLinkedin.synthesePerson()))
 
 """ method of step 3+4: search all homonymes linkedin not already found, beginning on the first link"""
-def searchLinkedinLinked(tweet, inst, compteF):
+def searchLinkedinLinked(tweet, inst, compteF, searcher):
 
 	""" Initialize """
 	analyser = TextAnalyser()
-	manager = SeleniumManager(3)
-	search = sLinkedin.SearcherLinkedin(manager)
 
 	""" search by propernouns give +4 star to the link facebook-linkedin"""
 	propernounsExp = list(analyser.getPropersNounsFromList(compteF.nomsExperiences))
 	propernounsEtud = list(analyser.getPropersNounsFromList(compteF.nomsEtudes))
 
 	for val in propernounsExp:
-		list_urls = search.findLinkedins(tweet.userSurname, tweet.userFirstname, ecole=None, entreprise=val)
+		list_urls = searcher.findLinkedins(tweet.userSurname, tweet.userFirstname, ecole=None, entreprise=val)
 		for url in list_urls:
 			if not inst.existLinkedinPersonLink(url):
 				inst.addLinkedinPersonLink((url,0))
-				compte = search.findLinkedin(tweet.userSurname, tweet.userFirstname, url, "")
+				compte = searcher.findLinkedin(tweet.userSurname, tweet.userFirstname, url, "")
 				valueTweet = matchCompteLinkedinPersonTweet(tweet, compte)
 				valueFacebookLinkedin = matchCompteLinkedinCompteFacebook(tweet, compte, compteF)
 				inst.addAccountLinkedinPerson((url, compteF.url, compte, valueFacebookLinkedin+4, valueTweet))
 
 	for val in propernounsEtud:
-		list_urls = search.findLinkedins(tweet.userSurname, tweet.userFirstname, ecole=val, entreprise=None)
+		list_urls = searcher.findLinkedins(tweet.userSurname, tweet.userFirstname, ecole=val, entreprise=None)
 		for url in list_urls:
 			if not inst.existLinkedinPersonLink(url):
 				inst.addLinkedinPersonLink((url,0))
-				compte = search.findLinkedin(tweet.userSurname, tweet.userFirstname, url, "")
+				compte = searcher.findLinkedin(tweet.userSurname, tweet.userFirstname, url, "")
 				valueTweet = matchCompteLinkedinPersonTweet(tweet, compte)
 				valueFacebookLinkedin = matchCompteLinkedinCompteFacebook(tweet, compte, compteF)
 				inst.addAccountLinkedinPerson((url, compteF.url, compte, valueFacebookLinkedin+4, valueTweet))
@@ -267,17 +258,15 @@ def searchLinkedinLinked(tweet, inst, compteF):
 
 	""" we don't search with just name and surname, too much datas """
 	if len(nouns)>2:
-		set_urls = search.findLinkedinsByKeywordsByList(nouns)
+		set_urls = searcher.findLinkedinsByKeywordsByList(nouns)
 		list_urls = list(set_urls)
 		for val in list_urls:
 			if not inst.existLinkedinPersonLink(val):
 				inst.addLinkedinPersonLink((val,0))
-				compte = search.findLinkedin(tweet.userSurname, tweet.userFirstname, val, "")
+				compte = searcher.findLinkedin(tweet.userSurname, tweet.userFirstname, val, "")
 				valueTweet = matchCompteLinkedinPersonTweet(tweet, compte)
 				valueFacebookLinkedin = matchCompteLinkedinCompteFacebook(tweet, compte, compteF)
 				inst.addAccountLinkedinPerson((val, compteF.url, compte, valueFacebookLinkedin+2, valueTweet))
-
-	manager.driver_quit()
 
 
 if __name__ == '__main__':
@@ -289,7 +278,11 @@ if __name__ == '__main__':
 	""" Second step: Search : instanciate for Person or Indeterminate tweets, the result for search on linkedin and facebook"""
 	tweets = reader.getPeopleTweets(True)
 
-	for val in tweets[7:8]:
-		search(val)
+	manager = SeleniumManager(3)
+
+	for val in tweets[19:20]:
+		search(val, manager)
+
+	manager.driver_quit()
 
 

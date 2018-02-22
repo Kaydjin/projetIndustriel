@@ -13,39 +13,83 @@ import time
 
 class SeleniumManager:
 
-    def __init__(self, waiting_time):
-        os_driver = "error"
+	def __init__(self, waiting_time, nbr_request_max=100):
 
-        """ different drivers selon l'os"""
-        if platform.system() == "Windows":
-            os_driver = "/scrappingLibrary/SNScrapping/seleniumClass/geckodriver_windows64.exe"
-        elif platform.system() == "Linux":
-            os_driver = "/scrappingLibrary/SNScrapping/seleniumClass/geckodriver_linux"
-        else :
-            print("OS non supporte")
-            os_driver = "error"
+		""" initialize """
+		self.waiting_time = waiting_time
+		self.nbr_request = 0
+		self.driver = None
+		self.nbr_request_max = nbr_request_max
+		
+		""" no client at initialization """
+		self.client = None
 
-        if os_driver != "error" :
-            self.driver = webdriver.Firefox(executable_path=os.getcwd()+os_driver)
-        self.waiting_time = waiting_time
-        self.last_time = time.time()
+		""" different drivers between os"""
+		os_driver = "error"
+		if platform.system() == "Windows":
+			os_driver = "/scrappingLibrary/SNScrapping/seleniumClass/geckodriver_windows64.exe"
+		elif platform.system() == "Linux":
+			os_driver = "/scrappingLibrary/SNScrapping/seleniumClass/geckodriver_linux"
+		else :
+			print("OS not supported")
 
-    """ Permet de gérer le temps entre les requêtes """
-    def get(self, url, pause_time):
+		if os_driver != "error" :
+			self.driver = webdriver.Firefox(executable_path=os.getcwd()+os_driver)
 
-        """ Si le temps entre les deux dernieres requetes gérer par le manager 
-            est inferieur au paramètre d'initialisation, on attend le temps restant"""
-        if time.time()-self.last_time<self.waiting_time:
-            time.sleep(self.waiting_time-(time.time()-self.last_time))
+		""" no time limit the first time """
+		self.last_time = time.time()-waiting_time
 
-        """ on recupere l'url demande """
-        self.driver.get(url)
+	
 
-        """ on attend le temps requisionne """
-        time.sleep(pause_time)
+	""" connection on a social network with a client datas and managing of the connection"""
+	def connection(self, client):
 
-        """ on garde en memoire le temps de la derniere utilisation """
-        self.last_time = time.time()
+		""" if time between now and last request or connection is less than parameter waiting_time we wait """
+		if time.time()-self.last_time<self.waiting_time:
+			time.sleep(self.waiting_time-(time.time()-self.last_time))
 
-    def driver_quit(self):
-        self.driver.quit()
+		"""initialize"""
+		self.client = client 
+
+		"""open url connection and manage connection """
+		self.get(client.link_login, 3)
+		self.client.login()
+
+		""" update last request time """
+		self.last_time = time.time()
+
+	
+
+	""" Permet de gérer le temps entre les requêtes """
+	def get(self, url, pause_time):
+
+		""" reboot the client if the number of request is more than parameter nbr_request_max """
+		if self.nbr_request > self.nbr_request_max:
+			self.client.rebootSettings()
+			self.client = client.login()
+			self.last_time = time.time()
+
+		""" Test if we are connected on a social network """
+		if self.client != None:
+
+			""" if time between now and last request or connection is less than parameter waiting_time we wait """
+			if time.time()-self.last_time<self.waiting_time:
+				time.sleep(self.waiting_time-(time.time()-self.last_time))
+
+			""" go to the url specified """
+			self.driver.get(url)
+
+			""" wait requisite time """
+			time.sleep(pause_time)
+
+			""" keep in memory the time """
+			self.last_time = time.time()
+
+			""" increase the numbers of request effectued with this login """
+			self.nbr_request = self.nbr_request + 1
+
+		else:
+			print("Connection with a client necessary.")
+
+	def driver_quit(self):
+		self.driver.quit()
