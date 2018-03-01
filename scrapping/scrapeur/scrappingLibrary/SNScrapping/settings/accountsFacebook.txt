@@ -1,0 +1,72 @@
+search_keys = (
+    {
+    "id"               :  1,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    },
+    {
+    "id"               :  2,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    },
+    {
+    "id"               :  3,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    }
+    {
+    "id"               :  4,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    },
+    {
+    "id"               :  5,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    },
+    {
+    "id"               :  6,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    }
+    {
+    "id"               :  7,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    },
+    {
+    "id"               :  8,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    },
+    {
+    "id"               :  9,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    }
+    {
+    "id"               :  10,
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
+    "mail"         :  ["Data Scientist", "Data Analyst"],
+    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
+    }
+)

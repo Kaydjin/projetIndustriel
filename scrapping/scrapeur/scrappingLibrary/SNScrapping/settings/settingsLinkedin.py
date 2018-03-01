@@ -7,7 +7,6 @@ search_keys = (
 	"password"         :  "Testgeo2",
 	"keywords"         :  ["Data Scientist", "Data Analyst"],
 	"locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
-
 	"search_radius"    :  "50",
 	"page_number"      :  1,
 	"date_range"       :  "All",
@@ -21,7 +20,6 @@ search_keys = (
 	"password"         :  "Testgeo2",
 	"keywords"         :  ["Data Scientist", "Data Analyst"],
 	"locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
-
 	"search_radius"    :  "50",
 	"page_number"      :  1,
 	"date_range"       :  "All",
@@ -35,7 +33,6 @@ search_keys = (
 	"password"         :  "Testgeo2",
 	"keywords"         :  ["Data Scientist", "Data Analyst"],
 	"locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
-
 	"search_radius"    :  "50",
 	"page_number"      :  1,
 	"date_range"       :  "All",
