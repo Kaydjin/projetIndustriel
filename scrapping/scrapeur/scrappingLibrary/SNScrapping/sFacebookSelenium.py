@@ -87,6 +87,41 @@ class SearcherFacebook_Selenium:
 
         return compte
 
+    def scrappingProfilEntreprise(self,nom, url):
+        compteEntrepriseFacebook = CompteEntrepriseFacebook(nom,url)
+        self.manager.get(url,3)
+        #chargement
+        time.sleep(2)
+        html=self.manager.driver.page_source
+        soup=bs4.BeautifulSoup(html, "html.parser")
+
+        lienPlusInfo = "/about/?ref=page_internal"
+        classDomaineScrapping = "_1c03" #magnifique ?
+        domaine = "Empty"
+        nomComplet = nom
+        #pour la partie nom complet entreprise c'est sur votre gauche
+
+        """Partie ou on récupère le nom complet """
+        sidebar_left = soup.find("div", id="entity_sidebar")
+        if sidebar_left == None :
+            print("nothing sidebar_left")
+        scrapping_nomComplet = sidebar_left.find("div", id="u_0_0")
+        if scrapping_nomComplet != None :
+            nomComplet = scrapping_nomComplet.getText()
+        else :
+            print("nothing scrapping_nomComplet")
+        """---------------------------------"""
+
+        """Maintenant on passe sur la récupération à droite, du domaine d'activité de l'entreprise"""
+        scrapping_domaine=soup.find("div", class_=classDomaineScrapping)
+        if scrapping_domaine != None :
+            domaine = scrapping_domaine.getText()
+        else :
+            print("nothing scrapping_domaine")
+        compteEntrepriseFacebook.domaineEntreprise = domaine
+        compteEntrepriseFacebook.nomComplet = nomComplet
+        return compteEntrepriseFacebook
+
 
 
 def ecriturePython2_Python3(file, myStr):
@@ -113,9 +148,24 @@ def testRecherche(search):
 def testScrappingPage(search):
     search.scrappingProfil('candido', 'frank', 'https://www.facebook.com/frank.candido.5')
 
+def testScrappingPageEntreprise(search):
+    nom = 'Sopra'
+    url = 'https://www.facebook.com/soprasteria/'
+    #url = 'https://www.facebook.com/Inra.France/'
+    #nom='INRA'
+    return search.scrappingProfilEntreprise(nom, url)
+
 
 if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherFacebook_Selenium(manager)
-    testScrappingPage(search)
+    name_date_file = datetime.now().strftime('%H%M%d%m%Y')
+    file=open('scrappingLibrary/SNScrapping/log/sfacebookSelenium_py_recherche'+name_date_file+'.log', 'w+', encoding="utf8")
+    res = testScrappingPageEntreprise(search)
+    file.write(res.nom+'\n')
+    file.write(res.url+'\n')
+    file.write(res.geolocalisation+'\n')
+    file.write(res.domaineEntreprise+'\n')
+    file.write(res.nomComplet+'\n')
+    file.close()
     manager.driver_quit()

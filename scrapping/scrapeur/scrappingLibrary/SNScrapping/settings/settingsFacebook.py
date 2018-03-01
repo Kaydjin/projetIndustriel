@@ -41,7 +41,7 @@ search_keys = (
     "salary_range"     :  "All",
     "filename"         :  "output.txt",
     "results_page"     :  ""
-    }
+    },
     {
     "username"         :  "testgeo4@laposte.net",
     "password"         :  "Testgeo4",
