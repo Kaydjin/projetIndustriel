@@ -12,13 +12,14 @@ import time
 
 class ClientFacebook(object):
 
-    def __init__(self, driver, *kwargs):
+    def __init__(self, driver, kwargs):
         self.settings = kwargs
 
         self.num_setting = 0
         self.driver = driver
-        self.username = kwargs[num_setting]["username"]
-        self.password = kwargs[num_setting]["password"]
+        self.username = kwargs[self.num_setting]["username"]
+        self.password = kwargs[self.num_setting]["password"]
+        self.link_login = "https://www.facebook.com/login/"
 
     def login(self):
         """login to linkedin then wait 3 seconds for page to load"""

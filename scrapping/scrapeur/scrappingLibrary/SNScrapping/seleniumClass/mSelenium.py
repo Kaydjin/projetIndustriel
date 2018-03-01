@@ -29,7 +29,8 @@ class SeleniumManager:
 		if platform.system() == "Windows":
 			os_driver = "/scrappingLibrary/SNScrapping/seleniumClass/geckodriver_windows64.exe"
 		elif platform.system() == "Linux":
-			os_driver = "/scrappingLibrary/SNScrapping/seleniumClass/geckodriver_linux"
+			#os_driver = "/scrappingLibrary/SNScrapping/seleniumClass/geckodriver_linux"
+			os_driver = "/seleniumClass/geckodriver_linux"
 		else :
 			print("OS not supported")
 

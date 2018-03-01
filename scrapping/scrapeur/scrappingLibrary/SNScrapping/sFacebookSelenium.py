@@ -26,14 +26,8 @@ class SearcherFacebook_Selenium:
 
     def __init__(self, manager):
         self.manager = manager
-
-        """ pause time 0 car on doit initialiser liclient avant d'attendre """
-        self.manager.get("https://www.facebook.com/login/", 0)
-
-        # initialize LinkedIn web client
-        liclient = ClientFacebook(manager.driver, **search_keys)
-        liclient.login()
-        time.sleep(3)
+        liclient = ClientFacebook(self.manager.driver, search_keys)
+        self.manager.connection(liclient)
 
     def findFacebookScrolling(self):
     	#Chargement de la page /!\ 

@@ -69,6 +69,12 @@ class Experience:
 		self.domaineEntreprise = domaineE
 		self.nomEntreprise = nomEntreprise
 
+	def specifyCompany(self, nomEntreprise, urlEntreprise , descriptionEntreprise, domaineEntreprise):
+		self.nomEntreprise = nomEntreprise
+		self.urlEntreprise  = urlEntreprise 
+		self.descriptionEntreprise = descriptionEntreprise
+		self.domaineEntreprise = domaineEntreprise
+
 	def syntheseExperienceP(self):
 		return (self.nomExperience + " "+self.date + " " + self.geolocalisation + " " 
 					+self.description + " "+self.nomEntreprise + " " + self.domaineEntreprise)

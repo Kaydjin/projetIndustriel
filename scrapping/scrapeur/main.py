@@ -31,14 +31,23 @@ def search(tweet, manager, analyser):
 	#show results #TODO comment
 	inst.printLinks()
 
-	""" Step four and six: Instanciate Facebook's account from the urls found by google + matching Tweet/Facebook """
+	""" Step four: Instanciate Facebook's account from the urls found by google """
 	searchFacebook(tweet, inst, analyser)
 
-	""" Step five and six: Explore and add all homonymes links for a optional specified time + matching Tweet/Facebook """
+	""" Step five: Explore and add all homonymes links for a optional specified time """
 	searchFacebookHomonymes(tweet, inst, analyser, time_limit=30)
+
+	""" Step six : first matching Tweet datas/Facebook accounts with only datas find on facebook page """
+	matchingTweetAccountFacebookPerson(tweet, inst, analyser)
 
 	""" Step seven : Keep only the five best results for the next part of the search """
 	fiveBestFacebook = inst.getFiveBestAccountsFacebook()
+
+	""" Step eigh : search company datas for all experiences of facebook accounts """
+	#TODO
+
+	""" Step nine : second matching Tweet datas/5 Facebook best accounts with company datas specified """
+	matchingTweetAccountFacebookPerson(tweet, inst, analyser)
 
 	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
 	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
@@ -169,12 +178,20 @@ def searchGoogle(tweet, complementaire, inst, nbEtoiles):
 		if (new_url != None) and not inst.existLinkedinCompanyLink(new_url):
 			inst.addLinkedinCompanyLink((new_url,nbEtoiles))
 
-""" method of step 2 : search all corresponding facebook """
+""" Step four: Instanciate Facebook's account from the facebook urls in the instance """
 def searchFacebook(tweet, inst, analyser):
 	for link,desc in inst.linkFacebookPerson:
 		compte = sFacebook.findFacebook(tweet.userSurname, tweet.userFirstname, link)
 		value = matchCompteFacebookPersonTweet(tweet, compte, analyser)
 		inst.addAccountFacebookPerson((link, compte, value))
+
+""" Method step six and nine : Matching facebook accounts/Tweet"""
+def matchingTweetAccountFacebookPerson(tweet, inst, analyser):
+	for tAccount in inst.accountFacebookPerson:
+
+		""" tAccount[1]: account ; tAccount[2]: value """
+		value = matchCompteFacebookPersonTweet(tweet, tAccount[1], analyser)
+		tAccount[2]=value
 
 """ Step five : Explore and add all homonymes links for a specified time"""
 def searchFacebookHomonymes(tweet, inst, analyser, time_limit=30):
@@ -251,7 +268,7 @@ def matchCompteLinkedinCompteFacebook(tweet, compteLinkedin, compteFacebook, ana
 def searchLinkedinLinked(tweet, inst, compteF, searcher, analyser):
 
 	""" search by propernouns give +4 star to the link facebook-linkedin"""
-	propernounsExp = list(analyser.getPropersNounsFromList(compteF.nomsExperiences))
+	propernounsExp = list(analyser.getPropersNounsFromList(compteF.getNamesExperiences()))
 	propernounsEtud = list(analyser.getPropersNounsFromList(compteF.nomsEtudes))
 
 	for val in propernounsExp:
@@ -277,8 +294,8 @@ def searchLinkedinLinked(tweet, inst, compteF, searcher, analyser):
 	""" search by keywords give +2 star to the link facebook-linkedin"""
 
 	nouns = [tweet.userFirstname, tweet.userSurname]
-	if len(compteF.nomsExperiences)>0:
-		nouns.extend(analyser.getNomsCommuns(compteF.nomsExperiences[0]))
+	if len(compteF.experiences)>0:
+		nouns.extend(analyser.getNomsCommuns(compteF.experiences[0].nameExperience))
 	else:
 		if len(compteF.nomsEtudes)>0:
 			nouns.extend(analyser.getNomsCommuns(compteF.nomsEtudes[0]))

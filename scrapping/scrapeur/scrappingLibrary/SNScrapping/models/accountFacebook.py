@@ -11,10 +11,12 @@ class CompteFacebook:
 		self.description = ""
 		self.url = url
 		self.favoris = []
-		self.nomsExperiences = []
-		self.detailsExperiences = []
+
+		self.experiences = []
+
 		self.nomsEtudes = []
 		self.detailsEtudes = []
+
 		self.geodonnees = []
 		self.complementaire = ""
 
@@ -25,8 +27,13 @@ class CompteFacebook:
 		self.geodonnees.append(x)
 
 	def addExperience(self, exp, detail):
-		self.nomsExperiences.append(exp)
-		self.detailsExperiences.append(detail)
+		self.experiences.append(Experience(exp, detail))
+
+	def getNamesExperiences(self):
+		liste = []
+		for s in self.experiences:
+			liste.append(s.nameExperience)
+		return liste
 
 	def addEtude(self, etud, detail):
 		self.nomsEtudes.append(etud)
@@ -41,10 +48,8 @@ class CompteFacebook:
 			strFavoris = strFavoris + s+ " "
 
 		strExperiences = ""
-		num=0
-		for s in self.nomsExperiences:
-			strExperiences = strExperiences + s + " " + self.detailsExperiences[num] + " "
-			num = num + 1
+		for s in self.experiences:
+			strExperiences = strExperiences + s.syntheseExperienceP() + " "
 
 		strEtudes = ""
 		num=0
@@ -58,6 +63,36 @@ class CompteFacebook:
 			strGeoDonnee = strGeoDonnee + s+ " "
 
 		return self.description + " " + strEtudes + " " + strExperiences + " " + self.complementaire + " " + strGeoDonnee + " " + strFavoris
+
+class Experience:
+
+	def __init__(self, name, details):
+		#Necessary datas
+		self.nameExperience = name
+		self.detailsExperience = details
+		#Is the experience of actuality? : by default true for facebook
+		self.active = True
+
+		""" Company's specification """
+		self.nameCompany = ""
+		self.urlCompany = ""
+		self.descriptionCompany = ""
+		self.domainCompany = ""
+		self.geolocalizationCompany = ""
+
+	def specifyCompany(self, nameCompany, urlCompany, descriptionCompany, domainCompany, geolocalizationCompany):
+		self.nameCompany = nameCompany
+		self.urlCompany = urlCompany
+		self.descriptionCompany = descriptionCompany
+		self.domainCompany = domainCompany
+		self.geolocalizationCompany = geolocalizationCompany	
+
+	def syntheseExperienceP(self):
+		return (self.nomExperience + " "+self.detailsExperience + " " + self.geolocalisationCompany + " " 
+					+self.descriptionCompany + " "+self.nameCompany + " " + self.domainCompany)
+
+	def syntheseExperienceC(self):
+		return (self.nameCompany + " " + self.urlCompany +" "+ self.descriptionCompany +" "+ self.domainCompany + " " + self.geolocalizationCompany)
 
 class CompteEntrepriseFacebook:
 
