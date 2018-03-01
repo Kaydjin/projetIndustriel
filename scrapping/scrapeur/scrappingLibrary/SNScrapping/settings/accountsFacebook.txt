@@ -54,19 +54,5 @@ search_keys = (
     "password"         :  "Testgeo2",
     "mail"         :  ["Data Scientist", "Data Analyst"],
     "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
-    },
-    {
-    "id"               :  9,
-    "username"         :  "testgeo2@laposte.net",
-    "password"         :  "Testgeo2",
-    "mail"         :  ["Data Scientist", "Data Analyst"],
-    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
-    }
-    {
-    "id"               :  10,
-    "username"         :  "testgeo2@laposte.net",
-    "password"         :  "Testgeo2",
-    "mail"         :  ["Data Scientist", "Data Analyst"],
-    "mailPassword"        :  ["San Francisco Bay Area", "Greater New York City Area"]
     }
 )
