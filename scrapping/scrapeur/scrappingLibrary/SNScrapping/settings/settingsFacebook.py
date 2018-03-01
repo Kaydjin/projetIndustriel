@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-
 search_keys = (
     {
-    "username"         :  "testgeodatas@laposte.net",
-    "password"         :  "testgeodatas",
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
     "keywords"         :  ["Data Scientist", "Data Analyst"],
     "locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
 
@@ -18,8 +17,8 @@ search_keys = (
     "results_page"     :  ""
     },
     {
-    "username"         :  "testgeodatas@laposte.net",
-    "password"         :  "testgeodatas",
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
     "keywords"         :  ["Data Scientist", "Data Analyst"],
     "locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
 
@@ -32,8 +31,8 @@ search_keys = (
     "results_page"     :  ""
     },
     {
-    "username"         :  "testgeodatas@laposte.net",
-    "password"         :  "testgeodatas",
+    "username"         :  "testgeo2@laposte.net",
+    "password"         :  "Testgeo2",
     "keywords"         :  ["Data Scientist", "Data Analyst"],
     "locations"        :  ["San Francisco Bay Area", "Greater New York City Area"],
 

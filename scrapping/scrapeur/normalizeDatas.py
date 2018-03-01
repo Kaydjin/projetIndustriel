@@ -130,7 +130,7 @@ class Datas:
 				people.append(tweet)
 		return people
 
-	def getCompagnieTweets(self, pertinent=True):
+	def getCompanyTweets(self, pertinent=True):
 		compagnie = []
 		for tweet in self.tweets:
 			if (tweet.pertinent==pertinent) & (tweet.typeAuthor == "COMPANY"):
@@ -138,13 +138,12 @@ class Datas:
 		return compagnie
 
 
-# test de la class TweetCSVReader
 if __name__ == '__main__':
 
 	reader = Datas()
 	reader.readFromCsv("res/iteration_500.csv")
 	tweets = reader.getIndeterminatedTweets(True)
-	tweets = reader.getCompagnieTweets(True)
+	tweets = reader.getCompanyTweets(True)
 	tweets.extend(reader.getCompagnieTweets(False))
 	tweets = list(set(tweets))
 	print(len(tweets))

@@ -43,7 +43,7 @@ class CompteFacebook:
 		strExperiences = ""
 		num=0
 		for s in self.nomsExperiences:
-			strExperiences = strExperiences + s+ " " + self.detailsExperiences[num] + " "
+			strExperiences = strExperiences + s + " " + self.detailsExperiences[num] + " "
 			num = num + 1
 
 		strEtudes = ""

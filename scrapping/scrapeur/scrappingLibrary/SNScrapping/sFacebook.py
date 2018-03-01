@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 if __name__ == "__main__":
-	from models.accountFacebook import *
+	from models import accountFacebook
 else:
-	from .models.accountFacebook import *
+	from .models import accountFacebook
 import requests, bs4
 import argparse
 import time
@@ -50,7 +50,7 @@ def certifiatePage(url):
 
 """ Retourne l'objet facebook correspondant a la recherche depuis une url donne """
 def findFacebook(nom, prenom, url):
-	compte = CompteFacebook(nom, prenom, url)
+	compte = accountFacebook.CompteFacebook(nom, prenom, url)
 
 	#request et verification
 	res = requests.get(url)
@@ -163,15 +163,18 @@ def findFacebookPageEntreprise(nom, url):
 
 # test de la classe et des methodes
 if __name__ == '__main__':
-	"""
+
 	compte = findFacebook('frank','candido','https://www.facebook.com/frank.candido.5')
 	print('Homonymes:')
 	for val in compte.homonymes:
 		print(val)
 
 	print('Experiences:')
-	for val in compte.nomsExperiences:
-		print(val)
+
+	list_len = len(compte.nomsExperiences)
+	for i in range(0, list_len):
+		print(compte.nomsExperiences[i])
+		print(compte.detailsExperiences[i])
 	print('Etudes:')
 	for val in compte.nomsEtudes:
 		print(val)
@@ -179,9 +182,6 @@ if __name__ == '__main__':
 	for val in compte.favoris:
 		print(val)
 
-	print(compte.synthese())
-	"""
-
-	compte = findFacebookPageEntreprise('INRA', 'https://www.facebook.com/Inra.France/')
-	compte.affiche()
+	"""compte = findFacebookPageEntreprise('INRA', 'https://www.facebook.com/Inra.France/')
+	compte.affiche()"""
 
