@@ -95,7 +95,7 @@ class Instance:
 	def addAccountFacebookCompany(self, x):
 		self.accountFacebookCompany.append(x)
 
-	def addAccountLinkedinCompnay(self, x):
+	def addAccountLinkedinCompany(self, x):
 		self.accountLinkedinCompany.append(x)
 
 	def printAccounts(self):
@@ -109,8 +109,8 @@ class Instance:
 		for link,linkF,compte,valueF,valueT in self.accountLinkedinPerson:
 			print("LPerson: ")
 			print("[link]"+link+" [linkF]"+linkF+" [starF]"+str(valueF)+" [starT]"+str(valueT))
-		for link,compte in self.accountLinkedinCompany:
-			print("LCompany:"+link+" " +compte.syntheseCompany())
+		for link,compte,value in self.accountLinkedinCompany:
+			print("LCompany:"+link+" " +compte.syntheseCompany()+" "+value)
 
 	def getFiveBestAccountsFacebook(self):
 		if len(self.accountFacebookPerson)<5:

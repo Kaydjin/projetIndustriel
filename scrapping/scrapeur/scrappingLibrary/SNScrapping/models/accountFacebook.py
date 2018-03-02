@@ -88,7 +88,7 @@ class Experience:
 		self.geolocalizationCompany = geolocalizationCompany	
 
 	def syntheseExperienceP(self):
-		return (self.nomExperience + " "+self.detailsExperience + " " + self.geolocalisationCompany + " " 
+		return (self.nameExperience + " "+self.detailsExperience + " " + self.geolocalizationCompany + " " 
 					+self.descriptionCompany + " "+self.nameCompany + " " + self.domainCompany)
 
 	def syntheseExperienceC(self):

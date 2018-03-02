@@ -13,6 +13,7 @@ from scrappingLibrary import sGoogle
 from scrappingLibrary import sLinkedin
 from scrappingLibrary import sFacebook
 from scrappingLibrary.SNScrapping.seleniumClass.mSelenium import *
+from scrappingLibrary.SNScrapping.models.accountLinkedin import *
 from textanalyser import *
 
 """ Search for people and indeterminate tweets """
@@ -20,7 +21,6 @@ def search(tweet, manager, analyser):
 
 	""" In all following methods the instance will be modified to incorporate the results."""
 	inst = Instance(tweet)
-
 
 	""" Second and third step : starting urls Facebook/Linkedin + normalization of the urls found """
 
@@ -32,83 +32,77 @@ def search(tweet, manager, analyser):
 	inst.printLinks()
 
 	""" Step four: Instanciate Facebook's account from the urls found by google """
-	searchFacebook(tweet, inst, analyser)
+	searchPersonFacebook(tweet, inst, analyser)
 
 	""" Step five: Explore and add all homonymes links for a optional specified time """
-	searchFacebookHomonymes(tweet, inst, analyser, time_limit=30)
+	searchPersonFacebookHomonymes(tweet, inst, analyser, time_limit=30)
 
 	""" Step six : first matching Tweet datas/Facebook accounts with only datas find on facebook page """
-	matchingTweetAccountFacebookPerson(tweet, inst, analyser)
+	accounts = []
+	for tAccount in inst.accountFacebookPerson:
+		accounts.append((tAccount[0], tAccount[1], matchCompteFacebookPersonTweet(tweet, tAccount[1], analyser)))
+	inst.accountFacebookPerson = accounts
 
 	""" Step seven : Keep only the five best results for the next part of the search """
 	fiveBestFacebook = inst.getFiveBestAccountsFacebook()
 
-	""" Step eigh : search company datas for all experiences of facebook accounts """
-	#TODO
+	""" Step eight : search company datas for all experiences of facebook 5 five best accounts """
+	for tAccount in fiveBestFacebook:
+		for exp in tAccount[1].experiences:
+			searchPersonCompanyFacebook(exp, manager)
 
 	""" Step nine : second matching Tweet datas/5 Facebook best accounts with company datas specified """
-	matchingTweetAccountFacebookPerson(tweet, inst, analyser)
+	accounts = []
+	for tAccount in fiveBestFacebook:
+		accounts.append((tAccount[0], tAccount[1], matchCompteFacebookPersonTweet(tweet, tAccount[1], analyser)))
+	inst.accountFacebookPerson = accounts
 
 	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
 	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
 
-	""" """
-	searchLinkedin(tweet, inst, searcherLinkedin)
+	""" Step ten and twelve: search accounts from linkedin url from google + matching"""
+	searchPersonLinkedin(tweet, inst, searcherLinkedin, analyser)
 
+	""" Step eleven and twelve : search accounts by linking from facebook datas """
 	for link,compte,star in fiveBestFacebook:
-		searchLinkedinLinked(tweet, inst, compte, searcherLinkedin, analyser)
+		searchPersonLinkedinLinked(tweet, inst, compte, searcherLinkedin, analyser)
 
-	show_result(inst)
-	
-	show_company(tweet, inst, analyser)
+	#show results #TODO comment
+	show_result_person(inst)
+	#show results #TODO comment
+	show_company_person(tweet, inst, analyser)
 
 """ Search for company tweet """
 def searchCompany(tweet, manager, analyser):
 	inst = Instance(tweet)
 
-	""" The first search google is with location, we will add a value for the given url """
-	searchGoogle(tweet, tweet.user_location, inst, 2)
-
-	""" The second search google is without location, no add value for the given url """
-	searchGoogle(tweet, "", inst, 0)
-	inst.printLinks()
-
-	searchFacebook(tweet, inst, analyser)
-	searchFacebookHomonymes(tweet, inst, analyser)
-
-	searcher = sLinkedin.SearcherLinkedin(manager)
-
-	searchLinkedin(tweet, inst, searcher)
-
-	fiveBestFacebook = inst.getFiveBestAccountsFacebook()
-	for link,compte,star in fiveBestFacebook:
-		searchLinkedinLinked(tweet, inst, compte, searcher, analyser)
-
-	show_result(inst)
-	
-	show_company(tweet, inst)
-
-
-""" method of step 5: find more information on the found company """
-def findCompany(nomEntreprise):
 	resultFacebookC = sGoogle.search_google(nomEntreprise, "", "facebook", True)
 	resultLinkedinC = sGoogle.search_google(nomEntreprise, "", "linkedin", True)
 
 	for link,desc in resultFacebookC:
 		new_url = sFacebook.standardUrl(link)
 		if sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url)):
-			inst.addFacebookCompanyLink((new_url, nbEtoiles))
+			inst.addFacebookCompanyLink((new_url, 0))
 
 	for link,desc in resultLinkedinC:
 		new_url = sLinkedin.standardUrl(link)
 		if (new_url != None) and not inst.existLinkedinCompanyLink(new_url):
-			inst.addLinkedinCompanyLink((new_url,nbEtoiles))
+			inst.addLinkedinCompanyLink((new_url,0))
 
+	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
+	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
 
+	""" Linkedin link in priority """
+	if len(inst.linkLinkedinCompany)>0:
+		# retourne un tuple (nomE, location, domaine, descriptionE)
+		result = searcherLinkedin.findLinkedinCompany(inst.linkLinkedinCompany[0])
+		value = len(analyser.getMatchingNouns(tweet.synthese(), result[0]+" "+result[1]+" "+result[2]+" "+result[3]))
+		inst.addAccountLinkedinCompany(inst.linkLinkedinCompany[0], result, value)
+	#else: TODO facebook search
 
 
 """ method of step 5 : show company found"""
-def show_company(tweet, inst, analyser):
+def show_company_person(tweet, inst, analyser):
 
 	print("[company]")
 	for link,linkF,compte,valueF,valueT in inst.accountLinkedinPerson:
@@ -122,7 +116,7 @@ def show_company(tweet, inst, analyser):
 					print("\t Entreprise:"+work.nomEntreprise +" star:"+str(result))
 
 """ method of step 5: show only pertinent datas """
-def show_result(inst):
+def show_result_person(inst):
 	print("["+inst.tweet.userFirstname +" "+inst.tweet.userSurname+"]")
 	print("\t[Facebook]{")
 	for link,compte,value in inst.accountFacebookPerson:
@@ -179,22 +173,14 @@ def searchGoogle(tweet, complementaire, inst, nbEtoiles):
 			inst.addLinkedinCompanyLink((new_url,nbEtoiles))
 
 """ Step four: Instanciate Facebook's account from the facebook urls in the instance """
-def searchFacebook(tweet, inst, analyser):
+def searchPersonFacebook(tweet, inst, analyser):
 	for link,desc in inst.linkFacebookPerson:
 		compte = sFacebook.findFacebook(tweet.userSurname, tweet.userFirstname, link)
-		value = matchCompteFacebookPersonTweet(tweet, compte, analyser)
-		inst.addAccountFacebookPerson((link, compte, value))
-
-""" Method step six and nine : Matching facebook accounts/Tweet"""
-def matchingTweetAccountFacebookPerson(tweet, inst, analyser):
-	for tAccount in inst.accountFacebookPerson:
-
-		""" tAccount[1]: account ; tAccount[2]: value """
-		value = matchCompteFacebookPersonTweet(tweet, tAccount[1], analyser)
-		tAccount[2]=value
+		#initially 0 for the matching
+		inst.addAccountFacebookPerson((link, compte, 0))
 
 """ Step five : Explore and add all homonymes links for a specified time"""
-def searchFacebookHomonymes(tweet, inst, analyser, time_limit=30):
+def searchPersonFacebookHomonymes(tweet, inst, analyser, time_limit=30):
 
 	""" we instanciate the first link if it exists """
 	if len(inst.linkFacebookPerson)>0:
@@ -221,10 +207,9 @@ def searchFacebookHomonymes(tweet, inst, analyser, time_limit=30):
 					time.sleep(2)
 					c = sFacebook.findFacebook(val.userSurname , val.userFirstname , url)
 
-					""" we add 0 because we didn't get the link with geodatas """
+					""" we add 0 because we didn't get the link with geodatas, 0 for value matching initially """
 					inst.addFacebookPersonLink((url,0))
-					value = matchCompteFacebookPersonTweet(tweet, c, analyser)
-					inst.addAccountFacebookPerson((url, c, value))
+					inst.addAccountFacebookPerson((url, c, 0))
 
 					accounts.append(c)
 
@@ -239,8 +224,34 @@ def searchFacebookHomonymes(tweet, inst, analyser, time_limit=30):
 						print(new_url)
 						urls.append(new_url)
 
+""" Search company: search more information on the company of the experience of a person """
+def searchPersonCompanyFacebook(experience, manager):
+	resultFacebookC = sGoogle.search_google(experience.nameCompany, "", "facebook", True)
+	resultLinkedinC = sGoogle.search_google(experience.nameCompany, "", "linkedin", True)
+	listeF = []
+	listeL = []
+	for link,desc in resultFacebookC:
+		new_url = sFacebook.standardUrl(link)
+		if sFacebook.certifiatePage(new_url):
+			listeF.append(new_url)
+
+	for link,desc in resultLinkedinC:
+		new_url = sLinkedin.standardUrl(link)
+		if (new_url != None):
+			listeL.append(new_url)
+
+	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
+	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
+
+	""" Linkedin link in priority """
+	if len(listeL)>0:
+		# retourne un tuple (nomE, location, domaine, descriptionE)
+		result = searcherLinkedin.findLinkedinCompany(listeL[0])
+		experience.specifyCompany(result[0], listeL[0], result[3], result[2])
+	#else: TODO FACEBOOK SEARCH
+
 """ method of step 3+4 : search all corresponding linkedin """
-def searchLinkedin(tweet, inst, searcher, analyser):
+def searchPersonLinkedin(tweet, inst, searcher, analyser):
 
 	for link,nbStars in inst.linkLinkedinPerson:
 		compte = searcher.findLinkedin(tweet.userSurname, tweet.userFirstname, link, "")
@@ -265,7 +276,7 @@ def matchCompteLinkedinCompteFacebook(tweet, compteLinkedin, compteFacebook, ana
 	return len(analyser.getMatchingNouns(compteFacebook.synthese(), compteLinkedin.synthesePerson()))
 
 """ method of step 3+4: search all homonymes linkedin not already found, beginning on the first link"""
-def searchLinkedinLinked(tweet, inst, compteF, searcher, analyser):
+def searchPersonLinkedinLinked(tweet, inst, compteF, searcher, analyser):
 
 	""" search by propernouns give +4 star to the link facebook-linkedin"""
 	propernounsExp = list(analyser.getPropersNounsFromList(compteF.getNamesExperiences()))
@@ -325,7 +336,7 @@ if __name__ == '__main__':
 
 	""" 2-11 steps for person tweets """
 	tweetsPeople = reader.getPeopleTweets(True)
-	for val in tweetsPeople:
+	for val in tweetsPeople[19:20]:
 		search(val, manager, analyser)
 
 	""" 2-11 steps for inderterminate tweets """
@@ -335,8 +346,8 @@ if __name__ == '__main__':
 
 	""" 2-11 steps for company tweets """
 	tweetsCompany = getCompanyTweets(True)
-	for val in tweetsCompany:
-		searchCompany(val, manager, analyser)
+	#for val in tweetsCompany:
+		#searchCompany(val, manager, analyser)
 
 	""" Kill driver selenium """
 	manager.driver_quit()

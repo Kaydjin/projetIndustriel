@@ -262,7 +262,7 @@ class SearcherLinkedin:
 
 				#On preferera le nom et la localisation donner sur la page de l'entreprise si elle existe.
 				for elem in divnom:
-					nomsE = d(elem.get_text().strip("\n \r"))
+					nomE = d(elem.get_text().strip("\n \r"))
 				for elem in divlocation:
 					location = d(elem.get_text().strip("\n \r"))
 				for elem in divdomaine:
@@ -276,6 +276,31 @@ class SearcherLinkedin:
 			numExp = numExp + 1
 
 		return compte
+
+	def findLinkedinCompany(self, link):
+		self.manager.get(link, 3)
+		html=self.manager.driver.page_source
+		soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
+		divnom = soup.select('.org-top-card-module__name')
+		divdomaine = soup.select('.company-industries.org-top-card-module__dot-separated-list')
+		divlocation = soup.select('.org-top-card-module__location')
+		divdescription = soup.select('.org-about-us-organization-description p')
+
+		nomsE = ""
+		location = ""
+		domaine = ""
+		descriptionE = ""
+		#On preferera le nom et la localisation donner sur la page de l'entreprise si elle existe.
+		for elem in divnom:
+			nomE = d(elem.get_text().strip("\n \r"))
+		for elem in divlocation:
+			location = d(elem.get_text().strip("\n \r"))
+		for elem in divdomaine:
+			domaine = d(elem.get_text().strip("\n \r"))
+		for elem in divdescription:
+			descriptionE = d(elem.get_text().strip("\n \r"))
+
+		return (nomE, location, domaine, descriptionE)
 
 if __name__ == '__main__':
 	manager = SeleniumManager(3)
