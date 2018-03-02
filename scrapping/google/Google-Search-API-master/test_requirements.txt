@@ -1,5 +1,0 @@
-vcrpy
-nose
-nose-cov
-twine
-mock
