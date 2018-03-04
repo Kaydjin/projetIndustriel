@@ -1,0 +1,11 @@
+Le manager est un fichier python qui permet l'utilisation de Selenium, 
+un bot utilisant firefox pour effectuer des actions qui lui seront demandés par notre application.
+
+Mis sous format de classe, nommé SeleniumManager, cette classe permet d'initialisé notre bot.
+Pour fonctionner, le manager va chercher dans nos fichiers un fichier geckodriver, téléchargable sur internet pour firefox, qui dépendra de l'OS utilisé, permettant son utilisation
+
+Lorsqu'on demande une connexion, il faudra avant tout avoir un client, qui lui est spécialisé au remplissage des champs de connexion d'un réseau social par exemple Facebook ou Linkedin
+
+Par ailleurs notre manager possède un nombre maximun de requête, si ce maximun est atteint, notre manager utilisera un autre compte utilisateur pour continuer ses opérations. 
+Evitant ainsi des bloquages de compte pour activité anormal (trop de requête aussi rapidement).
+
