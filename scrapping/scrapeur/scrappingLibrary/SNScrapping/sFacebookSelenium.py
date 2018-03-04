@@ -5,13 +5,13 @@ import models
 if __name__ == "__main__":
     from models.accountFacebook import *
     from utils.utils import *
-    from seleniumClass.managerSelenium import SeleniumManager
+    from seleniumClass.mSelenium import SeleniumManager
     from seleniumClass.seleniumClientFacebook import ClientFacebook
     from settings.settingsFacebook import *
 else:
     from .models.accountFacebook import *
     from .utils.utils import *
-    from .seleniumClass.managerSelenium import SeleniumManager
+    from .seleniumClass.mSelenium import SeleniumManager
     from .seleniumClass.seleniumClientFacebook import ClientFacebook
     from .settings.settingsFacebook import *
 from datetime import datetime

@@ -9,11 +9,11 @@ import sys
 import time
 from modelsProject.instance import *
 from normalizeDatas import *
-from libraries import sGoogle
-from libraries import sLinkedin
-from libraries import sFacebook
-from libraries.SNScrapping.seleniumClass.mSelenium import *
-from libraries.SNScrapping.models.accountLinkedin import *
+from scrappingLibrary import sGoogle
+from scrappingLibrary import sLinkedin
+from scrappingLibrary import sFacebook
+from scrappingLibrary.SNScrapping.seleniumClass.mSelenium import *
+from scrappingLibrary.SNScrapping.models.accountLinkedin import *
 from textanalyser import *
 
 """ Search for people and indeterminate tweets """

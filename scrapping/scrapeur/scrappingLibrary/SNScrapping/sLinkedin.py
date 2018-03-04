@@ -7,13 +7,13 @@ from __future__ import unicode_literals
 if __name__ == "__main__":
 	from models.accountLinkedin import *
 	from utils.utils import *
-	from seleniumClass.managerSelenium import SeleniumManager
+	from seleniumClass.mSelenium import SeleniumManager
 	from seleniumClass.seleniumClientLinkedin import ClientLinkedin
 	from settings.settingsLinkedin import *
 else:
 	from .models.accountLinkedin import *
 	from .utils.utils import *
-	from .seleniumClass.managerSelenium import SeleniumManager
+	from .seleniumClass.mSelenium import SeleniumManager
 	from .seleniumClass.seleniumClientLinkedin import ClientLinkedin
 	from .settings.settingsLinkedin import *
 
