@@ -12,9 +12,9 @@ from normalizeDatas import *
 from libraries import sGoogle
 from libraries import sLinkedin
 from libraries import sFacebook
-from libraries.SNScrapping.seleniumClass.mSelenium import *
+from libraries.SNScrapping.seleniumClass.managerSelenium import *
 from libraries.SNScrapping.models.accountLinkedin import *
-from textanalyser import *
+from textAnalyser import *
 
 """ Search for people and indeterminate tweets """
 def search(tweet, manager, analyser):
