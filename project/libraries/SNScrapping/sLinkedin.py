@@ -6,12 +6,14 @@ from __future__ import unicode_literals
 
 if __name__ == "__main__":
 	from models.accountLinkedin import *
+	from models.accountCompany import *
 	from utils.utils import *
 	from seleniumClass.managerSelenium import SeleniumManager
 	from seleniumClass.seleniumClientLinkedin import ClientLinkedin
 	from settings.settingsLinkedin import *
 else:
 	from .models.accountLinkedin import *
+	from .models.accountCompany import *
 	from .utils.utils import *
 	from .seleniumClass.managerSelenium import SeleniumManager
 	from .seleniumClass.seleniumClientLinkedin import ClientLinkedin
@@ -279,6 +281,7 @@ class SearcherLinkedin:
 
 	def findLinkedinCompany(self, link):
 		self.manager.get(link, 3)
+		accountCompanyLinkedin = AccountCompany("",link)
 		html=self.manager.driver.page_source
 		soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you
 		divnom = soup.select('.org-top-card-module__name')
@@ -286,21 +289,17 @@ class SearcherLinkedin:
 		divlocation = soup.select('.org-top-card-module__location')
 		divdescription = soup.select('.org-about-us-organization-description p')
 
-		nomsE = ""
-		location = ""
-		domaine = ""
-		descriptionE = ""
 		#On preferera le nom et la localisation donner sur la page de l'entreprise si elle existe.
 		for elem in divnom:
-			nomE = d(elem.get_text().strip("\n \r"))
+			accountCompanyLinkedin.nomComplet = d(elem.get_text().strip("\n \r"))
 		for elem in divlocation:
-			location = d(elem.get_text().strip("\n \r"))
+			accountCompanyLinkedin.position = d(elem.get_text().strip("\n \r"))
 		for elem in divdomaine:
-			domaine = d(elem.get_text().strip("\n \r"))
+			accountCompanyLinkedin.domaine = d(elem.get_text().strip("\n \r"))
 		for elem in divdescription:
-			descriptionE = d(elem.get_text().strip("\n \r"))
+			accountCompanyLinkedin.description = d(elem.get_text().strip("\n \r"))
 
-		return (nomE, location, domaine, descriptionE)
+		return accountCompanyLinkedin
 
 if __name__ == '__main__':
 	manager = SeleniumManager(3)

@@ -4,12 +4,14 @@ from __future__ import absolute_import
 import models
 if __name__ == "__main__":
     from models.accountFacebook import *
+    from models.accountCompany import *
     from utils.utils import *
     from seleniumClass.managerSelenium import SeleniumManager
     from seleniumClass.seleniumClientFacebook import ClientFacebook
     from settings.settingsFacebook import *
 else:
     from .models.accountFacebook import *
+    from .models.accountCompany import *
     from .utils.utils import *
     from .seleniumClass.managerSelenium import SeleniumManager
     from .seleniumClass.seleniumClientFacebook import ClientFacebook
@@ -88,7 +90,7 @@ class SearcherFacebook_Selenium:
         return compte
 
     def scrappingProfilEntreprise(self,nom, url):
-        compteEntrepriseFacebook = CompteEntrepriseFacebook(nom,url)
+        accountCompanyFacebook = AccountCompany(nom,url)
         self.manager.get(url,3)
         #chargement
         time.sleep(2)
@@ -118,9 +120,9 @@ class SearcherFacebook_Selenium:
             domaine = scrapping_domaine.getText()
         else :
             print("nothing scrapping_domaine")
-        compteEntrepriseFacebook.domaineEntreprise = domaine
-        compteEntrepriseFacebook.nomComplet = nomComplet
-        return compteEntrepriseFacebook
+        accountCompanyFacebook.domaine = domaine
+        accountCompanyFacebook.nomComplet = nomComplet
+        return accountCompanyFacebook
 
 
 

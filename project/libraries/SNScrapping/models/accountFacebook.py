@@ -78,36 +78,20 @@ class Experience:
 		self.urlCompany = ""
 		self.descriptionCompany = ""
 		self.domainCompany = ""
-		self.geolocalizationCompany = ""
+		self.positionCompany = ""
 
 	def specifyCompany(self, nameCompany, urlCompany, descriptionCompany, domainCompany, geolocalizationCompany):
 		self.nameCompany = nameCompany
 		self.urlCompany = urlCompany
 		self.descriptionCompany = descriptionCompany
 		self.domainCompany = domainCompany
-		self.geolocalizationCompany = geolocalizationCompany	
+		self.positionCompany = positionCompany
 
 	def syntheseExperienceP(self):
-		return (self.nameExperience + " "+self.detailsExperience + " " + self.geolocalizationCompany + " " 
+		return (self.nameExperience + " "+self.detailsExperience + " " + self.positionCompany + " " 
 					+self.descriptionCompany + " "+self.nameCompany + " " + self.domainCompany)
 
 	def syntheseExperienceC(self):
-		return (self.nameCompany + " " + self.urlCompany +" "+ self.descriptionCompany +" "+ self.domainCompany + " " + self.geolocalizationCompany)
-
-class CompteEntrepriseFacebook:
-
-	def __init__(self,nom, url):
-		self.nom=nom
-		self.url=url
-		self.geolocalisation = ""
-		self.domaineEntreprise = ""
-		self.nomComplet= ""
-
-	def affiche(self):
-		print("nom:%s" % self.nom)
-		print("url:%s" % self.url)
-		print("geolocalisation:%s" % self.geolocalisation)
-		print("domaineEntreprise:%s" % self.domaineEntreprise)
-		print("nomComplet:%s" % self.nomComplet)
+		return (self.nameCompany + " " + self.urlCompany +" "+ self.descriptionCompany +" "+ self.domainCompany + " " + self.positionCompany)
 
 
