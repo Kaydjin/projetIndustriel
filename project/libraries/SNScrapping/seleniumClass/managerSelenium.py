@@ -82,10 +82,10 @@ class SeleniumManager:
 
 			""" reboot the client if the number of request is more than parameter nbr_request_max """
 			if self.nbr_request > self.nbr_request_max:
+				self.nbr_request = 0
 				self.client.rebootSettings()
 				self.reconnection()
 				self.last_time = time.time()
-				self.nbr_request = 0
 				print("Reboot settings")
 
 

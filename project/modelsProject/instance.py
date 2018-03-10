@@ -166,7 +166,7 @@ class Instance:
 	def keepFiveBestAccountsFacebook(self):
 
 		# if there is not more than 5 accounts, no need to sort
-		if len(self.accountFacebookPerson)<6:
+		if len(self.accountFacebookPerson)>5:
 
 			liste = []
 			#first time we create a tuple account/value
@@ -181,3 +181,18 @@ class Instance:
 			self.accountFacebookPerson = []
 			for val in bests:
 				self.accountFacebookPerson.append(val[0])
+
+
+if __name__ == '__main__':
+	inst = Instance("")
+	inst.addFacebookPersonLink("url",2)
+	inst.addAccountFacebookPerson("url", "urlF", "account", 0, 1)
+	inst.addAccountFacebookPerson("url", "urlF", "account", 0, 9)
+	inst.addAccountFacebookPerson("url", "urlF", "account", 0, 4)
+	inst.addAccountFacebookPerson("url", "urlF", "account", 0, 3)
+	inst.addAccountFacebookPerson("url", "urlF", "account", 0, 1)
+	inst.addAccountFacebookPerson("url", "urlF", "account", 0, 0)
+	inst.addAccountFacebookPerson("url", "urlF", "account", 0, 2)
+	inst.keepFiveBestAccountsFacebook()
+	for val in inst.accountFacebookPerson:
+		print(val.valueT)
