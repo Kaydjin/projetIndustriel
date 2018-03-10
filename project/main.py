@@ -25,6 +25,7 @@ def search(tweet, manager, analyser):
 	""" Second and third step : starting urls Facebook/Linkedin + normalization of the urls found """
 
 	#The first search google is with location, we will add a value for the given url
+	print("STEP 2-3: google+normalize urls")
 	searchGoogle(tweet, tweet.user_location, inst, 2)
 	#The second search google is without location, no add value for the given url
 	searchGoogle(tweet, "", inst, 0)
@@ -32,34 +33,42 @@ def search(tweet, manager, analyser):
 	inst.printLinks()
 
 	""" Step four: Instanciate Facebook's account from the urls found by google """
+	print("STEP 4: Facebook")
 	searchPersonFacebook(tweet, inst, analyser)
 
 	""" Step five: Explore and add all homonymes links for a optional specified time """
+	print("STEP 5: Homonymes Facebook")
 	searchPersonFacebookHomonymes(tweet, inst, analyser, time_limit=30)
 
 	""" Step six : first matching Tweet datas/Facebook accounts with only datas find on facebook page """
+	print("STEP 6: First match facebook")
 	for tAccount in inst.accountFacebookPerson:
 		tAccount.value = matchCompteFacebookPersonTweet(tweet, tAccount.account, analyser)
 
 	""" Step seven : Keep only the five best results for the next part of the search """
+	print("STEP 7: Keep best facebook")
 	inst.keepFiveBestAccountsFacebook()
-
-	""" Step eight : search company datas for all experiences of facebook 5 five best accounts """
-	for tAccount in inst.accountFacebookPerson:
-		for exp in tAccount.account.experiences:
-			searchPersonCompanyFacebook(exp, manager)
-
-	""" Step nine : second matching Tweet/Facebook for 5 best accounts with company datas specified """
-	for tAccount in inst.accountFacebookPerson:
-		tAccount.value = matchCompteFacebookPersonTweet(tweet, tAccount.account, analyser)
 
 	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
 	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
 
+	""" Step eight : search company datas for all experiences of facebook 5 five best accounts """
+	print("STEP 8: Find company linked to 5 best facebook account")
+	for tAccount in inst.accountFacebookPerson:
+		for exp in tAccount.account.experiences:
+			searchPersonCompanyFacebook(exp, searcherLinkedin)
+
+	""" Step nine : second matching Tweet/Facebook for 5 best accounts with company datas specified """
+	print("STEP 9: Second matching facebook")
+	for tAccount in inst.accountFacebookPerson:
+		tAccount.value = matchCompteFacebookPersonTweet(tweet, tAccount.account, analyser)
+
 	""" Step ten and twelve: search accounts from linkedin url from google + matching"""
+	print("STEP 10-12: accounts linkedin + matching")
 	searchPersonLinkedin(tweet, inst, searcherLinkedin, analyser)
 
 	""" Step eleven and twelve : search accounts by linking from facebook datas + matching"""
+	print("STEP 11-12: accounts Linkedin(link facebook) + matching")
 	for tAccount in inst.accountFacebookPerson:
 		searchPersonLinkedinLinked(tweet, inst, tAccount.account, searcherLinkedin, analyser)
 
@@ -69,26 +78,26 @@ def search(tweet, manager, analyser):
 	show_company_person(tweet, inst, analyser)
 
 """ method of step 5 : show company found"""
-def show_company_person(tweet, inst, analyser, minCompany=3):
+def show_company_person(tweet, inst, analyser, minCompany=0):
 	print("\t[company]{")
 	for val in inst.accountLinkedinPerson:
 		for work in val.account.experiences:
 			#account of type person, with company link with experience
 			result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
 			if result >= minCompany:
-				print(work.toJson())
+				print(work.toJson()+"[valueT]"+str(result))
 
 	for val in inst.accountFacebookPerson:
 		for work in val.account.experiences:
 			#account of type person, with company link with experience
 			result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
 			if result >= minCompany:
-				print(work.toJson())
+				print(work.toJson()+"[valueT]"+str(result))
 	#end
 	print("\t}")
 
 """ method of step 5: show only pertinent datas """
-def show_result_person(inst, minFacebook=3, minLinkedinWithoutPair = 3, minLinkedinWithPair = 4):
+def show_result_person(inst, minFacebook=0, minLinkedinWithoutPair = 0, minLinkedinWithPair = 0):
 	#Name person
 	print("["+inst.tweet.userFirstname +" "+inst.tweet.userSurname+"]")
 
@@ -97,7 +106,7 @@ def show_result_person(inst, minFacebook=3, minLinkedinWithoutPair = 3, minLinke
 	for val in inst.accountFacebookPerson:
 		start_value = inst.getValueFacebookPersonLink(val.link)
 		if start_value + val.valueT >= minFacebook:
-			print(val.account.toJson())
+			print(val.account.toJson()+"[valueT]"+str(val.valueT))
 	print("\t}")
 
 	"""print Linkedin accounts with a minimum value of matching with the tweet	"""
@@ -106,7 +115,7 @@ def show_result_person(inst, minFacebook=3, minLinkedinWithoutPair = 3, minLinke
 
 		#no matching with a facebook account
 		if (val.linkF=="") and (val.valueT >= minLinkedinWithoutPair):
-			print(val.account.toJson())
+			print(val.account.toJson()+"[valueT]"+str(val.valueT))
 
 		#matching with a facebook account
 		if val.linkF!="":
@@ -122,17 +131,17 @@ def show_result_person(inst, minFacebook=3, minLinkedinWithoutPair = 3, minLinke
 
 					#minimum value to print for two matching accounts.
 					if (valueInitialLink!=None) and (valueInitialLink + val.valueT + matchFTValue >= minLinkedinWithPair):
-						print(val.account.toJson())
+						print(val.account.toJson()+"[valueT]"+str(val.valueT)+"[valueF]"+str(val.valueF))
 			else:
 				#if the matching is not good, but the linkedin account is, suppress the link before printing
 				if val.valueT > minLinkedinWithoutPair:
 					val.linkF = ""
-					print(val.account.toJson())
+					print(val.account.toJson()+"[valueT]"+str(val.valueT))
 	#end
 	print("\t}")
 
 """ Search for company tweet """
-def searchCompany(tweet, manager, analyser):
+def searchCompany(tweet, searcherLinkedin, analyser):
 	inst = Instance(tweet)
 
 	resultFacebookC = sGoogle.search_google(nomEntreprise, "", "facebook", True)
@@ -148,19 +157,16 @@ def searchCompany(tweet, manager, analyser):
 		if (new_url != None) and not inst.existLinkedinCompanyLink(new_url):
 			inst.addLinkedinCompanyLink(new_url)
 
-	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
-	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
-
 	""" Linkedin link in priority """
 	if len(inst.linkLinkedinCompany)>0:
 
 		# findLinkedinCompany: return AccountCompany: domain, position, nomComplet, description
 		# inst.linkLinkedinCompany[0] : we use only the first result.
-		result = searcherLinkedin.findLinkedinCompany(inst.linkLinkedinCompany[0])
+		accountCompany = searcherLinkedin.findLinkedinCompany(inst.linkLinkedinCompany[0])
 
-		value = len(analyser.getMatchingNouns(tweet.synthese(), result.toString()))
+		value = len(analyser.getMatchingNouns(tweet.synthese(), accountCompany.toString()))
 
-		inst.addAccountLinkedinCompany(inst.linkLinkedinCompany[0], result, valueT=value)
+		inst.addAccountLinkedinCompany(inst.linkLinkedinCompany[0], accountCompany, valueT=value)
 
 	#else: TODO facebook search
 
@@ -244,31 +250,26 @@ def searchPersonFacebookHomonymes(tweet, inst, analyser, time_limit=30):
 						urls.append(new_url)
 
 """ Search company: search more information on the company of the experience of a person """
-def searchPersonCompanyFacebook(experience, manager):
-	resultFacebookC = sGoogle.search_google(experience.nameCompany, "", "facebook", True)
+def searchPersonCompanyFacebook(experience, searcherLinkedin):
+	#resultFacebookC = sGoogle.search_google(experience.nameCompany, "", "facebook", True)
 	resultLinkedinC = sGoogle.search_google(experience.nameCompany, "", "linkedin", True)
-	listeF = []
+	#listeF = []
 	listeL = []
-	for link,desc in resultFacebookC:
+	"""for link,desc in resultFacebookC:
 		new_url = sFacebook.standardUrl(link)
 		if sFacebook.certifiatePage(new_url):
-			listeF.append(new_url)
+			listeF.append(new_url)"""
 
 	for link,desc in resultLinkedinC:
 		new_url = sLinkedin.standardUrl(link)
 		if (new_url != None):
 			listeL.append(new_url)
 
-	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
-	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
-
-	""" Linkedin link in priority """
+	""" Only search of company with linkedin """
 	if len(listeL)>0:
-		# findLinkedinCompany: return AccountCompany: domain, position, nomComplet, description
-		# specifyCompany(nameCompany, urlCompany, descriptionCompany, domainCompany, geolocalizationCompany)
+		""" Connect the selenium manager on a Linkedin search: operate identification on login page """
 		result = searcherLinkedin.findLinkedinCompany(listeL[0])
 		experience.specifyCompany(result.nomComplet, listeL[0], result.description, result.domain, result.position)
-	#else: TODO FACEBOOK SEARCH
 
 """ method of step 3+4 : search all corresponding linkedin """
 def searchPersonLinkedin(tweet, inst, searcher, analyser):
@@ -298,6 +299,7 @@ def searchPersonLinkedinLinked(tweet, inst, accountF, searcher, analyser):
 	propernounsExp = list(analyser.getPropersNounsFromList(accountF.getNamesExperiences()))
 	propernounsEtud = list(analyser.getPropersNounsFromList(accountF.nomsEtudes))
 
+	print("Search linked linkedin by proper nouns in work experience")
 	for val in propernounsExp:
 		list_urls = searcher.findLinkedins(tweet.userSurname, tweet.userFirstname, ecole=None, entreprise=val)
 		for url in list_urls:
@@ -308,6 +310,7 @@ def searchPersonLinkedinLinked(tweet, inst, accountF, searcher, analyser):
 				valueFacebookLinkedin = matchCompteLinkedinCompteFacebook(tweet, account, accountF, analyser)
 				inst.addAccountLinkedinPerson(url, account, accountF.url, valueFacebookLinkedin+4, valueTweet)
 
+	print("Search linked linkedin by proper nouns in studies")
 	for val in propernounsEtud:
 		list_urls = searcher.findLinkedins(tweet.userSurname, tweet.userFirstname, ecole=val, entreprise=None)
 		for url in list_urls:
@@ -319,16 +322,16 @@ def searchPersonLinkedinLinked(tweet, inst, accountF, searcher, analyser):
 				inst.addAccountLinkedinPerson(url, account, accountF.url, valueFacebookLinkedin+4, valueTweet)
 
 	""" search by keywords give +2 star to the link facebook-linkedin"""
-
+	"""print("Search linked linkedin by nouns in first experiences and studies")
 	nouns = [tweet.userFirstname, tweet.userSurname]
 	if len(accountF.experiences)>0:
 		nouns.extend(analyser.getNomsCommuns(accountF.experiences[0].nameExperience))
 	else:
 		if len(accountF.nomsEtudes)>0:
-			nouns.extend(analyser.getNomsCommuns(accountF.nomsEtudes[0]))
+			nouns.extend(analyser.getNomsCommuns(accountF.nomsEtudes[0]))"""
 
 	""" we don't search with just name and surname, too much datas """
-	if len(nouns)>2:
+	"""if len(nouns)>2:
 		set_urls = searcher.findLinkedinsByKeywordsByList(nouns)
 		list_urls = list(set_urls)
 		for val in list_urls:
@@ -337,7 +340,7 @@ def searchPersonLinkedinLinked(tweet, inst, accountF, searcher, analyser):
 				account = searcher.findLinkedin(tweet.userSurname, tweet.userFirstname, val, "")
 				valueTweet = matchCompteLinkedinPersonTweet(tweet, account, analyser)
 				valueFacebookLinkedin = matchCompteLinkedinCompteFacebook(tweet, account, accountF, analyser)
-				inst.addAccountLinkedinPerson(val, account, accountF.url, valueFacebookLinkedin+2, valueTweet)
+				inst.addAccountLinkedinPerson(val, account, accountF.url, valueFacebookLinkedin+2, valueTweet)"""
 
 
 if __name__ == '__main__':
@@ -352,18 +355,21 @@ if __name__ == '__main__':
 
 	""" 2-11 steps for person tweets """
 	tweetsPeople = reader.getPeopleTweets(True)
-	for val in tweetsPeople:
+	for val in tweetsPeople[18:]:
 		search(val, manager, analyser)
 
 	""" 2-11 steps for inderterminate tweets """
 	tweetsIndeterminate = reader.getIndeterminatedTweets(True)
-	for val in tweetsIndeterminate:
+	for val in tweetsIndeterminate[:5]:
 		search(val, manager, analyser)
+
+	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
+	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
 
 	""" 2-11 steps for company tweets """
 	tweetsCompany = getCompanyTweets(True)
-	#for val in tweetsCompany:
-		#searchCompany(val, manager, analyser)
+	for val in tweetsCompany:
+		searchCompany(val, searcherLinkedin, analyser)
 
 	""" Kill driver selenium """
 	manager.driver_quit()

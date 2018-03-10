@@ -52,6 +52,7 @@ class SeleniumManager:
 		"""initialize"""
 		self.client = client 
 
+		print("Connection with client")
 		"""open url connection and manage connection """
 		self.get(client.link_login, 3)
 		self.client.login()
@@ -59,20 +60,34 @@ class SeleniumManager:
 		""" update last request time """
 		self.last_time = time.time()
 
+	def reconnection(self):
+		""" if time between now and last request or connection is less than parameter waiting_time we wait """
+		if time.time()-self.last_time<self.waiting_time:
+			time.sleep(self.waiting_time-(time.time()-self.last_time))
+
+		"""open url connection and manage connection """
+		self.get(self.client.link_login, 3)
+		self.client.login()
+
+		""" update last request time """
+		self.last_time = time.time()		
+
 	
 
 	""" Permet de gérer le temps entre les requêtes """
 	def get(self, url, pause_time):
 
-		""" reboot the client if the number of request is more than parameter nbr_request_max """
-		if self.nbr_request > self.nbr_request_max:
-			self.client.rebootSettings()
-			self.client = client.login()
-			self.last_time = time.time()
-			self.nbr_request = 0
-
 		""" Test if we are connected on a social network """
 		if self.client != None:
+
+			""" reboot the client if the number of request is more than parameter nbr_request_max """
+			if self.nbr_request > self.nbr_request_max:
+				self.client.rebootSettings()
+				self.reconnection()
+				self.last_time = time.time()
+				self.nbr_request = 0
+				print("Reboot settings")
+
 
 			""" if time between now and last request or connection is less than parameter waiting_time we wait """
 			if time.time()-self.last_time<self.waiting_time:

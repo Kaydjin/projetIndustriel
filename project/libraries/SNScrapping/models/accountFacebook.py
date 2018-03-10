@@ -44,9 +44,9 @@ class CompteFacebook:
 
 	""" return only simple information """
 	def toJson(self):
-		if len(self.experiences>0):
+		if len(self.experiences)>0:
 			return ("\t\t[account]{\n\t\t\tdescription:"+self.description+"\n\t\t\tlastExp:"
-				+experiences[0].nameExperience+","+experiences[0].domainCompany+"\n\t\t}")
+				+self.experiences[0].nameExperience+","+self.experiences[0].domainCompany+"\n\t\t}")
 		return ("\t\t[account]{\n\t\t\tdescription:"+self.description+"\n\t\t}")
 
 	def synthese(self):

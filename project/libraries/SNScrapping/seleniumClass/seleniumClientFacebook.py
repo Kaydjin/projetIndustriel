@@ -46,5 +46,5 @@ class ClientFacebook(object):
         if self.num_setting == len(kwargs):
             self.num_setting = 0
 
-        self.username = kwargs[num_setting]["username"]
-        self.password = kwargs[num_setting]["password"]
+        self.username = self.settings[self.num_setting]["username"]
+        self.password = self.settings[self.num_setting]["password"]
