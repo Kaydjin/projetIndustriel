@@ -138,9 +138,9 @@ def testRecherche(search):
     file = ""
     name_date_file = datetime.now().strftime('%H%M%d%m%Y')
     if sys.version_info >= (3, 0):
-        file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
+        file=open('libraries/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+', encoding="utf8")
     else:
-        file=open('scrappingLibrary/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+')
+        file=open('libraries/SNScrapping/log/sfacebookRecherche'+name_date_file+'.log', 'w+')
     for val in liste:
         print(val)
         ecriturePython2_Python3(file, val)
@@ -162,7 +162,7 @@ if __name__ == '__main__':
     manager = SeleniumManager(3)
     search = SearcherFacebook_Selenium(manager)
     name_date_file = datetime.now().strftime('%H%M%d%m%Y')
-    file=open('scrappingLibrary/SNScrapping/log/sfacebookSelenium_py_recherche'+name_date_file+'.log', 'w+', encoding="utf8")
+    file=open('libraries/SNScrapping/log/sfacebookSelenium_py_recherche'+name_date_file+'.log', 'w+', encoding="utf8")
     res = testScrappingPageEntreprise(search)
     file.write(res.nom+'\n')
     file.write(res.url+'\n')
