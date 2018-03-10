@@ -2,9 +2,46 @@
 # -*- coding: utf-8 -*-
 
 
+""" fonction used to give the parameter to used for a sort """
 def getKey(item):
-	return item[2]
+	return item[1]
 
+""" class used to incorporate a class account from the SNS library and add other informations """
+class Account:
+	
+	def __init__(self, link, account, linkF="", valueF=0, valueT=0):
+		""" url account """
+		self.link = link
+		""" url account linked, used for linkedin account """
+		self.linkF = linkF
+		""" can be a company account or a person account """
+		self.account = account
+		""" used to specify matching between facebook and linkedin account """
+		self.valueF = valueF
+		""" used to specify matching between the account and the tweet """
+		self.valueT = valueT
+
+	def toString(self):
+		return self.link + " " + self.linkF + " " + self.account.synthese() + " " + self.valueF + " " + self.valueT
+
+	def toJson(self):
+		return ("\t\tlink:"+self.link+"\n\t\tlinkF:"+self.linkF+"\n\t\t[Account]{"+
+			self.account.toJson()+"\n\t\t}\n\t\tvalueF:"+self.valueF+"\n\t\tvalueF:"+self.valueT)
+
+""" class used to add a value to the importance of a link """
+class Link:
+
+	"""(link, compte, value)"""
+	def __init__(self, link, value=0):
+		""" url"""
+		self.link = link
+		""" value if the search of the link had an influence on the value of it """
+		self.value = value
+
+	def synthese(self):
+		return "L:"+self.link + "V:"+value
+
+""" class used to instanciate the result of a search for one specified tweet """
 class Instance:
 
 	def __init__(self, tweet):
@@ -17,31 +54,36 @@ class Instance:
 		self.accountFacebookPerson = []
 		self.accountLinkedinCompany = []
 		self.accountFacebookCompany = []
-		self.entreprises = []
 
-	def addLinkedinPersonLink(self, x):
-		self.linkLinkedinPerson.append(x)
+	""" add links fonctions """
+
+	def addLinkedinPersonLink(self, link, value=0):
+		self.linkLinkedinPerson.append(Link(link, value))
+
+	def addFacebookPersonLink(self, link, value=0):
+		self.linkFacebookPerson.append(Link(link, value))
+
+	def addFacebookCompanyLink(self, link, value=0):
+		self.linkFacebookCompany.append(Link(link, value))
+
+	def addLinkedinCompanyLink(self, link, value=0):
+		self.linkLinkedinCompany.append(Link(link, value))
+
+	""" get links fonctions """
 
 	def getValueLinkedinPersonLink(self, link):
 		return self.getValue(self.linkLinkedinPerson, link)
 
-	def addFacebookPersonLink(self, x):
-		self.linkFacebookPerson.append(x)
-
 	def getValueFacebookPersonLink(self, link):
 		return self.getValue(self.linkFacebookPerson, link)
-
-	def addFacebookCompanyLink(self, x):
-		self.linkFacebookCompany.append(x)
 
 	def getValueFacebookCompanyLink(self, link):
 		return self.getValue(self.linkFacebookCompany, link)
 
-	def addLinkedinCompanyLink(self, x):
-		self.linkLinkedinCompany.append(x)
-
 	def getValueLinkedinCompanyLink(self, link):
 		return self.getValue(self.linkLinkedinCompany, link)
+
+	""" exists links fonctions """
 
 	def existLinkedinPersonLink(self, link):
 		return self.existLink(self.linkLinkedinPerson, link)
@@ -55,73 +97,87 @@ class Instance:
 	def existLinkedinCompanyLink(self, link):
 		return self.existLink(self.linkLinkedinCompany, link)
 
+	""" class links fonctions """
+
 	def getValue(self, list_link, link):
 		for val in list_link:
-			if val[0]==link:
-				return val[1]
+			if val.link ==link:
+				return val.value
 		return None
-
 	def existLink(self, list_link, url):
 		for val in list_link:
-			if val[0]==url:
+			if val.link==url:
 				return True
 		return False
 
-	def getElem(self, list_link, link, pos):
-		for val in list_link:
-			if val[pos]==link:
-				return val
+	""" add accounts fonctions """
+
+	def addAccountLinkedinPerson(self, link, account, linkF="", valueF=0, valueT=0):
+		self.accountLinkedinPerson.append(Account(link, account, linkF, valueF, valueT))
+
+	def addAccountFacebookPerson(self, link, account, linkF="", valueF=0, valueT=0):
+		self.accountFacebookPerson.append(Account(link, account, linkF, valueF, valueT))
+
+	def addAccountFacebookCompany(self, link, account, linkF="", valueF=0, valueT=0):
+		self.accountFacebookCompany.append(Account(link, account, linkF, valueF, valueT))
+
+	def addAccountLinkedinCompany(self, link, account, linkF="", valueF=0, valueT=0):
+		self.accountLinkedinCompany.append(Account(link, account, linkF, valueF, valueT))
+	
+	""" get accounts fonctions """
+
+	def getValuesAccountFacebookPerson(self, link):
+		return self.getValuesAccount(self.accountFacebookPerson, link)
+
+	""" class accounts fonctions """
+
+	# return the two value of an accounts with a matching link given in parameter
+	def getValuesAccount(self, list_accounts, link):
+		for val in list_accounts:
+			if val.link ==link:
+				return (val.valueF, val.valueT)
 		return None
+
+	""" show fonctions """
 
 	def printLinks(self):
 		for val in self.linkFacebookPerson:
-			print("FPerson:"+val[0])
+			print("FPerson:"+val.link)
 		for val in self.linkFacebookCompany:
-			print("FCompany:"+val[0])
+			print("FCompany:"+val.link)
 		for val in self.linkLinkedinPerson:
-			print("LPerson:"+val[0])
+			print("LPerson:"+val.link)
 		for val in self.linkLinkedinCompany:
-			print("LCompany:"+val[0])
-
-	def addAccountLinkedinPerson(self, x):
-		self.accountLinkedinPerson.append(x)
-
-	def getValueAccountFacebookPerson(self, linkF):
-		return self.getElem(self.accountFacebookPerson, linkF, 0)
-
-	def addAccountFacebookPerson(self, x):
-		self.accountFacebookPerson.append(x)
-
-	def addAccountFacebookCompany(self, x):
-		self.accountFacebookCompany.append(x)
-
-	def addAccountLinkedinCompany(self, x):
-		self.accountLinkedinCompany.append(x)
-
+			print("LCompany:"+val.link)
 	def printAccounts(self):
-		"""(link, compte, value)"""
-		for link,compte, value in self.accountFacebookPerson:
-			print("FPerson:")
-			print("[link]"+link+" [star]"+str(value))
-		for link,compte in self.accountFacebookCompany:
-			print("FCompany:"+link+" " +compte.synthese())
-		"""(link, linkF, compte, valueF, valueT)"""
-		for link,linkF,compte,valueF,valueT in self.accountLinkedinPerson:
-			print("LPerson: ")
-			print("[link]"+link+" [linkF]"+linkF+" [starF]"+str(valueF)+" [starT]"+str(valueT))
-		for link,compte,value in self.accountLinkedinCompany:
-			print("LCompany:"+link+" " +compte.syntheseCompany()+" "+value)
 
-	def getFiveBestAccountsFacebook(self):
-		if len(self.accountFacebookPerson)<5:
-			return self.accountFacebookPerson
+		for val in self.accountFacebookPerson:
+			print(val.toString())
+		for val in self.accountFacebookCompany:
+			print(val.toString())
+		for val in self.accountLinkedinPerson:
+			print(val.toString())
+		for val in self.accountLinkedinCompany:
+			print(val.toString())
 
-		liste = []
-		for link, compte, stars in self.accountFacebookPerson:
-			star_start = self.getValueFacebookPersonLink(link)
-			liste.append((link, compte,star_start + stars))
+	""" useful fonctions """
 
-		return sorted(liste, reverse=True, key=getKey)[:5]
+	#keep only the five best facebook account according to the matchings values
+	def keepFiveBestAccountsFacebook(self):
 
-	def addEntreprise(self, x):
-		self.entreprises.append(x)
+		# if there is not more than 5 accounts, no need to sort
+		if len(self.accountFacebookPerson)<6:
+
+			liste = []
+			#first time we create a tuple account/value
+			for val in self.accountFacebookPerson:
+				star_start = self.getValueFacebookPersonLink(val.link)
+				liste.append((val, star_start + val.valueT))
+
+			#Sort the list by the second argument, in reverse order
+			bests = sorted(liste, reverse=True, key=getKey)[:5]
+
+			#second time we keep only five best accounts
+			self.accountFacebookPerson = []
+			for val in bests:
+				self.accountFacebookPerson.append(val[0])

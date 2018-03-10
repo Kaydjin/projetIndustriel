@@ -42,6 +42,13 @@ class CompteFacebook:
 	def addHomonyme(self, x):
 		self.homonymes.append(x)
 
+	""" return only simple information """
+	def toJson(self):
+		if len(self.experiences>0):
+			return ("\t\t[account]{\n\t\t\tdescription:"+self.description+"\n\t\t\tlastExp:"
+				+experiences[0].nameExperience+","+experiences[0].domainCompany+"\n\t\t}")
+		return ("\t\t[account]{\n\t\t\tdescription:"+self.description+"\n\t\t}")
+
 	def synthese(self):
 		strFavoris = ""
 		for s in self.favoris:
@@ -93,5 +100,11 @@ class Experience:
 
 	def syntheseExperienceC(self):
 		return (self.nameCompany + " " + self.urlCompany +" "+ self.descriptionCompany +" "+ self.domainCompany + " " + self.positionCompany)
+
+	""" return simple information in json format """
+	def toJson(self):
+		return ("\t\t[account]{\n\t\t\tnameCompany :"+self.nameCompany  +
+				"\n\t\t\tposition:"+self.positionCompany +
+				"\n\t\t\tdomainCompany:"+self.domainCompany+"\n\t\t}")
 
 

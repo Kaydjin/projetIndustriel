@@ -22,7 +22,7 @@ class ClientFacebook(object):
         self.link_login = "https://www.facebook.com/login/"
 
     def login(self):
-        """login to linkedin then wait 3 seconds for page to load"""
+
         # Enter login credentials
         WebDriverWait(self.driver, 120).until(
             EC.element_to_be_clickable(
@@ -30,6 +30,7 @@ class ClientFacebook(object):
             )
         )
         elem = self.driver.find_element_by_id("email")
+        elem.clear()
         elem.send_keys(self.username)
         elem = self.driver.find_element_by_id("pass")
         elem.send_keys(self.password)

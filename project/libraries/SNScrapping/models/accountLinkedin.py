@@ -41,6 +41,15 @@ class CompteLinkedin:
 				 strRes = strRes + s.syntheseExperienceC() + " " 
 		return strRes
 
+	def synthese(self):
+		return self.synthesePerson()
+
+	""" return only simple information """
+	def toJson(self):
+		if len(self.experiences)>0:
+			return ("\t\t[account]{\t\t\tlastExp:"+self.experiences[0].nomExperience+","+self.experiences[0].domaineEntreprise+"\n\t\t}")
+		return "\t\t[account]{\n\t\t\t[]\n\t\t}"
+
 	def synthesePerson(self):
 		strFavoris = ""
 		for s in self.favoris:
@@ -81,3 +90,9 @@ class Experience:
 
 	def syntheseExperienceC(self):
 		return self.nomEntreprise + " " + self.geolocalisation +" "+ self.domaineEntreprise +" "+ self.descriptionEntreprise
+
+	""" return simple information in json format """
+	def toJson(self):
+		return ("\t\t[account]{\n\t\t\tnomEntreprise :"+self.nomEntreprise  +
+				"\n\t\t\tgeolocalisation:"+self.geolocalisation +
+				"\n\t\t\tdomaineEntreprise:"+self.domaineEntreprise+"\n\t\t}")

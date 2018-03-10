@@ -69,6 +69,7 @@ class SeleniumManager:
 			self.client.rebootSettings()
 			self.client = client.login()
 			self.last_time = time.time()
+			self.nbr_request = 0
 
 		""" Test if we are connected on a social network """
 		if self.client != None:

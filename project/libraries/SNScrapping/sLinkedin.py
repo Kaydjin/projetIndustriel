@@ -120,7 +120,7 @@ class SearcherLinkedin:
 		compte = CompteLinkedin(nom, prenom, url)
 
 		""" pause 0 car on doit defiler vers le bas avant de faire la pause"""
-		self.manager.get(url, 3)
+		self.manager.get(url, 0)
 		
 		#on charge le haut de la page
 		time.sleep(3)

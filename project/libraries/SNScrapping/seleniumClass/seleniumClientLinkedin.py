@@ -30,6 +30,7 @@ class ClientLinkedin(object):
             )
         )
         elem = self.driver.find_element_by_id("session_key-login")
+        elem.clear()
         elem.send_keys(self.username)
         elem = self.driver.find_element_by_id("session_password-login")
         elem.send_keys(self.password)
