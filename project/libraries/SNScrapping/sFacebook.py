@@ -3,18 +3,18 @@
 from __future__ import absolute_import
 if __name__ == "__main__":
 	from models import accountFacebook
-    from models.accountCompany import *
-    from utils.utils import *
-    from seleniumClass.managerSelenium import SeleniumManager
-    from seleniumClass.seleniumClientFacebook import ClientFacebook
-    from settings.settingsFacebook import *
+	from models import accountCompany
+	from utils import utils
+	from seleniumClass.managerSelenium import SeleniumManager
+	from seleniumClass.seleniumClientFacebook import ClientFacebook
+	from settings import settingsFacebook
 else:
 	from .models import accountFacebook
-	from .models.accountCompany import *
-    from .utils.utils import *
-    from .seleniumClass.managerSelenium import SeleniumManager
-    from .seleniumClass.seleniumClientFacebook import ClientFacebook
-    from .settings.settingsFacebook import *
+	from .models import accountCompany
+	from .utils import utils
+	from .seleniumClass.managerSelenium import SeleniumManager
+	from .seleniumClass.seleniumClientFacebook import ClientFacebook
+	from .settings import settingsFacebook
 import requests, bs4
 import argparse
 import time
@@ -31,7 +31,7 @@ class SearcherFacebook_Selenium:
 
     def __init__(self, manager):
         self.manager = manager
-        liclient = ClientFacebook(self.manager.driver, search_keys)
+        liclient = ClientFacebook(self.manager.driver, settingsFacebook.search_keys)
         self.manager.connection(liclient)
 
     def findFacebookScrolling(self):
@@ -76,7 +76,7 @@ class SearcherFacebook_Selenium:
     	return self.findFacebookScrolling()
 
     def scrappingProfil(self, nom, prenom, url):
-        compte = CompteFacebook(nom, prenom, url)
+        compte = accountFacebook.CompteFacebook(nom, prenom, url)
         self.manager.get(url,3)
         #on charge le haut de la page
         time.sleep(2)
@@ -90,12 +90,11 @@ class SearcherFacebook_Selenium:
         info = infoGenral.find_all('li')
         for elem in info:
             print(elem.getText())
-
-
         return compte
 
+
     def scrappingProfilEntreprise(self,nom, url):
-        accountCompanyFacebook = AccountCompany(nom,url)
+        accountCompanyFacebook = accountCompany.AccountCompany(nom,url)
         self.manager.get(url,3)
         #chargement
         time.sleep(2)
@@ -310,7 +309,7 @@ def testSeleniumFB():
     res = testScrappingPageEntreprise(search)
     file.write(res.nom+'\n')
     file.write(res.url+'\n')
-    file.write(res.geolocalisation+'\n')
+    file.write(res.position+'\n')
     file.write(res.domaineEntreprise+'\n')
     file.write(res.nomComplet+'\n')
     file.close()
