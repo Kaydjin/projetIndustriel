@@ -20,7 +20,8 @@ else:
 -complete_name is the full name of the company or individual you wanted to search.
 -complementary is a string which contain informations like the localisation.
 -social_media is the social media within we search for.
--entreprise est un boolean précisant si l'on recherche une entreprise (True) ou une personne (False)
+-entreprise is a boolean True for a firm and False for people
+search link
 """
 def search_google(complete_name, complementary, social_media, entreprise):
     result = []
@@ -30,81 +31,9 @@ def search_google(complete_name, complementary, social_media, entreprise):
         result.extend(search_firm(complete_name, complementary, social_media))
 
     return result
-"""
-    
-    #cas où nous recherchons une personne
-    if(not entreprise):
-        #nous séparons le nom_complet en prénom et nom
-        prenom = ""
-        nom = ""
-        fin_prenom = False
-        for c in nom_complet:
-            if(not fin_prenom):
-                if(c == " "):
-                    fin_prenom = True
-                else:
-                    prenom += c
-            else:
-                nom += c
-        #formation de la chaine de caractère qui sera utilisée dans le moteur de recherche
-        query = prenom + " " + nom + " " + complementaire + " " + reseausocial
-        #la suppression des accents facilite la vérification de la pertinance des résultat
-        nom = supprime_accent(nom)
-        prenom = supprime_accent(prenom)
-
-        listurls = google.search(query, num_page)
-        for i in listurls:
-            i_sans_accent = supprime_accent(i.link)
-            #comme nous recherchons une personne il nous suffit de trouver un lien correspondant puis de chercher dans les homonymes
-            if(reseausocial == "facebook"):
-                if(re.match(".*FACEBOOK\.COM/" + prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()) and
-                 not re.match(".*/PUBLIC/.*",i_sans_accent.upper())):
-                    result.append(i.link)
-            elif(reseausocial == "linkedin"): 
-                if(re.match(".*LINKEDIN.*"+ prenom.upper() + ".*" + nom.upper() + ".*", i_sans_accent.upper()) and
-                   not (re.match(".*/PUB/DIR.*", i_sans_accent.upper()) or
-                   re.match(".*/PULSE/.*", i_sans_accent.upper()))):
-                    result.append(i.link)
-    #cas d'une recherche d'entreprise
-    else:
-        query = nom_complet + " " + complementaire + " " + reseausocial
-        listurls = google.search(query, num_page)
-        nom = supprime_accent(nom_complet)
-        nom_sans_espace = ""
-        for c in nom:
-            if c != " ":
-                nom_sans_espace += c
-            else:
-                nom_sans_espace += ".*"
-        for i in listurls:
-            i_sans_accent = supprime_accent(i.link)
-            if (reseausocial == "facebook"):
-                if(re.match(".*\.FACEBOOK\.COM/" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and 
-                    not (re.match(".*/PUBLIC/.*", i_sans_accent.upper()) or 
-                        re.match(".*/ABOUT.*", i_sans_accent.upper()) or
-                        re.match(".*/POST.*", i_sans_accent.upper()))):
-                    ajout = True
-                    for val in ["is on Facebook", "est sur Facebook", "esta en Facebook",
-                    d("è su Facebook"), "ist bei Facebook", d("está no Facebook") ]:
-                        if(val in i.description):
-                            ajout = False
-                    if(ajout):    
-                        result.append((i.link,i.description))
-
-            elif (reseausocial == "linkedin"): 
-                if(re.match(".*LINKEDIN/COMPANY/.*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()) and
-                   not (re.match(".*/PUB/DIR.*", i_sans_accent.upper()) or
-                   re.match(".*/PULSE/.*", i_sans_accent.upper()))):
-                    result.append((i.link,i.description))
-            else:
-                if re.match(".*" + nom_sans_espace.upper() + ".*", i_sans_accent.upper()):
-                    result.append((i.link,i.description))
-    return result
 
 """
-
-"""
-method who search link for a social media with google
+method who search link for people in a social media with google
 """
 def search_people(complete_name, complementary, social_media):
     result = []
@@ -121,8 +50,9 @@ def search_people(complete_name, complementary, social_media):
         else:
             lastname += c
 
-    #formation de la chaine de caractère qui sera utilisée dans le moteur de recherche
+    #String use for the query for the search engine
     query = firstname + " " + lastname + " " + complementary + " " + social_media
+
     if(social_media == "facebook" ):
         result.extend(search_people_facebook(query, firstname, lastname))
 
@@ -130,19 +60,20 @@ def search_people(complete_name, complementary, social_media):
         result.extend(search_people_linkedin(query, firstname, lastname))
     return result
 
-
+"""
+method who search link for one person in facebook with google
+"""
 def search_people_facebook(query, firstname, lastname):
     result = []
     num_page = 1
-    #appel de la méthode de la libraire permettant d'obtenir les résultats de la recherche
+    #call to a library to have the result of google's search engine with the query "query"
     listurls = google.search(query, num_page)
-    #la suppression des accents facilite la vérification de la pertinance des résultat
+    #deleting accent facilitate the result of the search
     lastname = delete_accent(lastname)
     firstname = delete_accent(firstname)
     listurls = google.search(query, num_page)
     for i in listurls:
         i_sans_accent = delete_accent(i.link)
-        #comme nous recherchons une personne il nous suffit de trouver un lien correspondant puis de chercher dans les homonymes          
         if(re.match(".*FACEBOOK\.COM/" + firstname.upper() + ".*" + lastname.upper() + ".*", i_sans_accent.upper()) 
             and not (re.match(".*/PUBLIC/.*", i_sans_accent.upper()) or 
                     re.match(".*/ABOUT.*", i_sans_accent.upper()) or
@@ -150,27 +81,33 @@ def search_people_facebook(query, firstname, lastname):
             result.append(i.link)
     return result
 
-
+"""
+method who search link for one person in linkedin with google
+"""
 def search_people_linkedin(query, firstname, lastname):
     result = []
     num_page = 1
-    #appel de la méthode de la libraire permettant d'obtenir les résultats de la recherche
+    #call to a library to have the result of google's search engine with the query "query"
     listurls = google.search(query, num_page)
-    #la suppression des accents facilite la vérification de la pertinance des résultat
+    #deleting accent facilitate the result of the search
     lastname = delete_accent(lastname)
     firstname = delete_accent(firstname)
     listurls = google.search(query, num_page)
     for i in listurls:
         i_sans_accent = delete_accent(i.link)
-        #comme nous recherchons une personne il nous suffit de trouver un lien correspondant puis de chercher dans les homonymes          
         if(re.match(".*LINKEDIN.*" + firstname.upper() + ".*" + lastname.upper() + ".*", i_sans_accent.upper()) 
-            and not (re.match(".*/PUB/DIR.*", i_sans_accent.upper()) or re.match(".*/PULSE/.*", i_sans_accent.upper()))):
+            and not (re.match(".*/PUB/DIR.*", i_sans_accent.upper()) 
+                or re.match(".*/PULSE/.*", i_sans_accent.upper()))):
                 result.append(i.link)
     return result
-                
+            
+"""
+method who search link for firm in a social media with google
+"""    
 def search_firm(complete_name, complementary, social_media):
     result = []
     query = complete_name + " " + complementary + " " + social_media
+    #changing space by ".*" is useful because url don't have blank so the blank in a name is replace by a caractere but we don't know wich one
     name_whitout_space = ""
     for c in complete_name:
         if c != " ":
@@ -183,6 +120,9 @@ def search_firm(complete_name, complementary, social_media):
         result.extend(search_firm_linkedin(query, name_whitout_space))
     return result
 
+"""
+method who search link for one firm in facebook with google
+"""
 def search_firm_facebook(query, name_whitout_space):
     result = []
     num_page = 1
@@ -194,6 +134,7 @@ def search_firm_facebook(query, name_whitout_space):
                     re.match(".*/ABOUT.*", i_sans_accent.upper()) or
                     re.match(".*/POST.*", i_sans_accent.upper()))):
             add = True
+            #if the description of the url contain this string there are not useful for us
             for val in ["is on Facebook", "est sur Facebook", "esta en Facebook",
             d("è su Facebook"), "ist bei Facebook", d("está no Facebook") ]:
                 if(val in i.description):
@@ -202,14 +143,15 @@ def search_firm_facebook(query, name_whitout_space):
                 result.append((i.link,i.description))
     return result
 
+"""
+method who search link for one firm in linkedin with google
+"""
 def search_firm_linkedin(query, name_whitout_space):
     result = []
     num_page = 1
     listurls = google.search(query, num_page)
     for i in listurls:
         i_sans_accent = delete_accent(i.link)
-        #print("je suis au bon endroit")
-        #print(".*LINKEDIN\.COM/COMPANY/.*", name_whitout_space.upper(), ".*", " =? ", i_sans_accent)
         if(re.match(".*LINKEDIN\.COM/COMPANY/.*" + name_whitout_space.upper() + ".*", i_sans_accent.upper()) 
             and not (re.match(".*/PUB/DIR.*", i_sans_accent.upper()) or
                        re.match(".*/PULSE/.*", i_sans_accent.upper()))):

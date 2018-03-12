@@ -268,7 +268,7 @@ def searchCompany(tweet, searcherLinkedin, analyser):
 
 	resultFacebookC = sGoogle.search_google(tweet.user_name, "", "facebook", True)
 	resultLinkedinC = sGoogle.search_google(tweet.user_name, "", "linkedin", True)
-
+	
 	for link,desc in resultFacebookC:
 		new_url = sFacebook.standardUrl(link)
 		if (new_url != None) and sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url)):
