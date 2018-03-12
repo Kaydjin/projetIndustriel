@@ -27,17 +27,21 @@ import os
 import bs4
 import platform
 
-def standardUrl(url):
+def standardUrl(url, company=False):
 
-	if not "linkedin.com/in" in url:
-		return None
+	if company:
+		tab = url.split("linkedin.com")
+		return "https://www.linkedin.com/"+tab[1]
+	else:
+		if not "linkedin.com/in" in url:
+			return None
 
-	tab = url.split("linkedin.com/in")
+		tab = url.split("linkedin.com/in")
 
-	""" we ignore the string after the /name/ """
-	tab2 = tab[1].split("/")
+		""" we ignore the string after the /name/ """
+		tab2 = tab[1].split("/")
 
-	return "https://www.linkedin.com/in/"+tab2[1]
+		return "https://www.linkedin.com/in/"+tab2[1]
 
 #class permettant d'effectuer les recherches de personnes / scrapping d'information via Selenium sur Linkedin
 class SearcherLinkedin:

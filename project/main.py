@@ -114,10 +114,10 @@ def instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWitho
 		if start_value + val.valueT >= minFacebook:
 			atleastone = False
 			for work in val.account.experiences:
-				result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
+				result = len(analyser.getMatchingNouns(inst.tweet.synthese(), work.syntheseExperienceC()))
 				if result >= minCompany:
 					atleastone = True
-					rows.append(formLine(inst, val.link, "", work.geolocalisation, 
+					rows.append(formLine(inst, val.link, "", work.positionCompany, 
 						work.domainCompany, work.nameCompany, work.urlCompany, val.valueT, result))
 
 			#if no company match we only form a row for the facebook account
@@ -131,10 +131,10 @@ def instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWitho
 		if (val.linkF=="") and (val.valueT >= minLinkedinWithoutPair):
 			atleastone = False
 			for work in val.account.experiences:
-				result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
+				result = len(analyser.getMatchingNouns(inst.tweet.synthese(), work.syntheseExperienceC()))
 				if result >= minCompany:
 					atleastone = True
-					rows.append(formLine(inst, "", val.link, work.positionCompany, 
+					rows.append(formLine(inst, "", val.link, work.geolocalisation, 
 						work.domaineEntreprise, work.nomEntreprise, work.urlEntreprise, val.valueT, result))
 
 			#if no company match we only form a row for the linkedin account
@@ -157,10 +157,10 @@ def instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWitho
 					if (valueInitialLink!=None) and (valueInitialLink + val.valueT + matchFTValue >= minLinkedinWithPair):
 						atleastone = False
 						for work in val.account.experiences:
-							result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
+							result = len(analyser.getMatchingNouns(inst.tweet.synthese(), work.syntheseExperienceC()))
 							if result >= minCompany:
 								atleastone = True
-								rows.append(formLine(inst, val.linkF, val.link, work.positionCompany, 
+								rows.append(formLine(inst, val.linkF, val.link, work.geolocalisation, 
 									work.domaineEntreprise, work.nomEntreprise, work.urlEntreprise, val.valueT+matchFTValue, result))
 
 						#if no company match we only form a row for the linkedin account
@@ -194,12 +194,12 @@ def instanceToCsvCompany(inst, minCompany):
 	"""print Facebook company accounts with a minimum value of matching with the tweet	"""
 	for val in inst.accountFacebookCompany:
 		if val.valueT >= minCompany:
-			rows.append(formLine(inst, "", "", val.account.position, val.account.domaine, val.account.nomComplet, val.url, "", val.valueT))
+			rows.append(formLine(inst, "", "", val.account.position, val.account.domaine, val.account.nomComplet, val.account.url, "", val.valueT))
 
 	"""print Linkedin company accounts with a minimum value of matching with the tweet	"""
 	for val in inst.accountLinkedinCompany:
 		if val.valueT >= minCompany:
-			rows.append(formLine(inst, "", "", val.account.position, val.account.domaine, val.account.nomComplet, val.url, "", val.valueT))
+			rows.append(formLine(inst, "", "", val.account.position, val.account.domaine, val.account.nomComplet, val.account.url, "", val.valueT))
 
 	return rows
 
@@ -271,13 +271,12 @@ def searchCompany(tweet, searcherLinkedin, analyser):
 
 	for link,desc in resultFacebookC:
 		new_url = sFacebook.standardUrl(link)
-		if sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url)):
+		if (new_url != None) and sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url)):
 			inst.addFacebookCompanyLink(new_url)
 
 	for link,desc in resultLinkedinC:
-		print("sa marche", link)
-		new_url = sLinkedin.standardUrl(link)
-		if (new_url != None) and not inst.existLinkedinCompanyLink(new_url):
+		new_url = sLinkedin.standardUrl(link, company=True)
+		if (new_url != None) and (not inst.existLinkedinCompanyLink(new_url)):
 			inst.addLinkedinCompanyLink(new_url)
 
 	""" Linkedin link in priority """
@@ -286,9 +285,7 @@ def searchCompany(tweet, searcherLinkedin, analyser):
 		# findLinkedinCompany: return AccountCompany: domain, position, nomComplet, description
 		# inst.linkLinkedinCompany[0] : we use only the first result.
 
-		print("ici")
-		accountCompany = searcherLinkedin.findLinkedinCompany(inst.linkLinkedinCompany[0])
-
+		accountCompany = searcherLinkedin.findLinkedinCompany(inst.linkLinkedinCompany[0].link)
 		value = len(analyser.getMatchingNouns(tweet.synthese(), accountCompany.toString()))
 
 		inst.addAccountLinkedinCompany(inst.linkLinkedinCompany[0], accountCompany, valueT=value)
@@ -486,19 +483,18 @@ if __name__ == '__main__':
 
 	""" 2-11 steps for person tweets """
 	tweetsPeople = reader.getPeopleTweets(True)
-	"""for val in tweetsPeople[12:13]:
+	for val in tweetsPeople[12:13]:
 		instances.append(search(val, searcherLinkedin, analyser))
-"""
+
 	""" 2-11 steps for inderterminate tweets """
 	tweetsIndeterminate = reader.getIndeterminatedTweets(True)
 	for val in tweetsIndeterminate[0:2]:
-		#instances.append(search(val, searcherLinkedin, analyser))
+		instances.append(search(val, searcherLinkedin, analyser))
 		instances.append(searchCompany(val, searcherLinkedin, analyser))
 
 	""" 2-11 steps for company tweets """
 	tweetsCompany = reader.getCompanyTweets(True)
 	for val in tweetsCompany[0:2]:
-		print(val.user_name)
 		instances.append(searchCompany(val, searcherLinkedin, analyser))
 
 	""" Kill driver selenium """
