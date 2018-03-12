@@ -14,7 +14,7 @@ class ClientLinkedin(object):
     def __init__(self, driver, kwargs):
         self.settings = kwargs
 
-        self.num_setting = 0
+        self.num_setting = 1
         self.driver = driver
         self.username = kwargs[self.num_setting]["username"]
         self.password = kwargs[self.num_setting]["password"]
@@ -37,6 +37,7 @@ class ClientLinkedin(object):
         # Enter credentials with Keys.RETURN
         elem.send_keys(Keys.RETURN)
         # Wait a few seconds for the page to load
+
         time.sleep(3)
 
     """ pass to another setting for the client """

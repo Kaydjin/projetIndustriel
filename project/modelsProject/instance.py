@@ -160,6 +160,7 @@ class Instance:
 		for val in self.accountLinkedinCompany:
 			print(val.toString())
 
+
 	""" useful fonctions """
 
 	#keep only the five best facebook account according to the matchings values
@@ -181,6 +182,7 @@ class Instance:
 			self.accountFacebookPerson = []
 			for val in bests:
 				self.accountFacebookPerson.append(val[0])
+
 
 
 if __name__ == '__main__':

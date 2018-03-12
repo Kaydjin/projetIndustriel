@@ -17,7 +17,7 @@ from libraries.SNScrapping.models.accountLinkedin import *
 from textAnalyser import *
 
 """ Search for people and indeterminate tweets """
-def search(tweet, manager, analyser):
+def search(tweet, searcherLinkedin, analyser):
 
 	""" In all following methods the instance will be modified to incorporate the results."""
 	inst = Instance(tweet)
@@ -49,9 +49,6 @@ def search(tweet, manager, analyser):
 	print("STEP 7: Keep best facebook")
 	inst.keepFiveBestAccountsFacebook()
 
-	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
-	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
-
 	""" Step eight : search company datas for all experiences of facebook 5 five best accounts """
 	print("STEP 8: Find company linked to 5 best facebook account")
 	for tAccount in inst.accountFacebookPerson:
@@ -77,6 +74,8 @@ def search(tweet, manager, analyser):
 	#show results #TODO comment
 	show_company_person(tweet, inst, analyser)
 
+	return inst
+
 """ method of step 5 : show company found"""
 def show_company_person(tweet, inst, analyser, minCompany=0):
 	print("\t[company]{")
@@ -96,8 +95,131 @@ def show_company_person(tweet, inst, analyser, minCompany=0):
 	#end
 	print("\t}")
 
+""" method to save the result """ 
+def instanceToCsv(analyser, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=0):
+	if inst.tweet.typeAuthor=="PERSON":
+		return instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWithoutPair, minLinkedinWithPair, minMatchFacebookLinkedin)
+	if inst.tweet.typeAuthor=="INDETERMINED":
+		res = instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWithoutPair, minLinkedinWithPair, minMatchFacebookLinkedin)
+		return res.extend(instanceToCsvCompany(inst, minCompany))
+	if inst.tweet.typeAuthor=="COMPANY":
+		return instanceToCsvCompany(inst, minCompany)
+
+def instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWithoutPair, minLinkedinWithPair, minMatchFacebookLinkedin):
+	rows = []
+
+	#FACEBOOK
+	for val in inst.accountFacebookPerson:
+		start_value = inst.getValueFacebookPersonLink(val.link)
+		if start_value + val.valueT >= minFacebook:
+			atleastone = False
+			for work in val.account.experiences:
+				result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
+				if result >= minCompany:
+					atleastone = True
+					rows.append(formLine(inst, val.link, "", work.geolocalisation, 
+						work.domainCompany, work.nameCompany, work.urlCompany, val.valueT, result))
+
+			#if no company match we only form a row for the facebook account
+			if not atleastone:
+				rows.append(formLine(inst, val.link, "", "", "", "", "", val.valueT, ""))
+
+	#LINKEDIN
+	for val in inst.accountLinkedinPerson:
+
+		#no matching with a facebook account
+		if (val.linkF=="") and (val.valueT >= minLinkedinWithoutPair):
+			atleastone = False
+			for work in val.account.experiences:
+				result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
+				if result >= minCompany:
+					atleastone = True
+					rows.append(formLine(inst, "", val.link, work.positionCompany, 
+						work.domaineEntreprise, work.nomEntreprise, work.urlEntreprise, val.valueT, result))
+
+			#if no company match we only form a row for the linkedin account
+			if not atleastone:
+				rows.append(formLine(inst, "", val.link, "", "", "", "", val.valueT, ""))
+
+		#matching with a facebook account
+		if val.linkF!="":
+
+			#if the matching between the facebook and linkedin account is good:
+			if val.valueF >= minMatchFacebookLinkedin:
+				values = inst.getValuesAccountFacebookPerson(val.linkF)
+				if values!=None:
+					#value of matching facebook/Tweet
+					matchFTValue = values[1]
+					#value indicating the importance of the link initial
+					valueInitialLink = inst.getValueFacebookPersonLink(val.linkF)
+
+					#minimum value to print for two matching accounts.
+					if (valueInitialLink!=None) and (valueInitialLink + val.valueT + matchFTValue >= minLinkedinWithPair):
+						atleastone = False
+						for work in val.account.experiences:
+							result = len(analyser.getMatchingNouns(tweet.synthese(), work.syntheseExperienceC()))
+							if result >= minCompany:
+								atleastone = True
+								rows.append(formLine(inst, val.linkF, val.link, work.positionCompany, 
+									work.domaineEntreprise, work.nomEntreprise, work.urlEntreprise, val.valueT+matchFTValue, result))
+
+						#if no company match we only form a row for the linkedin account
+						if not atleastone:
+							rows.append(formLine(inst, val.linkF, val.link, "", "", "", "", val.valueT+matchFTValue, ""))
+			else:
+				#if the matching is not good, but the linkedin account is, suppress the link before printing
+				if val.valueT > minLinkedinWithoutPair:
+					rows.append(formLine(inst, "", val.link, "", "", "", "", val.valueT, ""))
+
+	return rows
+
+
+
+def formLine(inst, accountUrl, accountUrl2, companyPos, companyName, companyDomain, companyUrl, accountsLinkedValue, companyValue):
+	tid = inst.tweet.tweet_id
+	uid = inst.tweet.user_id
+	tauth = inst.tweet.typeAuthor
+	name = inst.tweet.user_name
+	screename = inst.tweet.user_screenname
+	text = inst.tweet.tweet_text
+	location = inst.tweet.user_location
+	desc = inst.tweet.user_description
+	pert = inst.tweet.pertinent
+	return (tid, uid, pert, tauth, name, screename, text, location, desc, 
+		accountUrl, accountUrl2, companyPos, companyName, companyDomain, companyUrl, accountsLinkedValue, companyValue)
+
+
+def instanceToCsvCompany(inst, minCompany):
+	rows = []
+	"""print Facebook company accounts with a minimum value of matching with the tweet	"""
+	for val in inst.accountFacebookCompany:
+		if val.valueT >= minCompany:
+			rows.append(formLine(inst, "", "", val.account.position, val.account.domaine, val.account.nomComplet, val.url, "", val.valueT))
+
+	"""print Linkedin company accounts with a minimum value of matching with the tweet	"""
+	for val in inst.accountLinkedinCompany:
+		if val.valueT >= minCompany:
+			rows.append(formLine(inst, "", "", val.account.position, val.account.domaine, val.account.nomComplet, val.url, "", val.valueT))
+
+	return rows
+
 """ method of step 5: show only pertinent datas """
-def show_result_person(inst, minFacebook=0, minLinkedinWithoutPair = 0, minLinkedinWithPair = 0):
+def show_result_company(inst, minCompany=0):
+
+	"""print Facebook company accounts with a minimum value of matching with the tweet	"""
+	print("\t[Facebook]{")
+	for val in inst.accountFacebookPerson:
+		if val.valueT >= minCompany:
+			print(val.account.toJson()+"[valueT]"+str(val.valueT))
+
+	"""print Linkedin company accounts with a minimum value of matching with the tweet	"""
+	print("\t[Linkedin]{")
+	for val in inst.accountLinkedinPerson:
+		if val.valueT >= minCompany:
+			print(val.account.toJson()+"[valueT]"+str(val.valueT))
+
+""" method of step 5: show only pertinent datas """
+def show_result_person(inst, minFacebook=0, minLinkedinWithoutPair = 0, minLinkedinWithPair = 0, minMatchFacebookLinkedin = 0):
 	#Name person
 	print("["+inst.tweet.userFirstname +" "+inst.tweet.userSurname+"]")
 
@@ -121,7 +243,7 @@ def show_result_person(inst, minFacebook=0, minLinkedinWithoutPair = 0, minLinke
 		if val.linkF!="":
 
 			#if the matching between the facebook and linkedin account is good:
-			if val.valueF >= 5:
+			if val.valueF >= minMatchFacebookLinkedin:
 				values = inst.getValuesAccountFacebookPerson(val.linkF)
 				if values!=None:
 					#value of matching facebook/Tweet
@@ -144,8 +266,8 @@ def show_result_person(inst, minFacebook=0, minLinkedinWithoutPair = 0, minLinke
 def searchCompany(tweet, searcherLinkedin, analyser):
 	inst = Instance(tweet)
 
-	resultFacebookC = sGoogle.search_google(nomEntreprise, "", "facebook", True)
-	resultLinkedinC = sGoogle.search_google(nomEntreprise, "", "linkedin", True)
+	resultFacebookC = sGoogle.search_google(tweet.user_name, "", "facebook", True)
+	resultLinkedinC = sGoogle.search_google(tweet.user_name, "", "linkedin", True)
 
 	for link,desc in resultFacebookC:
 		new_url = sFacebook.standardUrl(link)
@@ -162,13 +284,16 @@ def searchCompany(tweet, searcherLinkedin, analyser):
 
 		# findLinkedinCompany: return AccountCompany: domain, position, nomComplet, description
 		# inst.linkLinkedinCompany[0] : we use only the first result.
+
+		print("ici")
 		accountCompany = searcherLinkedin.findLinkedinCompany(inst.linkLinkedinCompany[0])
 
 		value = len(analyser.getMatchingNouns(tweet.synthese(), accountCompany.toString()))
 
 		inst.addAccountLinkedinCompany(inst.linkLinkedinCompany[0], accountCompany, valueT=value)
-
 	#else: TODO facebook search
+
+	return inst
 
 """ Second and third step : starting urls Facebook/Linkedin + normalization of the urls found  """
 def searchGoogle(tweet, complementaire, inst, nbEtoiles):
@@ -351,27 +476,62 @@ if __name__ == '__main__':
 
 	""" Instanciate the manager selenium, the syntaxical analyser"""
 	manager = SeleniumManager(3)
-	analyser = TextAnalyser()
-
-	""" 2-11 steps for person tweets """
-	tweetsPeople = reader.getPeopleTweets(True)
-	for val in tweetsPeople[18:]:
-		search(val, manager, analyser)
-
-	""" 2-11 steps for inderterminate tweets """
-	tweetsIndeterminate = reader.getIndeterminatedTweets(True)
-	for val in tweetsIndeterminate[:5]:
-		search(val, manager, analyser)
-
 	""" Connect the selenium manager on a Linkedin search: operate identification on login page """
 	searcherLinkedin = sLinkedin.SearcherLinkedin(manager)
 
+	analyser = TextAnalyser()
+
+	instances = []
+
+	""" 2-11 steps for person tweets """
+	tweetsPeople = reader.getPeopleTweets(True)
+	"""for val in tweetsPeople[12:13]:
+		instances.append(search(val, searcherLinkedin, analyser))
+"""
+	""" 2-11 steps for inderterminate tweets """
+	tweetsIndeterminate = reader.getIndeterminatedTweets(True)
+	for val in tweetsIndeterminate[0:2]:
+		#instances.append(search(val, searcherLinkedin, analyser))
+		instances.append(searchCompany(val, searcherLinkedin, analyser))
+
 	""" 2-11 steps for company tweets """
-	tweetsCompany = getCompanyTweets(True)
-	for val in tweetsCompany:
-		searchCompany(val, searcherLinkedin, analyser)
+	tweetsCompany = reader.getCompanyTweets(True)
+	for val in tweetsCompany[0:2]:
+		print val.user_name
+		instances.append(searchCompany(val, searcherLinkedin, analyser))
 
 	""" Kill driver selenium """
 	manager.driver_quit()
+
+	""" put results in csv """
+	fname = "resultats.csv"
+	fname2 = "resultats_pertinent.csv"
+	file = open(fname, "wb")
+	file2 = open(fname2, "wb")
+
+	try:
+		writer = csv.writer(file)
+		writer2 = csv.writer(file2)
+		writer.writerow(("tweet_id", "user_id", "pertinence", "type_author",
+				 "name", "screename", "tweet_text", "tweet_location",
+				 "tweet_description", "url_facebook", "url_linkedin","company_location", 
+				 "company_name", "company_domain", "company_url", "match_social_network", "match_company"))
+		writer2.writerow(("tweet_id", "user_id", "pertinence", "type_author",
+				 "name", "screename", "tweet_text", "tweet_location",
+				 "tweet_description", "url_facebook", "url_linkedin","company_location", 
+				 "company_name", "company_domain", "company_url", "match_social_network", "match_company"))
+		for inst in instances:
+			rows = instanceToCsv(analyser, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer.writerow(row)
+			rows = instanceToCsv(analyser, minCompany=3,minFacebook=3, minLinkedinWithoutPair=3, minLinkedinWithPair=5,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer2.writerow(row)
+	finally:
+		file.close()
+		file2.close()
+	
 
 
