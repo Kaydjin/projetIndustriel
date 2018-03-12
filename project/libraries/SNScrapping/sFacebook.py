@@ -34,6 +34,9 @@ class SearcherFacebook_Selenium:
         liclient = ClientFacebook(self.manager.driver, settingsFacebook.search_keys)
         self.manager.connection(liclient)
 
+
+    """ fonction appeler par findFacebook, le manager doit etre initialisé avec une page de recherche de profil Facebook
+    , scrappe la page puis scroll pour charger les informations, s'arrete quand on trove le message 'End of Results' """
     def findFacebookScrolling(self):
     	#Chargement de la page /!\ 
         time.sleep(2)
@@ -70,11 +73,14 @@ class SearcherFacebook_Selenium:
         return liste
 
 
+    """ Effectue une recherche de profil sur facebook via selenium """
     def findFacebook(self,nom,prenom):
     	profile_link ="https://www.facebook.com/search/str/%s+%s/keywords_users" % (nom,prenom)
     	self.manager.get(profile_link, 3)
     	return self.findFacebookScrolling()
 
+    """ EXPERIMENTAL permet de scrapper un profil personne via selenium
+    POUR L'INSTANT NE STOCKE AUCUNE INFORMATION """
     def scrappingProfil(self, nom, prenom, url):
         compte = accountFacebook.CompteFacebook(nom, prenom, url)
         self.manager.get(url,3)
@@ -232,47 +238,6 @@ def findFacebook(nom, prenom, url):
 			compte.addFavori(elem.getText())
 
 	return compte
-
-""" Retourne l'objet pageEnetrepriseFB d'une page entreprise correspondant a la recherche depuis une url donne """
-def findFacebookPageEntreprise(nom, url):
-
-	compteEntrepriseFacebook = accountFacebook.CompteEntrepriseFacebook(nom,url)
-
-	lienPlusInfo = "/about/?ref=page_internal"
-	classDomaineScrapping = "_4-u8" #magnifique ?
-	domaine = "Empty"
-	nomComplet = nom
-	#pour la partie nom complet entreprise c'est sur votre gauche
-
-	#request et verification
-	res = requests.get(url)
-	res.status_code == requests.codes.ok
-	if not res.status_code == 200:
-		return None
-
-	soup = bs4.BeautifulSoup(res.text, "html.parser")
-	"""Partie ou on récupère le nom complet """
-	sidebar_left = soup.find("div", id="entity_sidebar")
-	if sidebar_left == None :
-		print("nothing sidebar_left")
-	scrapping_nomComplet = sidebar_left.find("div", id="u_0_0")
-	if scrapping_nomComplet != None :
-		nomComplet = scrapping_nomComplet.getText()
-	else :
-		print("nothing scrapping_nomComplet")
-	"""---------------------------------"""
-
-	"""Maintenant on passe sur la récupération à droite, du domaine d'activité de l'entreprise"""
-	scrapping_domaine=soup.find("div", class_=classDomaineScrapping)
-	if scrapping_domaine != None :
-		print(scrapping_domaine.getText())
-		domaine = scrapping_domaine.getText()
-	else :
-		print("nothing scrapping_domaine")
-	compteEntrepriseFacebook.domaineEntreprise = domaine
-	compteEntrepriseFacebook.nomComplet = nomComplet
-	return compteEntrepriseFacebook
-
 
 
 def testRecherche(search):
