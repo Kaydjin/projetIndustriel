@@ -39,6 +39,7 @@ def standardUrl(url):
 
 	return "https://www.linkedin.com/in/"+tab2[1]
 
+#class permettant d'effectuer les recherches de personnes / scrapping d'information via Selenium sur Linkedin
 class SearcherLinkedin:
 
 	def __init__(self, manager):
@@ -46,6 +47,9 @@ class SearcherLinkedin:
 		liclient = ClientLinkedin(self.manager.driver, search_keys)
 		self.manager.connection(liclient)
 
+	""" Effectuer le scrapping sur une page de recherche, récupérant les liens, sur Linkedin et va a la page suivant si possible
+		Utiliez par la méthode findLinkedinsKeyWord(self, keywords)
+	"""
 	def findLinkedinsScrapping(self):
 
 		#Chargement de la page /!\ 
