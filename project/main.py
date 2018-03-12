@@ -275,6 +275,7 @@ def searchCompany(tweet, searcherLinkedin, analyser):
 			inst.addFacebookCompanyLink(new_url)
 
 	for link,desc in resultLinkedinC:
+		print("sa marche", link)
 		new_url = sLinkedin.standardUrl(link)
 		if (new_url != None) and not inst.existLinkedinCompanyLink(new_url):
 			inst.addLinkedinCompanyLink(new_url)
@@ -497,7 +498,7 @@ if __name__ == '__main__':
 	""" 2-11 steps for company tweets """
 	tweetsCompany = reader.getCompanyTweets(True)
 	for val in tweetsCompany[0:2]:
-		print val.user_name
+		print(val.user_name)
 		instances.append(searchCompany(val, searcherLinkedin, analyser))
 
 	""" Kill driver selenium """
@@ -506,8 +507,12 @@ if __name__ == '__main__':
 	""" put results in csv """
 	fname = "resultats.csv"
 	fname2 = "resultats_pertinent.csv"
-	file = open(fname, "wb")
-	file2 = open(fname2, "wb")
+	if sys.version_info < (3, 0):
+		file = open(fname, "wb")
+		file2 = open(fname2, "wb")
+	else:
+		file = open(fname, "w")
+		file2 = open(fname2, "w")
 
 	try:
 		writer = csv.writer(file)
