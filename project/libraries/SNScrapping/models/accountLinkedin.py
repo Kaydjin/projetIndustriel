@@ -6,6 +6,8 @@ from __future__ import unicode_literals
 class CompteLinkedin:
 
 	def __init__(self, nom, prenom, url):
+		self.nom = nom
+		self.prenom = prenom
 		self.homonymes = []
 		self.url = url
 		self.favoris = []

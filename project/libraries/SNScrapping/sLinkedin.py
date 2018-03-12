@@ -83,6 +83,7 @@ class SearcherLinkedin:
 					break
 		return set(liste)
 
+	""" effectue une recherche avec des mots clés deja composé par exemples, frank candido president """
 	def findLinkedinsKeyWord(self, keywords):
 		""" fait une recherche avec les mots clefs, replace les espaces par un %20 pour qu'ils fonctionnent dans l'url """
 		key="keywords="
@@ -92,12 +93,14 @@ class SearcherLinkedin:
 		self.manager.get(profile_link, 3)
 		return self.findLinkedinsScrapping()
 
+	""" effectue une recherche avec des mots clés dans une liste par exemples, liste={frank, candido, president} """
 	def findLinkedinsByKeywordsByList(self, liste):
 		str_keywords = ""
 		for val in liste:
 			str_keywords = str_keywords + val + " "
 		return self.findLinkedinsKeyWord(str_keywords)
 
+	""" effectue une recherche linkedin avec des informtions précise ecole et entreprise son optionnel """
 	def findLinkedins(self, nom, prenom, ecole=None, entreprise=None):
 		"""
 			Usage :
