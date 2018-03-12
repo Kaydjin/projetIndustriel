@@ -7,6 +7,8 @@ from __future__ import unicode_literals
 class CompteFacebook:
 
 	def __init__(self, nom, prenom, url):
+		self.nom = nom
+		self.prenom = prenom
 		self.homonymes = []
 		self.description = ""
 		self.url = url
