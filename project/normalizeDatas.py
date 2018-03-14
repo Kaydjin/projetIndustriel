@@ -6,6 +6,7 @@ import sys
 import csv
 import string
 import re
+from utils.utils import *
 
 """ Transform initial datas(streaming, list[tweet], csv) in a normalized class """
 class Datas:
@@ -73,10 +74,10 @@ class Datas:
 				if 'VRAI' in row.get('Pertinent'):
 					pertinent = True
 
-				self.tweets.append(Tweet(row.get('tweet_id'),row.get('tweet_created_at'),row.get('tweet_text'),
-										row.get('hashtags'),row.get('tweet_quoted_status_id'),row.get('tweet_mtion'),
-										pertinent,row.get('proba_pertinence'),row.get('user_id'),row.get('user_screenname'),
-										row.get('user_name'),row.get('user_location'),row.get('user_description'),"", "", ""))
+				self.tweets.append(Tweet(row.get('tweet_id'),row.get('tweet_created_at'),d(row.get('tweet_text')),
+										d(row.get('hashtags')),row.get('tweet_quoted_status_id'),d(row.get('tweet_mtion')),
+										pertinent,row.get('proba_pertinence'),row.get('user_id'),d(row.get('user_screenname')),
+										d(row.get('user_name')),d(row.get('user_location')),d(row.get('user_description')),"", "", ""))
 		finally:
 			file.close()
 

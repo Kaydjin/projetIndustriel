@@ -24,6 +24,12 @@ class SeleniumManager:
 		""" no client at initialization """
 		self.client = None
 
+		self.init_driver()
+
+		""" no time limit the first time """
+		self.last_time = time.time()-waiting_time
+
+	def init_driver(self):
 		""" different drivers between os"""
 		os_driver = "error"
 		if platform.system() == "Windows":
@@ -37,10 +43,8 @@ class SeleniumManager:
 		if os_driver != "error" :
 			self.driver = webdriver.Firefox(executable_path=os.getcwd()+os_driver)
 
-		""" no time limit the first time """
-		self.last_time = time.time()-waiting_time
-
-	
+		#delete all cookies initially
+		self.driver.delete_all_cookies()
 
 	""" connection on a social network with a client datas and managing of the connection"""
 	def connection(self, client):
@@ -55,7 +59,15 @@ class SeleniumManager:
 		print("Connection with client")
 		"""open url connection and manage connection """
 		self.get(client.link_login, 3)
-		self.client.login()
+
+		while (self.client.login()!=True):
+			#new driver to delete all possible problems
+			self.driver_quit()
+			self.init_driver()
+			#specify new driver to client
+			self.client.driver = self.driver
+			#try again
+			self.client.login()
 
 		""" update last request time """
 		self.last_time = time.time()

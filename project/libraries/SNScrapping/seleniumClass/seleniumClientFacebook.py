@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+from random import randrange
 
 
 class ClientFacebook(object):
@@ -15,7 +16,7 @@ class ClientFacebook(object):
     def __init__(self, driver, kwargs):
         self.settings = kwargs
 
-        self.num_setting = 1
+        self.num_setting = randrange(0,len(self.settings))
         self.driver = driver
         self.username = kwargs[self.num_setting]["username"]
         self.password = kwargs[self.num_setting]["password"]
@@ -23,12 +24,16 @@ class ClientFacebook(object):
 
     def login(self):
 
-        # Enter login credentials
-        WebDriverWait(self.driver, 120).until(
-            EC.element_to_be_clickable(
-                (By.ID, "email")
+        try:
+            # Return False if connection impossible
+            WebDriverWait(self.driver, 30).until(
+                EC.element_to_be_clickable(
+                    (By.ID, "email")
+                )
             )
-        )
+        except TimeoutException as ex:
+            return False
+
         elem = self.driver.find_element_by_id("email")
         elem.clear()
         elem.send_keys(self.username)
@@ -38,6 +43,7 @@ class ClientFacebook(object):
         elem.send_keys(Keys.RETURN)
         # Wait a few seconds for the page to load
         time.sleep(3)
+        return True
 
     """ pass to another setting for the client """
     def rebootSettings(self):

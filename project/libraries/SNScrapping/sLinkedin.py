@@ -31,7 +31,7 @@ def standardUrl(url, company=False):
 
 	if company:
 		tab = url.split("linkedin.com")
-		return "https://www.linkedin.com/"+tab[1]
+		return "https://www.linkedin.com"+tab[1]
 	else:
 		if not "linkedin.com/in" in url:
 			return None

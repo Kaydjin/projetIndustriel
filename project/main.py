@@ -15,6 +15,7 @@ from libraries import sFacebook
 from libraries.SNScrapping.seleniumClass.managerSelenium import *
 from libraries.SNScrapping.models.accountLinkedin import *
 from textAnalyser import *
+from utils.utils import *
 
 """ Search for people and indeterminate tweets """
 def search(tweet, searcherLinkedin, analyser):
@@ -185,8 +186,8 @@ def formLine(inst, accountUrl, accountUrl2, companyPos, companyName, companyDoma
 	location = inst.tweet.user_location
 	desc = inst.tweet.user_description
 	pert = inst.tweet.pertinent
-	return (tid, uid, pert, tauth, name, screename, text, location, desc, 
-		accountUrl, accountUrl2, companyPos, companyName, companyDomain, companyUrl, accountsLinkedValue, companyValue)
+	return (tid, uid, pert, tauth, e(name), e(screename), e(text), e(location), e(desc), 
+		accountUrl, accountUrl2, e(companyPos), e(companyName), e(companyDomain), companyUrl, accountsLinkedValue, companyValue)
 
 
 def instanceToCsvCompany(inst, minCompany):
@@ -303,7 +304,8 @@ def searchGoogle(tweet, complementaire, inst, nbEtoiles):
 
 	for link in resultFacebook:
 		new_url = sFacebook.standardUrl(link)
-		if not sFacebook.certifiatePage(new_url) and (not inst.existFacebookPersonLink(new_url)):
+		boolean = sFacebook.certifiatePage(new_url)
+		if (boolean != None ) and (not boolean) and (not inst.existFacebookPersonLink(new_url)):
 			inst.addFacebookPersonLink(new_url, nbEtoiles)
 
 	for link in resultLinkedin:
@@ -313,7 +315,8 @@ def searchGoogle(tweet, complementaire, inst, nbEtoiles):
 
 	for link,desc in resultFacebookC:
 		new_url = sFacebook.standardUrl(link)
-		if sFacebook.certifiatePage(new_url) and (not inst.existFacebookCompanyLink(new_url)):
+		boolean = sFacebook.certifiatePage(new_url)
+		if (boolean != None ) and boolean and (not inst.existFacebookCompanyLink(new_url)):
 			inst.addFacebookCompanyLink(new_url, nbEtoiles)
 
 	for link,desc in resultLinkedinC:
@@ -388,7 +391,7 @@ def searchPersonCompanyFacebook(experience, searcherLinkedin):
 		if (new_url != None):
 			listeL.append(new_url)
 
-	""" Only search of company with linkedin """
+	""" Only search of company with linkedin, take only the first company found for the moment TODO """
 	if len(listeL)>0:
 		""" Connect the selenium manager on a Linkedin search: operate identification on login page """
 		result = searcherLinkedin.findLinkedinCompany(listeL[0])
@@ -483,18 +486,18 @@ if __name__ == '__main__':
 
 	""" 2-11 steps for person tweets """
 	tweetsPeople = reader.getPeopleTweets(True)
-	for val in tweetsPeople[12:13]:
+	for val in tweetsPeople:
 		instances.append(search(val, searcherLinkedin, analyser))
 
 	""" 2-11 steps for inderterminate tweets """
 	tweetsIndeterminate = reader.getIndeterminatedTweets(True)
-	for val in tweetsIndeterminate[0:2]:
+	for val in tweetsIndeterminate:
 		instances.append(search(val, searcherLinkedin, analyser))
 		instances.append(searchCompany(val, searcherLinkedin, analyser))
 
 	""" 2-11 steps for company tweets """
 	tweetsCompany = reader.getCompanyTweets(True)
-	for val in tweetsCompany[0:2]:
+	for val in tweetsCompany[len(tweetsCompany)-2:len(tweetsCompany)-1]:
 		instances.append(searchCompany(val, searcherLinkedin, analyser))
 
 	""" Kill driver selenium """
