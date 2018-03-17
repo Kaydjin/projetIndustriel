@@ -45,6 +45,7 @@ class SeleniumManager:
 
 		#delete all cookies initially
 		self.driver.delete_all_cookies()
+		self.driver.set_page_load_timeout(120)
 
 	""" connection on a social network with a client datas and managing of the connection"""
 	def connection(self, client):
@@ -105,18 +106,33 @@ class SeleniumManager:
 			if time.time()-self.last_time<self.waiting_time:
 				time.sleep(self.waiting_time-(time.time()-self.last_time))
 
-			""" go to the url specified """
-			self.driver.get(url)
+			""" Try to go to the url specified 3 times, reconnecting each time, than stop if fail """
+			isonpage = False
+			numbersTry = 0
+			while (not isonpage) and (numbersTry<3):
+				try:
+					""" increase the numbers of request effectued with this login """
+					self.nbr_request = self.nbr_request + 1
+					numbersTry = numbersTry + 1
+					self.driver.get(url)
+					isonpage = True
 
-			""" wait requisite time """
-			time.sleep(pause_time)
+					""" wait requisite time """
+					time.sleep(pause_time)
 
-			""" keep in memory the time """
-			self.last_time = time.time()
-
-			""" increase the numbers of request effectued with this login """
-			self.nbr_request = self.nbr_request + 1
-
+					""" keep in memory the time """
+					self.last_time = time.time()
+				except TimeoutException as ex:
+					print("Exception has been thrown. " + str(ex))
+					#new driver to delete all possible problems
+					self.driver_quit()
+					self.init_driver()
+					#specify new driver to client
+					self.client.driver = self.driver
+					""" restart with a login() first """
+					self.reconnection()
+			if numbersTry >= 3:
+				raise ValueError('Connection with client fail')
 		else:
 			print("Connection with a client necessary.")
 

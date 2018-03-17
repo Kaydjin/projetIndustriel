@@ -291,7 +291,13 @@ class SearcherLinkedin:
 		return compte
 
 	def findLinkedinCompany(self, link):
-		self.manager.get(link, 3)
+		self.manager.get(link, 0)
+		#wait top page loading
+		time.sleep(3)
+		#scroll down
+		self.manager.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+		# wait bottom page loading
+		time.sleep(3)
 		accountCompanyLinkedin = AccountCompany("",link)
 		html=self.manager.driver.page_source
 		soup=bs4.BeautifulSoup(html, "html.parser") #specify parser or it will auto-select for you

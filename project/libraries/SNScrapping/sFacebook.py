@@ -165,9 +165,13 @@ def certifiatePage(url):
 	time.sleep(1)
 
 	#request et verification
-	res = requests.get(url_modifier)
-	res.status_code == requests.codes.ok
+	try:
+		res = requests.get(url_modifier)
+	except Exception as e: 
+		print("Exception in request : " + str(e))
+		return None
 
+	res.status_code == requests.codes.ok
 	""" Status code at 404 when the page is not available """
 	if res.status_code == 404:
 		return False
@@ -183,7 +187,12 @@ def findFacebook(nom, prenom, url):
 	compte = accountFacebook.CompteFacebook(nom, prenom, url)
 
 	#request et verification
-	res = requests.get(url)
+	try:
+		res = requests.get(url)
+	except Exception as e: 
+		print("Exception in request : " + str(e))
+		return None
+
 	res.status_code == requests.codes.ok
 	if not res.status_code == 200:
 		return None
