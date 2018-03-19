@@ -534,23 +534,29 @@ if __name__ == '__main__':
 	""" put results in csv """
 	fname = "resultats.csv"
 	date = datetime.datetime.now()
-	fname3 = "resultats_intermediaire_"+date.day()+"d_"+date.hour+":"+date.minute+".csv"
-	fname4 = "resultats_intermediaire_pertinent_"+date.day()+"d_"+date.hour+":"+date.minute+".csv"
+	day = date.day
+	hour = date.hour
+	minute = date.minute
+	fname3 = ("resultats_intermediaire_"+str(day)+"d_"+str(hour)+":"+str(minute)+".csv")
+	fname4 = ("resultats_intermediaire_pertinent_"+str(day)+"d_"+str(hour)+":"+str(minute)+".csv")
 	fname2 = "resultats_pertinent.csv"
 	if sys.version_info < (3, 0):
 		file = open(fname, "wb")
 		file2 = open(fname2, "wb")
 		file3 = open(fname3, "wb")
-		file4 = open(fname3, "wb")
+		file4 = open(fname4, "wb")
 	else:
 		file = open(fname, "w")
 		file2 = open(fname2, "w")
 		file3 = open(fname3, "w")
-		file4 = open(fname3, "w")
+		file4 = open(fname4, "w")
 
 	try:
 		writer = csv.writer(file)
 		writer2 = csv.writer(file2)
+		writer3 = csv.writer(file3)
+		writer4 = csv.writer(file4)
+		
 		writer.writerow(("tweet_id", "user_id", "pertinence", "type_author",
 				 "name", "screename", "tweet_text", "tweet_location",
 				 "tweet_description", "url_facebook", "url_linkedin","company_location", 
@@ -603,6 +609,14 @@ if __name__ == '__main__':
 			if rows!=None:
 				for row in rows:
 					writer4.writerow(row)
+			rows = instanceToCsv(analyser, inst2, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer3.writerow(row)
+			rows = instanceToCsv(analyser, inst2, minCompany=3,minFacebook=3, minLinkedinWithoutPair=3, minLinkedinWithPair=5,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer4.writerow(row)
 
 			#keep to write final result
 			instances.append(inst)
@@ -643,6 +657,8 @@ if __name__ == '__main__':
 	finally:
 		file.close()
 		file2.close()
+		file3.close()
+		file4.close()
 	
 
 
