@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 search_keys = (
-    {
-    "username"         :  "testgeo1@laposte.net",
-    "password"         :  "Testgeo1"
+        {
+    "username"         : "bob.marnier@laposte.net",
+    "password"         : "BobMarnier1"
     },
     {
     "username"         :  "alisa.marnier@laposte.net",
