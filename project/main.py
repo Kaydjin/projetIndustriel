@@ -7,6 +7,7 @@ import os
 import re
 import sys
 import time
+import datetime
 from modelsProject.instance import *
 from normalizeDatas import *
 from libraries import sGoogle
@@ -100,7 +101,7 @@ def show_company_person(tweet, inst, analyser, minCompany=0):
 	print("\t}")
 
 """ method to save the result """ 
-def instanceToCsv(analyser, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=0):
+def instanceToCsv(analyser, inst, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=0):
 	if inst.tweet.typeAuthor=="PERSON":
 		return instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWithoutPair, minLinkedinWithPair, minMatchFacebookLinkedin)
 	if inst.tweet.typeAuthor=="INDETERMINED":
@@ -530,34 +531,22 @@ if __name__ == '__main__':
 
 	instances = []
 
-	""" 2-11 steps for person tweets """
-	tweetsPeople = reader.getPeopleTweets(pertinent=True)
-	for val in tweetsPeople:
-		instances.append(search(val, searcherLinkedin, searcherFacebook, analyser))
-
-	""" 2-11 steps for inderterminate tweets """
-	tweetsIndeterminate = reader.getIndeterminatedTweets(pertinent=True)
-	for val in tweetsIndeterminate:
-		instances.append(search(val, searcherLinkedin, searcherFacebook, analyser))
-		instances.append(searchCompany(val, searcherLinkedin, searcherFacebook, analyser))
-
-	""" 2-11 steps for company tweets """
-	tweetsCompany = reader.getCompanyTweets(pertinent=True)
-	for val in tweetsCompany:
-		instances.append(searchCompany(val, searcherLinkedin, searcherFacebook, analyser))
-
-	""" Kill driver selenium """
-	manager.driver_quit()
-
 	""" put results in csv """
 	fname = "resultats.csv"
+	date = datetime.datetime.now()
+	fname3 = "resultats_intermediaire_"+date.day()+"d_"+date.hour+":"+date.minute+".csv"
+	fname4 = "resultats_intermediaire_pertinent_"+date.day()+"d_"+date.hour+":"+date.minute+".csv"
 	fname2 = "resultats_pertinent.csv"
 	if sys.version_info < (3, 0):
 		file = open(fname, "wb")
 		file2 = open(fname2, "wb")
+		file3 = open(fname3, "wb")
+		file4 = open(fname3, "wb")
 	else:
 		file = open(fname, "w")
 		file2 = open(fname2, "w")
+		file3 = open(fname3, "w")
+		file4 = open(fname3, "w")
 
 	try:
 		writer = csv.writer(file)
@@ -570,14 +559,84 @@ if __name__ == '__main__':
 				 "name", "screename", "tweet_text", "tweet_location",
 				 "tweet_description", "url_facebook", "url_linkedin","company_location", 
 				 "company_name", "company_domain", "company_url", "match_social_network", "match_company"))
+		writer3.writerow(("tweet_id", "user_id", "pertinence", "type_author",
+				 "name", "screename", "tweet_text", "tweet_location",
+				 "tweet_description", "url_facebook", "url_linkedin","company_location", 
+				 "company_name", "company_domain", "company_url", "match_social_network", "match_company"))
+		writer4.writerow(("tweet_id", "user_id", "pertinence", "type_author",
+				 "name", "screename", "tweet_text", "tweet_location",
+				 "tweet_description", "url_facebook", "url_linkedin","company_location", 
+				 "company_name", "company_domain", "company_url", "match_social_network", "match_company"))
 
-		""" Transform all the instances in tuple of format csv """
+		""" TRAITEMENT """
+
+		""" 2-11 steps for person tweets """
+		tweetsPeople = reader.getPeopleTweets(pertinent=True)
+		for val in tweetsPeople:
+			inst = search(val, searcherLinkedin, searcherFacebook, analyser)
+
+			#intermediate result
+			rows = instanceToCsv(analyser, inst, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer3.writerow(row)
+			rows = instanceToCsv(analyser, inst, minCompany=3,minFacebook=3, minLinkedinWithoutPair=3, minLinkedinWithPair=5,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer4.writerow(row)
+
+			#keep to write final result
+			instances.append(inst)
+
+		""" 2-11 steps for inderterminate tweets """
+		tweetsIndeterminate = reader.getIndeterminatedTweets(pertinent=True)
+		for val in tweetsIndeterminate:
+			inst = search(val, searcherLinkedin, searcherFacebook, analyser)
+			inst2 = searchCompany(val, searcherLinkedin, searcherFacebook, analyser)
+
+			#intermediate result
+			rows = instanceToCsv(analyser, inst, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer3.writerow(row)
+			rows = instanceToCsv(analyser, inst, minCompany=3,minFacebook=3, minLinkedinWithoutPair=3, minLinkedinWithPair=5,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer4.writerow(row)
+
+			#keep to write final result
+			instances.append(inst)
+			instances.append(inst2)
+
+		""" 2-11 steps for company tweets """
+		tweetsCompany = reader.getCompanyTweets(pertinent=True)
+		for val in tweetsCompany:
+			inst = searchCompany(val, searcherLinkedin, searcherFacebook, analyser)
+
+			#intermediate result
+			rows = instanceToCsv(analyser, inst, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer3.writerow(row)
+			rows = instanceToCsv(analyser, inst, minCompany=3,minFacebook=3, minLinkedinWithoutPair=3, minLinkedinWithPair=5,minMatchFacebookLinkedin=6)
+			if rows!=None:
+				for row in rows:
+					writer4.writerow(row)
+
+
+			#keep to write final result
+			instances.append(inst)
+
+		""" Kill driver selenium """
+		manager.driver_quit()
+
+		""" Transform all results in tuple of format csv """
 		for inst in instances:
-			rows = instanceToCsv(analyser, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=6)
+			rows = instanceToCsv(analyser, inst, minCompany=0,minFacebook=0, minLinkedinWithoutPair=0, minLinkedinWithPair=0,minMatchFacebookLinkedin=6)
 			if rows!=None:
 				for row in rows:
 					writer.writerow(row)
-			rows = instanceToCsv(analyser, minCompany=3,minFacebook=3, minLinkedinWithoutPair=3, minLinkedinWithPair=5,minMatchFacebookLinkedin=6)
+			rows = instanceToCsv(analyser, inst, minCompany=3,minFacebook=3, minLinkedinWithoutPair=3, minLinkedinWithPair=5,minMatchFacebookLinkedin=6)
 			if rows!=None:
 				for row in rows:
 					writer2.writerow(row)
