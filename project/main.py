@@ -73,10 +73,10 @@ def search(tweet, searcherLinkedin, searcherFacebook, analyser):
 	for tAccount in inst.accountFacebookPerson:
 		searchPersonLinkedinLinked(tweet, inst, tAccount.account, searcherLinkedin, analyser)
 
-	#show results #TODO comment
-	show_result_person(inst)
-	#show results #TODO comment
-	show_company_person(tweet, inst, analyser)
+	#show results
+	#show_result_person(inst)
+	#show results
+	#show_company_person(tweet, inst, analyser)
 
 	return inst
 
@@ -268,6 +268,7 @@ def show_result_person(inst, minFacebook=0, minLinkedinWithoutPair = 0, minLinke
 
 """ Search for company tweet """
 def searchCompany(tweet, searcherLinkedin, searcherFacebook, analyser):
+	print("Search Company : " + tweet.user_name)
 	inst = Instance(tweet)
 
 	resultFacebookC = sGoogle.search_google(tweet.user_name, "", "facebook", True)
@@ -530,18 +531,18 @@ if __name__ == '__main__':
 	instances = []
 
 	""" 2-11 steps for person tweets """
-	tweetsPeople = reader.getPeopleTweets(True)
+	tweetsPeople = reader.getPeopleTweets(pertinent=True)
 	for val in tweetsPeople:
 		instances.append(search(val, searcherLinkedin, searcherFacebook, analyser))
 
 	""" 2-11 steps for inderterminate tweets """
-	tweetsIndeterminate = reader.getIndeterminatedTweets(True)
+	tweetsIndeterminate = reader.getIndeterminatedTweets(pertinent=True)
 	for val in tweetsIndeterminate:
 		instances.append(search(val, searcherLinkedin, searcherFacebook, analyser))
 		instances.append(searchCompany(val, searcherLinkedin, searcherFacebook, analyser))
 
 	""" 2-11 steps for company tweets """
-	tweetsCompany = reader.getCompanyTweets(True)
+	tweetsCompany = reader.getCompanyTweets(pertinent=True)
 	for val in tweetsCompany:
 		instances.append(searchCompany(val, searcherLinkedin, searcherFacebook, analyser))
 

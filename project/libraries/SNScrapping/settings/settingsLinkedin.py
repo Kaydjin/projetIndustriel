@@ -7,39 +7,39 @@ search_keys = (
     "password"         :  "Testgeo1"
     },
     {
-    "username"         :  "testgeo2@laposte.net",
-    "password"         :  "Testgeo2"
+    "username"         :  "alisa.marnier@laposte.net",
+    "password"         :  "Alisa.marnier1"
     },
     {
     "username"         :  "testgeo3@laposte.net",
     "password"         :  "Testgeo3"
     },
     {
-    "username"         :  "testgeo4@laposte.net",
-    "password"         :  "Testgeo4"
+    "username"         :  "alisa.marnier@laposte.net",
+    "password"         :  "Alisa.marnier1"
     },
     {
     "username"         :  "testgeo6@laposte.net",
     "password"         :  "testgeo6"
     },
     {
-    "username"         :  "testgeo5@laposte.net",
-    "password"         :  "Testgeo5"
+    "username"         :  "alisa.marnier@laposte.net",
+    "password"         :  "Alisa.marnier1"
     },
     {
     "username"         :  "testgeo7@laposte.net",
     "password"         :  "Testgeo7"
     },
     {
-    "username"         :  "testgeo3@laposte.net",
-    "password"         :  "Testgeo3"
+    "username"         :  "alisa.marnier@laposte.net",
+    "password"         :  "Alisa.marnier1"
     },
     {
     "username"         :  "testgeo4@laposte.net",
     "password"         :  "Testgeo4"
     },
     {
-    "username"         :  "testgeo2@laposte.net",
-    "password"         :  "Testgeo2"
+    "username"         :  "alisa.marnier@laposte.net",
+    "password"         :  "Alisa.marnier1"
     }
 )
