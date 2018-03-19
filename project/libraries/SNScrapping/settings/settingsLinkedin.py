@@ -7,39 +7,39 @@ search_keys = (
     "password"         : "BobMarnier1"
     },
     {
-    "username"         :  "alisa.marnier@laposte.net",
-    "password"         :  "Alisa.marnier1"
+    "username"         : "alisa.marnier@laposte.net",
+    "password"         : "Alisa.marnier1"
     },
     {
     "username"         : "bob.marnier@laposte.net",
     "password"         : "BobMarnier1"
     },
     {
-    "username"         :  "alisa.marnier@laposte.net",
-    "password"         :  "Alisa.marnier1"
+    "username"         : "alisa.marnier@laposte.net",
+    "password"         : "Alisa.marnier1"
     },
    {
     "username"         : "bob.marnier@laposte.net",
     "password"         : "BobMarnier1"
     },
     {
-    "username"         :  "alisa.marnier@laposte.net",
-    "password"         :  "Alisa.marnier1"
+    "username"         : "alisa.marnier@laposte.net",
+    "password"         : "Alisa.marnier1"
     },
     {
     "username"         : "bob.marnier@laposte.net",
     "password"         : "BobMarnier1"
     },
     {
-    "username"         :  "alisa.marnier@laposte.net",
-    "password"         :  "Alisa.marnier1"
+    "username"         : "alisa.marnier@laposte.net",
+    "password"         : "Alisa.marnier1"
     },
     {
     "username"         : "bob.marnier@laposte.net",
     "password"         : "BobMarnier1"
     },
     {
-    "username"         :  "alisa.marnier@laposte.net",
-    "password"         :  "Alisa.marnier1"
+    "username"         : "alisa.marnier@laposte.net",
+    "password"         : "Alisa.marnier1"
     }
 )

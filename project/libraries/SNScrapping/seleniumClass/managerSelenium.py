@@ -70,6 +70,8 @@ class SeleniumManager:
 			#try again
 			self.client.login()
 
+		print("Connection is working")
+
 		""" update last request time """
 		self.last_time = time.time()
 
@@ -81,6 +83,7 @@ class SeleniumManager:
 		"""open url connection and manage connection """
 		self.get(self.client.link_login, 3)
 		self.client.login()
+		print("Reconnection is working.")
 
 		""" update last request time """
 		self.last_time = time.time()		
@@ -131,6 +134,7 @@ class SeleniumManager:
 					self.client.driver = self.driver
 					""" restart with a login() first """
 					self.reconnection()
+
 			if numbersTry >= 3:
 				raise ValueError('Connection with client fail')
 		else:
