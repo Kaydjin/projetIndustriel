@@ -81,7 +81,7 @@ class SearcherFacebook_Selenium:
 
 	""" EXPERIMENTAL permet de scrapper un profil personne via selenium
 	POUR L'INSTANT NE STOCKE AUCUNE INFORMATION """
-	def scrappingProfil(self, nom, prenom, url):
+	"""def scrappingProfil(self, nom, prenom, url):
 		compte = accountFacebook.CompteFacebook(nom, prenom, url)
 		self.manager.get(url,3)
 		#on charge le haut de la page
@@ -96,7 +96,7 @@ class SearcherFacebook_Selenium:
 		info = infoGenral.find_all('li')
 		for elem in info:
 			print(elem.getText())
-		return compte
+		return compte"""
 
 
 	def scrappingProfilEntreprise(self,nom, url):
@@ -287,6 +287,7 @@ def testSeleniumFB():
 	manager = SeleniumManager(3)
 	search = SearcherFacebook_Selenium(manager)
 	name_date_file = datetime.now().strftime('%H%M%d%m%Y')
+	#On écrit dans un fichier de sortie histoire de voir les retour de nombreux résultat
 	file=open('libraries/SNScrapping/log/sfacebookSelenium_py_recherche'+name_date_file+'.log', 'w+', encoding="utf8")
 	res = testScrappingPageEntreprise(search)
 	file.write(res.nom+'\n')
