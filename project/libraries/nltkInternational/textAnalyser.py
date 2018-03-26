@@ -8,6 +8,7 @@ import re
 import sys
 from nltk.corpus import stopwords        
 from nltk.tag import pos_tag
+
 """
 nltk.download('maxent_ne_chunker')
 nltk.download('averaged_perceptron_tagger')
@@ -238,84 +239,3 @@ class TextAnalyser:
 		if doublon==True:
 			return self.getByTag(liste_texte, "VB")
 		return self.getByTag(liste_texte, "VB", doublon=doublon)
-
-# test de la class TextAnalyser
-if __name__ == '__main__':
-
-	#instanciation de fichier csv
-	fname = "iteration_500.csv"
-	file = open(fname, "rt")
-
-	fname3 = "prenoms.csv"
-	file3 = open(fname3, "rt")
-
-	try:
-		#connection aux fichiers csv.
-		reader = csv.DictReader(file, delimiter=',')
-		reader3 = csv.DictReader(file3, delimiter=',')
-
-		#on transforme les prenoms en une liste sans capital
-		liste = []
-		for row in reader3:
-			liste.append(row.get('prenom').lower())
-
-		#on cree une liste de mots souvent present dans une compagnie
-		corpus_compagnie = ['news', 'consulting', 'inc', 'investing', 'corp', 'talk', 'energy', 'communications']
-
-		#instanciation de la liste des descriptions a analyser
-		descriptions = []
-
-		#pour tous les elements trouves dans le csv
-		for row in reader:
-
-			#si l'element est pertinent
-			if 'VRAI' in row.get('Pertinent'):
-
-				#on ne continue pas si l'element est une compagnie ou une organisation
-				continu = True
-				for companyWord in corpus_compagnie:
-					if companyWord in row.get('user_name').lower():
-						continu = False
-
-				#on continue sinon
-				if continu:
-
-					# on separe tous les elements composant le champ nom
-					for val in row.get('user_name').split(' '):
-
-						# si l'element est un prenom et donc une personne on continu
-						if val.lower() in liste:
-
-							# si la description est nulle, on ne peut pas continuer
-							if not "null" == row.get('user_description'):
-								descriptions.append(row.get('user_description'))
-
-		#Test des methodes de categorisation de mots
-		analyser = TextAnalyser()
-		resultat = analyser.getNomsCommunsBySentence(descriptions)
-		resultat2 = analyser.mostCommunsNounsFromTextes(descriptions, 10)
-		resultat3 = analyser.mostCommunsVerbsFromTextes(descriptions, 10)
-		for res in resultat:
-			for val in res:
-				print(val)
-			print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
-		for res in resultat2:                
-			print(res)
-		print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
-		for res in resultat3:                
-			print(res)
-		print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
-		texte1 = "il etait une fois dans une grande maison"
-		texte2 = "il fut une grande maison"
-
-		#Test des methodes de matchings
-		resultat = analyser.getMatchingNouns(texte1, texte2)
-		for val in resultat:
-			print(val)
-		
-	finally:
-		file.close()
-		file3.close()

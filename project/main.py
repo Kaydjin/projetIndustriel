@@ -15,7 +15,7 @@ from libraries import sLinkedin
 from libraries import sFacebook
 from libraries.SNScrapping.seleniumClass.managerSelenium import *
 from libraries.SNScrapping.models.accountLinkedin import *
-from textAnalyser import *
+from libraries.nltkInternational import textAnalyser
 from utils.utils import *
 
 """ Search for people and indeterminate tweets """
@@ -110,6 +110,7 @@ def instanceToCsv(analyser, inst, minCompany=0,minFacebook=0, minLinkedinWithout
 	if inst.tweet.typeAuthor=="COMPANY":
 		return instanceToCsvCompany(inst, minCompany)
 
+""" method to save the result """
 def instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWithoutPair, minLinkedinWithPair, minMatchFacebookLinkedin):
 	rows = []
 
@@ -178,8 +179,7 @@ def instanceToCsvPerson(analyser, inst, minCompany,minFacebook, minLinkedinWitho
 
 	return rows
 
-
-
+""" method to save the result """
 def formLine(inst, accountUrl, accountUrl2, companyPos, companyName, companyDomain, companyUrl, accountsLinkedValue, companyValue):
 	tid = inst.tweet.tweet_id
 	uid = inst.tweet.user_id
@@ -193,7 +193,7 @@ def formLine(inst, accountUrl, accountUrl2, companyPos, companyName, companyDoma
 	return (tid, uid, pert, tauth, e(name), e(screename), e(text), e(location), e(desc), 
 		accountUrl, accountUrl2, e(companyPos), e(companyName), e(companyDomain), companyUrl, accountsLinkedValue, companyValue)
 
-
+""" method to save the result """
 def instanceToCsvCompany(inst, minCompany):
 	rows = []
 	"""print Facebook company accounts with a minimum value of matching with the tweet	"""
@@ -208,7 +208,7 @@ def instanceToCsvCompany(inst, minCompany):
 
 	return rows
 
-""" method of step 5: show only pertinent datas """
+""" show result in company list in a specified instance """
 def show_result_company(inst, minCompany=0):
 
 	"""print Facebook company accounts with a minimum value of matching with the tweet	"""
@@ -223,7 +223,7 @@ def show_result_company(inst, minCompany=0):
 		if val.valueT >= minCompany:
 			print(val.account.toJson()+"[valueT]"+str(val.valueT))
 
-""" method of step 5: show only pertinent datas """
+""" show result in person list in a specified instance  """
 def show_result_person(inst, minFacebook=0, minLinkedinWithoutPair = 0, minLinkedinWithPair = 0, minMatchFacebookLinkedin = 0):
 	#Name person
 	print("["+inst.tweet.userFirstname +" "+inst.tweet.userSurname+"]")
@@ -438,7 +438,6 @@ def searchPersonLinkedin(tweet, inst, searcher, analyser):
 			inst.addAccountLinkedinPerson(tLink.link, account, valueT=value)
 		except ValueError as e:
 			print(str(e))
-	
 
 """ method of step 3+4 : matching account/facebook and return a value with the degree of matching"""
 def matchCompteFacebookPersonTweet(tweet, account, analyser):
@@ -527,7 +526,7 @@ if __name__ == '__main__':
 	#searcherFacebook = sFacebook.SearcherFacebook_Selenium(managerFacebook)
 
 	""" Instanciate corpus syntaxical matching class """
-	analyser = TextAnalyser()
+	analyser = textAnalyser.TextAnalyser()
 
 	instances = []
 
