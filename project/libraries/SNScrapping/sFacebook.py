@@ -134,6 +134,9 @@ class SearcherFacebook_Selenium:
 		accountCompanyFacebook.nomComplet = nomComplet
 		return accountCompanyFacebook
 
+		
+#--------------------------Partie Facebook sans l'utilisation de sélénium ----------------------------
+
 
 def standardUrl(url):
 
@@ -180,7 +183,6 @@ def certifiatePage(url):
 		time.sleep(1)
 		return True
 
-#--------------------------Partie Facebook sans l'utilisation de sélénium ----------------------------
 
 """ Retourne l'objet facebook correspondant a la recherche depuis une url donne """
 def findFacebook(nom, prenom, url):
