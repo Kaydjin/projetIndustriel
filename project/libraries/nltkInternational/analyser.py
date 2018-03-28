@@ -29,7 +29,7 @@ class TextAnalyser:
 		self.listeStopwords = self.madeStopwords()
 		self.corpus = self.madeCorpus()
 
-	""" Retourne les mots de type tag d'un texte """
+	""" Retourne les noms communs d'un texte """
 	def findtags(self, tag_prefix, tagged_text):
 		cfd = []
 		for (word, tag) in tagged_text:

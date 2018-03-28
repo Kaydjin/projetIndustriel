@@ -542,8 +542,8 @@ if __name__ == '__main__':
 	if sys.version_info < (3, 0):
 		file = open(fname, "wb")
 		file2 = open(fname2, "wb")
-		file3 = open(fname3, "wb")
-		file4 = open(fname4, "wb")
+		file3 = open(fname3, "wb", 0)
+		file4 = open(fname4, "wb", 0)
 	else:
 		file = open(fname, "w")
 		file2 = open(fname2, "w")
